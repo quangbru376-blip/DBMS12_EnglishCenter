@@ -1,0 +1,14 @@
+{
+  "pass": true,
+  "database": "EnglishCenter_DBMS12_PROJECT_c4cef5a3a9b042b3bc4b0517f979d8d1",
+  "result": {
+    "status": 400,
+    "errorCode": "BUSINESS_RULE",
+    "receiptCount": 0
+  },
+  "security": {
+    "forged": 400,
+    "noCsrf": 403
+  },
+  "temporaryTriggerDroppedInFinally": true
+}

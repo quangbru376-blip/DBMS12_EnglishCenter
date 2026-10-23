@@ -1,0 +1,18 @@
+--- before/controls.tsx
+
++++ after/controls.tsx
+
+@@ -7,10 +7,10 @@
+
+ import type { ScrollList } from './useScrollList';
+ 
+ export type Field = { name: string; label: string; type?: string; value?: string | number; required?: boolean; options?: {value:string | number;label:string}[]; max?: number; hint?: string };
+-export function Form({title,fields,onSubmit,busy,submit='Lưu',children}:{title:string;fields:Field[];onSubmit:(values:Record<string,string>)=>Promise<void|boolean>;busy:boolean;submit?:string;children?:ReactNode}) {
++export function Form({title,fields,onSubmit,busy,submit='Lưu',children,horizontal=false}:{title:string;fields:Field[];onSubmit:(values:Record<string,string>)=>Promise<void|boolean>;busy:boolean;submit?:string;children?:ReactNode;horizontal?:boolean}) {
+   const [dirty,setDirty]=useState(false),[error,setError]=useState('');
+   async function save(event:FormEvent<HTMLFormElement>) { event.preventDefault(); const form=event.currentTarget; setError(''); try { const result=await onSubmit(Object.fromEntries(new FormData(form).entries()) as Record<string,string>); if(result!==false)setDirty(false); } catch(e) {setError(e instanceof Error?e.message:'Không thể lưu thông tin.');} }
+-  return <section className="ec-card"><h2>{title}</h2><form className="ec-stack" onSubmit={e=>void save(e)} onChange={()=>setDirty(true)} data-dbms12-dirty={dirty?'true':undefined}><fieldset disabled={busy} className="ec12-fields">
++  return <section className={'ec-card'+(horizontal?' ec12-create-panel':'')}><h2>{title}</h2><form className="ec-stack" onSubmit={e=>void save(e)} onChange={()=>setDirty(true)} data-dbms12-dirty={dirty?'true':undefined}><fieldset disabled={busy} className="ec12-fields">
+     {fields.map(f=><label className="ec-field" key={f.name}><span className="ec-label">{f.label}</span>{f.options?<select className="ec-input" name={f.name} defaultValue={f.value??''} required={f.required!==false}><option value="">Chọn…</option>{f.options.map(o=><option key={o.value} value={o.value}>{o.label}</option>)}</select>:<input className="ec-input" name={f.name} type={f.type??'text'} defaultValue={f.value??''} required={f.required!==false} maxLength={f.max??200} autoComplete={f.type==='password'?'off':undefined}/>} {f.hint&&<span className="ec-field-hint">{f.hint}</span>}</label>)}
+     {error&&<p role="alert" className="ec-feedback ec-feedback--error">{error}</p>}{children}<Button type="submit" disabled={busy} pending={busy}>{submit}</Button></fieldset></form></section>;
+ }

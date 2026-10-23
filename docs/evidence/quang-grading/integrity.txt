@@ -1,0 +1,4 @@
+tables procedures views functions enabled_triggers
+------ ---------- ----- --------- ----------------
+12 61 9 7 12
+DBCC execution completed. If DBCC printed error messages, contact your system administrator.

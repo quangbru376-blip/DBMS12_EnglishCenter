@@ -1,0 +1,46 @@
+[
+  {
+    "path": "frontend/src/features/dbms12/Workspace.tsx",
+    "sha256": "070f696f56d043844f2a5c98a7f6d729fceb126c78ad191e7690fdc0825f1187"
+  },
+  {
+    "path": "frontend/src/features/dbms12/Schedules.tsx",
+    "sha256": "a2f9b74aa9276af77ebea1fbedd0cf4768881a8b6e7cedbc761f2cc6905d7f73"
+  },
+  {
+    "path": "frontend/src/features/dbms12/controls.tsx",
+    "sha256": "9dbd18c07ef0a3390fb13574ef9d8192065dd59c291ac56e2eb2c0e639166152"
+  },
+  {
+    "path": "frontend/src/features/dbms12/dbms12.css",
+    "sha256": "3081d363cb4f999cb2a7f734a570e396b6425bc777167644a6bfa27a5fd23f28"
+  },
+  {
+    "path": "docs/plan/HORIZONTAL_CREATE_REVIEW.md",
+    "sha256": "a5026f051ab2f97abdc040a9dfc267b7dd1415195baacaf6905c3810049df401"
+  },
+  {
+    "path": "docs/plan/slices/HORIZONTAL_CREATE.md",
+    "sha256": "2b25004450a259f8f4427b645b1e9f359a996ad7f4f82a6094db7e6825195ab3"
+  },
+  {
+    "path": "docs/notes/HORIZONTAL_CREATE.md",
+    "sha256": "1e6796b8b28f7a29442ab626d344bff6e055e0218a34b114ca52727c149a2c46"
+  },
+  {
+    "path": "docs/API.md",
+    "sha256": "f5178e7c673bd0021c0bb95052a9f423c04ac9573f33f8b4d09e7e35391486d3"
+  },
+  {
+    "path": "docs/plan/plan.md",
+    "sha256": "34d054b9bc7cebcfcda8098a87404405dca821f95c2761fdf919fa055582f6b1"
+  },
+  {
+    "path": "memory/01_CURRENT_STATE.md",
+    "sha256": "07b96fac28b9f6aac50efa04d899a8994e9b6edee45b2d2a306dd735cb25d872"
+  },
+  {
+    "path": "memory/08_TASKS.md",
+    "sha256": "970bb38c5103d3a98fd76dad3bf8578aceaa4306844b30b0d02f0301c08ddd1e"
+  }
+]

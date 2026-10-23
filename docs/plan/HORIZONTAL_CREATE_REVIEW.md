@@ -1,0 +1,7 @@
+# HORIZONTAL_CREATE — scoped code-review PASS, 23/10/2026
+
+Codex/frontend-ui/code-review, không delegation. Scope slices/HORIZONTAL_CREATE.md. Bốn frontend files: Form thêm prop horizontal chỉ gắn CSS class; Workspace bật ở3form tạo và bỏ grid2cột Tạo/Tìm kiếm; Schedules bật ở2form tạo và cho hai khung fullwidth; CSS1/2/3cột theo375/768/1280,nút/lỗi dòng riêng,min-width0. Inputname/type/validation/submit/handler/query/payload/RV/role không đổi; popup và form sửa không nhận class ngang.
+
+Test-Project:62SQLpins/locked restore/backend0warnings0errors/types/lint/5clienttests/build PASS. InstalledEdge/trustedHTTPS actualAcademicAffairs+Admin3757681280:15form-layoutcases của5form tạo, thứ tự Tạo trên Tìm kiếm/fullwidth/columns/nooverflow;6popup open-close-focus và controlledGET search/empty/error/loading PASS, businessPOST0(own normal auth only). PNG desktop đã xem. Driver ban đầu đếm cột bằng split chuỗi computedstyle; Edge fieldset giữ dạng repeat(2,minmax(...)) nên assertion sai. Driver đã đọc repeat count và đối chiếu vị trí field; không sửa UI/guard để qua kiểm.
+
+Backend/database102hash không đổi. Static assets-first/atomicindex rồi ready200/index/JS/CSShashmatch; khôngrestart/revokeowner. Không chạy mutation/nativeSQLsuite mới cho presentation, khôngclaim fullWCAG/load/máy khác. Note<=15dòng,sourcehash/diff trong evidence. Khôngdependency/SQL/schema/data/reset/reseed/commit/push. Khôngfinding chưa xử lý trong scope; verdict PASS.

@@ -1,0 +1,42 @@
+{
+  "pass": true,
+  "browser": "installed Edge",
+  "trustedHttps": true,
+  "controlledApi": true,
+  "businessPostsToDatabase": 0,
+  "checks": [
+    {
+      "width": 375,
+      "normalSuccessGreen": true,
+      "cancelSuccessGreen": true,
+      "cancelFailureRed": true,
+      "unknownRedLookupNoResend": true,
+      "lookupSuccessGreen": true,
+      "scheduleAndTeacherReadErrorsRed": true,
+      "signupAndPasswordSuccessGreen": true,
+      "loginErrorRed": true
+    },
+    {
+      "width": 768,
+      "normalSuccessGreen": true,
+      "cancelSuccessGreen": true,
+      "cancelFailureRed": true,
+      "unknownRedLookupNoResend": true,
+      "lookupSuccessGreen": true,
+      "scheduleAndTeacherReadErrorsRed": true,
+      "signupAndPasswordSuccessGreen": true,
+      "loginErrorRed": true
+    },
+    {
+      "width": 1280,
+      "normalSuccessGreen": true,
+      "cancelSuccessGreen": true,
+      "cancelFailureRed": true,
+      "unknownRedLookupNoResend": true,
+      "lookupSuccessGreen": true,
+      "scheduleAndTeacherReadErrorsRed": true,
+      "signupAndPasswordSuccessGreen": true,
+      "loginErrorRed": true
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "pass": true,
+  "checks": [
+    "attendance/save",
+    "grades/save"
+  ],
+  "widths": [
+    375,
+    768,
+    1280
+  ],
+  "scope": "Own fresh synthetic ongoing class only"
+}

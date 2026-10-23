@@ -1,0 +1,7 @@
+{
+  "sqlServer": "lpc:.\\SQLEXPRESS",
+  "sqlHostName": "localhost",
+  "runtimeUser": "Dbms12Runtime",
+  "runtimeCredentialPath": "C:\\Users\\YOUR_WINDOWS_OWNER\\AppData\\Local\\DBMS12-Team\\Operator\\runtime.credential.clixml",
+  "httpsCertificatePath": "C:\\ProgramData\\DBMS12-Team\\Runtime\\https.cer"
+}

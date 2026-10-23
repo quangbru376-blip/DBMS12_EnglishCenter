@@ -1,0 +1,79 @@
+{
+  "pass": true,
+  "trustedHttps": true,
+  "businessPosts": 0,
+  "checks": [
+    {
+      "role": "AcademicAffairs",
+      "width": 375,
+      "classStatus": true,
+      "gradeStatus": true,
+      "noOverflow": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 768,
+      "classStatus": true,
+      "gradeStatus": true,
+      "noOverflow": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 1280,
+      "classStatus": true,
+      "gradeStatus": true,
+      "noOverflow": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "switchToCompleted": true,
+      "finalizedReadOnly": true
+    },
+    {
+      "controlledReadProjection": true,
+      "grade": "DRAFT",
+      "reviewActionsOnlySubmitted": true
+    },
+    {
+      "controlledReadProjection": true,
+      "grade": "RETURNED",
+      "reviewActionsOnlySubmitted": true
+    },
+    {
+      "controlledReadProjection": true,
+      "grade": "SUBMITTED",
+      "reviewActionsOnlySubmitted": true
+    },
+    {
+      "controlledReadProjection": true,
+      "grade": "FINALIZED",
+      "reviewActionsOnlySubmitted": true
+    },
+    {
+      "role": "Teacher",
+      "width": 375,
+      "classStatus": true,
+      "gradeStatus": true,
+      "noOverflow": true
+    },
+    {
+      "role": "Teacher",
+      "width": 768,
+      "classStatus": true,
+      "gradeStatus": true,
+      "noOverflow": true
+    },
+    {
+      "role": "Teacher",
+      "width": 1280,
+      "classStatus": true,
+      "gradeStatus": true,
+      "noOverflow": true
+    },
+    {
+      "role": "Teacher",
+      "switchToCompleted": true,
+      "finalizedReadOnly": true
+    }
+  ]
+}

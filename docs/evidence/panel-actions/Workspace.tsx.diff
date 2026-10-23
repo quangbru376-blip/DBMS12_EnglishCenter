@@ -1,0 +1,76 @@
+--- before/Workspace.tsx
+
++++ after/Workspace.tsx
+
+@@ -23,4 +23,5 @@
+
+   const selectionKey=[view,search,state,revision].join('|');
+   const [teachingClassId,setTeachingClassId]=useState('');
++  const [panel,setPanel]=useState<'create'|'search'|null>(null);
+   const listQuery=useMemo<ListQuery|null>(()=>{
+     if(view==='courses')return {path:'courses',params:{search},id:'course_id'};
+@@ -35,5 +36,5 @@
+
+   useEffect(()=>{
+     let active=true; const timer=setTimeout(()=>{
+-      setLoading(true);setPicked(undefined);
++      setLoading(true);setPicked(undefined);setPanel(null);
+       const jobs:[string,string,Payload][]=[];
+       if(view==='home')jobs.push(['main','home',{}]);
+@@ -52,5 +53,5 @@
+
+   const run=async(path:string,args:Payload):Promise<boolean>=>{
+     setBusy(true);setNotice({message:'',success:false});setTemporary(null);
+-    try {const result=await client.command(path,args);setTemporary(result.temporaryPassword??null);setNotice({message:'Đã lưu thành công.',success:true});await onRefreshSession();refresh();return true;}
++    try {const result=await client.command(path,args);setTemporary(result.temporaryPassword??null);setNotice({message:'Đã lưu thành công.',success:true});await onRefreshSession();setPanel(null);refresh();return true;}
+     catch(e){setNotice({message:client.pending?'Chưa xác định được kết quả. Không gửi lại thao tác; hãy kiểm tra kết quả bên dưới.':e instanceof Error?e.message:'Không thể lưu dữ liệu.',success:false});return false;}
+     finally{setBusy(false);}
+@@ -69,4 +70,10 @@
+
+   </>;
+   const contentReady=(loaded===selectionKey||loaded.startsWith(view+'|'))&&(!listQuery||list.ready&&!initialListLoading);
++  const canCreate=(role==='AcademicAffairs'&&['courses','classes'].includes(view))||view==='accounts';
++  const canSearch=['courses','invoices','accounts'].includes(view);
++  const panelActions=canCreate||canSearch?<>
++    {canCreate&&<Button disabled={disabled} onClick={()=>{setPicked(undefined);setPanel('create');}}>Tạo</Button>}
++    {canSearch&&<Button variant="secondary" disabled={disabled} onClick={()=>{setPicked(undefined);setPanel('search');}}>Tìm kiếm</Button>}
++  </>:undefined;
+   function creation() {
+     if(view==='courses'&&role==='AcademicAffairs')return <Form horizontal title="Tạo khóa học" busy={disabled} fields={courseFields()} onSubmit={f=>run('courses/create',{code:f.code,name:f.name,tuition:f.tuition,lessons:number(f.lessons),weight:f.weight})}/>;
+@@ -101,7 +108,7 @@
+
+   function content() {
+     if(view==='home')return <Table title="Hành trình học tập" rows={rows} columns={['course_code','course_name','status','invoice_status','class_code','grade_status','next_action']}/>;
+-    if(view==='courses')return <Table title="Danh sách khóa học" list={list} rows={rows} columns={role==='AcademicAffairs'?courseColumns:courseColumns.slice(0,3)} onSelect={role!=='Admissions'?choose:undefined} selected={picked} busy={disabled}/>;
++    if(view==='courses')return <Table title="Danh sách khóa học" actions={panelActions} list={list} rows={rows} columns={role==='AcademicAffairs'?courseColumns:courseColumns.slice(0,3)} onSelect={role!=='Admissions'?choose:undefined} selected={picked} busy={disabled}/>;
+     if(view==='registrations')return <Table title="Hồ sơ đăng ký" list={list} rows={rows} columns={registrationColumns} onSelect={choose} selected={picked} busy={disabled}/>;
+-    if(view==='classes')return <Table title="Danh sách lớp học" rows={classes} columns={classColumns} onSelect={r=>{if(choose(r)&&role==='Teacher')setTeachingClassId(String(r.class_id));}} selected={role==='Teacher'?teacherClass:picked} busy={disabled}/>;
++    if(view==='classes')return <Table title="Danh sách lớp học" actions={panelActions} rows={classes} columns={classColumns} onSelect={r=>{if(choose(r)&&role==='Teacher')setTeachingClassId(String(r.class_id));}} selected={role==='Teacher'?teacherClass:picked} busy={disabled}/>;
+     if(view==='placements')return <div className="ec-stack"><Table title="Hồ sơ đã duyệt" list={list} rows={rows} columns={registrationColumns} onSelect={choose} selected={picked} busy={disabled}/><p>Chỉ xếp hồ sơ đã thanh toán đủ học phí vào lớp còn chỗ và không trùng lịch.</p></div>;
+     if(view==='schedules')return <Schedules client={client} role={role} busy={disabled} requestBusy={busy} feedback={feedback} run={run} read={read} revision={revision}/>;
+@@ -109,6 +116,6 @@
+
+     if(view==='grades-own')return <Table title="Kết quả đã công bố" rows={rows} columns={['class_code','continuous_score','final_exam_score','final_score','passed','teacher_comment','finalized_at']}/>;
+     if(view==='invoices-own')return <Table title="Chọn hồ sơ để xem hóa đơn" list={list} rows={rows} columns={['course_name','status','created_at']} onSelect={r=>{if(!choose(r))return;setData(old=>({...old,invoice:[]}));void read('invoices/detail',{registrationId:r.registration_id}).then(invoice=>setData(old=>({...old,invoice})));}} selected={picked} busy={disabled}/>;
+-    if(view==='invoices')return <Table title="Tra cứu hóa đơn" list={list} rows={rows} columns={invoiceColumns} onSelect={choose} selected={picked} busy={disabled}/>;
+-    if(view==='accounts')return <Table title="Tài khoản" list={list} rows={rows} columns={['full_name','email','role_code','status','phone']} onSelect={choose} selected={picked} busy={disabled}/>;
++    if(view==='invoices')return <Table title="Tra cứu hóa đơn" actions={panelActions} list={list} rows={rows} columns={invoiceColumns} onSelect={choose} selected={picked} busy={disabled}/>;
++    if(view==='accounts')return <Table title="Tài khoản" actions={panelActions} list={list} rows={rows} columns={['full_name','email','role_code','status','phone']} onSelect={choose} selected={picked} busy={disabled}/>;
+     if(view==='audit')return <Table title="Nhật ký thao tác" list={list} rows={rows} columns={['action_code','result_code','occurred_at','reason','change_details']}/>;
+     if(view==='reports-finance'||view==='reports-director')return <div className="ec-stack"><div className="ec12-summary">{rows.flatMap((r,i)=>Object.entries(r).filter(([k])=>['billed','revenue','current_debt','classes','registrations','results'].includes(k)).map(([k,value])=><article key={i+k} className="ec-card"><p>{k==='billed'?'Đã phát hành':k==='revenue'?'Doanh thu':k==='current_debt'?'Công nợ hiện tại':display('status',r.status??r.passed??'')+' · '+(k==='classes'?'Lớp':k==='registrations'?'Hồ sơ':'Kết quả')}</p><strong>{display(k,value)}</strong></article>))}</div><p>Kỳ mặc định: từ đầu tháng trước đến cùng tháng năm sau. Công nợ là số dư chưa thanh toán hiện tại.</p>{view==='reports-finance'&&<a className="ec-button ec-button--secondary" href={'/api/dbms12/reports/finance.csv?'+new URLSearchParams(range())}>Xuất CSV</a>}</div>;
+@@ -116,12 +123,11 @@
+
+     return null;
+   }
+-  const createPanel=contentReady?creation():null;
+-  const searchPanel=['courses','invoices','accounts'].includes(view)?<Form title="Tìm kiếm" submit="Tìm" busy={disabled} fields={[{name:'search',label:view==='courses'?'Tên khóa học':'Họ tên hoặc email',required:false,value:search}]} onSubmit={async f=>{setSearch(f.search);}}/>:null;
++  const searchPanel=<Form title="Tìm kiếm" submit="Tìm" busy={disabled} fields={[{name:'search',label:view==='courses'?'Tên khóa học':'Họ tên hoặc email',required:false,value:search}]} onSubmit={async f=>{setSearch(f.search);setPanel(null);}}/>;
+   return <div className="ec12-workspace ec-stack"><header className="ec-page-header"><h1>{title}</h1><Button variant="secondary" disabled={disabled} onClick={refresh}>Tải lại</Button></header>
+     {feedback}
+-    {(createPanel||searchPanel)&&<div className="ec12-grid ec12-top-panels">{createPanel}{searchPanel}</div>}
+     {['registrations','invoices','accounts'].includes(view)&&<label className="ec-field ec12-filter"><span className="ec-label">Lọc trạng thái</span><select className="ec-input" value={state} disabled={disabled} onChange={e=>{setState(e.target.value);}}><option value="">Tất cả</option>{(view==='registrations'?['PENDING','CONFIRMED','ADMITTED','REJECTED','CANCELLED']:view==='invoices'?['UNPAID','PAID','CANCELLED']:['ACTIVE','LOCKED','DISABLED']).map(s=><option value={s} key={s}>{display('status',s)}</option>)}</select></label>}
+     {(loading||initialListLoading)&&<p role="status">Đang tải dữ liệu…</p>}
+     {contentReady?content():!loading&&!initialListLoading&&<p role="alert" className="ec-feedback ec-feedback--error">Không tải được dữ liệu. Hãy thử tải lại.</p>}
++    {panel&&<SelectionDialog title={panel==='create'?'Tạo mới — '+title:'Tìm kiếm — '+title} busy={busy} onClose={()=>setPanel(null)}>{feedback}{panel==='create'?creation():searchPanel}</SelectionDialog>}
+     {picked&&contentReady&&['courses','registrations','classes','placements','invoices-own','invoices','accounts'].includes(view)&&<SelectionDialog title={title+' — '+label(picked,['class_code','course_name','full_name','invoice_number'])} busy={busy} onClose={()=>setPicked(undefined)}>{feedback}{selection()}</SelectionDialog>}
+   </div>;

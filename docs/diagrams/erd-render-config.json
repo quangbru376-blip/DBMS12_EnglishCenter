@@ -1,0 +1,11 @@
+{
+  "theme": "default",
+  "fontFamily": "Arial",
+  "er": {
+    "fontSize": 16,
+    "diagramPadding": 30,
+    "entityPadding": 15,
+    "nodeSpacing": 100,
+    "rankSpacing": 100
+  }
+}

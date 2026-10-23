@@ -1,0 +1,32 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "route": "schedules/batch",
+      "status": 400
+    },
+    {
+      "route": "accounts/create",
+      "status": 400
+    },
+    {
+      "route": "schedules/batch",
+      "status": 413
+    },
+    {
+      "route": "reports/finance.csv",
+      "status": 200,
+      "type": "text/csv; charset=utf-8",
+      "bom": [
+        239,
+        187,
+        191
+      ],
+      "length": 698
+    },
+    {
+      "route": "reports/finance.csv Student",
+      "status": 403
+    }
+  ]
+}

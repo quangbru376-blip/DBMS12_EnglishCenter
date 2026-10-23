@@ -1,0 +1,51 @@
+--- before/Dbms12App.tsx
+
++++ after/Dbms12App.tsx
+
+@@ -25,35 +25,35 @@
+
+ }
+ export function Dbms12App() {
+   const [client]=useState(()=>new Dbms12Client());
+-  const [me,setMe]=useState<Row|null>(null),[checking,setChecking]=useState(true),[notice,setNotice]=useState(''),[busy,setBusy]=useState(false),[guest,setGuest]=useState<'login'|'signup'>('login'),[view,setView]=useState('');
++  const [me,setMe]=useState<Row|null>(null),[checking,setChecking]=useState(true),[notice,setNotice]=useState({message:'',success:false}),[busy,setBusy]=useState(false),[guest,setGuest]=useState<'login'|'signup'>('login'),[view,setView]=useState('');
+   const refresh=async()=>{const row=(await client.read('auth/me'))[0];setMe(row??null);return row;};
+   useEffect(()=>{
+     let active=true;
+     const unsubscribe=client.subscribeUnauthorized(()=>{if(active){client.clear();setMe(null);setView('');}});
+-    const timer=setTimeout(()=>{void (async()=>{try{const row=(await client.read('auth/me'))[0];if(active)setMe(row??null);}catch(e){if(active&&!(e instanceof ApiFailure&&e.status===401))setNotice('Chưa kết nối được hệ thống. Hãy thử lại.');}finally{if(active)setChecking(false);}})();},0);
++    const timer=setTimeout(()=>{void (async()=>{try{const row=(await client.read('auth/me'))[0];if(active)setMe(row??null);}catch(e){if(active&&!(e instanceof ApiFailure&&e.status===401))setNotice({message:'Chưa kết nối được hệ thống. Hãy thử lại.',success:false});}finally{if(active)setChecking(false);}})();},0);
+     return()=>{active=false;unsubscribe();clearTimeout(timer);client.clear();};
+   },[client]);
+   useEffect(()=>{
+     if(!me)return;
+     const end=Math.min(Date.parse(String(me.absolute_deadline)),me.session_scope==='NORMAL'?Date.parse(String(me.normal_idle_deadline)):Infinity);
+-    const timer=setTimeout(()=>{client.clear();setMe(null);setView('');setNotice('Phiên đã hết hạn. Vui lòng đăng nhập lại.');},Math.max(0,end-Date.now()));
++    const timer=setTimeout(()=>{client.clear();setMe(null);setView('');setNotice({message:'Phiên đã hết hạn. Vui lòng đăng nhập lại.',success:false});},Math.max(0,end-Date.now()));
+     return()=>clearTimeout(timer);
+   },[me,client]);
+-  const run=async(action:()=>Promise<void>)=>{setBusy(true);setNotice('');try{await action();return true;}catch(e){setNotice(e instanceof Error?e.message:'Không thể xử lý yêu cầu.');return false;}finally{setBusy(false);}};
+-  const navigate=(next:string)=>{if(document.querySelector('[data-dbms12-dirty="true"]')&&!window.confirm('Có thông tin chưa lưu. Rời trang và bỏ thay đổi?'))return;setView(next);setNotice('');};
++  const run=async(action:()=>Promise<void>)=>{setBusy(true);setNotice({message:'',success:false});try{await action();return true;}catch(e){setNotice({message:e instanceof Error?e.message:'Không thể xử lý yêu cầu.',success:false});return false;}finally{setBusy(false);}};
++  const navigate=(next:string)=>{if(document.querySelector('[data-dbms12-dirty="true"]')&&!window.confirm('Có thông tin chưa lưu. Rời trang và bỏ thay đổi?'))return;setView(next);setNotice({message:'',success:false});};
+   if(checking)return <IdentityShell><p role="status">Đang xác minh phiên đăng nhập…</p></IdentityShell>;
+-  if(!me)return <IdentityShell><h1>{guest==='login'?'Đăng nhập':'Tạo tài khoản học viên'}</h1>{notice&&<p role="alert" className="ec-feedback ec-feedback--error">{notice}</p>}
++  if(!me)return <IdentityShell><h1>{guest==='login'?'Đăng nhập':'Tạo tài khoản học viên'}</h1>{notice.message&&<p role={notice.success?'status':'alert'} className={'ec-feedback ec-feedback--'+(notice.success?'success':'error')}>{notice.message}</p>}
+     <Form key={guest} title={guest==='login'?'Chào mừng bạn trở lại':'Thông tin học viên'} busy={busy} submit={guest==='login'?'Đăng nhập':'Đăng ký'} fields={[
+       {name:'email',label:'Email',type:'email',max:254},{name:'password',label:'Mật khẩu',type:'password',max:128,hint:guest==='signup'?'Từ 15 đến 128 ký tự.':undefined},
+       ...(guest==='signup'?[{name:'name',label:'Họ và tên'},{name:'phone',label:'Điện thoại',type:'tel',max:10},{name:'birthDate',label:'Ngày sinh',type:'date'},{name:'address',label:'Địa chỉ',required:false,max:255}]:[]),
+-    ]} onSubmit={values=>run(async()=>{await client.auth(guest,values);if(guest==='signup'){setGuest('login');setNotice('Đăng ký thành công. Bạn có thể đăng nhập.');}else await refresh();})}/>
+-    <Button className="mt-4" variant="ghost" disabled={busy} onClick={()=>{setGuest(guest==='login'?'signup':'login');setNotice('');}}>{guest==='login'?'Chưa có tài khoản? Đăng ký học viên':'Đã có tài khoản? Đăng nhập'}</Button>
++    ]} onSubmit={values=>run(async()=>{await client.auth(guest,values);if(guest==='signup'){setGuest('login');setNotice({message:'Đăng ký thành công. Bạn có thể đăng nhập.',success:true});}else await refresh();})}/>
++    <Button className="mt-4" variant="ghost" disabled={busy} onClick={()=>{setGuest(guest==='login'?'signup':'login');setNotice({message:'',success:false});}}>{guest==='login'?'Chưa có tài khoản? Đăng ký học viên':'Đã có tài khoản? Đăng nhập'}</Button>
+   </IdentityShell>;
+   const auth=context(me);const current=view||menus[auth.role][0].key;
+-  const password=<Form title="Đổi mật khẩu" busy={busy} submit="Đổi mật khẩu" fields={[{name:'oldPassword',label:'Mật khẩu hiện tại',type:'password',max:128},{name:'newPassword',label:'Mật khẩu mới',type:'password',max:128,hint:'Từ 15 đến 128 ký tự.'}]} onSubmit={values=>run(async()=>{await client.auth('password',values);client.clear();setMe(null);setView('');setNotice('Đã đổi mật khẩu. Vui lòng đăng nhập lại.');})}/>;
++  const password=<Form title="Đổi mật khẩu" busy={busy} submit="Đổi mật khẩu" fields={[{name:'oldPassword',label:'Mật khẩu hiện tại',type:'password',max:128},{name:'newPassword',label:'Mật khẩu mới',type:'password',max:128,hint:'Từ 15 đến 128 ký tự.'}]} onSubmit={values=>run(async()=>{await client.auth('password',values);client.clear();setMe(null);setView('');setNotice({message:'Đã đổi mật khẩu. Vui lòng đăng nhập lại.',success:true});})}/>;
+   return <div className="ec12-app"><WorkspaceShell context={auth} navigation={auth.scope==='NORMAL'?menus[auth.role].map((m,i)=>({label:m.label,icon:[Home,BookOpen,Users,CalendarDays,GraduationCap,Receipt,ClipboardList,ShieldCheck][i%8],selected:current===m.key,disabled:busy||!!client.pending,onClick:()=>navigate(m.key)})):[]}>
+     <AccountActions><Button variant="ghost" disabled={busy} onClick={()=>navigate('password')}>Đổi mật khẩu</Button><Button variant="ghost" disabled={busy} onClick={()=>void run(async()=>{await client.auth('logout',{});client.clear();setMe(null);setView('');})}>Đăng xuất</Button></AccountActions>
+-    {notice&&<p role="alert" className="ec-feedback ec-feedback--error">{notice}</p>}
++    {notice.message&&<p role={notice.success?'status':'alert'} className={'ec-feedback ec-feedback--'+(notice.success?'success':'error')}>{notice.message}</p>}
+     {auth.scope==='PASSWORD_CHANGE'||current==='password'?password:<Workspace key={auth.accountId} client={client} me={me} view={current} title={menus[auth.role].find(m=>m.key===current)?.label??''} onRefreshSession={refresh} onBusyChange={setBusy} onNavigate={navigate}/>}
+   </WorkspaceShell></div>;
+ }

@@ -1,0 +1,317 @@
+{
+  "pass": true,
+  "trustedHttps": true,
+  "checks": [
+    {
+      "route": "auth/login",
+      "status": 200
+    },
+    {
+      "route": "auth/login",
+      "status": 200
+    },
+    {
+      "route": "auth/login",
+      "status": 200
+    },
+    {
+      "route": "auth/login",
+      "status": 200
+    },
+    {
+      "route": "auth/login",
+      "status": 200
+    },
+    {
+      "route": "auth/login",
+      "status": 200
+    },
+    {
+      "route": "auth/login",
+      "status": 200
+    },
+    {
+      "route": "accounts",
+      "status": 403
+    },
+    {
+      "route": "invoices/detail",
+      "status": 200
+    },
+    {
+      "route": "classes",
+      "status": 403
+    },
+    {
+      "route": "classes/roster",
+      "status": 403
+    },
+    {
+      "route": "auth/me",
+      "status": 200
+    },
+    {
+      "route": "profile/update",
+      "status": 200
+    },
+    {
+      "route": "registrations/create",
+      "status": 400
+    },
+    {
+      "route": "registrations/create",
+      "status": 200
+    },
+    {
+      "route": "registrations/create",
+      "status": 200
+    },
+    {
+      "route": "registrations/create",
+      "status": 409
+    },
+    {
+      "route": "operations",
+      "status": 200
+    },
+    {
+      "route": "registrations",
+      "status": 200
+    },
+    {
+      "route": "registrations/confirm",
+      "status": 200
+    },
+    {
+      "route": "registrations",
+      "status": 200
+    },
+    {
+      "route": "admissions/approve",
+      "status": 200
+    },
+    {
+      "route": "invoices",
+      "status": 200
+    },
+    {
+      "route": "invoices/collect",
+      "status": 200
+    },
+    {
+      "route": "invoices",
+      "status": 200
+    },
+    {
+      "route": "invoices/correct",
+      "status": 200
+    },
+    {
+      "route": "classes",
+      "status": 200
+    },
+    {
+      "route": "classes/open",
+      "status": 200
+    },
+    {
+      "route": "classes",
+      "status": 200
+    },
+    {
+      "route": "registrations",
+      "status": 200
+    },
+    {
+      "route": "placements",
+      "status": 200
+    },
+    {
+      "route": "classes",
+      "status": 200
+    },
+    {
+      "route": "schedules",
+      "status": 200
+    },
+    {
+      "route": "attendance",
+      "status": 200
+    },
+    {
+      "route": "classes",
+      "status": 200
+    },
+    {
+      "route": "attendance/save",
+      "status": 200
+    },
+    {
+      "route": "schedules/held",
+      "status": 200
+    },
+    {
+      "route": "schedules/held",
+      "status": 200
+    },
+    {
+      "route": "classes",
+      "status": 200
+    },
+    {
+      "route": "classes/complete",
+      "status": 200
+    },
+    {
+      "route": "classes/roster",
+      "status": 200
+    },
+    {
+      "route": "classes",
+      "status": 200
+    },
+    {
+      "route": "grades/save",
+      "status": 200
+    },
+    {
+      "route": "classes",
+      "status": 200
+    },
+    {
+      "route": "grades/save",
+      "status": 200
+    },
+    {
+      "route": "classes",
+      "status": 200
+    },
+    {
+      "route": "classes/roster",
+      "status": 200
+    },
+    {
+      "route": "grades/submit",
+      "status": 200
+    },
+    {
+      "route": "classes",
+      "status": 200
+    },
+    {
+      "route": "classes/roster",
+      "status": 200
+    },
+    {
+      "route": "grades/return",
+      "status": 200
+    },
+    {
+      "route": "classes",
+      "status": 200
+    },
+    {
+      "route": "classes/roster",
+      "status": 200
+    },
+    {
+      "route": "grades/submit",
+      "status": 200
+    },
+    {
+      "route": "classes",
+      "status": 200
+    },
+    {
+      "route": "classes/roster",
+      "status": 200
+    },
+    {
+      "route": "grades/finalize",
+      "status": 200
+    },
+    {
+      "route": "grades/own",
+      "status": 200
+    },
+    {
+      "route": "reports/finance",
+      "status": 200
+    },
+    {
+      "route": "reports/director",
+      "status": 200
+    },
+    {
+      "route": "audit",
+      "status": 200
+    },
+    {
+      "route": "accounts/create",
+      "status": 200
+    },
+    {
+      "route": "auth/login",
+      "status": 200
+    },
+    {
+      "route": "classes",
+      "status": 403
+    },
+    {
+      "route": "auth/password",
+      "status": 204
+    },
+    {
+      "route": "auth/me",
+      "status": 401
+    },
+    {
+      "route": "auth/login",
+      "status": 200
+    },
+    {
+      "route": "classes",
+      "status": 200
+    },
+    {
+      "route": "auth/logout",
+      "status": 204
+    },
+    {
+      "route": "auth/me",
+      "status": 401
+    },
+    {
+      "route": "auth/logout",
+      "status": 204
+    },
+    {
+      "route": "auth/logout",
+      "status": 204
+    },
+    {
+      "route": "auth/logout",
+      "status": 204
+    },
+    {
+      "route": "auth/logout",
+      "status": 204
+    },
+    {
+      "route": "auth/logout",
+      "status": 204
+    },
+    {
+      "route": "auth/logout",
+      "status": 204
+    },
+    {
+      "route": "auth/logout",
+      "status": 204
+    }
+  ],
+  "total": 77,
+  "newRegistrationId": 3,
+  "scopedSyntheticOnly": true
+}

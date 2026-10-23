@@ -1,0 +1,45 @@
+{
+  "pass": true,
+  "date": "2026-10-22",
+  "change": "Selected class status and grade status card; role-correct review guidance",
+  "executableFiles": [
+    "frontend/src/features/dbms12/Teaching.tsx"
+  ],
+  "checks": {
+    "Test-Project": "PASS:62SQL/locked restore/backend build0warnings0errors/types/lint/5tests/build",
+    "finalBuild": "PASS after wrap class",
+    "realRoles": [
+      "AcademicAffairs",
+      "Teacher"
+    ],
+    "widths": [
+      375,
+      768,
+      1280
+    ],
+    "classSwitchUpdatesStatus": true,
+    "controlledGradeStates": [
+      "DRAFT",
+      "RETURNED",
+      "SUBMITTED",
+      "FINALIZED"
+    ],
+    "reviewActionsStillOnlySubmitted": true,
+    "businessPosts": 0,
+    "unchangedBackendDatabaseHashes": 98,
+    "servedBundle": "runtime.json"
+  },
+  "evidence": [
+    "acceptance.json",
+    "runtime.json",
+    "AcademicAffairs-375.png",
+    "AcademicAffairs-1280.png",
+    "Teacher-375.png"
+  ],
+  "limits": [
+    "Targeted UI only; no new full role/HTTP/native SQL/mutation acceptance",
+    "Controlled state projections do not change real class status",
+    "No fullWCAG/load claim"
+  ],
+  "review": "../../plan/CLASS_STATUS_REVIEW.md"
+}

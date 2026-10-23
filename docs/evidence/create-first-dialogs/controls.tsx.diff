@@ -1,0 +1,28 @@
+--- before/controls.tsx
+
++++ after/controls.tsx
+
+@@ -2,4 +2,5 @@
+
+ import type { FormEvent, ReactNode } from 'react';
+ import { Button } from '../../components/ui/Button';
++import { Modal } from '../../components/ui/Modal';
+ import type { Row } from './api';
+ import { display } from './display';
+@@ -24,4 +25,15 @@
+
+   billed:'Đã phát hành',revenue:'Doanh thu',current_debt:'Công nợ hiện tại',registrations:'Hồ sơ',classes:'Số lớp',results:'Học viên',
+ };
++export function RecordDetails({row,columns}:{row:Row;columns:string[]}) {
++  return <dl className="ec12-grid ec12-grid--two ec12-readonly">{columns.map(key=><div key={key}><dt className="ec-label">{terms[key]??key}</dt><dd>{display(key,row[key])}</dd></div>)}</dl>;
++}
++export function SelectionDialog({title,children,busy,onClose}:{title:string;children:ReactNode;busy:boolean;onClose:()=>void}) {
++  const body=useRef<HTMLDivElement>(null);
++  const close=()=>{
++    if(body.current?.querySelector('[data-dbms12-dirty="true"]')&&!window.confirm('Có dữ liệu chưa lưu. Đóng và bỏ thay đổi?'))return;
++    onClose();
++  };
++  return <Modal open title={title} className="ec12-selection" closeDisabled={busy} onRequestClose={close}><div ref={body} className="ec-stack" aria-busy={busy}>{busy&&<p role="status">Đang xử lý…</p>}{children}</div></Modal>;
++}
+ export function Table({title,rows,columns,onSelect,selected,busy=false,list}:{title:string;rows:Row[];columns:string[];onSelect?:(r:Row)=>void;selected?:Row;busy?:boolean;list?:ScrollList}) {
+   const visible=rows.filter(r=>columns.some(k=>k in r));

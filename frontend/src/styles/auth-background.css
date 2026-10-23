@@ -1,0 +1,47 @@
+/* Decorative local artwork. Form surfaces remain opaque for readable controls. */
+.ec-auth-garden {
+  background-color: #e3eaf5;
+  background-image: linear-gradient(115deg, #e3eaf5ed, #edf3fcce), url('/images/auth-learning-campus.svg');
+  background-position: center, center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.ec-auth-garden .ec-auth-header .ec-brand {
+  padding: 10px 16px;
+  background: #ffffffeb;
+  border: 1px solid #c9d5e6;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px #1e3a8a0d;
+}
+.ec-auth-garden .ec-auth-story {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  justify-content: flex-start;
+  min-height: 640px;
+  color: #fff;
+  background: #1e3a8a;
+  border-color: #1e40af;
+  box-shadow: 0 16px 36px #1e3a8a1a;
+}
+.ec-auth-garden .ec-auth-story::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(#1e3a8a 0%, #1e3a8a 32%, #1e3a8ae0 44%, #1e3a8a00 65%),
+    url('/images/auth-learning-campus.svg') center bottom / auto 72% no-repeat;
+}
+.ec-auth-garden .ec-auth-story h2 { color: #fff; }
+.ec-auth-garden .ec-auth-story .ec-auth-kicker { color: #fde68a; }
+.ec-auth-garden .ec-auth-story > p:last-child { color: #eff6ff; max-width: 32ch; }
+.ec-auth-garden .ec-auth-content { background: #fff; box-shadow: 0 16px 40px #1e3a8a14; }
+.ec-auth-garden .ec-auth-footer { color: #334155; }
+@media (max-width: 767px) {
+  .ec-auth-garden { background-position: center, 45% top; background-size: cover, auto 100dvh; }
+  .ec-auth-garden .ec-auth-content { box-shadow: 0 12px 32px #1e3a8a1a; }
+}
+@media print {
+  .ec-auth-garden, .ec-auth-garden .ec-auth-story { background: #fff; box-shadow: none; }
+  .ec-auth-garden .ec-auth-story::before { display: none; }
+}

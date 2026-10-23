@@ -1,0 +1,13 @@
+{
+  "pass": true,
+  "confirmedLessons": 15,
+  "all16Held": true,
+  "missingAttendance": 0,
+  "classStatus": "ONGOING",
+  "gradeStatus": "DRAFT",
+  "protectedClassAttendanceGradesHashesUnchanged": true,
+  "matchingAuditAndReplay": 15,
+  "disabledTriggers": 0,
+  "completedClass": false,
+  "submittedGrades": false
+}

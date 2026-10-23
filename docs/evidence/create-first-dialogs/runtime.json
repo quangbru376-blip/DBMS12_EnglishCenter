@@ -1,0 +1,20 @@
+{
+  "ready": 200,
+  "servedIndexMatches": true,
+  "assets": [
+    {
+      "asset": "/assets/index-rCcxvwtI.js",
+      "sha256": "625358B62AE2CB2E7102E2FBCAD64F90CE45C0F14794171D6DF83DA5CA53B7F5",
+      "matches": true
+    },
+    {
+      "asset": "/assets/index-vpYUB4TV.css",
+      "sha256": "5A9D6B89F1F2EE6E6D4B9480DC96BAE415A76ECCD5650CACB2EBB8350FA18293",
+      "matches": true
+    }
+  ],
+  "runtimeRestarted": false,
+  "ownerSessionsRevoked": false,
+  "pid": 17636,
+  "startedUtc": "2026-10-23T09:15:38.8215639Z"
+}

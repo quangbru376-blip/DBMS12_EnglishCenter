@@ -1,0 +1,154 @@
+{
+  "pass": true,
+  "trustedHttps": true,
+  "controlledReadProjections": true,
+  "businessPosts": 0,
+  "checks": [
+    {
+      "role": "AcademicAffairs",
+      "menu": "Khóa học",
+      "route": "courses",
+      "rows": 45,
+      "pages": [
+        1,
+        2,
+        3
+      ],
+      "selectionRetained": true,
+      "noPaginationButtons": true,
+      "stickyHeading": true,
+      "widths": [
+        375,
+        768,
+        1280
+      ],
+      "pass": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "menu": "Xếp lớp",
+      "route": "registrations",
+      "rows": 45,
+      "pages": [
+        1,
+        2,
+        3
+      ],
+      "selectionRetained": true,
+      "noPaginationButtons": true,
+      "stickyHeading": true,
+      "widths": [
+        375,
+        768,
+        1280
+      ],
+      "pass": true
+    },
+    {
+      "role": "Admissions",
+      "menu": "Hồ sơ nhập học",
+      "route": "registrations",
+      "rows": 45,
+      "pages": [
+        1,
+        2,
+        3
+      ],
+      "selectionRetained": true,
+      "noPaginationButtons": true,
+      "stickyHeading": true,
+      "widths": [
+        375,
+        768,
+        1280
+      ],
+      "pass": true
+    },
+    {
+      "role": "Student",
+      "menu": "Hóa đơn",
+      "route": "registrations",
+      "rows": 45,
+      "pages": [
+        1,
+        2,
+        3
+      ],
+      "selectionRetained": false,
+      "noPaginationButtons": true,
+      "stickyHeading": true,
+      "widths": [
+        375,
+        768,
+        1280
+      ],
+      "pass": true
+    },
+    {
+      "role": "Accountant",
+      "menu": "Hóa đơn",
+      "route": "invoices",
+      "rows": 45,
+      "pages": [
+        1,
+        2,
+        3
+      ],
+      "selectionRetained": true,
+      "noPaginationButtons": true,
+      "stickyHeading": true,
+      "widths": [
+        375,
+        768,
+        1280
+      ],
+      "pass": true
+    },
+    {
+      "role": "Admin",
+      "menu": "Tài khoản",
+      "route": "accounts",
+      "rows": 45,
+      "pages": [
+        1,
+        2,
+        3
+      ],
+      "selectionRetained": true,
+      "noPaginationButtons": true,
+      "stickyHeading": true,
+      "widths": [
+        375,
+        768,
+        1280
+      ],
+      "pass": true
+    },
+    {
+      "role": "Admin",
+      "menu": "Nhật ký",
+      "route": "audit",
+      "rows": 45,
+      "pages": [
+        1,
+        2,
+        3
+      ],
+      "selectionRetained": false,
+      "noPaginationButtons": true,
+      "stickyHeading": true,
+      "widths": [
+        375,
+        768,
+        1280
+      ],
+      "pass": true
+    },
+    {
+      "filterReset": true,
+      "latePageIgnored": true,
+      "loadingMore": true,
+      "pass": true
+    }
+  ]
+}

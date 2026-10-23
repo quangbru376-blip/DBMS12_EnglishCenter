@@ -1,0 +1,1 @@
+-- Audit/replay completion is inside every command procedure. See 07_core_procedures.sql and queries/.

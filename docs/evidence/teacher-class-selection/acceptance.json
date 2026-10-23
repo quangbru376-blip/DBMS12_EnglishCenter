@@ -1,0 +1,67 @@
+{
+  "pass": true,
+  "date": "2026-10-22",
+  "baselineReproduced": true,
+  "frontendTypesLintBuild": "PASS",
+  "clientTests": 5,
+  "targetedChecks": [
+    {
+      "width": 375,
+      "selectNonFirst": true,
+      "roster": true,
+      "shortcutsCarryClass": true,
+      "selectionRetained": true,
+      "refreshRosterOnce": true,
+      "noOverflow": true
+    },
+    {
+      "width": 768,
+      "selectNonFirst": true,
+      "roster": true,
+      "shortcutsCarryClass": true,
+      "selectionRetained": true,
+      "refreshRosterOnce": true,
+      "noOverflow": true
+    },
+    {
+      "width": 1280,
+      "selectNonFirst": true,
+      "roster": true,
+      "shortcutsCarryClass": true,
+      "selectionRetained": true,
+      "refreshRosterOnce": true,
+      "noOverflow": true
+    },
+    {
+      "mockedReads": true,
+      "error": true,
+      "retryOneRead": true,
+      "empty": true,
+      "loading": true,
+      "staleResponseIgnored": true
+    },
+    {
+      "mockedReadProjection": true,
+      "dirtyDismissPreservesDraft": true,
+      "dirtyAcceptChangesClass": true,
+      "businessWrites": 0
+    }
+  ],
+  "roleSmoke": {
+    "roles": 7,
+    "widths": [
+      375,
+      768,
+      1280
+    ],
+    "pass": true
+  },
+  "businessWrites": 0,
+  "normalAuthAuditWrites": true,
+  "unchangedBackendDatabaseFiles": 98,
+  "sqlPins": 62,
+  "sourceHashPath": "source-hashes.json",
+  "formattedSqlCopiesRetainedPrivately": true,
+  "sqlLogicOrManifestProfilePinChanged": false,
+  "webEntryMatchesBuild": true
+}

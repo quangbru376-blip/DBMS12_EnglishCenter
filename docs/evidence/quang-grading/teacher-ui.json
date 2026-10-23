@@ -1,0 +1,38 @@
+{
+  "pass": true,
+  "trustedHttps": true,
+  "browser": "installed Edge",
+  "businessPosts": 0,
+  "checks": [
+    {
+      "width": 375,
+      "teacherAccountId": 9,
+      "classCode": "QUANG_CLASS_01",
+      "students": 1,
+      "bothInputsEditable": true,
+      "initialScoresBlank": true,
+      "saveEnabled": true,
+      "typedOnlyInRamThenDiscarded": true
+    },
+    {
+      "width": 768,
+      "teacherAccountId": 9,
+      "classCode": "QUANG_CLASS_01",
+      "students": 1,
+      "bothInputsEditable": true,
+      "initialScoresBlank": true,
+      "saveEnabled": true,
+      "typedOnlyInRamThenDiscarded": true
+    },
+    {
+      "width": 1280,
+      "teacherAccountId": 9,
+      "classCode": "QUANG_CLASS_01",
+      "students": 1,
+      "bothInputsEditable": true,
+      "initialScoresBlank": true,
+      "saveEnabled": true,
+      "typedOnlyInRamThenDiscarded": true
+    }
+  ]
+}

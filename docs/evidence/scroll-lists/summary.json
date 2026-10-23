@@ -1,0 +1,53 @@
+{
+  "pass": true,
+  "date": "2026-10-22",
+  "ownerChoice": "Keep columns; scroll to see more",
+  "changes": [
+    "No previous/next toolbar",
+    "Bounded list viewport with sticky headings, also unpaged tables and attendance",
+    "Existing paged GETs append20 records at a time near end",
+    "Explicit retry on read error, preserves rows and selected object",
+    "Query generation ignores late responses after filter/search/refresh; no auto business retry"
+  ],
+  "checks": {
+    "Test-Project": "PASS:62SQLpins/locked restore/backend0warning0error/types/lint/5tests/build",
+    "finalLoadingCondition": "final frontend build/types/lint PASS",
+    "controlledPagedScreens": 7,
+    "controlledRowsPerScreen": 45,
+    "controlledPages": [
+      1,
+      2,
+      3
+    ],
+    "controlledWidths": [
+      375,
+      768,
+      1280
+    ],
+    "errorKeepsRowsAndExplicitRetry": true,
+    "filterResetAndLateResponseIgnored": true,
+    "realMenuWidthCases": 72,
+    "realRoles": 7,
+    "teacherRegression": "PASS3width/read states/dirty",
+    "businessPosts": 0,
+    "backendDatabaseHashesChecked": 98,
+    "backendDatabaseDrift": [],
+    "finalReadyAndBundle": "runtime.json"
+  },
+  "evidence": [
+    "scroll-acceptance.json",
+    "roles/acceptance.json",
+    "teacher/summary.json",
+    "runtime.json",
+    "placement-real-1280.png",
+    "placement-real-375.png"
+  ],
+  "limits": [
+    "45-row data is browser-only read projection, no DB fixtures created",
+    "Real72cases before final loading-only condition; targeted controlled/Teacher cases on final bundle",
+    "Offset GET results are not a snapshot while others write",
+    "Print includes loaded rows only; no physical printer/PDF claim",
+    "No business-write suite/load/virtualization/full WCAG claim"
+  ],
+  "review": "../../plan/SCROLL_LISTS_REVIEW.md"
+}

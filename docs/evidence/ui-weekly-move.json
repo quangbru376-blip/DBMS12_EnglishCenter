@@ -1,0 +1,11 @@
+{
+  "pass": true,
+  "code": "UI12-W-c25492",
+  "checks": [
+    "classes/create",
+    "schedules/preview",
+    "schedules/batch",
+    "schedules/move"
+  ],
+  "trustedEdgeHttps": true
+}

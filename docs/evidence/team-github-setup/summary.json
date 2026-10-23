@@ -1,0 +1,16 @@
+{
+  "review": "PASS",
+  "toolChecks": 20,
+  "projectChecks": "PASS",
+  "cleanGitCheckoutBuild": "PASS",
+  "autocrlf": true,
+  "sqlHashes": 62,
+  "protectedBackendSqlUnchanged": 102,
+  "frontendPinsUnchanged": 6,
+  "currentHealth": 200,
+  "privilegedSetupExecuted": false,
+  "secondMachineAcceptance": false,
+  "gitPublish": "pending_standalone_private_repository",
+  "repository": "https://github.com/quangbru376-blip/DBMS12_EnglishCenter",
+  "independentHistory": true
+}

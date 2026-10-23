@@ -1,0 +1,279 @@
+{
+  "pass": true,
+  "browser": "installed Edge",
+  "trustedHttps": true,
+  "controlledApi": false,
+  "businessPostsToDatabase": 0,
+  "checks": [
+    {
+      "role": "AcademicAffairs",
+      "menu": "Khóa học",
+      "width": 375,
+      "create": true,
+      "search": true,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "menu": "Lớp học",
+      "width": 375,
+      "create": true,
+      "search": false,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "menu": "Lịch học",
+      "width": 375,
+      "create": true,
+      "search": false,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "menu": "Khóa học",
+      "width": 768,
+      "create": true,
+      "search": true,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "menu": "Lớp học",
+      "width": 768,
+      "create": true,
+      "search": false,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "menu": "Lịch học",
+      "width": 768,
+      "create": true,
+      "search": false,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "menu": "Khóa học",
+      "width": 1280,
+      "create": true,
+      "search": true,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "menu": "Lớp học",
+      "width": 1280,
+      "create": true,
+      "search": false,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "menu": "Lịch học",
+      "width": 1280,
+      "create": true,
+      "search": false,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "Admin",
+      "menu": "Tài khoản",
+      "width": 375,
+      "create": true,
+      "search": true,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "Admin",
+      "menu": "Tài khoản",
+      "width": 768,
+      "create": true,
+      "search": true,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "Admin",
+      "menu": "Tài khoản",
+      "width": 1280,
+      "create": true,
+      "search": true,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "Student",
+      "menu": "Khóa học",
+      "width": 375,
+      "create": false,
+      "search": true,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "Student",
+      "menu": "Khóa học",
+      "width": 768,
+      "create": false,
+      "search": true,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "Student",
+      "menu": "Khóa học",
+      "width": 1280,
+      "create": false,
+      "search": true,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "Admissions",
+      "menu": "Khóa học",
+      "width": 375,
+      "create": false,
+      "search": true,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "Admissions",
+      "menu": "Khóa học",
+      "width": 768,
+      "create": false,
+      "search": true,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "Admissions",
+      "menu": "Khóa học",
+      "width": 1280,
+      "create": false,
+      "search": true,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "Accountant",
+      "menu": "Hóa đơn",
+      "width": 375,
+      "create": false,
+      "search": true,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "Accountant",
+      "menu": "Hóa đơn",
+      "width": 768,
+      "create": false,
+      "search": true,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "Accountant",
+      "menu": "Hóa đơn",
+      "width": 1280,
+      "create": false,
+      "search": true,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "Teacher",
+      "menu": "Lớp phụ trách",
+      "width": 375,
+      "create": false,
+      "search": false,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "Teacher",
+      "menu": "Lớp phụ trách",
+      "width": 768,
+      "create": false,
+      "search": false,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "Teacher",
+      "menu": "Lớp phụ trách",
+      "width": 1280,
+      "create": false,
+      "search": false,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "Director",
+      "menu": "Báo cáo tổng hợp",
+      "width": 375,
+      "create": false,
+      "search": false,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "Director",
+      "menu": "Báo cáo tổng hợp",
+      "width": 768,
+      "create": false,
+      "search": false,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    },
+    {
+      "role": "Director",
+      "menu": "Báo cáo tổng hợp",
+      "width": 1280,
+      "create": false,
+      "search": false,
+      "live": true,
+      "actionsOnList": true,
+      "popupsFit": true
+    }
+  ]
+}

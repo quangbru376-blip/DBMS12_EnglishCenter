@@ -1,0 +1,59 @@
+{
+  "mode": "Build",
+  "checkedUtc": "2026-10-23T17:20:11.5809543Z",
+  "missing": 0,
+  "preflightPassed": true,
+  "applicationReadyVerified": false,
+  "checks": [
+    {
+      "name": "Windows x64",
+      "status": "PASS",
+      "hint": "Full runtime requires Windows x64."
+    },
+    {
+      "name": "PowerShell >=7.4",
+      "status": "PASS",
+      "hint": "Use pwsh7.4+;7.6 tested. Windows PowerShell5.1 is insufficient."
+    },
+    {
+      "name": "git",
+      "status": "PASS",
+      "hint": "Available for GitHub clone/push."
+    },
+    {
+      "name": "dotnet",
+      "status": "PASS",
+      "hint": "Install the toolchain in REQUIREMENTS.md; reopen the terminal after installation."
+    },
+    {
+      "name": "node",
+      "status": "PASS",
+      "hint": "Install the toolchain in REQUIREMENTS.md; reopen the terminal after installation."
+    },
+    {
+      "name": "npm.cmd",
+      "status": "PASS",
+      "hint": "Install the toolchain in REQUIREMENTS.md; reopen the terminal after installation."
+    },
+    {
+      "name": ".NET10 SDK",
+      "status": "PASS",
+      "hint": "Install SDK10; a runtime alone is not enough."
+    },
+    {
+      "name": "ASP.NET Core10",
+      "status": "PASS",
+      "hint": "SDK10 normally includes this runtime."
+    },
+    {
+      "name": "Node>=24",
+      "status": "PASS",
+      "hint": "Use Node24.x for the team baseline."
+    },
+    {
+      "name": "npm>=11",
+      "status": "PASS",
+      "hint": "Use npm ci; preserve package-lock.json."
+    }
+  ]
+}

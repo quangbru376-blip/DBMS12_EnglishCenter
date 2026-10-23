@@ -1,0 +1,17 @@
+{
+  "pass": true,
+  "database": "EnglishCenter_DBMS12_PROJECT_c4cef5a3a9b042b3bc4b0517f979d8d1",
+  "id": 26,
+  "guid": "e94f523e-ac86-448c-8e5b-79be6c31d97b",
+  "fileGuid": "c3b8abfa-fdf1-4a73-9a6f-a226992ee027",
+  "tables": 12,
+  "columns": 99,
+  "procedures": 61,
+  "allRowFingerprintsUnchanged": true,
+  "invoiceSequenceUnchanged": true,
+  "profilePromoted": true,
+  "generatedRollbackScriptExecutedInRehearsal": true,
+  "legacyPermissionsAndBodiesRestoredInRehearsal": true,
+  "definitionNormalization": "Only CREATE/ALTER introducer whitespace and CRLF; exact procedure body comparison.",
+  "privateRollbackArtifactsRetained": true
+}

@@ -1,0 +1,15 @@
+{
+  "pass": true,
+  "scope": "FEEDBACK_COLORS",
+  "date": "2026-10-23",
+  "backendDatabaseFilesUnchanged": 102,
+  "widths": [
+    375,
+    768,
+    1280
+  ],
+  "controlledApi": true,
+  "businessPostsToDatabase": 0,
+  "buildTests": "Test-Project PASS",
+  "review": "docs/plan/FEEDBACK_COLORS_REVIEW.md"
+}

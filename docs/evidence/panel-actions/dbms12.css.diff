@@ -1,0 +1,21 @@
+--- before/dbms12.css
+
++++ after/dbms12.css
+
+@@ -3,5 +3,7 @@
+
+ .ec12-grid { display:grid;gap:1.5rem;grid-template-columns:minmax(0,1fr); }
+ .ec12-grid>* { min-width:0; }
+-.ec12-top-panels { align-items:start; }
++.ec12-table-header { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:var(--ec-space-4); padding-bottom:var(--ec-space-3); border-bottom:1px solid var(--ec-divider); }
++.ec12-table-header>h2 { margin:0; min-width:0; font-size:var(--ec-text-lg); font-weight:600; line-height:1.5; overflow-wrap:anywhere; }
++.ec12-panel-actions { display:flex; flex-wrap:wrap; gap:var(--ec-space-2); margin-inline-start:auto; }
+ .ec12-create-panel .ec12-fields { align-items:start; }
+ .ec12-create-panel .ec12-fields>.ec-field { min-width:0; }
+@@ -80,4 +82,5 @@
+
+   .ec12-app :is(.ec-card,.ec12-filter,.ec12-pagination,.ec12-workspace>.ec-page-header) { padding:var(--ec-space-4); }
+   .ec12-app .ec-card>h2 { font-size:var(--ec-text-base); }
++  .ec12-table-header>h2 { font-size:var(--ec-text-base); }
+ }
+ @media(min-width:1000px){.ec12-grid--two {grid-template-columns:repeat(2,minmax(0,1fr));}}

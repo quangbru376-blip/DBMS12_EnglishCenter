@@ -1,0 +1,38 @@
+[
+  {
+    "path": "frontend/src/features/dbms12/Workspace.tsx",
+    "sha256": "3afacfd56f185aa4caaef893f16e0c4df90b38d22c6e1b8c6709d905dc16aec2"
+  },
+  {
+    "path": "frontend/src/features/dbms12/dbms12.css",
+    "sha256": "001c1ffb58ebc4f322a4f0ba98ab86733e37b5ea2940cfa33caf8cce5494c673"
+  },
+  {
+    "path": "docs/plan/CREATE_SEARCH_ROW_REVIEW.md",
+    "sha256": "c7d6a8d0c4c9eff99f7d607333b6dd5721d3c74ac6f207da7ae36fe08833c419"
+  },
+  {
+    "path": "docs/notes/CREATE_SEARCH_ROW.md",
+    "sha256": "66f35aa63a24bcc206b7b7b253ce9c535be1b47a9cef4571db7b12b4464b876a"
+  },
+  {
+    "path": "memory/01_CURRENT_STATE.md",
+    "sha256": "8829b85233dc878c4dc118f0502ee6ae288f04182ef6ac47b9635f7b5e937d04"
+  },
+  {
+    "path": "memory/08_TASKS.md",
+    "sha256": "ab5586347d7e13de4715c352c71b64cb0b67a0c441581a67363f3465f371b9f5"
+  },
+  {
+    "path": "docs/API.md",
+    "sha256": "0a80eb98598280898e116cef7ad5d28f8aa4f4b66377d6a245373381208221cc"
+  },
+  {
+    "path": "docs/plan/plan.md",
+    "sha256": "16c34aca06e0c2c04fffce5fed05bfae3f0345230f77cb8a17cabed0d82a5d40"
+  },
+  {
+    "path": "docs/plan/slices/CREATE_SEARCH_ROW.md",
+    "sha256": "5aaf3bd8de35fcce9ad0c2def75bfaa49696e276503be8516a40fb6412076ec6"
+  }
+]

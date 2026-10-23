@@ -1,0 +1,121 @@
+{
+  "pass": true,
+  "browser": "installed Edge",
+  "trustedHttps": true,
+  "candidateBundle": true,
+  "businessPosts": 0,
+  "checks": [
+    {
+      "role": "AcademicAffairs",
+      "width": 375,
+      "createAboveSearch": true,
+      "fullWidth": true,
+      "fieldColumns": 1,
+      "noOverflow": true,
+      "popupStillWorks": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 768,
+      "createAboveSearch": true,
+      "fullWidth": true,
+      "fieldColumns": 2,
+      "noOverflow": true,
+      "popupStillWorks": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 1280,
+      "createAboveSearch": true,
+      "fullWidth": true,
+      "fieldColumns": 3,
+      "noOverflow": true,
+      "popupStillWorks": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "menu": "Lớp học",
+      "width": 375,
+      "forms": 1,
+      "fieldColumns": 1,
+      "noOverflow": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "menu": "Lớp học",
+      "width": 768,
+      "forms": 1,
+      "fieldColumns": 2,
+      "noOverflow": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "menu": "Lớp học",
+      "width": 1280,
+      "forms": 1,
+      "fieldColumns": 3,
+      "noOverflow": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "menu": "Lịch học",
+      "width": 375,
+      "forms": 2,
+      "fieldColumns": 1,
+      "noOverflow": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "menu": "Lịch học",
+      "width": 768,
+      "forms": 2,
+      "fieldColumns": 2,
+      "noOverflow": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "menu": "Lịch học",
+      "width": 1280,
+      "forms": 2,
+      "fieldColumns": 3,
+      "noOverflow": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "searchQueryPreserved": true,
+      "emptyErrorLoading": true
+    },
+    {
+      "role": "Admin",
+      "width": 375,
+      "createAboveSearch": true,
+      "fullWidth": true,
+      "fieldColumns": 1,
+      "noOverflow": true,
+      "popupStillWorks": true
+    },
+    {
+      "role": "Admin",
+      "width": 768,
+      "createAboveSearch": true,
+      "fullWidth": true,
+      "fieldColumns": 2,
+      "noOverflow": true,
+      "popupStillWorks": true
+    },
+    {
+      "role": "Admin",
+      "width": 1280,
+      "createAboveSearch": true,
+      "fullWidth": true,
+      "fieldColumns": 3,
+      "noOverflow": true,
+      "popupStillWorks": true
+    },
+    {
+      "role": "Admin",
+      "searchQueryPreserved": true,
+      "emptyErrorLoading": true
+    }
+  ]
+}

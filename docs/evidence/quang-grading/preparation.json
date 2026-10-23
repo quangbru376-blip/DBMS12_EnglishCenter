@@ -1,0 +1,61 @@
+{
+  "pass": true,
+  "classCode": "QUANG_CLASS_01",
+  "rehearsal": {
+    "operation_id": "7C61464C-9C6E-46D4-AA17-7EAAC3B4F2E9",
+    "transaction_result": "ROLLED_BACK",
+    "class_code": "QUANG_CLASS_01",
+    "status": "OPEN",
+    "grade_status": "DRAFT",
+    "lesson_count": 13,
+    "exam_count": 0,
+    "students": 1,
+    "disabled_triggers": 0,
+    "preparation_audit_rows": 0,
+    "first_schedule_vietnam": "2026-10-26T09:00:00",
+    "exam_end_vietnam": null,
+    "continuous_score": null,
+    "final_exam_score": null,
+    "teacher_comment": null
+  },
+  "committed": {
+    "operation_id": "461111D2-EA75-40DB-929F-2F39115DA66C",
+    "transaction_result": "COMMITTED",
+    "class_code": "QUANG_CLASS_01",
+    "status": "ONGOING",
+    "grade_status": "DRAFT",
+    "lesson_count": 15,
+    "exam_count": 1,
+    "students": 1,
+    "disabled_triggers": 0,
+    "preparation_audit_rows": 1,
+    "first_schedule_vietnam": "2026-09-14T09:00:00",
+    "exam_end_vietnam": "2026-10-17T10:00:00",
+    "continuous_score": null,
+    "final_exam_score": null,
+    "teacher_comment": null
+  },
+  "transactionChecks": {
+    "operation_id": "461111D2-EA75-40DB-929F-2F39115DA66C",
+    "stage": "commit-ready",
+    "protected_hashes_unchanged": 1,
+    "definitions_permissions_unchanged": 1,
+    "enabled_triggers": 12,
+    "both_score_probe_rolled_back": 1,
+    "prepared": {
+      "class_id": 5,
+      "class_code": "QUANG_CLASS_01",
+      "status": "ONGOING",
+      "grade_status": "DRAFT",
+      "expected_lesson_count": 15,
+      "lesson_count": 15,
+      "exam_count": 1,
+      "students": 1,
+      "attendance_rows": 0,
+      "held_rows": 0
+    }
+  },
+  "operatorTemplateSha256": "ED67870E2B3BFEF9AE946AFDE4AE0B7B8E2FDAA521B9C54C637DC06B6FA6C849",
+  "countersMayHaveGaps": true,
+  "syntheticTimetableNotActualTeachingHistory": true
+}

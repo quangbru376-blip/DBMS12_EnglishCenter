@@ -1,0 +1,14 @@
+const {chromium}=require('../browser-support.cjs');
+const fs=require('fs'),path=require('path'),assert=require('assert/strict');
+const root=process.env.EC_DBMS12_TEST_ROOT||path.resolve(__dirname,'../..'),out=process.env.EC_DBMS12_EVIDENCE_ROOT||path.join(root,'docs/evidence');
+const accounts=fs.readFileSync(path.join(root,'.local/operator/tai-khoan.md'),'utf8').split('\n').filter(x=>/^\| (Admin|Admissions|AcademicAffairs|Teacher|Accountant|Director|Student) \|/.test(x)).map(x=>{const a=x.split('|').map(s=>s.trim());return {role:a[1],email:a[2],password:a[3]};});
+(async()=>{const browser=await chromium.launch({channel:'msedge',headless:true});const results=[];try{
+for(const role of ['Student','Admissions','AcademicAffairs','Teacher','Accountant','Director','Admin']){
+ const a=accounts.find(a=>a.role===role);const ctx=await browser.newContext({viewport:{width:1280,height:900}});const page=await ctx.newPage();const errors=[],failed=[];page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400&&r.url().includes('/api/dbms12/')&&!r.url().endsWith('/auth/me'))failed.push({path:new URL(r.url()).pathname,status:r.status()});});
+ await page.goto('https://localhost:8446/dbms12');await page.getByLabel('Email',{exact:true}).fill(a.email);await page.getByLabel('Mật khẩu',{exact:true}).fill(a.password);await page.getByRole('button',{name:'Đăng nhập',exact:true}).click();try{await page.getByRole('button',{name:'Menu tài khoản',exact:true}).waitFor({timeout:15000});}catch{console.log(JSON.stringify({role,failed,errors,alerts:await page.getByRole('alert').allTextContents()}));throw new Error('Login UI failed '+role);}
+ await page.waitForTimeout(300); const nav=page.locator('nav button');const names=[...new Set(await nav.allTextContents())];
+ for(const name of names){if(!name.trim())continue;await page.getByRole('button',{name:name.trim(),exact:true}).first().click();await page.waitForTimeout(220);}
+ for(const width of [375,768,1280]){await page.setViewportSize({width,height:900});await page.waitForTimeout(80);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),role+' overflow '+width);await page.screenshot({path:path.join(out,role+'-'+width+'.png'),fullPage:true});}
+ assert.deepEqual(errors,[],role+' pageerror');assert.deepEqual(failed,[],role+' failedAPI');results.push({role,menus:names,widths:[375,768,1280],pass:true});console.log(role+' PASS');await page.getByRole('button',{name:'Menu tài khoản'}).click();await page.getByRole('button',{name:'Đăng xuất',exact:true}).click();await page.getByRole('heading',{name:'Đăng nhập',exact:true}).waitFor();await ctx.close();
+}fs.writeFileSync(path.join(out,'browser-smoke.json'),JSON.stringify({trustedHttps:true,browser:'installed msedge',results},null,2));
+}finally{await browser.close();}})().catch(e=>{console.error(e.message.split('Call log:')[0]);process.exitCode=1;});

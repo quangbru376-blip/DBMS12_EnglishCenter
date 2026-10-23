@@ -1,0 +1,442 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3440" height="2480" viewBox="0 0 3440 2480">
+<rect width="100%" height="100%" fill="#f5f8fb"/>
+<text x="100" y="83" font-family="Arial,sans-serif" font-size="43" fill="#193246" font-weight="700">DBMS12 • LƯỢC ĐỒ QUAN HỆ</text>
+<text x="100" y="119" font-family="Arial,sans-serif" font-size="23" fill="#193246">12 bảng  /  99 cột  /  12 khóa chính  /  19 khóa ngoại  •  Nguồn: 01_schema.sql  •  22/10/2026</text>
+<text x="100" y="2333" font-family="Arial,sans-serif" font-size="23" fill="#193246" font-weight="700">PK = khóa chính   |   FK = khóa ngoại   |   UK = duy nhất một cột   |   ? = cho phép NULL</text>
+<text x="100" y="2373" font-family="Arial,sans-serif" font-size="23" fill="#193246">Mũi tên: bảng con → bảng cha. R01–R19 đối chiếu bảng quan hệ trong DBMS12-relations.md.</text>
+<text x="100" y="2412" font-family="Arial,sans-serif" font-size="22" fill="#193246">UNIQUE ghép: Attendance(schedule_id, class_assignment_id); ReplayOperation(actor_account_id, action_code, request_id).</text>
+<text x="100" y="2447" font-family="Arial,sans-serif" font-size="22" fill="#193246">* Class.current_grade_operation_id: UNIQUE khi khác NULL. Một FINAL_EXAM/lớp được bảo vệ bằng filtered UNIQUE index.</text>
+<polyline points="440.0,768 440,920 440.0,1060" fill="none" stroke="#798b9b" stroke-width="3"/>
+<polygon points="440.0,768 433.0,783.0 447.0,783.0" fill="#798b9b"/>
+<rect x="414.0" y="829.0" width="56.0" height="31.0" rx="0" fill="#f5f8fb" stroke="#f5f8fb"/>
+<text x="418.0" y="851.0" font-family="Arial,sans-serif" font-size="20" fill="#798b9b" font-weight="700">R01</text>
+<polyline points="780,467.03999999999996 850,467.03999999999996 850,500 850,1170 940,1170 940,1170.94" fill="none" stroke="#798b9b" stroke-width="3"/>
+<polygon points="780,467.03999999999996 795.0,474.03999999999996 795.0,460.03999999999996" fill="#798b9b"/>
+<rect x="824.0" y="820.0" width="56.0" height="31.0" rx="0" fill="#f5f8fb" stroke="#f5f8fb"/>
+<text x="828.0" y="842.0" font-family="Arial,sans-serif" font-size="20" fill="#798b9b" font-weight="700">R02</text>
+<polyline points="1280.0,579 1280.0,1060" fill="none" stroke="#217b78" stroke-width="3"/>
+<polygon points="1280.0,579 1273.0,594.0 1287.0,594.0" fill="#217b78"/>
+<rect x="1254.0" y="804.5" width="56.0" height="31.0" rx="0" fill="#f5f8fb" stroke="#f5f8fb"/>
+<text x="1258.0" y="826.5" font-family="Arial,sans-serif" font-size="20" fill="#217b78" font-weight="700">R03</text>
+<polyline points="1620,409.5 1700,409.5 1700,430 1780,430 1780,409.5" fill="none" stroke="#217b78" stroke-width="3"/>
+<polygon points="1620,409.5 1635.0,416.5 1635.0,402.5" fill="#217b78"/>
+<rect x="1634.0" y="394.5" width="56.0" height="31.0" rx="0" fill="#f5f8fb" stroke="#f5f8fb"/>
+<text x="1638.0" y="416.5" font-family="Arial,sans-serif" font-size="20" fill="#217b78" font-weight="700">R04</text>
+<polyline points="399.2,240 400,240 400,175 2100,175 2099.6,175 2099.6,240" fill="none" stroke="#798b9b" stroke-width="3"/>
+<polygon points="399.2,240 414.2,247.0 414.2,233.0" fill="#798b9b"/>
+<rect x="1224.0" y="160.0" width="56.0" height="31.0" rx="0" fill="#f5f8fb" stroke="#f5f8fb"/>
+<text x="1228.0" y="182.0" font-family="Arial,sans-serif" font-size="20" fill="#798b9b" font-weight="700">R05</text>
+<polyline points="780,1936.4 820,1936.4 820,1930 820,970 1720,970 1720,490 1780,490 1780,477.29999999999995" fill="none" stroke="#a06125" stroke-width="3"/>
+<polygon points="780,1936.4 795.0,1943.4 795.0,1929.4" fill="#a06125"/>
+<rect x="794.0" y="1435.0" width="56.0" height="31.0" rx="0" fill="#f5f8fb" stroke="#f5f8fb"/>
+<text x="798.0" y="1457.0" font-family="Arial,sans-serif" font-size="20" fill="#a06125" font-weight="700">R06</text>
+<polyline points="1620,1196.74 1700,1196.74 1700,1195 1780,1195 1780,1182.43" fill="none" stroke="#217b78" stroke-width="3"/>
+<polygon points="1620,1196.74 1635.0,1203.74 1635.0,1189.74" fill="#217b78"/>
+<rect x="1634.0" y="1181.74" width="56.0" height="31.0" rx="0" fill="#f5f8fb" stroke="#f5f8fb"/>
+<text x="1638.0" y="1203.74" font-family="Arial,sans-serif" font-size="20" fill="#217b78" font-weight="700">R07</text>
+<polyline points="2120.0,579 2120.0,1060" fill="none" stroke="#217b78" stroke-width="3"/>
+<polygon points="2120.0,579 2113.0,594.0 2127.0,594.0" fill="#217b78"/>
+<rect x="2094.0" y="804.5" width="56.0" height="31.0" rx="0" fill="#f5f8fb" stroke="#f5f8fb"/>
+<text x="2098.0" y="826.5" font-family="Arial,sans-serif" font-size="20" fill="#217b78" font-weight="700">R08</text>
+<polyline points="780,641.28 875,641.28 875,670 875,905 2300,905 2300.2,905 2300.2,1060" fill="none" stroke="#798b9b" stroke-width="3"/>
+<polygon points="780,641.28 795.0,648.28 795.0,634.28" fill="#798b9b"/>
+<rect x="1561.5" y="890.0" width="56.0" height="31.0" rx="0" fill="#f5f8fb" stroke="#f5f8fb"/>
+<text x="1565.5" y="912.0" font-family="Arial,sans-serif" font-size="20" fill="#798b9b" font-weight="700">R09</text>
+<polyline points="2460,409.5 2540,409.5 2540,430 2620,430 2620,409.5" fill="none" stroke="#217b78" stroke-width="3"/>
+<polygon points="2460,409.5 2475.0,416.5 2475.0,402.5" fill="#217b78"/>
+<rect x="2474.0" y="394.5" width="56.0" height="31.0" rx="0" fill="#f5f8fb" stroke="#f5f8fb"/>
+<text x="2478.0" y="416.5" font-family="Arial,sans-serif" font-size="20" fill="#217b78" font-weight="700">R10</text>
+<polyline points="299.91999999999996,240 300,240 300,135 2960,135 2960.0,240" fill="none" stroke="#798b9b" stroke-width="3"/>
+<polygon points="299.91999999999996,240 314.91999999999996,247.0 314.91999999999996,233.0" fill="#798b9b"/>
+<rect x="1604.0" y="120.0" width="56.0" height="31.0" rx="0" fill="#f5f8fb" stroke="#f5f8fb"/>
+<text x="1608.0" y="142.0" font-family="Arial,sans-serif" font-size="20" fill="#798b9b" font-weight="700">R11</text>
+<polyline points="2960.0,579 2960.0,1060" fill="none" stroke="#217b78" stroke-width="3"/>
+<polygon points="2960.0,579 2953.0,594.0 2967.0,594.0" fill="#217b78"/>
+<rect x="2934.0" y="804.5" width="56.0" height="31.0" rx="0" fill="#f5f8fb" stroke="#f5f8fb"/>
+<text x="2938.0" y="826.5" font-family="Arial,sans-serif" font-size="20" fill="#217b78" font-weight="700">R12</text>
+<polyline points="2460,1182.43 2540,1182.43 2540,1200 2620,1200 2620,1196.74" fill="none" stroke="#217b78" stroke-width="3"/>
+<polygon points="2460,1182.43 2475.0,1189.43 2475.0,1175.43" fill="#217b78"/>
+<rect x="2474.0" y="1167.43" width="56.0" height="31.0" rx="0" fill="#f5f8fb" stroke="#f5f8fb"/>
+<text x="2478.0" y="1189.43" font-family="Arial,sans-serif" font-size="20" fill="#217b78" font-weight="700">R13</text>
+<polyline points="2120.0,1291 2120,1570 2960,1570 2960.0,1790" fill="none" stroke="#217b78" stroke-width="3"/>
+<polygon points="2120.0,1291 2113.0,1306.0 2127.0,1306.0" fill="#217b78"/>
+<rect x="2514.0" y="1555.0" width="56.0" height="31.0" rx="0" fill="#f5f8fb" stroke="#f5f8fb"/>
+<text x="2518.0" y="1577.0" font-family="Arial,sans-serif" font-size="20" fill="#217b78" font-weight="700">R14</text>
+<polyline points="1280.0,1318 1280.0,1790" fill="none" stroke="#217b78" stroke-width="3"/>
+<polygon points="1280.0,1318 1273.0,1333.0 1287.0,1333.0" fill="#217b78"/>
+<rect x="1254.0" y="1539.0" width="56.0" height="31.0" rx="0" fill="#f5f8fb" stroke="#f5f8fb"/>
+<text x="1258.0" y="1561.0" font-family="Arial,sans-serif" font-size="20" fill="#217b78" font-weight="700">R15</text>
+<polyline points="100,551.52 65,551.52 65,580 65,1660 890,1660 890,1970 940,1970 940,1947.38" fill="none" stroke="#798b9b" stroke-width="3"/>
+<polygon points="100,551.52 85.0,544.52 85.0,558.52" fill="#798b9b"/>
+<rect x="39.0" y="1105.0" width="56.0" height="31.0" rx="0" fill="#f5f8fb" stroke="#f5f8fb"/>
+<text x="43.0" y="1127.0" font-family="Arial,sans-serif" font-size="20" fill="#798b9b" font-weight="700">R16</text>
+<polyline points="100,408.96000000000004 40,408.96000000000004 40,430 40,1920 100,1920 100,1925.42" fill="none" stroke="#798b9b" stroke-width="3"/>
+<polygon points="100,408.96000000000004 85.0,401.96000000000004 85.0,415.96000000000004" fill="#798b9b"/>
+<rect x="14.0" y="1160.0" width="56.0" height="31.0" rx="0" fill="#f5f8fb" stroke="#f5f8fb"/>
+<text x="18.0" y="1182.0" font-family="Arial,sans-serif" font-size="20" fill="#798b9b" font-weight="700">R17</text>
+<polyline points="780,704.64 805,704.64 805,735 805,1620 2120,1620 2120.0,1790" fill="none" stroke="#798b9b" stroke-width="3"/>
+<polygon points="780,704.64 795.0,711.64 795.0,697.64" fill="#798b9b"/>
+<rect x="1436.5" y="1605.0" width="56.0" height="31.0" rx="0" fill="#f5f8fb" stroke="#f5f8fb"/>
+<text x="1440.5" y="1627.0" font-family="Arial,sans-serif" font-size="20" fill="#798b9b" font-weight="700">R18</text>
+<polyline points="440.0,2156 440,2250 2120,2250 2120.0,2075" fill="none" stroke="#a06125" stroke-width="3"/>
+<polygon points="440.0,2156 433.0,2171.0 447.0,2171.0" fill="#a06125"/>
+<rect x="1254.0" y="2235.0" width="56.0" height="31.0" rx="0" fill="#f5f8fb" stroke="#f5f8fb"/>
+<text x="1258.0" y="2257.0" font-family="Arial,sans-serif" font-size="20" fill="#a06125" font-weight="700">R19</text>
+<rect x="105" y="246" width="680" height="528" rx="12" fill="#e1e8ef" stroke="#e1e8ef"/>
+<rect x="100" y="240" width="680" height="528" rx="12" fill="#ffffff" stroke="#c7d5df"/>
+<rect x="100" y="240" width="680" height="78" rx="10" fill="#324f68" stroke="#324f68"/>
+<text x="120" y="282" font-family="Arial,sans-serif" font-size="29" fill="#ffffff" font-weight="700">Account</text>
+<text x="120" y="308" font-family="Arial,sans-serif" font-size="19" fill="#dbeaf0">16 cột</text>
+<text x="115" y="341" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">PK</text>
+<text x="225" y="344" font-family="Arial,sans-serif" font-size="21" fill="#193246" font-weight="700">account_id</text>
+<text x="616" y="342" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="115" y="368" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="225" y="371" font-family="Arial,sans-serif" font-size="21" fill="#193246">role_code</text>
+<text x="616" y="369" font-family="Arial,sans-serif" font-size="19" fill="#617586">varchar(24)</text>
+<text x="115" y="395" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">UK</text>
+<text x="225" y="398" font-family="Arial,sans-serif" font-size="21" fill="#193246">email</text>
+<text x="616" y="396" font-family="Arial,sans-serif" font-size="19" fill="#617586">varchar(254)</text>
+<text x="115" y="422" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="225" y="425" font-family="Arial,sans-serif" font-size="21" fill="#193246">full_name</text>
+<text x="616" y="423" font-family="Arial,sans-serif" font-size="19" fill="#617586">nvarchar(200)</text>
+<text x="115" y="449" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="225" y="452" font-family="Arial,sans-serif" font-size="21" fill="#193246">phone ?</text>
+<text x="616" y="450" font-family="Arial,sans-serif" font-size="19" fill="#617586">varchar(10)</text>
+<text x="115" y="476" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="225" y="479" font-family="Arial,sans-serif" font-size="21" fill="#193246">date_of_birth ?</text>
+<text x="616" y="477" font-family="Arial,sans-serif" font-size="19" fill="#617586">date</text>
+<text x="115" y="503" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="225" y="506" font-family="Arial,sans-serif" font-size="21" fill="#193246">address ?</text>
+<text x="616" y="504" font-family="Arial,sans-serif" font-size="19" fill="#617586">nvarchar(255)</text>
+<text x="115" y="530" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="225" y="533" font-family="Arial,sans-serif" font-size="21" fill="#193246">password_hash</text>
+<text x="616" y="531" font-family="Arial,sans-serif" font-size="19" fill="#617586">varchar(512)</text>
+<text x="115" y="557" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="225" y="560" font-family="Arial,sans-serif" font-size="21" fill="#193246">status</text>
+<text x="616" y="558" font-family="Arial,sans-serif" font-size="19" fill="#617586">varchar(16)</text>
+<text x="115" y="584" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="225" y="587" font-family="Arial,sans-serif" font-size="21" fill="#193246">created_at</text>
+<text x="616" y="585" font-family="Arial,sans-serif" font-size="19" fill="#617586">datetime2(3)</text>
+<text x="115" y="611" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="225" y="614" font-family="Arial,sans-serif" font-size="21" fill="#193246">security_version</text>
+<text x="616" y="612" font-family="Arial,sans-serif" font-size="19" fill="#617586">bigint</text>
+<text x="115" y="638" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="225" y="641" font-family="Arial,sans-serif" font-size="21" fill="#193246">failed_login_count</text>
+<text x="616" y="639" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="115" y="665" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="225" y="668" font-family="Arial,sans-serif" font-size="21" fill="#193246">failure_window_started_at ?</text>
+<text x="616" y="666" font-family="Arial,sans-serif" font-size="19" fill="#617586">datetime2(3)</text>
+<text x="115" y="692" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="225" y="695" font-family="Arial,sans-serif" font-size="21" fill="#193246">login_throttled_until ?</text>
+<text x="616" y="693" font-family="Arial,sans-serif" font-size="19" fill="#617586">datetime2(3)</text>
+<text x="115" y="719" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="225" y="722" font-family="Arial,sans-serif" font-size="21" fill="#193246">temp_issued_at ?</text>
+<text x="616" y="720" font-family="Arial,sans-serif" font-size="19" fill="#617586">datetime2(3)</text>
+<text x="115" y="746" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="225" y="749" font-family="Arial,sans-serif" font-size="21" fill="#193246">row_version</text>
+<text x="616" y="747" font-family="Arial,sans-serif" font-size="19" fill="#617586">rowversion</text>
+<rect x="105" y="1066" width="680" height="231" rx="12" fill="#e1e8ef" stroke="#e1e8ef"/>
+<rect x="100" y="1060" width="680" height="231" rx="12" fill="#ffffff" stroke="#c7d5df"/>
+<rect x="100" y="1060" width="680" height="78" rx="10" fill="#324f68" stroke="#324f68"/>
+<text x="120" y="1102" font-family="Arial,sans-serif" font-size="29" fill="#ffffff" font-weight="700">AuthSession</text>
+<text x="120" y="1128" font-family="Arial,sans-serif" font-size="19" fill="#dbeaf0">5 cột</text>
+<text x="115" y="1161" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">PK</text>
+<text x="225" y="1164" font-family="Arial,sans-serif" font-size="21" fill="#193246" font-weight="700">sid</text>
+<text x="616" y="1162" font-family="Arial,sans-serif" font-size="19" fill="#617586">binary(32)</text>
+<text x="115" y="1188" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">FK</text>
+<text x="225" y="1191" font-family="Arial,sans-serif" font-size="21" fill="#193246">account_id</text>
+<text x="616" y="1189" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="115" y="1215" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="225" y="1218" font-family="Arial,sans-serif" font-size="21" fill="#193246">issued_at</text>
+<text x="616" y="1216" font-family="Arial,sans-serif" font-size="19" fill="#617586">datetime2(3)</text>
+<text x="115" y="1242" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="225" y="1245" font-family="Arial,sans-serif" font-size="21" fill="#193246">last_activity_at</text>
+<text x="616" y="1243" font-family="Arial,sans-serif" font-size="19" fill="#617586">datetime2(3)</text>
+<text x="115" y="1269" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="225" y="1272" font-family="Arial,sans-serif" font-size="21" fill="#193246">row_version</text>
+<text x="616" y="1270" font-family="Arial,sans-serif" font-size="19" fill="#617586">rowversion</text>
+<rect x="945" y="246" width="680" height="339" rx="12" fill="#e1e8ef" stroke="#e1e8ef"/>
+<rect x="940" y="240" width="680" height="339" rx="12" fill="#ffffff" stroke="#c7d5df"/>
+<rect x="940" y="240" width="680" height="78" rx="10" fill="#086d68" stroke="#086d68"/>
+<text x="960" y="282" font-family="Arial,sans-serif" font-size="29" fill="#ffffff" font-weight="700">Course</text>
+<text x="960" y="308" font-family="Arial,sans-serif" font-size="19" fill="#dbeaf0">9 cột</text>
+<text x="955" y="341" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">PK</text>
+<text x="1065" y="344" font-family="Arial,sans-serif" font-size="21" fill="#193246" font-weight="700">course_id</text>
+<text x="1456" y="342" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="955" y="368" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">UK</text>
+<text x="1065" y="371" font-family="Arial,sans-serif" font-size="21" fill="#193246">course_code</text>
+<text x="1456" y="369" font-family="Arial,sans-serif" font-size="19" fill="#617586">varchar(50)</text>
+<text x="955" y="395" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1065" y="398" font-family="Arial,sans-serif" font-size="21" fill="#193246">course_name</text>
+<text x="1456" y="396" font-family="Arial,sans-serif" font-size="19" fill="#617586">nvarchar(200)</text>
+<text x="955" y="422" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1065" y="425" font-family="Arial,sans-serif" font-size="21" fill="#193246">tuition_fee</text>
+<text x="1456" y="423" font-family="Arial,sans-serif" font-size="19" fill="#617586">decimal(18,0)</text>
+<text x="955" y="449" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1065" y="452" font-family="Arial,sans-serif" font-size="21" fill="#193246">status</text>
+<text x="1456" y="450" font-family="Arial,sans-serif" font-size="19" fill="#617586">varchar(16)</text>
+<text x="955" y="476" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1065" y="479" font-family="Arial,sans-serif" font-size="21" fill="#193246">expected_lesson_count</text>
+<text x="1456" y="477" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="955" y="503" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1065" y="506" font-family="Arial,sans-serif" font-size="21" fill="#193246">process_weight</text>
+<text x="1456" y="504" font-family="Arial,sans-serif" font-size="19" fill="#617586">decimal(5,2)</text>
+<text x="955" y="530" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1065" y="533" font-family="Arial,sans-serif" font-size="21" fill="#193246">created_at</text>
+<text x="1456" y="531" font-family="Arial,sans-serif" font-size="19" fill="#617586">datetime2(3)</text>
+<text x="955" y="557" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1065" y="560" font-family="Arial,sans-serif" font-size="21" fill="#193246">row_version</text>
+<text x="1456" y="558" font-family="Arial,sans-serif" font-size="19" fill="#617586">rowversion</text>
+<rect x="945" y="1066" width="680" height="258" rx="12" fill="#e1e8ef" stroke="#e1e8ef"/>
+<rect x="940" y="1060" width="680" height="258" rx="12" fill="#ffffff" stroke="#c7d5df"/>
+<rect x="940" y="1060" width="680" height="78" rx="10" fill="#086d68" stroke="#086d68"/>
+<text x="960" y="1102" font-family="Arial,sans-serif" font-size="29" fill="#ffffff" font-weight="700">Registration</text>
+<text x="960" y="1128" font-family="Arial,sans-serif" font-size="19" fill="#dbeaf0">6 cột</text>
+<text x="955" y="1161" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">PK</text>
+<text x="1065" y="1164" font-family="Arial,sans-serif" font-size="21" fill="#193246" font-weight="700">registration_id</text>
+<text x="1456" y="1162" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="955" y="1188" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">FK</text>
+<text x="1065" y="1191" font-family="Arial,sans-serif" font-size="21" fill="#193246">student_account_id</text>
+<text x="1456" y="1189" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="955" y="1215" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">FK</text>
+<text x="1065" y="1218" font-family="Arial,sans-serif" font-size="21" fill="#193246">course_id</text>
+<text x="1456" y="1216" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="955" y="1242" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1065" y="1245" font-family="Arial,sans-serif" font-size="21" fill="#193246">status</text>
+<text x="1456" y="1243" font-family="Arial,sans-serif" font-size="19" fill="#617586">varchar(16)</text>
+<text x="955" y="1269" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1065" y="1272" font-family="Arial,sans-serif" font-size="21" fill="#193246">created_at</text>
+<text x="1456" y="1270" font-family="Arial,sans-serif" font-size="19" fill="#617586">datetime2(3)</text>
+<text x="955" y="1296" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1065" y="1299" font-family="Arial,sans-serif" font-size="21" fill="#193246">row_version</text>
+<text x="1456" y="1297" font-family="Arial,sans-serif" font-size="19" fill="#617586">rowversion</text>
+<rect x="1785" y="246" width="680" height="339" rx="12" fill="#e1e8ef" stroke="#e1e8ef"/>
+<rect x="1780" y="240" width="680" height="339" rx="12" fill="#ffffff" stroke="#c7d5df"/>
+<rect x="1780" y="240" width="680" height="78" rx="10" fill="#086d68" stroke="#086d68"/>
+<text x="1800" y="282" font-family="Arial,sans-serif" font-size="29" fill="#ffffff" font-weight="700">Class</text>
+<text x="1800" y="308" font-family="Arial,sans-serif" font-size="19" fill="#dbeaf0">9 cột</text>
+<text x="1795" y="341" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">PK</text>
+<text x="1905" y="344" font-family="Arial,sans-serif" font-size="21" fill="#193246" font-weight="700">class_id</text>
+<text x="2296" y="342" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="1795" y="368" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">UK</text>
+<text x="1905" y="371" font-family="Arial,sans-serif" font-size="21" fill="#193246">class_code</text>
+<text x="2296" y="369" font-family="Arial,sans-serif" font-size="19" fill="#617586">varchar(50)</text>
+<text x="1795" y="395" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">FK</text>
+<text x="1905" y="398" font-family="Arial,sans-serif" font-size="21" fill="#193246">course_id</text>
+<text x="2296" y="396" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="1795" y="422" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">FK</text>
+<text x="1905" y="425" font-family="Arial,sans-serif" font-size="21" fill="#193246">teacher_account_id</text>
+<text x="2296" y="423" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="1795" y="449" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1905" y="452" font-family="Arial,sans-serif" font-size="21" fill="#193246">capacity</text>
+<text x="2296" y="450" font-family="Arial,sans-serif" font-size="19" fill="#617586">tinyint</text>
+<text x="1795" y="476" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1905" y="479" font-family="Arial,sans-serif" font-size="21" fill="#193246">status</text>
+<text x="2296" y="477" font-family="Arial,sans-serif" font-size="19" fill="#617586">varchar(16)</text>
+<text x="1795" y="503" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">FK/UK*</text>
+<text x="1905" y="506" font-family="Arial,sans-serif" font-size="21" fill="#193246">current_grade_operation_id ?</text>
+<text x="2296" y="504" font-family="Arial,sans-serif" font-size="19" fill="#617586">uniqueidentifier</text>
+<text x="1795" y="530" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1905" y="533" font-family="Arial,sans-serif" font-size="21" fill="#193246">created_at</text>
+<text x="2296" y="531" font-family="Arial,sans-serif" font-size="19" fill="#617586">datetime2(3)</text>
+<text x="1795" y="557" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1905" y="560" font-family="Arial,sans-serif" font-size="21" fill="#193246">row_version</text>
+<text x="2296" y="558" font-family="Arial,sans-serif" font-size="19" fill="#617586">rowversion</text>
+<rect x="1785" y="1066" width="680" height="231" rx="12" fill="#e1e8ef" stroke="#e1e8ef"/>
+<rect x="1780" y="1060" width="680" height="231" rx="12" fill="#ffffff" stroke="#c7d5df"/>
+<rect x="1780" y="1060" width="680" height="78" rx="10" fill="#086d68" stroke="#086d68"/>
+<text x="1800" y="1102" font-family="Arial,sans-serif" font-size="29" fill="#ffffff" font-weight="700">StudentClassAssignment</text>
+<text x="1800" y="1128" font-family="Arial,sans-serif" font-size="19" fill="#dbeaf0">5 cột</text>
+<text x="1795" y="1161" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">PK</text>
+<text x="1905" y="1164" font-family="Arial,sans-serif" font-size="21" fill="#193246" font-weight="700">class_assignment_id</text>
+<text x="2296" y="1162" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="1795" y="1188" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">FK/UK</text>
+<text x="1905" y="1191" font-family="Arial,sans-serif" font-size="21" fill="#193246">registration_id</text>
+<text x="2296" y="1189" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="1795" y="1215" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">FK</text>
+<text x="1905" y="1218" font-family="Arial,sans-serif" font-size="21" fill="#193246">class_id</text>
+<text x="2296" y="1216" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="1795" y="1242" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1905" y="1245" font-family="Arial,sans-serif" font-size="21" fill="#193246">assigned_at</text>
+<text x="2296" y="1243" font-family="Arial,sans-serif" font-size="19" fill="#617586">datetime2(3)</text>
+<text x="1795" y="1269" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">FK</text>
+<text x="1905" y="1272" font-family="Arial,sans-serif" font-size="21" fill="#193246">assigned_by</text>
+<text x="2296" y="1270" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<rect x="2625" y="246" width="680" height="339" rx="12" fill="#e1e8ef" stroke="#e1e8ef"/>
+<rect x="2620" y="240" width="680" height="339" rx="12" fill="#ffffff" stroke="#c7d5df"/>
+<rect x="2620" y="240" width="680" height="78" rx="10" fill="#086d68" stroke="#086d68"/>
+<text x="2640" y="282" font-family="Arial,sans-serif" font-size="29" fill="#ffffff" font-weight="700">Schedule</text>
+<text x="2640" y="308" font-family="Arial,sans-serif" font-size="19" fill="#dbeaf0">9 cột</text>
+<text x="2635" y="341" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">PK</text>
+<text x="2745" y="344" font-family="Arial,sans-serif" font-size="21" fill="#193246" font-weight="700">schedule_id</text>
+<text x="3136" y="342" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="2635" y="368" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">FK</text>
+<text x="2745" y="371" font-family="Arial,sans-serif" font-size="21" fill="#193246">class_id</text>
+<text x="3136" y="369" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="2635" y="395" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="2745" y="398" font-family="Arial,sans-serif" font-size="21" fill="#193246">schedule_type</text>
+<text x="3136" y="396" font-family="Arial,sans-serif" font-size="19" fill="#617586">varchar(16)</text>
+<text x="2635" y="422" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="2745" y="425" font-family="Arial,sans-serif" font-size="21" fill="#193246">start_at</text>
+<text x="3136" y="423" font-family="Arial,sans-serif" font-size="19" fill="#617586">datetime2(3)</text>
+<text x="2635" y="449" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="2745" y="452" font-family="Arial,sans-serif" font-size="21" fill="#193246">end_at</text>
+<text x="3136" y="450" font-family="Arial,sans-serif" font-size="19" fill="#617586">datetime2(3)</text>
+<text x="2635" y="476" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="2745" y="479" font-family="Arial,sans-serif" font-size="21" fill="#193246">room</text>
+<text x="3136" y="477" font-family="Arial,sans-serif" font-size="19" fill="#617586">nvarchar(50)</text>
+<text x="2635" y="503" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="2745" y="506" font-family="Arial,sans-serif" font-size="21" fill="#193246">held_at ?</text>
+<text x="3136" y="504" font-family="Arial,sans-serif" font-size="19" fill="#617586">datetime2(3)</text>
+<text x="2635" y="530" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">FK</text>
+<text x="2745" y="533" font-family="Arial,sans-serif" font-size="21" fill="#193246">held_by ?</text>
+<text x="3136" y="531" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="2635" y="557" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="2745" y="560" font-family="Arial,sans-serif" font-size="21" fill="#193246">row_version</text>
+<text x="3136" y="558" font-family="Arial,sans-serif" font-size="19" fill="#617586">rowversion</text>
+<rect x="2625" y="1066" width="680" height="258" rx="12" fill="#e1e8ef" stroke="#e1e8ef"/>
+<rect x="2620" y="1060" width="680" height="258" rx="12" fill="#ffffff" stroke="#c7d5df"/>
+<rect x="2620" y="1060" width="680" height="78" rx="10" fill="#086d68" stroke="#086d68"/>
+<text x="2640" y="1102" font-family="Arial,sans-serif" font-size="29" fill="#ffffff" font-weight="700">Attendance</text>
+<text x="2640" y="1128" font-family="Arial,sans-serif" font-size="19" fill="#dbeaf0">6 cột</text>
+<text x="2635" y="1161" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">PK</text>
+<text x="2745" y="1164" font-family="Arial,sans-serif" font-size="21" fill="#193246" font-weight="700">attendance_id</text>
+<text x="3136" y="1162" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="2635" y="1188" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">FK</text>
+<text x="2745" y="1191" font-family="Arial,sans-serif" font-size="21" fill="#193246">schedule_id</text>
+<text x="3136" y="1189" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="2635" y="1215" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">FK</text>
+<text x="2745" y="1218" font-family="Arial,sans-serif" font-size="21" fill="#193246">class_assignment_id</text>
+<text x="3136" y="1216" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="2635" y="1242" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="2745" y="1245" font-family="Arial,sans-serif" font-size="21" fill="#193246">present</text>
+<text x="3136" y="1243" font-family="Arial,sans-serif" font-size="19" fill="#617586">bit</text>
+<text x="2635" y="1269" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="2745" y="1272" font-family="Arial,sans-serif" font-size="21" fill="#193246">recorded_at</text>
+<text x="3136" y="1270" font-family="Arial,sans-serif" font-size="19" fill="#617586">datetime2(3)</text>
+<text x="2635" y="1296" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="2745" y="1299" font-family="Arial,sans-serif" font-size="21" fill="#193246">row_version</text>
+<text x="3136" y="1297" font-family="Arial,sans-serif" font-size="19" fill="#617586">rowversion</text>
+<rect x="2625" y="1796" width="680" height="285" rx="12" fill="#e1e8ef" stroke="#e1e8ef"/>
+<rect x="2620" y="1790" width="680" height="285" rx="12" fill="#ffffff" stroke="#c7d5df"/>
+<rect x="2620" y="1790" width="680" height="78" rx="10" fill="#086d68" stroke="#086d68"/>
+<text x="2640" y="1832" font-family="Arial,sans-serif" font-size="29" fill="#ffffff" font-weight="700">GradeReport</text>
+<text x="2640" y="1858" font-family="Arial,sans-serif" font-size="19" fill="#dbeaf0">7 cột</text>
+<text x="2635" y="1891" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">PK</text>
+<text x="2745" y="1894" font-family="Arial,sans-serif" font-size="21" fill="#193246" font-weight="700">report_id</text>
+<text x="3136" y="1892" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="2635" y="1918" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">FK/UK</text>
+<text x="2745" y="1921" font-family="Arial,sans-serif" font-size="21" fill="#193246">class_assignment_id</text>
+<text x="3136" y="1919" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="2635" y="1945" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="2745" y="1948" font-family="Arial,sans-serif" font-size="21" fill="#193246">continuous_score ?</text>
+<text x="3136" y="1946" font-family="Arial,sans-serif" font-size="19" fill="#617586">decimal(5,2)</text>
+<text x="2635" y="1972" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="2745" y="1975" font-family="Arial,sans-serif" font-size="21" fill="#193246">final_exam_score ?</text>
+<text x="3136" y="1973" font-family="Arial,sans-serif" font-size="19" fill="#617586">decimal(5,2)</text>
+<text x="2635" y="1999" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="2745" y="2002" font-family="Arial,sans-serif" font-size="21" fill="#193246">teacher_comment ?</text>
+<text x="3136" y="2000" font-family="Arial,sans-serif" font-size="19" fill="#617586">nvarchar(1000)</text>
+<text x="2635" y="2026" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="2745" y="2029" font-family="Arial,sans-serif" font-size="21" fill="#193246">updated_at</text>
+<text x="3136" y="2027" font-family="Arial,sans-serif" font-size="19" fill="#617586">datetime2(3)</text>
+<text x="2635" y="2053" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="2745" y="2056" font-family="Arial,sans-serif" font-size="21" fill="#193246">row_version</text>
+<text x="3136" y="2054" font-family="Arial,sans-serif" font-size="19" fill="#617586">rowversion</text>
+<rect x="945" y="1796" width="680" height="366" rx="12" fill="#e1e8ef" stroke="#e1e8ef"/>
+<rect x="940" y="1790" width="680" height="366" rx="12" fill="#ffffff" stroke="#c7d5df"/>
+<rect x="940" y="1790" width="680" height="78" rx="10" fill="#086d68" stroke="#086d68"/>
+<text x="960" y="1832" font-family="Arial,sans-serif" font-size="29" fill="#ffffff" font-weight="700">Invoice</text>
+<text x="960" y="1858" font-family="Arial,sans-serif" font-size="19" fill="#dbeaf0">10 cột</text>
+<text x="955" y="1891" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">PK</text>
+<text x="1065" y="1894" font-family="Arial,sans-serif" font-size="21" fill="#193246" font-weight="700">invoice_id</text>
+<text x="1456" y="1892" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="955" y="1918" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">UK</text>
+<text x="1065" y="1921" font-family="Arial,sans-serif" font-size="21" fill="#193246">invoice_number</text>
+<text x="1456" y="1919" font-family="Arial,sans-serif" font-size="19" fill="#617586">bigint</text>
+<text x="955" y="1945" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">FK/UK</text>
+<text x="1065" y="1948" font-family="Arial,sans-serif" font-size="21" fill="#193246">registration_id</text>
+<text x="1456" y="1946" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="955" y="1972" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1065" y="1975" font-family="Arial,sans-serif" font-size="21" fill="#193246">amount</text>
+<text x="1456" y="1973" font-family="Arial,sans-serif" font-size="19" fill="#617586">decimal(18,0)</text>
+<text x="955" y="1999" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1065" y="2002" font-family="Arial,sans-serif" font-size="21" fill="#193246">issued_at</text>
+<text x="1456" y="2000" font-family="Arial,sans-serif" font-size="19" fill="#617586">datetime2(3)</text>
+<text x="955" y="2026" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1065" y="2029" font-family="Arial,sans-serif" font-size="21" fill="#193246">paid_at ?</text>
+<text x="1456" y="2027" font-family="Arial,sans-serif" font-size="19" fill="#617586">datetime2(3)</text>
+<text x="955" y="2053" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">FK</text>
+<text x="1065" y="2056" font-family="Arial,sans-serif" font-size="21" fill="#193246">paid_by ?</text>
+<text x="1456" y="2054" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="955" y="2080" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1065" y="2083" font-family="Arial,sans-serif" font-size="21" fill="#193246">payment_method ?</text>
+<text x="1456" y="2081" font-family="Arial,sans-serif" font-size="19" fill="#617586">varchar(16)</text>
+<text x="955" y="2107" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1065" y="2110" font-family="Arial,sans-serif" font-size="21" fill="#193246">payment_reference ?</text>
+<text x="1456" y="2108" font-family="Arial,sans-serif" font-size="19" fill="#617586">nvarchar(100)</text>
+<text x="955" y="2134" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1065" y="2137" font-family="Arial,sans-serif" font-size="21" fill="#193246">row_version</text>
+<text x="1456" y="2135" font-family="Arial,sans-serif" font-size="19" fill="#617586">rowversion</text>
+<rect x="105" y="1796" width="680" height="366" rx="12" fill="#e1e8ef" stroke="#e1e8ef"/>
+<rect x="100" y="1790" width="680" height="366" rx="12" fill="#ffffff" stroke="#c7d5df"/>
+<rect x="100" y="1790" width="680" height="78" rx="10" fill="#324f68" stroke="#324f68"/>
+<text x="120" y="1832" font-family="Arial,sans-serif" font-size="29" fill="#ffffff" font-weight="700">AuditLog</text>
+<text x="120" y="1858" font-family="Arial,sans-serif" font-size="19" fill="#dbeaf0">10 cột</text>
+<text x="115" y="1891" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">PK</text>
+<text x="225" y="1894" font-family="Arial,sans-serif" font-size="21" fill="#193246" font-weight="700">audit_id</text>
+<text x="616" y="1892" font-family="Arial,sans-serif" font-size="19" fill="#617586">bigint</text>
+<text x="115" y="1918" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">UK</text>
+<text x="225" y="1921" font-family="Arial,sans-serif" font-size="21" fill="#193246">operation_id</text>
+<text x="616" y="1919" font-family="Arial,sans-serif" font-size="19" fill="#617586">uniqueidentifier</text>
+<text x="115" y="1945" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">FK</text>
+<text x="225" y="1948" font-family="Arial,sans-serif" font-size="21" fill="#193246">actor_account_id ?</text>
+<text x="616" y="1946" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="115" y="1972" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="225" y="1975" font-family="Arial,sans-serif" font-size="21" fill="#193246">action_code</text>
+<text x="616" y="1973" font-family="Arial,sans-serif" font-size="19" fill="#617586">varchar(80)</text>
+<text x="115" y="1999" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="225" y="2002" font-family="Arial,sans-serif" font-size="21" fill="#193246">root_entity_id ?</text>
+<text x="616" y="2000" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="115" y="2026" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="225" y="2029" font-family="Arial,sans-serif" font-size="21" fill="#193246">result_code</text>
+<text x="616" y="2027" font-family="Arial,sans-serif" font-size="19" fill="#617586">varchar(16)</text>
+<text x="115" y="2053" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="225" y="2056" font-family="Arial,sans-serif" font-size="21" fill="#193246">occurred_at</text>
+<text x="616" y="2054" font-family="Arial,sans-serif" font-size="19" fill="#617586">datetime2(3)</text>
+<text x="115" y="2080" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="225" y="2083" font-family="Arial,sans-serif" font-size="21" fill="#193246">reason ?</text>
+<text x="616" y="2081" font-family="Arial,sans-serif" font-size="19" fill="#617586">nvarchar(1000)</text>
+<text x="115" y="2107" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="225" y="2110" font-family="Arial,sans-serif" font-size="21" fill="#193246">change_details</text>
+<text x="616" y="2108" font-family="Arial,sans-serif" font-size="19" fill="#617586">nvarchar(4000)</text>
+<text x="115" y="2134" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="225" y="2137" font-family="Arial,sans-serif" font-size="21" fill="#193246">ip_address ?</text>
+<text x="616" y="2135" font-family="Arial,sans-serif" font-size="19" fill="#617586">varchar(45)</text>
+<rect x="1785" y="1796" width="680" height="285" rx="12" fill="#e1e8ef" stroke="#e1e8ef"/>
+<rect x="1780" y="1790" width="680" height="285" rx="12" fill="#ffffff" stroke="#c7d5df"/>
+<rect x="1780" y="1790" width="680" height="78" rx="10" fill="#324f68" stroke="#324f68"/>
+<text x="1800" y="1832" font-family="Arial,sans-serif" font-size="29" fill="#ffffff" font-weight="700">ReplayOperation</text>
+<text x="1800" y="1858" font-family="Arial,sans-serif" font-size="19" fill="#dbeaf0">7 cột</text>
+<text x="1795" y="1891" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">PK</text>
+<text x="1905" y="1894" font-family="Arial,sans-serif" font-size="21" fill="#193246" font-weight="700">replay_id</text>
+<text x="2296" y="1892" font-family="Arial,sans-serif" font-size="19" fill="#617586">bigint</text>
+<text x="1795" y="1918" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">FK</text>
+<text x="1905" y="1921" font-family="Arial,sans-serif" font-size="21" fill="#193246">actor_account_id</text>
+<text x="2296" y="1919" font-family="Arial,sans-serif" font-size="19" fill="#617586">int</text>
+<text x="1795" y="1945" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1905" y="1948" font-family="Arial,sans-serif" font-size="21" fill="#193246">action_code</text>
+<text x="2296" y="1946" font-family="Arial,sans-serif" font-size="19" fill="#617586">varchar(80)</text>
+<text x="1795" y="1972" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1905" y="1975" font-family="Arial,sans-serif" font-size="21" fill="#193246">request_id</text>
+<text x="2296" y="1973" font-family="Arial,sans-serif" font-size="19" fill="#617586">uniqueidentifier</text>
+<text x="1795" y="1999" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1905" y="2002" font-family="Arial,sans-serif" font-size="21" fill="#193246">input_digest</text>
+<text x="2296" y="2000" font-family="Arial,sans-serif" font-size="19" fill="#617586">binary(32)</text>
+<text x="1795" y="2026" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700">FK/UK</text>
+<text x="1905" y="2029" font-family="Arial,sans-serif" font-size="21" fill="#193246">operation_id</text>
+<text x="2296" y="2027" font-family="Arial,sans-serif" font-size="19" fill="#617586">uniqueidentifier</text>
+<text x="1795" y="2053" font-family="Arial,sans-serif" font-size="18" fill="#0c7773" font-weight="700"></text>
+<text x="1905" y="2056" font-family="Arial,sans-serif" font-size="21" fill="#193246">completed_at</text>
+<text x="2296" y="2054" font-family="Arial,sans-serif" font-size="19" fill="#617586">datetime2(3)</text>
+</svg>

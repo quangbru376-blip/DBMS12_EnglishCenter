@@ -1,0 +1,26 @@
+[
+  {
+    "path": "docs/plan/QUANG_GRADING_READY_REVIEW.md",
+    "sha256": "124a479562561843094aa5d0931d7c92758a421b74055a63aa910e3fa9a7031e"
+  },
+  {
+    "path": "docs/plan/slices/QUANG_GRADING_READY.md",
+    "sha256": "5fbca7647b8c9d1e1582b09bc108fc341da6cd4326426e6723b311e141c05aab"
+  },
+  {
+    "path": "docs/notes/QUANG_GRADING_READY.md",
+    "sha256": "2f650515097ac6a3814722a556395accc5b4d0bd2b458b61ff7909d8eb039d23"
+  },
+  {
+    "path": "docs/plan/plan.md",
+    "sha256": "2b7c5d729a44c1fcaa55edd10faa5574e339e7b5daad464d3059e6aaffb865f6"
+  },
+  {
+    "path": "memory/01_CURRENT_STATE.md",
+    "sha256": "339303639ef77eccf0231f10b55c6a8ceded187a9af42bedfd863014c6e2035b"
+  },
+  {
+    "path": "memory/08_TASKS.md",
+    "sha256": "2c6c6934429d329415bb8dcf318f870920e58b1b13b93206de427fbb1e7ec370"
+  }
+]

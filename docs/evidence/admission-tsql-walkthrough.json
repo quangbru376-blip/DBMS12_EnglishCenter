@@ -1,0 +1,22 @@
+{
+  "pass": true,
+  "type": "source walk-through; no runtime/database mutation",
+  "document": "docs/reports/Vi-du-luong-duyet-ho-so-TSQL.md",
+  "sourceHashes": {
+    "database/dbms12-compact/infrastructure/begin-read.sql": "CE5E331517315535D31AFBB2A41419899ABD615E2B9B75A79F7B545C1FBE5C99",
+    "database/dbms12-compact/infrastructure/begin-write.sql": "56793FAEE5D5B7495913808488BD2ED2F5A26CC4F2DC13614FFC0E3C2861C7D7",
+    "database/dbms12-compact/queries/usp_CurrentSession.sql": "DD05897B2C8EDB17E0BF69AE37832FEF36321F2FD7E532718589451847FE772D",
+    "database/dbms12-compact/infrastructure/session.sql": "D63CAC6A1A3A0765A9D538AD39F8E489A0EB66D97FFC272EA0346AA52D1F62E8",
+    "database/dbms12-compact/07_core_procedures.sql": "746D5C62544D9A46C3686C1297C7A9F6A286F29494EAC8D6A15F30E925E1C277",
+    "database/dbms12-compact/05_triggers.sql": "5ED77ED63C13E01CBC5D0F5E0FBCAABB472BE69AF07BE542BAA29845E360D89A",
+    "database/dbms12-compact/02_functions.sql": "063511040CF407102A0BAC2DD2E870A8A438319EE38CBB4007B4D4C330BDEB99",
+    "database/dbms12-compact/01_schema.sql": "824372B75C91F7EB785717370CD05F22FCE4C1E60E9530D4D2298AD4BF3576C2",
+    "database/dbms12-compact/queries/usp_RegistrationList.sql": "330E3431135036EE0F8F6D6D0B461AAFEC59F5D04F27AFBA08B26B227B202C1B",
+    "database/dbms12-compact/03_views.sql": "598E66F01DED838CF62739940C7B23577B940D12120BD15C0B8D077DFD63D852",
+    "database/dbms12-compact/infrastructure/failure.sql": "B72AD02C0A95B351A9023DE7AC8D72EBCEE1FE5E9C00C674D4E5BE0DA3F5281B"
+  },
+  "sourceDefinitionCopies": 14,
+  "writtenLines": 640,
+  "exactCopiesVerified": true,
+  "documentSha256": "2FF12EAB6C2BE15E87D612D4F7E12EF459F0BFC4242155545E33AD1B2235F1E1"
+}

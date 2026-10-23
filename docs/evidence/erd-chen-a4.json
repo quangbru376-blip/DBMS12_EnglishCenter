@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-22",
+  "entities": 12,
+  "attributes": 99,
+  "relationships": 19,
+  "layout": "2 columns 6 rows",
+  "diagramMm": [
+    180,
+    260
+  ],
+  "pageMm": [
+    210,
+    297
+  ],
+  "pdfPages": 1,
+  "fontPtAt18cm": 6.519685039370078,
+  "recommendedWordMarginsCm": 1.5,
+  "recommendedWordWidthCm": 18,
+  "routedLegs": 38,
+  "schemaSha256": "824372B75C91F7EB785717370CD05F22FCE4C1E60E9530D4D2298AD4BF3576C2",
+  "files": {
+    "ERD-Chen-A4-portrait.drawio": "76AF534E19F62EE59539AC5374F809CE53591729C41284B46E5B1952DF77F643",
+    "ERD-Chen-A4-portrait.md": "C31531E7DE3DA44DB94225C19429DB9D2D3F3004D39E6BE4675A2190CA25869A",
+    "ERD-Chen-A4-portrait.pdf": "273815130EBD69E53D4CA057B5705715E63AC858E19A7D1331589F88C25249AF",
+    "ERD-Chen-A4-portrait.png": "543AAB5A8A5A91CC7A7277B76B9A48E032B46F03A20F6FDC32099FE6ECDFFCF4",
+    "ERD-Chen-A4-portrait.svg": "A3CE14C073FEC6BD46253F5B1BD8192BD22FE38EBE39BEFABE563FABBC51DD3F"
+  }
+}

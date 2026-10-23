@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-22",
+  "style": "Textbook monochrome Chen with radial attributes",
+  "entities": 12,
+  "attributes": 99,
+  "relationships": 19,
+  "primaryKeysUnderlined": 12,
+  "mandatoryChildParticipations": 15,
+  "optionalChildParticipations": 4,
+  "weakEntities": 0,
+  "pdfPages": 13,
+  "drawioVertices": 130,
+  "drawioEdges": 152,
+  "schemaSha256": "824372B75C91F7EB785717370CD05F22FCE4C1E60E9530D4D2298AD4BF3576C2",
+  "files": {
+    "ERD-Chen-classic.drawio": "F08802F92F9D6A3A6A1526DF8BA760E2D7EBAF56A6F6111D43BB70AF1A0F19F8",
+    "ERD-Chen-classic.md": "5D3A9551611F3FCD790C7B3B76C8868E0B8C1636B6EEEB2A52E99D815B773245",
+    "ERD-Chen-classic.pdf": "60D484BBAB12112ED6BC788FEB5B871A63B60BE01611888E13C273416769A481",
+    "ERD-Chen-classic.png": "19693494E74EBB48708D43C4B0E4981479666872994F37C0E83F76EAB9E2886A",
+    "ERD-Chen-classic.svg": "C2D7AFB4C678DF21C1A82A52F0E6E8978FFEBBFD7627EF3E74ED3FAF5B254A50"
+  }
+}

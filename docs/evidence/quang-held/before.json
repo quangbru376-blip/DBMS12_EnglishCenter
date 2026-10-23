@@ -1,0 +1,147 @@
+{
+  "checked_utc": "2026-10-23T16:54:50.276605",
+  "class_id": 5,
+  "class_code": "QUANG_CLASS_01",
+  "status": "ONGOING",
+  "grade_status": "DRAFT",
+  "expected_lesson_count": 15,
+  "lesson_count": 15,
+  "exam_count": 1,
+  "unheld_count": 15,
+  "missing_attendance": 0,
+  "held_count": 1,
+  "disabled_triggers": 0,
+  "class_sha256": "B28D64F020C7BA916C4E3BB65036343CA88DB083E3C6795CA449D92B668459F0",
+  "attendance_sha256": "5FE076E57461630BFEE40BC9A5C795F179B3BC11E83C61F52980C94FBCBE10AC",
+  "grades_sha256": "7B906F32969EC46A3928F9D4B094656A225E9ABEBACD0D38BBCDCE94004E0165",
+  "schedules": [
+    {
+      "schedule_id": 9,
+      "schedule_type": "LESSON",
+      "start_at": "2026-09-14T02:00:00",
+      "end_at": "2026-09-14T03:00:00",
+      "held_at": null,
+      "held_by": null
+    },
+    {
+      "schedule_id": 10,
+      "schedule_type": "LESSON",
+      "start_at": "2026-09-16T02:00:00",
+      "end_at": "2026-09-16T03:00:00",
+      "held_at": null,
+      "held_by": null
+    },
+    {
+      "schedule_id": 11,
+      "schedule_type": "LESSON",
+      "start_at": "2026-09-18T02:00:00",
+      "end_at": "2026-09-18T03:00:00",
+      "held_at": null,
+      "held_by": null
+    },
+    {
+      "schedule_id": 12,
+      "schedule_type": "LESSON",
+      "start_at": "2026-09-21T02:00:00",
+      "end_at": "2026-09-21T03:00:00",
+      "held_at": null,
+      "held_by": null
+    },
+    {
+      "schedule_id": 13,
+      "schedule_type": "LESSON",
+      "start_at": "2026-09-23T02:00:00",
+      "end_at": "2026-09-23T03:00:00",
+      "held_at": null,
+      "held_by": null
+    },
+    {
+      "schedule_id": 14,
+      "schedule_type": "LESSON",
+      "start_at": "2026-09-25T02:00:00",
+      "end_at": "2026-09-25T03:00:00",
+      "held_at": null,
+      "held_by": null
+    },
+    {
+      "schedule_id": 15,
+      "schedule_type": "LESSON",
+      "start_at": "2026-09-28T02:00:00",
+      "end_at": "2026-09-28T03:00:00",
+      "held_at": null,
+      "held_by": null
+    },
+    {
+      "schedule_id": 16,
+      "schedule_type": "LESSON",
+      "start_at": "2026-09-30T02:00:00",
+      "end_at": "2026-09-30T03:00:00",
+      "held_at": null,
+      "held_by": null
+    },
+    {
+      "schedule_id": 17,
+      "schedule_type": "LESSON",
+      "start_at": "2026-10-02T02:00:00",
+      "end_at": "2026-10-02T03:00:00",
+      "held_at": null,
+      "held_by": null
+    },
+    {
+      "schedule_id": 18,
+      "schedule_type": "LESSON",
+      "start_at": "2026-10-05T02:00:00",
+      "end_at": "2026-10-05T03:00:00",
+      "held_at": null,
+      "held_by": null
+    },
+    {
+      "schedule_id": 19,
+      "schedule_type": "LESSON",
+      "start_at": "2026-10-07T02:00:00",
+      "end_at": "2026-10-07T03:00:00",
+      "held_at": null,
+      "held_by": null
+    },
+    {
+      "schedule_id": 20,
+      "schedule_type": "LESSON",
+      "start_at": "2026-10-09T02:00:00",
+      "end_at": "2026-10-09T03:00:00",
+      "held_at": null,
+      "held_by": null
+    },
+    {
+      "schedule_id": 21,
+      "schedule_type": "LESSON",
+      "start_at": "2026-10-12T02:00:00",
+      "end_at": "2026-10-12T03:00:00",
+      "held_at": null,
+      "held_by": null
+    },
+    {
+      "schedule_id": 25,
+      "schedule_type": "LESSON",
+      "start_at": "2026-10-14T02:00:00",
+      "end_at": "2026-10-14T03:00:00",
+      "held_at": null,
+      "held_by": null
+    },
+    {
+      "schedule_id": 26,
+      "schedule_type": "LESSON",
+      "start_at": "2026-10-16T02:00:00",
+      "end_at": "2026-10-16T03:00:00",
+      "held_at": null,
+      "held_by": null
+    },
+    {
+      "schedule_id": 27,
+      "schedule_type": "FINAL_EXAM",
+      "start_at": "2026-10-17T02:00:00",
+      "end_at": "2026-10-17T03:00:00",
+      "held_at": "2026-10-23T16:46:54.973",
+      "held_by": 3
+    }
+  ]
+}

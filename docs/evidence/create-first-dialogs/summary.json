@@ -1,0 +1,23 @@
+{
+  "pass": true,
+  "date": "2026-10-23",
+  "scope": "CREATE_FIRST_DIALOGS",
+  "build": "Test-Project PASS; backend 0 warnings/errors, frontend types/lint/5 client tests/build",
+  "sqlPins": 62,
+  "backendDatabaseFilesUnchanged": 102,
+  "liveMenuWidthCases": 72,
+  "livePopupCases": 39,
+  "controlledChecks": 45,
+  "businessPostsToDatabase": 0,
+  "widths": [
+    375,
+    768,
+    1280
+  ],
+  "review": "docs/plan/CREATE_FIRST_DIALOGS_REVIEW.md",
+  "limitations": [
+    "Writes tested with controlled HTTP responses; no fresh real business mutation suite.",
+    "Historical inline-selection browser drivers need popup-aware interactions; this slice has its own driver.",
+    "No full WCAG/load/backup/second-machine claim."
+  ]
+}

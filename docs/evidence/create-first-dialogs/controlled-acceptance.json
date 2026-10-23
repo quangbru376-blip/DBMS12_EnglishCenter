@@ -1,0 +1,363 @@
+{
+  "pass": true,
+  "browser": "installed Edge",
+  "trustedHttps": true,
+  "controlledApi": true,
+  "businessPostsToDatabase": 0,
+  "checks": [
+    {
+      "role": "AcademicAffairs",
+      "width": 375,
+      "menu": "Khóa học",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 375,
+      "menu": "Lớp học",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 375,
+      "menu": "Xếp lớp",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 375,
+      "menu": "Lịch học",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 375,
+      "dirtyCancelDiscard": true,
+      "keyboardTrap": true,
+      "busyCloseBlocked": true,
+      "errorInside": true,
+      "unknownLookupNoRetry": true,
+      "successCloses": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 768,
+      "menu": "Khóa học",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 768,
+      "menu": "Lớp học",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 768,
+      "menu": "Xếp lớp",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 768,
+      "menu": "Lịch học",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 768,
+      "dirtyCancelDiscard": true,
+      "keyboardTrap": true,
+      "busyCloseBlocked": true,
+      "errorInside": true,
+      "unknownLookupNoRetry": true,
+      "successCloses": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 1280,
+      "menu": "Khóa học",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 1280,
+      "menu": "Lớp học",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 1280,
+      "menu": "Xếp lớp",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 1280,
+      "menu": "Lịch học",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 1280,
+      "dirtyCancelDiscard": true,
+      "keyboardTrap": true,
+      "busyCloseBlocked": true,
+      "errorInside": true,
+      "unknownLookupNoRetry": true,
+      "successCloses": true
+    },
+    {
+      "role": "Student",
+      "width": 375,
+      "menu": "Khóa học",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "Student",
+      "width": 375,
+      "menu": "Hồ sơ đăng ký",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "Student",
+      "width": 375,
+      "menu": "Lớp của tôi",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "Student",
+      "width": 375,
+      "invoicePopup": true,
+      "freshPrintRead": true,
+      "printOnlyDialog": true
+    },
+    {
+      "role": "Student",
+      "width": 768,
+      "menu": "Khóa học",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "Student",
+      "width": 768,
+      "menu": "Hồ sơ đăng ký",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "Student",
+      "width": 768,
+      "menu": "Lớp của tôi",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "Student",
+      "width": 768,
+      "invoicePopup": true,
+      "freshPrintRead": true,
+      "printOnlyDialog": true
+    },
+    {
+      "role": "Student",
+      "width": 1280,
+      "menu": "Khóa học",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "Student",
+      "width": 1280,
+      "menu": "Hồ sơ đăng ký",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "Student",
+      "width": 1280,
+      "menu": "Lớp của tôi",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "Student",
+      "width": 1280,
+      "invoicePopup": true,
+      "freshPrintRead": true,
+      "printOnlyDialog": true
+    },
+    {
+      "role": "Teacher",
+      "width": 375,
+      "teacherDetailsPopup": true,
+      "shortcutClassPreserved": true,
+      "gradePopup": true,
+      "dirtyAndError": true
+    },
+    {
+      "role": "Teacher",
+      "width": 768,
+      "teacherDetailsPopup": true,
+      "shortcutClassPreserved": true,
+      "gradePopup": true,
+      "dirtyAndError": true
+    },
+    {
+      "role": "Teacher",
+      "width": 1280,
+      "teacherDetailsPopup": true,
+      "shortcutClassPreserved": true,
+      "gradePopup": true,
+      "dirtyAndError": true
+    },
+    {
+      "role": "Admissions",
+      "width": 375,
+      "menu": "Hồ sơ nhập học",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "Admissions",
+      "width": 768,
+      "menu": "Hồ sơ nhập học",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "Admissions",
+      "width": 1280,
+      "menu": "Hồ sơ nhập học",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "Accountant",
+      "width": 375,
+      "menu": "Hóa đơn",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "Accountant",
+      "width": 375,
+      "menu": "Hóa đơn",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "Accountant",
+      "width": 768,
+      "menu": "Hóa đơn",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "Accountant",
+      "width": 768,
+      "menu": "Hóa đơn",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "Accountant",
+      "width": 1280,
+      "menu": "Hóa đơn",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "Accountant",
+      "width": 1280,
+      "menu": "Hóa đơn",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "Admin",
+      "width": 375,
+      "menu": "Tài khoản",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "Admin",
+      "width": 375,
+      "temporaryPasswordPreserved": true
+    },
+    {
+      "role": "Admin",
+      "width": 768,
+      "menu": "Tài khoản",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "Admin",
+      "width": 768,
+      "temporaryPasswordPreserved": true
+    },
+    {
+      "role": "Admin",
+      "width": 1280,
+      "menu": "Tài khoản",
+      "popup": true,
+      "fit": true,
+      "focusReturn": true
+    },
+    {
+      "role": "Admin",
+      "width": 1280,
+      "temporaryPasswordPreserved": true
+    }
+  ]
+}

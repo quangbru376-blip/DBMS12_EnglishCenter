@@ -1,0 +1,4 @@
+* text=auto
+# Frozen SQL/manifest bytes must survive Git newline settings.
+database/dbms12-compact/** -text
+backend/EnglishCenter.Dbms12/Resources/PasswordBlocklist/** -text

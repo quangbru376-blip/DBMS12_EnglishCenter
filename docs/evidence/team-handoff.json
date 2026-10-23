@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-22",
+  "scope": "TEAM_HANDOFF_DOCUMENTATION_ONLY",
+  "priorSourceFiles": 167,
+  "unchangedPriorSourceFiles": 159,
+  "changedPriorFiles": [
+    "AGENTS.md",
+    "docs/plan/plan.md",
+    "memory/00_START_HERE.md",
+    "memory/01_CURRENT_STATE.md",
+    "memory/05_RUNBOOK.md",
+    "memory/07_DECISIONS.md",
+    "memory/08_TASKS.md",
+    "README.md"
+  ],
+  "executableSqlConfigAndLockFilesUnchanged": true,
+  "markdownFiles": 23,
+  "internalLinksChecked": 41,
+  "jsonExamplesParsed": 1,
+  "build": {
+    "command": "pwsh -NoProfile -File tools/Test-Project.ps1",
+    "exitCode": 0,
+    "backendWarnings": 0,
+    "backendErrors": 0,
+    "frontendTypes": "PASS",
+    "frontendLint": "PASS",
+    "frontendBuild": "PASS",
+    "clientTests": 5,
+    "sqlHashChecks": 61,
+    "memoryFiles": 9
+  },
+  "machineSetupExecuted": false,
+  "databaseMutationsExecuted": false,
+  "runtimeRestarted": false,
+  "secondMachineAcceptance": false,
+  "applicationEvidenceUnchanged": true,
+  "powershellExamplesSyntaxParsed": 12,
+  "certificateCmdletParametersChecked": true,
+  "verdict": "PASS_SCOPED_DOCUMENTATION_HANDOFF",
+  "notVerified": [
+    "Setup/account/login/cert/ACL commands were parsed or reviewed, not executed",
+    "No clean second-machine runtime acceptance",
+    "No new HTTP/UI mutation run; previous app evidence retained unchanged"
+  ]
+}

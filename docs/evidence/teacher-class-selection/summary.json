@@ -1,0 +1,53 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "width": 375,
+      "selectNonFirst": true,
+      "roster": true,
+      "shortcutsCarryClass": true,
+      "selectionRetained": true,
+      "refreshRosterOnce": true,
+      "noOverflow": true
+    },
+    {
+      "width": 768,
+      "selectNonFirst": true,
+      "roster": true,
+      "shortcutsCarryClass": true,
+      "selectionRetained": true,
+      "refreshRosterOnce": true,
+      "noOverflow": true
+    },
+    {
+      "width": 1280,
+      "selectNonFirst": true,
+      "roster": true,
+      "shortcutsCarryClass": true,
+      "selectionRetained": true,
+      "refreshRosterOnce": true,
+      "noOverflow": true
+    },
+    {
+      "mockedReads": true,
+      "error": true,
+      "retryOneRead": true,
+      "empty": true,
+      "loading": true,
+      "staleResponseIgnored": true
+    },
+    {
+      "mockedReadProjection": true,
+      "dirtyDismissPreservesDraft": true,
+      "dirtyAcceptChangesClass": true,
+      "businessWrites": 0
+    }
+  ],
+  "businessWrites": 0,
+  "trustedHttps": true,
+  "realWidths": [
+    375,
+    768,
+    1280
+  ]
+}

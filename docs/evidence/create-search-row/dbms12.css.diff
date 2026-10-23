@@ -1,0 +1,13 @@
+--- before/dbms12.css
+
++++ after/dbms12.css
+
+@@ -2,6 +2,7 @@
+
+ .ec12-fields>.ec-button { justify-self:start; }
+ .ec12-grid { display:grid;gap:1.5rem;grid-template-columns:minmax(0,1fr); }
+ .ec12-grid>* { min-width:0; }
++.ec12-top-panels { align-items:start; }
+ .ec12-summary { display:flex;gap:1rem;flex-wrap:wrap; }
+ .ec12-summary>article { flex:1 1 12rem; }
+ .ec12-summary strong { display:block;font-size:1.5rem;overflow-wrap:anywhere; }

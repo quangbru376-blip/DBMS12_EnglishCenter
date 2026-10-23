@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-22",
+  "tables": 12,
+  "columns": 99,
+  "foreignKeys": 19,
+  "referenceRelationsPreserved": true,
+  "syntaxCompatibility": "Quote Class identifier for Mermaid parser; same entity name",
+  "referenceSha256": "16AA035884DE7757F5DD9C63EE45EF60DC7AABA8EDCE963C16B3D782A5A7EAD0",
+  "schemaSha256": "824372B75C91F7EB785717370CD05F22FCE4C1E60E9530D4D2298AD4BF3576C2",
+  "source": "docs/diagrams/ERD-full-attributes.mmd",
+  "render": "PASS_NATIVE_MERMAID",
+  "renderDimensions": {
+    "width": 2420,
+    "height": 2977,
+    "tables": 12,
+    "relations": 19
+  },
+  "files": {
+    "ERD-full-attributes.md": "63AA5644B8A79BE07BD94A165354D3ECE2BFD8EBA0A59D2BEF6507856BD3E3A3",
+    "ERD-full-attributes.mmd": "13A3E132FEFF57D2A65B232AA2C7C634DF9462B8D0F74B589521BF3BB72242C7",
+    "ERD-full-attributes.svg": "79E334E05047E94B421E4E09846EEE03E07FB580DB9F777F27040F8485684A69",
+    "ERD-full-attributes.png": "F08758C3B673009EBD2A05E377C34D6EA1C25DE7B7F018A0C32319C08E56108C",
+    "ERD-full-attributes.pdf": "2E5D23222E02B2DCC0E41E3A8F57344AA0A5B79B6559E25309613F66FE6CEAFE"
+  }
+}

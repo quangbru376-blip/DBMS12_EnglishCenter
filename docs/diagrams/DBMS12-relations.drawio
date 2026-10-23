@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" version="24.7.17">
+  <diagram id="dbms12" name="DBMS12 - 12 tables">
+    <mxGraphModel dx="3440" dy="2480" grid="1" gridSize="10" page="1" pageWidth="3440" pageHeight="2480">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Account" value="&lt;b&gt;Account&lt;/b&gt;&lt;hr/&gt;PK       account_id : int&lt;br/&gt;         role_code : varchar(24)&lt;br/&gt;UK       email : varchar(254)&lt;br/&gt;         full_name : nvarchar(200)&lt;br/&gt;         phone ? : varchar(10)&lt;br/&gt;         date_of_birth ? : date&lt;br/&gt;         address ? : nvarchar(255)&lt;br/&gt;         password_hash : varchar(512)&lt;br/&gt;         status : varchar(16)&lt;br/&gt;         created_at : datetime2(3)&lt;br/&gt;         security_version : bigint&lt;br/&gt;         failed_login_count : int&lt;br/&gt;         failure_window_started_at ? : datetime2(3)&lt;br/&gt;         login_throttled_until ? : datetime2(3)&lt;br/&gt;         temp_issued_at ? : datetime2(3)&lt;br/&gt;         row_version : rowversion" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=16;fontFamily=Courier New;fontSize=20;fillColor=#ffffff;strokeColor=#086d68;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="100" y="240" width="680" height="528" />
+        </mxCell>
+        <mxCell id="AuthSession" value="&lt;b&gt;AuthSession&lt;/b&gt;&lt;hr/&gt;PK       sid : binary(32)&lt;br/&gt;FK       account_id : int&lt;br/&gt;         issued_at : datetime2(3)&lt;br/&gt;         last_activity_at : datetime2(3)&lt;br/&gt;         row_version : rowversion" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=16;fontFamily=Courier New;fontSize=20;fillColor=#ffffff;strokeColor=#086d68;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="100" y="1060" width="680" height="231" />
+        </mxCell>
+        <mxCell id="Course" value="&lt;b&gt;Course&lt;/b&gt;&lt;hr/&gt;PK       course_id : int&lt;br/&gt;UK       course_code : varchar(50)&lt;br/&gt;         course_name : nvarchar(200)&lt;br/&gt;         tuition_fee : decimal(18,0)&lt;br/&gt;         status : varchar(16)&lt;br/&gt;         expected_lesson_count : int&lt;br/&gt;         process_weight : decimal(5,2)&lt;br/&gt;         created_at : datetime2(3)&lt;br/&gt;         row_version : rowversion" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=16;fontFamily=Courier New;fontSize=20;fillColor=#ffffff;strokeColor=#086d68;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="940" y="240" width="680" height="339" />
+        </mxCell>
+        <mxCell id="Registration" value="&lt;b&gt;Registration&lt;/b&gt;&lt;hr/&gt;PK       registration_id : int&lt;br/&gt;FK       student_account_id : int&lt;br/&gt;FK       course_id : int&lt;br/&gt;         status : varchar(16)&lt;br/&gt;         created_at : datetime2(3)&lt;br/&gt;         row_version : rowversion" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=16;fontFamily=Courier New;fontSize=20;fillColor=#ffffff;strokeColor=#086d68;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="940" y="1060" width="680" height="258" />
+        </mxCell>
+        <mxCell id="Class" value="&lt;b&gt;Class&lt;/b&gt;&lt;hr/&gt;PK       class_id : int&lt;br/&gt;UK       class_code : varchar(50)&lt;br/&gt;FK       course_id : int&lt;br/&gt;FK       teacher_account_id : int&lt;br/&gt;         capacity : tinyint&lt;br/&gt;         status : varchar(16)&lt;br/&gt;FK/UK    current_grade_operation_id ? : uniqueidentifier&lt;br/&gt;         created_at : datetime2(3)&lt;br/&gt;         row_version : rowversion" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=16;fontFamily=Courier New;fontSize=20;fillColor=#ffffff;strokeColor=#086d68;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1780" y="240" width="680" height="339" />
+        </mxCell>
+        <mxCell id="StudentClassAssignment" value="&lt;b&gt;StudentClassAssignment&lt;/b&gt;&lt;hr/&gt;PK       class_assignment_id : int&lt;br/&gt;FK/UK    registration_id : int&lt;br/&gt;FK       class_id : int&lt;br/&gt;         assigned_at : datetime2(3)&lt;br/&gt;FK       assigned_by : int" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=16;fontFamily=Courier New;fontSize=20;fillColor=#ffffff;strokeColor=#086d68;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1780" y="1060" width="680" height="231" />
+        </mxCell>
+        <mxCell id="Schedule" value="&lt;b&gt;Schedule&lt;/b&gt;&lt;hr/&gt;PK       schedule_id : int&lt;br/&gt;FK       class_id : int&lt;br/&gt;         schedule_type : varchar(16)&lt;br/&gt;         start_at : datetime2(3)&lt;br/&gt;         end_at : datetime2(3)&lt;br/&gt;         room : nvarchar(50)&lt;br/&gt;         held_at ? : datetime2(3)&lt;br/&gt;FK       held_by ? : int&lt;br/&gt;         row_version : rowversion" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=16;fontFamily=Courier New;fontSize=20;fillColor=#ffffff;strokeColor=#086d68;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="2620" y="240" width="680" height="339" />
+        </mxCell>
+        <mxCell id="Attendance" value="&lt;b&gt;Attendance&lt;/b&gt;&lt;hr/&gt;PK       attendance_id : int&lt;br/&gt;FK       schedule_id : int&lt;br/&gt;FK       class_assignment_id : int&lt;br/&gt;         present : bit&lt;br/&gt;         recorded_at : datetime2(3)&lt;br/&gt;         row_version : rowversion" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=16;fontFamily=Courier New;fontSize=20;fillColor=#ffffff;strokeColor=#086d68;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="2620" y="1060" width="680" height="258" />
+        </mxCell>
+        <mxCell id="GradeReport" value="&lt;b&gt;GradeReport&lt;/b&gt;&lt;hr/&gt;PK       report_id : int&lt;br/&gt;FK/UK    class_assignment_id : int&lt;br/&gt;         continuous_score ? : decimal(5,2)&lt;br/&gt;         final_exam_score ? : decimal(5,2)&lt;br/&gt;         teacher_comment ? : nvarchar(1000)&lt;br/&gt;         updated_at : datetime2(3)&lt;br/&gt;         row_version : rowversion" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=16;fontFamily=Courier New;fontSize=20;fillColor=#ffffff;strokeColor=#086d68;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="2620" y="1790" width="680" height="285" />
+        </mxCell>
+        <mxCell id="Invoice" value="&lt;b&gt;Invoice&lt;/b&gt;&lt;hr/&gt;PK       invoice_id : int&lt;br/&gt;UK       invoice_number : bigint&lt;br/&gt;FK/UK    registration_id : int&lt;br/&gt;         amount : decimal(18,0)&lt;br/&gt;         issued_at : datetime2(3)&lt;br/&gt;         paid_at ? : datetime2(3)&lt;br/&gt;FK       paid_by ? : int&lt;br/&gt;         payment_method ? : varchar(16)&lt;br/&gt;         payment_reference ? : nvarchar(100)&lt;br/&gt;         row_version : rowversion" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=16;fontFamily=Courier New;fontSize=20;fillColor=#ffffff;strokeColor=#086d68;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="940" y="1790" width="680" height="366" />
+        </mxCell>
+        <mxCell id="AuditLog" value="&lt;b&gt;AuditLog&lt;/b&gt;&lt;hr/&gt;PK       audit_id : bigint&lt;br/&gt;UK       operation_id : uniqueidentifier&lt;br/&gt;FK       actor_account_id ? : int&lt;br/&gt;         action_code : varchar(80)&lt;br/&gt;         root_entity_id ? : int&lt;br/&gt;         result_code : varchar(16)&lt;br/&gt;         occurred_at : datetime2(3)&lt;br/&gt;         reason ? : nvarchar(1000)&lt;br/&gt;         change_details : nvarchar(4000)&lt;br/&gt;         ip_address ? : varchar(45)" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=16;fontFamily=Courier New;fontSize=20;fillColor=#ffffff;strokeColor=#086d68;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="100" y="1790" width="680" height="366" />
+        </mxCell>
+        <mxCell id="ReplayOperation" value="&lt;b&gt;ReplayOperation&lt;/b&gt;&lt;hr/&gt;PK       replay_id : bigint&lt;br/&gt;FK       actor_account_id : int&lt;br/&gt;         action_code : varchar(80)&lt;br/&gt;         request_id : uniqueidentifier&lt;br/&gt;         input_digest : binary(32)&lt;br/&gt;FK/UK    operation_id : uniqueidentifier&lt;br/&gt;         completed_at : datetime2(3)" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=16;fontFamily=Courier New;fontSize=20;fillColor=#ffffff;strokeColor=#086d68;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1780" y="1790" width="680" height="285" />
+        </mxCell>
+        <mxCell id="R01" value="R01: account_id" edge="1" parent="1" source="AuthSession" target="Account" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#798b9b;fontSize=17;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="440" y="920" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R02" value="R02: student_account_id" edge="1" parent="1" source="Registration" target="Account" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#798b9b;fontSize=17;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="940" y="1170" />
+              <mxPoint x="850" y="1170" />
+              <mxPoint x="850" y="500" />
+              <mxPoint x="850" y="467.03999999999996" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R03" value="R03: course_id" edge="1" parent="1" source="Registration" target="Course" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#217b78;fontSize=17;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R04" value="R04: course_id" edge="1" parent="1" source="Class" target="Course" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#217b78;fontSize=17;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="1780" y="430" />
+              <mxPoint x="1700" y="430" />
+              <mxPoint x="1700" y="409.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R05" value="R05: teacher_account_id" edge="1" parent="1" source="Class" target="Account" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#798b9b;fontSize=17;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="2099.6" y="175" />
+              <mxPoint x="2100" y="175" />
+              <mxPoint x="400" y="175" />
+              <mxPoint x="400" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R06" value="R06: current_grade_operation_id" edge="1" parent="1" source="Class" target="AuditLog" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#a06125;fontSize=17;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="1780" y="490" />
+              <mxPoint x="1720" y="490" />
+              <mxPoint x="1720" y="970" />
+              <mxPoint x="820" y="970" />
+              <mxPoint x="820" y="1930" />
+              <mxPoint x="820" y="1936.4" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R07" value="R07: registration_id" edge="1" parent="1" source="StudentClassAssignment" target="Registration" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#217b78;fontSize=17;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="1780" y="1195" />
+              <mxPoint x="1700" y="1195" />
+              <mxPoint x="1700" y="1196.74" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R08" value="R08: class_id" edge="1" parent="1" source="StudentClassAssignment" target="Class" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#217b78;fontSize=17;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R09" value="R09: assigned_by" edge="1" parent="1" source="StudentClassAssignment" target="Account" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#798b9b;fontSize=17;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="2300.2" y="905" />
+              <mxPoint x="2300" y="905" />
+              <mxPoint x="875" y="905" />
+              <mxPoint x="875" y="670" />
+              <mxPoint x="875" y="641.28" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R10" value="R10: class_id" edge="1" parent="1" source="Schedule" target="Class" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#217b78;fontSize=17;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="2620" y="430" />
+              <mxPoint x="2540" y="430" />
+              <mxPoint x="2540" y="409.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R11" value="R11: held_by" edge="1" parent="1" source="Schedule" target="Account" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#798b9b;fontSize=17;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="2960" y="135" />
+              <mxPoint x="300" y="135" />
+              <mxPoint x="300" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R12" value="R12: schedule_id" edge="1" parent="1" source="Attendance" target="Schedule" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#217b78;fontSize=17;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R13" value="R13: class_assignment_id" edge="1" parent="1" source="Attendance" target="StudentClassAssignment" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#217b78;fontSize=17;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="2620" y="1200" />
+              <mxPoint x="2540" y="1200" />
+              <mxPoint x="2540" y="1182.43" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R14" value="R14: class_assignment_id" edge="1" parent="1" source="GradeReport" target="StudentClassAssignment" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#217b78;fontSize=17;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="2960" y="1570" />
+              <mxPoint x="2120" y="1570" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R15" value="R15: registration_id" edge="1" parent="1" source="Invoice" target="Registration" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#217b78;fontSize=17;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R16" value="R16: paid_by" edge="1" parent="1" source="Invoice" target="Account" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#798b9b;fontSize=17;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="940" y="1970" />
+              <mxPoint x="890" y="1970" />
+              <mxPoint x="890" y="1660" />
+              <mxPoint x="65" y="1660" />
+              <mxPoint x="65" y="580" />
+              <mxPoint x="65" y="551.52" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R17" value="R17: actor_account_id" edge="1" parent="1" source="AuditLog" target="Account" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#798b9b;fontSize=17;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="100" y="1920" />
+              <mxPoint x="40" y="1920" />
+              <mxPoint x="40" y="430" />
+              <mxPoint x="40" y="408.96000000000004" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R18" value="R18: actor_account_id" edge="1" parent="1" source="ReplayOperation" target="Account" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#798b9b;fontSize=17;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="2120" y="1620" />
+              <mxPoint x="805" y="1620" />
+              <mxPoint x="805" y="735" />
+              <mxPoint x="805" y="704.64" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R19" value="R19: operation_id" edge="1" parent="1" source="ReplayOperation" target="AuditLog" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#a06125;fontSize=17;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="2120" y="2250" />
+              <mxPoint x="440" y="2250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

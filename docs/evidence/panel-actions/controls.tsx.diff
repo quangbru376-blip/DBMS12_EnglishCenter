@@ -1,0 +1,20 @@
+--- before/controls.tsx
+
++++ after/controls.tsx
+
+@@ -36,5 +36,5 @@
+
+   return <Modal open title={title} className="ec12-selection" closeDisabled={busy} onRequestClose={close}><div ref={body} className="ec-stack" aria-busy={busy}>{busy&&<p role="status">Đang xử lý…</p>}{children}</div></Modal>;
+ }
+-export function Table({title,rows,columns,onSelect,selected,busy=false,list}:{title:string;rows:Row[];columns:string[];onSelect?:(r:Row)=>void;selected?:Row;busy?:boolean;list?:ScrollList}) {
++export function Table({title,rows,columns,onSelect,selected,busy=false,list,actions}:{title:string;rows:Row[];columns:string[];onSelect?:(r:Row)=>void;selected?:Row;busy?:boolean;list?:ScrollList;actions?:ReactNode}) {
+   const visible=rows.filter(r=>columns.some(k=>k in r));
+   const viewport=useRef<HTMLDivElement>(null),end=useRef<HTMLDivElement>(null);
+@@ -45,5 +45,5 @@
+
+     observer.observe(end.current);return()=>observer.disconnect();
+   },[more,loading,error,busy,loadMore,visible.length]);
+-  return <section className="ec-card ec12-table-panel ec-stack"><h2>{title}</h2>
++  return <section className="ec-card ec12-table-panel ec-stack">{actions?<div className="ec12-table-header"><h2>{title}</h2><div className="ec12-panel-actions">{actions}</div></div>:<h2>{title}</h2>}
+     {visible.length===0&&!error?<p className="ec-feedback ec-feedback--empty">Chưa có dữ liệu phù hợp.</p>:<div ref={viewport} className="ec-table-wrap ec12-list-viewport" role="region" aria-label={title} tabIndex={0}>
+       {visible.length>0&&<table className="ec-table"><thead><tr>{columns.map(c=><th key={c} scope="col">{terms[c]??c}</th>)}{onSelect&&<th scope="col">Thao tác</th>}</tr></thead><tbody>{visible.map((r,i)=><tr key={i} aria-selected={selected===r}>{columns.map(c=><td key={c}>{display(c,r[c]??null)}</td>)}{onSelect&&<td><Button variant={selected===r?'primary':'secondary'} disabled={busy} onClick={()=>onSelect(r)}>Chọn</Button></td>}</tr>)}</tbody></table>}

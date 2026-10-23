@@ -1,0 +1,585 @@
+{
+  "pass": true,
+  "browser": "installed Edge",
+  "trustedHttps": true,
+  "businessPosts": 0,
+  "ownNormalAuthOnly": true,
+  "results": [
+    {
+      "role": "Student",
+      "width": 375,
+      "menu": "Tổng quan",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Student",
+      "width": 375,
+      "menu": "Khóa học",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Student",
+      "width": 375,
+      "menu": "Hồ sơ đăng ký",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Student",
+      "width": 375,
+      "menu": "Hóa đơn",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Student",
+      "width": 375,
+      "menu": "Lớp của tôi",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Student",
+      "width": 375,
+      "menu": "Lịch học",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Student",
+      "width": 375,
+      "menu": "Kết quả học tập",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Student",
+      "width": 375,
+      "menu": "Hồ sơ cá nhân",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Student",
+      "width": 768,
+      "menu": "Tổng quan",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Student",
+      "width": 768,
+      "menu": "Khóa học",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Student",
+      "width": 768,
+      "menu": "Hồ sơ đăng ký",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Student",
+      "width": 768,
+      "menu": "Hóa đơn",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Student",
+      "width": 768,
+      "menu": "Lớp của tôi",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Student",
+      "width": 768,
+      "menu": "Lịch học",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Student",
+      "width": 768,
+      "menu": "Kết quả học tập",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Student",
+      "width": 768,
+      "menu": "Hồ sơ cá nhân",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Student",
+      "width": 1280,
+      "menu": "Tổng quan",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Student",
+      "width": 1280,
+      "menu": "Khóa học",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Student",
+      "width": 1280,
+      "menu": "Hồ sơ đăng ký",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Student",
+      "width": 1280,
+      "menu": "Hóa đơn",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Student",
+      "width": 1280,
+      "menu": "Lớp của tôi",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Student",
+      "width": 1280,
+      "menu": "Lịch học",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Student",
+      "width": 1280,
+      "menu": "Kết quả học tập",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Student",
+      "width": 1280,
+      "menu": "Hồ sơ cá nhân",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Admissions",
+      "width": 375,
+      "menu": "Hồ sơ nhập học",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Admissions",
+      "width": 375,
+      "menu": "Khóa học",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Admissions",
+      "width": 768,
+      "menu": "Hồ sơ nhập học",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Admissions",
+      "width": 768,
+      "menu": "Khóa học",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Admissions",
+      "width": 1280,
+      "menu": "Hồ sơ nhập học",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Admissions",
+      "width": 1280,
+      "menu": "Khóa học",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 375,
+      "menu": "Khóa học",
+      "creationFirst": true,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 375,
+      "menu": "Lớp học",
+      "creationFirst": true,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 375,
+      "menu": "Xếp lớp",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 375,
+      "menu": "Lịch học",
+      "creationFirst": true,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 375,
+      "menu": "Duyệt bảng điểm",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 768,
+      "menu": "Khóa học",
+      "creationFirst": true,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 768,
+      "menu": "Lớp học",
+      "creationFirst": true,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 768,
+      "menu": "Xếp lớp",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 768,
+      "menu": "Lịch học",
+      "creationFirst": true,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 768,
+      "menu": "Duyệt bảng điểm",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 1280,
+      "menu": "Khóa học",
+      "creationFirst": true,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 1280,
+      "menu": "Lớp học",
+      "creationFirst": true,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 1280,
+      "menu": "Xếp lớp",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 1280,
+      "menu": "Lịch học",
+      "creationFirst": true,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 1280,
+      "menu": "Duyệt bảng điểm",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Teacher",
+      "width": 375,
+      "menu": "Lớp phụ trách",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Teacher",
+      "width": 375,
+      "menu": "Lịch dạy",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Teacher",
+      "width": 375,
+      "menu": "Điểm danh",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Teacher",
+      "width": 375,
+      "menu": "Bảng điểm",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Teacher",
+      "width": 768,
+      "menu": "Lớp phụ trách",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Teacher",
+      "width": 768,
+      "menu": "Lịch dạy",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Teacher",
+      "width": 768,
+      "menu": "Điểm danh",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Teacher",
+      "width": 768,
+      "menu": "Bảng điểm",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Teacher",
+      "width": 1280,
+      "menu": "Lớp phụ trách",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Teacher",
+      "width": 1280,
+      "menu": "Lịch dạy",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Teacher",
+      "width": 1280,
+      "menu": "Điểm danh",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Teacher",
+      "width": 1280,
+      "menu": "Bảng điểm",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Accountant",
+      "width": 375,
+      "menu": "Hóa đơn",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Accountant",
+      "width": 375,
+      "menu": "Báo cáo tài chính",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Accountant",
+      "width": 768,
+      "menu": "Hóa đơn",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Accountant",
+      "width": 768,
+      "menu": "Báo cáo tài chính",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Accountant",
+      "width": 1280,
+      "menu": "Hóa đơn",
+      "creationFirst": false,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Accountant",
+      "width": 1280,
+      "menu": "Báo cáo tài chính",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Director",
+      "width": 375,
+      "menu": "Báo cáo tổng hợp",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Director",
+      "width": 768,
+      "menu": "Báo cáo tổng hợp",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Director",
+      "width": 1280,
+      "menu": "Báo cáo tổng hợp",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Admin",
+      "width": 375,
+      "menu": "Tài khoản",
+      "creationFirst": true,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Admin",
+      "width": 375,
+      "menu": "Nhật ký",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Admin",
+      "width": 768,
+      "menu": "Tài khoản",
+      "creationFirst": true,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Admin",
+      "width": 768,
+      "menu": "Nhật ký",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    },
+    {
+      "role": "Admin",
+      "width": 1280,
+      "menu": "Tài khoản",
+      "creationFirst": true,
+      "popup": true,
+      "pass": true
+    },
+    {
+      "role": "Admin",
+      "width": 1280,
+      "menu": "Nhật ký",
+      "creationFirst": false,
+      "popup": false,
+      "pass": true
+    }
+  ]
+}

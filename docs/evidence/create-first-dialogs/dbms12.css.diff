@@ -1,0 +1,21 @@
+--- before/dbms12.css
+
++++ after/dbms12.css
+
+@@ -12,4 +12,6 @@
+
+ .ec12-notice { white-space:pre-wrap;overflow-wrap:anywhere; }
+ .ec12-attendance select { min-width:9rem; }
++.ec12-app .ec12-selection { max-width:56rem; }
++.ec12-app .ec12-selection .ec12-list-viewport { max-height:22rem; }
+ 
+ /* Shared content frames for all seven DBMS12 roles. */
+@@ -76,4 +78,7 @@
+
+ @media print{.ec-navigation,.ec-shell-header,.ec-button,.ec12-toolbar{display:none!important}.ec-shell-layout{display:block}.ec-shell-main{padding:0}}
+ @media print{
++  .ec12-workspace:has(>.ec12-selection[open])>:not(.ec12-selection) { display:none!important; }
++  .ec12-app .ec12-selection[open] { position:static; width:100%; max-width:none; max-height:none; overflow:visible; padding:0; border:0; box-shadow:none; }
++  .ec12-selection .ec-modal-header { display:none; }
+   .ec12-app :is(.ec12-filter,.ec12-pagination,.ec12-workspace>.ec-page-header) { display:none; }
+   .ec12-app .ec-shell-main .ec-card { padding:0; border:0; border-radius:0; box-shadow:none; }

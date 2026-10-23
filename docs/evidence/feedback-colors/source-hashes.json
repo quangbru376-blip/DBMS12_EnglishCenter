@@ -1,0 +1,46 @@
+[
+  {
+    "path": "frontend/src/features/dbms12/Workspace.tsx",
+    "sha256": "acdb4dc00634474f8328c3166ddab5379f00c7465b2912fc030302f13639ac18"
+  },
+  {
+    "path": "frontend/src/features/dbms12/Dbms12App.tsx",
+    "sha256": "29795ce946f6f851de426c0048c23c8134787e1c80010ce5d3459d1232b63796"
+  },
+  {
+    "path": "frontend/src/features/dbms12/Teaching.tsx",
+    "sha256": "5704d4432c0469531d65471c1c466f34b609080a9f20c02f7b633607e14b44cf"
+  },
+  {
+    "path": "frontend/src/features/dbms12/Schedules.tsx",
+    "sha256": "f1f510238778d7aba4e7186e54fd6c1fe82ba3e18b5fba796a0e956b11350bb4"
+  },
+  {
+    "path": "docs/plan/FEEDBACK_COLORS_REVIEW.md",
+    "sha256": "a11554ad61c809a27dd83adc253560a371da0f4b2c5bd8c2b60c2d8f38491011"
+  },
+  {
+    "path": "docs/plan/slices/FEEDBACK_COLORS.md",
+    "sha256": "82c7143c96abbfd3ed78c2d78a418132102f62fee757e97f27b568de48ff45fe"
+  },
+  {
+    "path": "docs/notes/FEEDBACK_COLORS.md",
+    "sha256": "48e061478582f742f1bbb623dbffa23db6d1f783daed53c9010c2843575ffdbd"
+  },
+  {
+    "path": "docs/API.md",
+    "sha256": "acdf73f59cffa5b2816c58fae9ef76c3b241f6c6caacfbf970b9af495b8e6070"
+  },
+  {
+    "path": "docs/plan/plan.md",
+    "sha256": "aca47556300d222c9b0fe705a0d5f241c83ff9b7fbdb76e4912c8bd9e6e1a99b"
+  },
+  {
+    "path": "memory/01_CURRENT_STATE.md",
+    "sha256": "4c91329493161431800fce544e77c4346de9e1de35b8b733055e24dc7145d86f"
+  },
+  {
+    "path": "memory/08_TASKS.md",
+    "sha256": "6c93e8976b7b19ca3ce662bf3ade1b754d14283d9d77e8da9c6d93c0a7d3a476"
+  }
+]

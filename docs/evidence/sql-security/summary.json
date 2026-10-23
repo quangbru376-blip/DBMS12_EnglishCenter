@@ -1,0 +1,92 @@
+{
+  "date": "2026-10-22",
+  "task": "SQL_SECURITY_REDESIGN",
+  "status": "COMPLETE",
+  "review": "PASS",
+  "schema": {
+    "tables": 12,
+    "columns": 99,
+    "procedures": 61,
+    "functions": 7,
+    "views": 9,
+    "triggers": 12
+  },
+  "sqlFiles": 62,
+  "operationProcedures": 56,
+  "infrastructureProcedures": 5,
+  "nativeBusinessRoles": 7,
+  "identityMode": "Existing Windows runtime SQL login; seven WITHOUT LOGIN business users used by fixed backend impersonation. No seven independent SQL logins or Mixed Mode change.",
+  "checks": {
+    "sourceAndBuild": "PASS; no backend warnings/errors",
+    "frontend": {
+      "types": "PASS",
+      "lint": "PASS",
+      "tests": 5,
+      "build": "PASS"
+    },
+    "nativeSql": 1475,
+    "fixtureHttp": 77,
+    "fixtureBrowser": {
+      "roles": 7,
+      "widths": [
+        375,
+        768,
+        1280
+      ]
+    },
+    "teacherUiWrites": true,
+    "uiJourney": 12,
+    "lostAckOneWriteAndManualLookup": true,
+    "weeklyBatchAndMove": true,
+    "auditRollback": true,
+    "validationAndCsv": true,
+    "migrationRehearsal": "PASS including generated rollback",
+    "migration": "PASS; all 12 table row fingerprints and invoice sequence unchanged at migration",
+    "mainSchemaDbcc": "PASS",
+    "mainReadOnlyBusinessSmoke": {
+      "roles": 7,
+      "widths": [
+        375,
+        768,
+        1280
+      ]
+    },
+    "normalStopExit": 0,
+    "restartAndReuse": "PASS",
+    "restartCountsSequenceAndRuntimeKeysUnchanged": true
+  },
+  "unchanged": {
+    "modelSqlFiles": [
+      "00_sample.sql",
+      "01_schema.sql",
+      "02_functions.sql",
+      "03_views.sql",
+      "04_types.sql",
+      "05_triggers.sql",
+      "06_score_validation.sql"
+    ],
+    "frontendSourceFiles": 39,
+    "dependencyFiles": 3,
+    "parentProjects": "No operations targeted APP25/demo24 or other existing catalogs.",
+    "ownerSessions": "No bulk/session revocation; normal dedicated test login/logout only."
+  },
+  "runtime": {
+    "url": "https://localhost:8446/dbms12",
+    "ready": 200,
+    "retainedLauncherSession": 58955
+  },
+  "fixture": {
+    "database": "EnglishCenter_DBMS12_PROJECT_a72328731235482dbcc1d95f1b327507",
+    "id": 27,
+    "guid": "e6241c47-7ea6-4f01-9f92-0eeae8090d2c",
+    "retained": true,
+    "resetOrDropped": false
+  },
+  "limits": [
+    "Business workflows were exercised on isolated fixture, not owner finalized cohorts.",
+    "Main post-migration navigation is read-only business; auth/audit writes occur normally after the migration fingerprint comparison.",
+    "Final cleanup refinement verified by native context tests and main seven-role smoke; full HTTP/UI fixture journey is earlier in the same task.",
+    "No seven separate staff server logins, second-machine install, load, backup/restore, public deployment or full rubric claim.",
+    "Earlier evidence/ZIPs remain historical; no commit/push."
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "pass": true,
+  "checks": [
+    "All tool scripts parse",
+    "Config WhatIf writes nothing",
+    "Fresh config generated",
+    "Config uses recipient parameters",
+    "Existing config refused and unchanged",
+    "Login script uses local identity without privilege grant",
+    "CreateRuntime WhatIf avoids privileged operations/prompts",
+    "SaveCredential WhatIf avoids privileged operations/prompts",
+    "WebCertificate WhatIf avoids privileged operations/prompts",
+    "TrustWebCertificate WhatIf avoids privileged operations/prompts",
+    "SqlCertificate WhatIf avoids privileged operations/prompts",
+    "Provisioned workspace refused even in WhatIf",
+    "Invalid runtime name refused",
+    "Invalid SQL identifier refused",
+    "Private state and worktree metadata excluded",
+    "Secret format blocks publication without logging its value",
+    "Clean export copied only source",
+    "Existing export destination refused",
+    "Export into visible source subtree refused",
+    "Missing-config doctor reports failure without writes or fake readiness"
+  ],
+  "count": 20,
+  "privilegedSetupExecuted": false,
+  "fixtureRetained": true
+}

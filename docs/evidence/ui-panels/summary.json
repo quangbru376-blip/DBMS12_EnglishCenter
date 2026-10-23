@@ -1,0 +1,51 @@
+{
+  "pass": true,
+  "date": "2026-10-22",
+  "scope": "presentation frames for all seven DBMS12 roles",
+  "frontendFiles": [
+    "frontend/src/features/dbms12/Dbms12App.tsx",
+    "frontend/src/features/dbms12/Workspace.tsx",
+    "frontend/src/features/dbms12/Teaching.tsx",
+    "frontend/src/features/dbms12/controls.tsx",
+    "frontend/src/features/dbms12/dbms12.css"
+  ],
+  "checks": {
+    "Test-Project": "PASS: 62SQL/locked restore/backend0warnings0errors/frontend types/lint/5tests/build",
+    "finalFrontendBuild": "PASS after print-only selector fix",
+    "actualEdgeMenuWidthCases": 72,
+    "roles": 7,
+    "widths": [
+      375,
+      768,
+      1280
+    ],
+    "mobileDrawer": true,
+    "keyboardFocus": true,
+    "compactNavAndButtons": true,
+    "pageOverflow": false,
+    "controlledReadStates": [
+      "loading",
+      "empty",
+      "error"
+    ],
+    "teacherRegression": "teacher-regression/summary.json",
+    "computedPrintCssAllRoles": true,
+    "businessPosts": 0,
+    "unchangedBackendDatabaseFiles": 98,
+    "backendDatabaseDrift": [],
+    "servedIndexMatchesBuild": true
+  },
+  "evidence": [
+    "acceptance.json",
+    "print.json",
+    "teacher-regression/summary.json",
+    "preview-desktop.png",
+    "preview-mobile.png"
+  ],
+  "limits": [
+    "No business-write/full HTTP/native SQL rerun",
+    "Print CSS inspected via browser media emulation; no physical printer/PDF acceptance",
+    "No full WCAG/load/all-device claim"
+  ],
+  "review": "../../plan/UI_PANELS_REVIEW.md"
+}

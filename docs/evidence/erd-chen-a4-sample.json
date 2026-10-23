@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-22",
+  "entities": 12,
+  "attributes": 99,
+  "relationships": 19,
+  "layout": "2 columns 6 rows",
+  "diagramMm": [
+    180,
+    260
+  ],
+  "pageMm": [
+    210,
+    297
+  ],
+  "pdfPages": 1,
+  "fontPtAt18cm": 6.519685039370078,
+  "recommendedWordMarginsCm": 1.5,
+  "recommendedWordWidthCm": 18,
+  "routedLegs": 38,
+  "schemaSha256": "824372B75C91F7EB785717370CD05F22FCE4C1E60E9530D4D2298AD4BF3576C2",
+  "files": {
+    "ERD-Chen-A4-sample.drawio": "6EDD80DCFE5816E2EF626A412A4D0C999E5E09BC6877E36DC1D583D3D5FDC8A7",
+    "ERD-Chen-A4-sample.md": "B8882BB8E790895C81B327E920B82DE77C50D880E32DB1652B17017D53858CD7",
+    "ERD-Chen-A4-sample.pdf": "24136042F336EA7E18C590CAF57B577DADA1B5909DB532E43A01471C0DD51AD6",
+    "ERD-Chen-A4-sample.png": "D43883998E1E613C03189D982A11BD7D74C9B9B340230625805FC6E284589DC1",
+    "ERD-Chen-A4-sample.svg": "EB6AAE4346C648959D552F522F67AF45176765E5B3F7A90FD10091E34873DB0A"
+  },
+  "style": "White shapes, pale gold primary keys, Times New Roman, explicit min/max",
+  "primaryKeyHighlights": 12,
+  "edgeCount": 137,
+  "attributeFontPtRange": [
+    6.236220472440946,
+    6.519685039370078
+  ]
+}

@@ -1,0 +1,19 @@
+--- before/Workspace.tsx
+
++++ after/Workspace.tsx
+
+@@ -115,10 +115,11 @@
+
+     if(view==='profile')return <Form key={String(me.row_version)} title="Thông tin cá nhân" busy={disabled} fields={[{name:'name',label:'Họ và tên',value:String(me.full_name)},{name:'phone',label:'Điện thoại',value:String(me.phone??''),max:10},{name:'birthDate',label:'Ngày sinh',type:'date',value:String(me.date_of_birth??'')},{name:'address',label:'Địa chỉ',required:false,max:255,value:String(me.address??'')}]} onSubmit={f=>run('profile/update',{accountVersion:me.row_version,name:f.name,phone:f.phone,birthDate:f.birthDate,address:f.address||null})}/>;
+     return null;
+   }
++  const createPanel=contentReady?creation():null;
++  const searchPanel=['courses','invoices','accounts'].includes(view)?<Form title="Tìm kiếm" submit="Tìm" busy={disabled} fields={[{name:'search',label:view==='courses'?'Tên khóa học':'Họ tên hoặc email',required:false,value:search}]} onSubmit={async f=>{setSearch(f.search);}}/>:null;
+   return <div className="ec12-workspace ec-stack"><header className="ec-page-header"><h1>{title}</h1><Button variant="secondary" disabled={disabled} onClick={refresh}>Tải lại</Button></header>
+     {feedback}
+-    {contentReady&&creation()}
+-    {['courses','invoices','accounts'].includes(view)&&<Form title="Tìm kiếm" submit="Tìm" busy={disabled} fields={[{name:'search',label:view==='courses'?'Tên khóa học':'Họ tên hoặc email',required:false,value:search}]} onSubmit={async f=>{setSearch(f.search);}}/>}
++    {(createPanel||searchPanel)&&<div className={'ec12-grid ec12-top-panels'+(createPanel&&searchPanel?' ec12-grid--two':'')}>{createPanel}{searchPanel}</div>}
+     {['registrations','invoices','accounts'].includes(view)&&<label className="ec-field ec12-filter"><span className="ec-label">Lọc trạng thái</span><select className="ec-input" value={state} disabled={disabled} onChange={e=>{setState(e.target.value);}}><option value="">Tất cả</option>{(view==='registrations'?['PENDING','CONFIRMED','ADMITTED','REJECTED','CANCELLED']:view==='invoices'?['UNPAID','PAID','CANCELLED']:['ACTIVE','LOCKED','DISABLED']).map(s=><option value={s} key={s}>{display('status',s)}</option>)}</select></label>}
+     {(loading||initialListLoading)&&<p role="status">Đang tải dữ liệu…</p>}
+     {contentReady?content():!loading&&!initialListLoading&&<p>Không tải được dữ liệu. Hãy thử tải lại.</p>}

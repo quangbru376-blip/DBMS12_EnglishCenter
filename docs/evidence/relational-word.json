@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-22",
+  "tables": 12,
+  "columns": 99,
+  "wordUnderlineCounts": {
+    "single": 12,
+    "dash": 19,
+    "ordinary": 68
+  },
+  "schemaSha256": "824372B75C91F7EB785717370CD05F22FCE4C1E60E9530D4D2298AD4BF3576C2",
+  "docxSha256": "9A01EF18BF257670F57C5FEBD6DE6742DCDAC3FE8508C0DD902CCBDFCDBBC6DA",
+  "render": "PASS_NATIVE_WORD_VISUALLY_INSPECTED",
+  "format": "A4 portrait Times New Roman 12 pt; editable paragraphs",
+  "pages": 1,
+  "renderer": "Microsoft Word isolated empty instance, read-only open, PDF export; bundled Poppler PNG",
+  "canonicalRendererUnavailable": "No bundled LibreOffice on Windows; render_docx.py failed with soffice.exe not found. No installed LibreOffice used.",
+  "pageMm": [
+    210.02,
+    297.01
+  ],
+  "qaPdfSha256": "64D33905008EE9978216553006FFBD9FDAF57B4E3999C68D4DACCF9CBD86F975",
+  "qaPngSha256": "0F4477EEDC5F450C2A0BDC573954EEE17DA299B1E2D3017ED21F12E2818878FD"
+}

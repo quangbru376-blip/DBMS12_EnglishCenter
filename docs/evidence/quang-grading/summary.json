@@ -1,0 +1,31 @@
+{
+  "pass": true,
+  "scope": "QUANG_GRADING_READY",
+  "date": "2026-10-23",
+  "classCode": "QUANG_CLASS_01",
+  "status": "ONGOING",
+  "gradeStatus": "DRAFT",
+  "students": 1,
+  "lessons": 15,
+  "exams": 1,
+  "scoresLeftBlank": true,
+  "attendanceAndHeldWritten": false,
+  "backendDatabaseSourceFilesUnchanged": 102,
+  "frontendFilesUnchangedAgainstPriorPins": 6,
+  "triggersEnabled": 12,
+  "modulePermissionHashUnchanged": true,
+  "rollbackBothScoreGuardProbe": "PASS",
+  "realTeacherUiWidths": [
+    375,
+    768,
+    1280
+  ],
+  "durableGradeCommands": 0,
+  "buildTests": "Test-Project PASS",
+  "review": "docs/plan/QUANG_GRADING_READY_REVIEW.md",
+  "limits": [
+    "Timetable is an owner-authorized historical demo scenario, not actual teaching evidence.",
+    "No durable grade save/submit/finalize performed; scores remain for owner.",
+    "Normal own auth/audit occurs after transaction row comparisons; identity/rowversion counters can have gaps."
+  ]
+}

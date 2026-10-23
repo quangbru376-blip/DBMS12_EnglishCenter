@@ -1,0 +1,50 @@
+[
+  {
+    "path": "frontend/src/features/dbms12/Workspace.tsx",
+    "sha256": "459edf27c39bb4abeabf6da03c31731214882606efa0de11731e10233bfd348f"
+  },
+  {
+    "path": "frontend/src/features/dbms12/Schedules.tsx",
+    "sha256": "27756c57127bd8a98ee9646979aea62c872b97a45b0d4104c145c911fa1f0100"
+  },
+  {
+    "path": "frontend/src/features/dbms12/controls.tsx",
+    "sha256": "170c60bc7b1fb20ad4f2185d186b65aad459c9a5bb930cba9de67c3aaadc7486"
+  },
+  {
+    "path": "frontend/src/features/dbms12/dbms12.css",
+    "sha256": "03bef5d772e3f33936986dd671956a8bbc866445b6b7550b7dce75e2e7506fca"
+  },
+  {
+    "path": "tests/browser/panel-actions.cjs",
+    "sha256": "412a115b8b059e4f6148d0562247d3b8fd0d28530004350b404fad8339ef19c4"
+  },
+  {
+    "path": "docs/plan/PANEL_ACTION_DIALOGS_REVIEW.md",
+    "sha256": "5a66eb4794da4e09441ae6a5f3b3edbf4902bbcfaaa18fe19fd34a2e9bb76ef7"
+  },
+  {
+    "path": "docs/plan/slices/PANEL_ACTION_DIALOGS.md",
+    "sha256": "2bbd903fcd8c117168a9da3ccad9e0a71d43a46ff6cfb7d9c41fb781dfe53648"
+  },
+  {
+    "path": "docs/notes/PANEL_ACTION_DIALOGS.md",
+    "sha256": "d06d97f91f808860512fc99fc84b93109cb4099e1f93442d9590ff4b979af656"
+  },
+  {
+    "path": "docs/API.md",
+    "sha256": "3794ed3b0f4e4219f5d7cc0d1c38d395361f5ad62a44cbd62c02305d5ba6012d"
+  },
+  {
+    "path": "docs/plan/plan.md",
+    "sha256": "095f8fb7df6ee887d1b62f92f6c64256579a84d38d1f131f8fa4faca3afafcae"
+  },
+  {
+    "path": "memory/01_CURRENT_STATE.md",
+    "sha256": "626635ac282962f98b569408c9cc58e7c6a743bedec0b3fd04fa92b9225bffdc"
+  },
+  {
+    "path": "memory/08_TASKS.md",
+    "sha256": "fa41e93beba5e84695eaf8476678c56559a5f91eedca5d9e5d23349eef18255a"
+  }
+]

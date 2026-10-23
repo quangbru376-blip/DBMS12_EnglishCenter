@@ -1,0 +1,21 @@
+{
+  "pass": true,
+  "scope": "PANEL_ACTION_DIALOGS",
+  "date": "2026-10-23",
+  "backendDatabaseFilesUnchanged": 102,
+  "widths": [
+    375,
+    768,
+    1280
+  ],
+  "controlledChecks": 33,
+  "liveCases": 27,
+  "livePopupOpens": 27,
+  "businessPostsToDatabase": 0,
+  "buildTests": "Test-Project PASS",
+  "review": "docs/plan/PANEL_ACTION_DIALOGS_REVIEW.md",
+  "limitations": [
+    "Business writes checked with controlled API; live checks only read and own authentication.",
+    "No fresh native SQL/full HTTP mutation suite or full WCAG/load/second-machine claim."
+  ]
+}

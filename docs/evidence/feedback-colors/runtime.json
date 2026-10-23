@@ -1,0 +1,15 @@
+{
+  "ready": 200,
+  "indexMatches": true,
+  "assets": [
+    {
+      "path": "/assets/index-C1N31wDP.js",
+      "sha256": "EA77EF245396CB174C1D01C5B7606E3C86322241FEA896A9FDF8F75E55ED3F00"
+    },
+    {
+      "path": "/assets/index-BIa08wzQ.css",
+      "sha256": "ADFEC8C288CE43D224AD68FCBE5A0E19CBC386C73071CE2E633538D61173ECCE"
+    }
+  ],
+  "runtimeRestartedByTask": false
+}

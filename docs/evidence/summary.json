@@ -1,0 +1,86 @@
+{
+  "status": "COMPLETE_SCOPED_STANDALONE_PROJECT_REVIEW_PASS",
+  "date": "2026-10-22",
+  "origin": "https://localhost:8446/dbms12",
+  "database": {
+    "name": "EnglishCenter_DBMS12_PROJECT_c4cef5a3a9b042b3bc4b0517f979d8d1",
+    "id": 26,
+    "guid": "E94F523E-AC86-448C-8E5B-79BE6C31D97B"
+  },
+  "schema": {
+    "tables": 12,
+    "columns": 99,
+    "procedures": 11,
+    "functions": 7,
+    "views": 9,
+    "triggers": 12
+  },
+  "frozenSqlFilesMatched": 61,
+  "existingParentShippingFilesUnchanged": 32,
+  "unitTests": 5,
+  "httpJourneySteps": 77,
+  "storedProceduresExercised": [
+    "usp_AdmissionApprove",
+    "usp_AttendanceSave",
+    "usp_GradeFinalize",
+    "usp_GradeReturn",
+    "usp_GradeSave",
+    "usp_GradeSubmit",
+    "usp_InvoiceCollect",
+    "usp_PlacementCreate",
+    "usp_RegistrationCreate",
+    "usp_ScheduleBatch",
+    "usp_ScheduleMove"
+  ],
+  "uiTeacherWrites": [
+    "attendance/save",
+    "grades/save"
+  ],
+  "uiJourney": [
+    "courses/create",
+    "classes/create",
+    "schedules/batch",
+    "schedules/batch",
+    "classes/open",
+    "registrations/create",
+    "registrations/confirm",
+    "admissions/approve",
+    "invoices/collect",
+    "placements",
+    "lost-ACK/read-only-lookup/one-write",
+    "finalized UI immutable"
+  ],
+  "weeklyScheduleUi": [
+    "classes/create",
+    "schedules/preview",
+    "schedules/batch",
+    "schedules/move"
+  ],
+  "browserRoleWidthSmokeCases": 21,
+  "actualEdgeTrustedHttps": true,
+  "auditRollback": true,
+  "finalValidationAndCsv": true,
+  "lifecycle": {
+    "normalStopExit": 0,
+    "restartReady": 200,
+    "keysUnchanged": true,
+    "keyFiles": 2,
+    "countsUnchanged": true
+  },
+  "cleanArchiveBuild": {
+    "pass": true,
+    "archiveEntries": 208,
+    "privateEntries": 0,
+    "cleanExtractedBuild": true,
+    "dependencyFoldersAbsentInArchive": true,
+    "databaseProvisionedFromExtractedCopy": false
+  },
+  "memoryFiles": 9,
+  "scopeLimits": [
+    "Prepared Windows/SQL/TLS machine prerequisites, no other-machine installer acceptance",
+    "No public Internet/LAN/load/backup restore/RPO-RTO/full WCAG claim",
+    "All role menus at1280 and one resulting view per role at375/768/1280; not every screen-width permutation",
+    "Integration tests mutate synthetic samples; do not auto rerun or reseed",
+    "Source archive excludes database/keys/credentials/current local profile"
+  ]
+}

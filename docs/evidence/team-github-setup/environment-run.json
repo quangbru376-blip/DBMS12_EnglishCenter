@@ -1,0 +1,114 @@
+{
+  "mode": "Run",
+  "checkedUtc": "2026-10-23T17:18:56.7747598Z",
+  "missing": 0,
+  "preflightPassed": true,
+  "applicationReadyVerified": false,
+  "checks": [
+    {
+      "name": "Windows x64",
+      "status": "PASS",
+      "hint": "Full runtime requires Windows x64."
+    },
+    {
+      "name": "PowerShell >=7.4",
+      "status": "PASS",
+      "hint": "Use pwsh7.4+;7.6 tested. Windows PowerShell5.1 is insufficient."
+    },
+    {
+      "name": "git",
+      "status": "PASS",
+      "hint": "Available for GitHub clone/push."
+    },
+    {
+      "name": "dotnet",
+      "status": "PASS",
+      "hint": "Install the toolchain in REQUIREMENTS.md; reopen the terminal after installation."
+    },
+    {
+      "name": "node",
+      "status": "PASS",
+      "hint": "Install the toolchain in REQUIREMENTS.md; reopen the terminal after installation."
+    },
+    {
+      "name": "npm.cmd",
+      "status": "PASS",
+      "hint": "Install the toolchain in REQUIREMENTS.md; reopen the terminal after installation."
+    },
+    {
+      "name": ".NET10 SDK",
+      "status": "PASS",
+      "hint": "Install SDK10; a runtime alone is not enough."
+    },
+    {
+      "name": "ASP.NET Core10",
+      "status": "PASS",
+      "hint": "SDK10 normally includes this runtime."
+    },
+    {
+      "name": "Node>=24",
+      "status": "PASS",
+      "hint": "Use Node24.x for the team baseline."
+    },
+    {
+      "name": "npm>=11",
+      "status": "PASS",
+      "hint": "Use npm ci; preserve package-lock.json."
+    },
+    {
+      "name": "machine.json",
+      "status": "PASS",
+      "hint": "On a fresh clone run tools/Initialize-MachineConfig.ps1; existing configs are never overwritten."
+    },
+    {
+      "name": "Local named SQL config",
+      "status": "PASS",
+      "hint": "Only lpc:.\\NAMED_INSTANCE with SQL hostname localhost is supported."
+    },
+    {
+      "name": "SQL Database Engine service",
+      "status": "PASS",
+      "hint": "Install/start the intended named Database Engine instance; SSMS alone is not the engine."
+    },
+    {
+      "name": "Local runtime account",
+      "status": "PASS",
+      "hint": "Prepare a dedicated enabled non-admin runtime account."
+    },
+    {
+      "name": "Runtime not local admin",
+      "status": "PASS",
+      "hint": "Never add runtime to Administrators."
+    },
+    {
+      "name": "Owner DPAPI credential file",
+      "status": "PASS",
+      "hint": "SaveCredential must run as the launcher owner on this machine."
+    },
+    {
+      "name": "Credential identity",
+      "status": "PASS",
+      "hint": "Credential must decrypt as this owner and match the exact runtime identity."
+    },
+    {
+      "name": "Runtime HTTPS private key",
+      "status": "PENDING",
+      "hint": "Verified under runtime identity by the launcher/host, not by this owner-only preflight."
+    },
+    {
+      "name": "SQL TLS and native login rights",
+      "status": "PENDING",
+      "hint": "Bind/trust the correct SQL certificate and create the runtime Windows LOGIN; provision/host perform trusted TLS and SQL checks."
+    },
+    {
+      "name": "Port8446",
+      "status": "PENDING",
+      "hint": "Occupied: launcher must verify its own receipt and ready endpoint; do not kill an arbitrary process."
+    },
+    {
+      "name": "End-to-end readiness",
+      "status": "PENDING",
+      "hint": "After setup, launch Chay-Project.cmd and verify HTTPS /health/ready plus Test-Project.ps1 -CheckDatabase. This preflight makes no changes and is not a READY verdict."
+    }
+  ]
+}

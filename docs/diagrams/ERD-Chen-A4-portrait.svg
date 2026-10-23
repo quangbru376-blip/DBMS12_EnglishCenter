@@ -1,0 +1,503 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180mm" height="260mm" viewBox="0 0 1800 2600"><rect width="100%" height="100%" fill="white"/>
+<polyline points="360,285.0 360,450 320,450 320,465 330,465" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="358.4,645.0 358.8686291501015,633.8686291501015 558.8686291501015,633.8686291501015 558.8686291501015,466.1313708498985 550.0,466.6" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="361.6,645.0 361.1313708498985,636.1313708498985 561.1313708498985,636.1313708498985 561.1313708498985,463.8686291501015 550.0,463.4" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="400,285.0 400,295 550,295 550,460 780,460 780,465 790,465" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1278.4,645.0 1278.8686291501015,481.1313708498985 1018.8686291501015,481.1313708498985 1018.8686291501015,466.1313708498985 1010.0,466.6" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1281.6,645.0 1281.1313708498985,478.8686291501015 1021.1313708498985,478.8686291501015 1021.1313708498985,463.8686291501015 1010.0,463.4" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1280,285.0 1280,450 1240,450 1240,465 1250,465" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1318.4,645.0 1318.8686291501015,508.8686291501015 1478.8686291501015,508.8686291501015 1478.8686291501015,466.1313708498985 1470.0,466.6" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1321.6,645.0 1321.1313708498985,511.1313708498985 1481.1313708498985,511.1313708498985 1481.1313708498985,463.8686291501015 1470.0,463.4" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1320,285.0 1320,420 1790,420 1790,1240 1460,1240 1460,1285 1470,1285" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1278.4,1465.0 1278.8686291501015,1328.8686291501015 1698.8686291501015,1328.8686291501015 1698.8686291501015,1286.1313708498985 1690.0,1286.6" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1281.6,1465.0 1281.1313708498985,1331.1313708498985 1701.1313708498985,1331.1313708498985 1701.1313708498985,1283.8686291501015 1690.0,1283.4" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,285.0 440,295 450,295 450,425 565,425 565,515 1520,515 1520,465 1530,465" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1318.4,1465.0 1318.8686291501015,1333.8686291501015 1793.8686291501015,1333.8686291501015 1793.8686291501015,466.1313708498985 1750.0,466.6" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1321.6,1465.0 1321.1313708498985,1336.1313708498985 1796.1313708498985,1336.1313708498985 1796.1313708498985,463.8686291501015 1750.0,463.4" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="360,1105.0 360,1240 880,1240 880,1285 890,1285" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1465.0 1360,1285 1110,1285" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1280,695.0 1280,860 1020,860 1020,970 880,970 880,1695 890,1695" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1278.4,1875.0 1278.8686291501015,1711.1313708498985 1118.8686291501015,1711.1313708498985 1118.8686291501015,1696.1313708498985 1110.0,1696.6" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1281.6,1875.0 1281.1313708498985,1708.8686291501015 1121.1313708498985,1708.8686291501015 1121.1313708498985,1693.8686291501015 1110.0,1693.4" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1280,1515.0 1280,1680 1240,1680 1240,1695 1250,1695" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1318.4,1875.0 1318.8686291501015,1863.8686291501015 1478.8686291501015,1863.8686291501015 1478.8686291501015,1696.1313708498985 1470.0,1696.6" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1321.6,1875.0 1321.1313708498985,1866.1313708498985 1481.1313708498985,1866.1313708498985 1481.1313708498985,1693.8686291501015 1470.0,1693.4" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="480,285.0 480,435 605,435 605,620 840,620 840,850 780,850 780,970 875,970 875,1650 1520,1650 1520,1695 1530,1695" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1358.4,1875.0 1358.8686291501015,1738.8686291501015 1758.8686291501015,1738.8686291501015 1758.8686291501015,1696.1313708498985 1750.0,1696.6" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1361.6,1875.0 1361.1313708498985,1741.1313708498985 1761.1313708498985,1741.1313708498985 1761.1313708498985,1693.8686291501015 1750.0,1693.4" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1320,1515.0 1320,1665 1125,1665 1125,1825 930,1825 930,2070 1240,2070 1240,2105 1250,2105" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1278.4,2285.0 1278.8686291501015,2148.8686291501017 1478.8686291501015,2148.8686291501017 1478.8686291501015,2106.1313708498983 1470.0,2106.6" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1281.6,2285.0 1281.1313708498985,2151.1313708498983 1481.1313708498985,2151.1313708498983 1481.1313708498985,2103.8686291501017 1470.0,2103.4" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="520,285.0 520,450 775,450 775,615 845,615 845,845 775,845 775,965 870,965 870,2060 1520,2060 1520,2105 1530,2105" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1320,2285.0 1320,2155 1760,2155 1760,2105 1750,2105" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,2285.0 1360,2160 780,2160 780,2105 790,2105" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="358.4,2285.0 358.8686291501015,2148.8686291501017 1018.8686291501015,2148.8686291501017 1018.8686291501015,2106.1313708498983 1010.0,2106.6" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="361.6,2285.0 361.1313708498985,2151.1313708498983 1021.1313708498985,2151.1313708498983 1021.1313708498985,2103.8686291501017 1010.0,2103.4" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1280,1925.0 1280,2055 380,2055 380,2105 390,2105" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="398.4,2285.0 398.8686291501015,2153.8686291501017 618.8686291501015,2153.8686291501017 618.8686291501015,2106.1313708498983 610.0,2106.6" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="401.6,2285.0 401.1313708498985,2156.1313708498983 621.1313708498985,2156.1313708498983 621.1313708498985,2103.8686291501017 610.0,2103.4" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1400,1875.0 1400,1745 100,1745 100,1695 110,1695" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="358.4,1875.0 358.8686291501015,1696.1313708498985 330.0,1696.6" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="361.6,1875.0 361.1313708498985,1693.8686291501015 330.0,1693.4" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1320,695.0 1320,845 1240,845 1240,875 1250,875" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1278.4,1055.0 1278.8686291501015,918.8686291501015 1478.8686291501015,918.8686291501015 1478.8686291501015,876.1313708498985 1470.0,876.6" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1281.6,1055.0 1281.1313708498985,921.1313708498985 1481.1313708498985,921.1313708498985 1481.1313708498985,873.8686291501015 1470.0,873.4" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="340,285.0 340,445 315,445 315,610 850,610 850,840 780,840 780,875 790,875" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1320,1055.0 1320,905 1020,905 1020,875 1010,875" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="540,285.0 540,420 345,420 345,455 10,455 10,875 110,875" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="360,1055.0 360,875 330,875" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="380,285.0 380,415 545,415 545,445 780,445 780,605 930,605 930,830 1520,830 1520,875 1530,875" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="358.4,1465.0 358.8686291501015,1328.8686291501015 863.8686291501015,1328.8686291501015 863.8686291501015,1083.8686291501015 928.8686291501015,1083.8686291501015 928.8686291501015,923.8686291501015 1758.8686291501015,923.8686291501015 1758.8686291501015,876.1313708498985 1750.0,876.6" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="361.6,1465.0 361.1313708498985,1331.1313708498985 866.1313708498985,1331.1313708498985 866.1313708498985,1086.1313708498985 931.1313708498985,1086.1313708498985 931.1313708498985,926.1313708498985 1761.1313708498985,926.1313708498985 1761.1313708498985,873.8686291501015 1750.0,873.4" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="400,1105.0 400,1255 320,1255 320,1285 330,1285" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="398.4,1465.0 398.8686291501015,1333.8686291501015 558.8686291501015,1333.8686291501015 558.8686291501015,1286.1313708498985 550.0,1286.6" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="401.6,1465.0 401.1313708498985,1336.1313708498985 561.1313708498985,1336.1313708498985 561.1313708498985,1283.8686291501015 550.0,1283.4" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,260 185.0,106.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,260 176.42857142857144,150.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,260 167.85714285714283,194.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,260 159.28571428571428,238.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,260 159.28571428571428,282.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,260 167.85714285714283,326.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,260 176.42857142857144,370.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,260 185.0,414.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,260 695.0,106.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,260 703.5714285714286,150.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,260 712.1428571428571,194.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,260 720.7142857142858,238.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,260 720.7142857142858,282.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,260 712.1428571428571,326.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,260 703.5714285714286,370.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,260 695.0,414.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,670 185.0,626.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,670 155.0,670.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,670 185.0,714.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,670 695.0,648.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,670 695.0,692.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,260 1105.0,172.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,260 1090.0,216.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,260 1075.0,260.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,260 1090.0,304.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,260 1105.0,348.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,260 1615.0,194.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,260 1635.0,238.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,260 1635.0,282.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,260 1615.0,326.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,670 1105.0,626.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,670 1075.0,670.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,670 1105.0,714.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,670 1615.0,626.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,670 1645.0,670.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,670 1615.0,714.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1490 1105.0,1402.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1490 1090.0,1446.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1490 1075.0,1490.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1490 1090.0,1534.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1490 1105.0,1578.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1490 1615.0,1424.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1490 1635.0,1468.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1490 1635.0,1512.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1490 1615.0,1556.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1900 1105.0,1856.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1900 1075.0,1900.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1900 1105.0,1944.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1900 1615.0,1878.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1900 1615.0,1922.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,2310 1105.0,2222.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,2310 1090.0,2266.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,2310 1075.0,2310.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,2310 1090.0,2354.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,2310 1105.0,2398.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,2310 1615.0,2244.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,2310 1635.0,2288.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,2310 1635.0,2332.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,2310 1615.0,2376.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,2310 185.0,2266.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,2310 155.0,2310.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,2310 185.0,2354.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,2310 695.0,2266.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,2310 725.0,2310.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,2310 695.0,2354.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,1900 185.0,1834.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,1900 165.0,1878.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,1900 165.0,1922.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,1900 185.0,1966.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,1900 695.0,1856.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,1900 725.0,1900.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,1900 695.0,1944.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1080 1105.0,992.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1080 1090.0,1036.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1080 1075.0,1080.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1080 1090.0,1124.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1080 1105.0,1168.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1080 1615.0,992.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1080 1630.0,1036.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1080 1645.0,1080.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1080 1630.0,1124.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="1360,1080 1615.0,1168.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,1080 185.0,992.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,1080 170.0,1036.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,1080 155.0,1080.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,1080 170.0,1124.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,1080 185.0,1168.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,1080 695.0,992.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,1080 710.0,1036.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,1080 725.0,1080.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,1080 710.0,1124.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,1080 695.0,1168.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,1490 185.0,1424.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,1490 165.0,1468.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,1490 165.0,1512.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,1490 185.0,1556.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,1490 695.0,1446.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,1490 725.0,1490.0" fill="none" stroke="#333333" stroke-width="1"/>
+<polyline points="440,1490 695.0,1534.0" fill="none" stroke="#333333" stroke-width="1"/>
+<ellipse cx="185.0" cy="106.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="141.5" y="106.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" text-decoration="underline">account_id</text>
+<ellipse cx="176.42857142857144" cy="150.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="136.92857142857144" y="150.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">role_code</text>
+<ellipse cx="167.85714285714283" cy="194.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="145.85714285714283" y="194.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">email</text>
+<ellipse cx="159.28571428571428" cy="238.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="119.78571428571428" y="238.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">full_name</text>
+<ellipse cx="159.28571428571428" cy="282.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="134.28571428571428" y="282.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">phone</text>
+<ellipse cx="167.85714285714283" cy="326.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="115.35714285714283" y="326.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">date_of_birth</text>
+<ellipse cx="176.42857142857144" cy="370.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="144.42857142857144" y="370.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">address</text>
+<ellipse cx="185.0" cy="414.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="121.5" y="414.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">password_hash</text>
+<ellipse cx="695.0" cy="106.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="671.0" y="106.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">status</text>
+<ellipse cx="703.5714285714286" cy="150.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="661.0714285714286" y="150.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">created_at</text>
+<ellipse cx="712.1428571428571" cy="194.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="647.1428571428571" y="194.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">security_version</text>
+<ellipse cx="720.7142857142858" cy="238.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="648.2142857142858" y="238.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">failed_login_count</text>
+<ellipse cx="720.7142857142858" cy="282.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="615.2142857142858" y="282.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">failure_window_started_at</text>
+<ellipse cx="712.1428571428571" cy="326.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="634.1428571428571" y="326.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">login_throttled_until</text>
+<ellipse cx="703.5714285714286" cy="370.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="639.5714285714286" y="370.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">temp_issued_at</text>
+<ellipse cx="695.0" cy="414.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="646.0" y="414.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">row_version</text>
+<ellipse cx="185.0" cy="626.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="173.5" y="626.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" text-decoration="underline">sid</text>
+<ellipse cx="155.0" cy="670.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="111.5" y="670.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">account_id</text>
+<ellipse cx="185.0" cy="714.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="146.5" y="714.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">issued_at</text>
+<ellipse cx="695.0" cy="648.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="636.0" y="648.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">last_activity_at</text>
+<ellipse cx="695.0" cy="692.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="646.0" y="692.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">row_version</text>
+<ellipse cx="1105.0" cy="172.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1066.0" y="172.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" text-decoration="underline">course_id</text>
+<ellipse cx="1090.0" cy="216.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1038.5" y="216.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">course_code</text>
+<ellipse cx="1075.0" cy="260.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1020.0" y="260.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">course_name</text>
+<ellipse cx="1090.0" cy="304.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1048.5" y="304.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">tuition_fee</text>
+<ellipse cx="1105.0" cy="348.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1081.0" y="348.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">status</text>
+<ellipse cx="1615.0" cy="194.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1520.5" y="194.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">expected_lesson_count</text>
+<ellipse cx="1635.0" cy="238.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1572.0" y="238.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">process_weight</text>
+<ellipse cx="1635.0" cy="282.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1592.5" y="282.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">created_at</text>
+<ellipse cx="1615.0" cy="326.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1566.0" y="326.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">row_version</text>
+<ellipse cx="1105.0" cy="626.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1048.5" y="626.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" text-decoration="underline">registration_id</text>
+<ellipse cx="1075.0" cy="670.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="997.0" y="670.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">student_account_id</text>
+<ellipse cx="1105.0" cy="714.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1066.0" y="714.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">course_id</text>
+<ellipse cx="1615.0" cy="626.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1591.0" y="626.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">status</text>
+<ellipse cx="1645.0" cy="670.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1602.5" y="670.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">created_at</text>
+<ellipse cx="1615.0" cy="714.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1566.0" y="714.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">row_version</text>
+<ellipse cx="1105.0" cy="1402.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1072.5" y="1402.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" text-decoration="underline">class_id</text>
+<ellipse cx="1090.0" cy="1446.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1045.0" y="1446.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">class_code</text>
+<ellipse cx="1075.0" cy="1490.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1036.0" y="1490.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">course_id</text>
+<ellipse cx="1090.0" cy="1534.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1011.5" y="1534.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">teacher_account_id</text>
+<ellipse cx="1105.0" cy="1578.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1072.0" y="1578.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">capacity</text>
+<ellipse cx="1615.0" cy="1424.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1591.0" y="1424.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">status</text>
+<ellipse cx="1635.0" cy="1468.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1524.5" y="1468.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">current_grade_operation_id</text>
+<ellipse cx="1635.0" cy="1512.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1592.5" y="1512.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">created_at</text>
+<ellipse cx="1615.0" cy="1556.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1566.0" y="1556.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">row_version</text>
+<ellipse cx="1105.0" cy="1856.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1021.0" y="1856.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" text-decoration="underline">class_assignment_id</text>
+<ellipse cx="1075.0" cy="1900.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1018.5" y="1900.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">registration_id</text>
+<ellipse cx="1105.0" cy="1944.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1072.5" y="1944.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">class_id</text>
+<ellipse cx="1615.0" cy="1878.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1566.5" y="1878.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">assigned_at</text>
+<ellipse cx="1615.0" cy="1922.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1564.5" y="1922.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">assigned_by</text>
+<ellipse cx="1105.0" cy="2222.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1057.0" y="2222.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" text-decoration="underline">schedule_id</text>
+<ellipse cx="1090.0" cy="2266.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1057.5" y="2266.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">class_id</text>
+<ellipse cx="1075.0" cy="2310.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1017.0" y="2310.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">schedule_type</text>
+<ellipse cx="1090.0" cy="2354.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1060.0" y="2354.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">start_at</text>
+<ellipse cx="1105.0" cy="2398.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1077.5" y="2398.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">end_at</text>
+<ellipse cx="1615.0" cy="2244.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1594.0" y="2244.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">room</text>
+<ellipse cx="1635.0" cy="2288.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1605.5" y="2288.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">held_at</text>
+<ellipse cx="1635.0" cy="2332.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1603.5" y="2332.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">held_by</text>
+<ellipse cx="1615.0" cy="2376.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1566.0" y="2376.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">row_version</text>
+<ellipse cx="185.0" cy="2266.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="128.5" y="2266.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" text-decoration="underline">attendance_id</text>
+<ellipse cx="155.0" cy="2310.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="107.0" y="2310.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">schedule_id</text>
+<ellipse cx="185.0" cy="2354.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="101.0" y="2354.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">class_assignment_id</text>
+<ellipse cx="695.0" cy="2266.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="665.0" y="2266.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">present</text>
+<ellipse cx="725.0" cy="2310.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="677.0" y="2310.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">recorded_at</text>
+<ellipse cx="695.0" cy="2354.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="646.0" y="2354.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">row_version</text>
+<ellipse cx="185.0" cy="1834.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="149.5" y="1834.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" text-decoration="underline">report_id</text>
+<ellipse cx="165.0" cy="1878.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="81.0" y="1878.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">class_assignment_id</text>
+<ellipse cx="165.0" cy="1922.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="94.5" y="1922.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">continuous_score</text>
+<ellipse cx="185.0" cy="1966.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="114.0" y="1966.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">final_exam_score</text>
+<ellipse cx="695.0" cy="1856.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="622.0" y="1856.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">teacher_comment</text>
+<ellipse cx="725.0" cy="1900.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="680.0" y="1900.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">updated_at</text>
+<ellipse cx="695.0" cy="1944.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="646.0" y="1944.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">row_version</text>
+<ellipse cx="1105.0" cy="992.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1065.0" y="992.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" text-decoration="underline">invoice_id</text>
+<ellipse cx="1090.0" cy="1036.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1026.0" y="1036.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">invoice_number</text>
+<ellipse cx="1075.0" cy="1080.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1018.5" y="1080.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">registration_id</text>
+<ellipse cx="1090.0" cy="1124.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1059.5" y="1124.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">amount</text>
+<ellipse cx="1105.0" cy="1168.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1066.5" y="1168.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">issued_at</text>
+<ellipse cx="1615.0" cy="992.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1585.5" y="992.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">paid_at</text>
+<ellipse cx="1630.0" cy="1036.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1598.5" y="1036.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">paid_by</text>
+<ellipse cx="1645.0" cy="1080.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1574.5" y="1080.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">payment_method</text>
+<ellipse cx="1630.0" cy="1124.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1552.0" y="1124.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">payment_reference</text>
+<ellipse cx="1615.0" cy="1168.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="1566.0" y="1168.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">row_version</text>
+<ellipse cx="185.0" cy="992.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="153.5" y="992.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" text-decoration="underline">audit_id</text>
+<ellipse cx="170.0" cy="1036.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="120.5" y="1036.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">operation_id</text>
+<ellipse cx="155.0" cy="1080.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="86.5" y="1080.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">actor_account_id</text>
+<ellipse cx="170.0" cy="1124.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="121.5" y="1124.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">action_code</text>
+<ellipse cx="185.0" cy="1168.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="131.0" y="1168.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">root_entity_id</text>
+<ellipse cx="695.0" cy="992.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="648.5" y="992.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">result_code</text>
+<ellipse cx="710.0" cy="1036.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="662.5" y="1036.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">occurred_at</text>
+<ellipse cx="725.0" cy="1080.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="697.5" y="1080.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">reason</text>
+<ellipse cx="710.0" cy="1124.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="649.5" y="1124.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">change_details</text>
+<ellipse cx="695.0" cy="1168.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="651.0" y="1168.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">ip_address</text>
+<ellipse cx="185.0" cy="1424.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="148.5" y="1424.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" text-decoration="underline">replay_id</text>
+<ellipse cx="165.0" cy="1468.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="96.5" y="1468.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">actor_account_id</text>
+<ellipse cx="165.0" cy="1512.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="116.5" y="1512.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">action_code</text>
+<ellipse cx="185.0" cy="1556.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="143.0" y="1556.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">request_id</text>
+<ellipse cx="695.0" cy="1446.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="646.5" y="1446.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">input_digest</text>
+<ellipse cx="725.0" cy="1490.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="675.5" y="1490.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">operation_id</text>
+<ellipse cx="695.0" cy="1534.0" rx="135.0" ry="20.0" fill="white" stroke="#333333" stroke-width="1"/>
+<text x="640.5" y="1534.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111">completed_at</text>
+<rect x="320.0" y="235.0" width="240" height="50" fill="#e6e6e6" stroke="#333333"/>
+<text x="391.5" y="260.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" font-weight="700">ACCOUNT</text>
+<rect x="1240.0" y="235.0" width="240" height="50" fill="#e6e6e6" stroke="#333333"/>
+<text x="1318.5" y="260.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" font-weight="700">COURSE</text>
+<rect x="320.0" y="645.0" width="240" height="50" fill="#e6e6e6" stroke="#333333"/>
+<text x="365.0" y="670.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" font-weight="700">AUTH_SESSION</text>
+<rect x="1240.0" y="645.0" width="240" height="50" fill="#e6e6e6" stroke="#333333"/>
+<text x="1287.0078125" y="670.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" font-weight="700">REGISTRATION</text>
+<rect x="320.0" y="1055.0" width="240" height="50" fill="#e6e6e6" stroke="#333333"/>
+<text x="384.5" y="1080.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" font-weight="700">AUDIT_LOG</text>
+<rect x="1240.0" y="1055.0" width="240" height="50" fill="#e6e6e6" stroke="#333333"/>
+<text x="1320.5" y="1080.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" font-weight="700">INVOICE</text>
+<rect x="320.0" y="1465.0" width="240" height="50" fill="#e6e6e6" stroke="#333333"/>
+<text x="338.0234375" y="1490.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" font-weight="700">REPLAY_OPERATION</text>
+<rect x="1240.0" y="1465.0" width="240" height="50" fill="#e6e6e6" stroke="#333333"/>
+<text x="1327.0" y="1490.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" font-weight="700">CLASS</text>
+<rect x="320.0" y="1875.0" width="240" height="50" fill="#e6e6e6" stroke="#333333"/>
+<text x="359.5" y="1900.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" font-weight="700">GRADE_REPORT</text>
+<rect x="1240.0" y="1875.0" width="240" height="50" fill="#e6e6e6" stroke="#333333"/>
+<text x="1276.0" y="1889.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" font-weight="700">STUDENT_CLASS</text>
+<text x="1295.5" y="1911.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" font-weight="700">ASSIGNMENT</text>
+<rect x="320.0" y="2285.0" width="240" height="50" fill="#e6e6e6" stroke="#333333"/>
+<text x="373.0078125" y="2310.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" font-weight="700">ATTENDANCE</text>
+<rect x="1240.0" y="2285.0" width="240" height="50" fill="#e6e6e6" stroke="#333333"/>
+<text x="1306.5" y="2310.0" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="23" fill="#111111" font-weight="700">SCHEDULE</text>
+<polygon points="330,465 440,430 550,465 440,500" fill="#eeeeee" stroke="#333333"/>
+<text x="389.5" y="465.0" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">CÓ PHIÊN</text>
+<rect x="306" y="450" width="18" height="30" fill="white"/>
+<text x="310.0" y="465" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">1</text>
+<rect x="556" y="450" width="18" height="30" fill="white"/>
+<text x="558.5" y="465" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">N</text>
+<polygon points="790,465 900,430 1010,465 900,500" fill="#eeeeee" stroke="#333333"/>
+<text x="853.0" y="465.0" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">ĐĂNG KÝ</text>
+<rect x="766" y="450" width="18" height="30" fill="white"/>
+<text x="770.0" y="465" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">1</text>
+<rect x="1016" y="450" width="18" height="30" fill="white"/>
+<text x="1018.5" y="465" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">N</text>
+<polygon points="1250,465 1360,430 1470,465 1360,500" fill="#eeeeee" stroke="#333333"/>
+<text x="1290.5" y="465.0" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">THUỘC KHÓA</text>
+<rect x="1226" y="450" width="18" height="30" fill="white"/>
+<text x="1230.0" y="465" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">1</text>
+<rect x="1476" y="450" width="18" height="30" fill="white"/>
+<text x="1478.5" y="465" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">N</text>
+<polygon points="1470,1285 1580,1250 1690,1285 1580,1320" fill="#eeeeee" stroke="#333333"/>
+<text x="1539.5" y="1285.0" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">CÓ LỚP</text>
+<rect x="1446" y="1270" width="18" height="30" fill="white"/>
+<text x="1450.0" y="1285" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">1</text>
+<rect x="1696" y="1270" width="18" height="30" fill="white"/>
+<text x="1698.5" y="1285" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">N</text>
+<polygon points="1530,465 1640,430 1750,465 1640,500" fill="#eeeeee" stroke="#333333"/>
+<text x="1582.0" y="465.0" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">GIẢNG DẠY</text>
+<rect x="1506" y="450" width="18" height="30" fill="white"/>
+<text x="1510.0" y="465" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">1</text>
+<rect x="1756" y="450" width="18" height="30" fill="white"/>
+<text x="1758.5" y="465" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">N</text>
+<polygon points="890,1285 1000,1250 1110,1285 1000,1320" fill="#eeeeee" stroke="#333333"/>
+<text x="964.0" y="1274.5" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">QUYẾT</text>
+<text x="945.0" y="1295.5" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">ĐỊNH ĐIỂM</text>
+<rect x="866" y="1270" width="18" height="30" fill="white"/>
+<text x="870.0" y="1285" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">1</text>
+<rect x="1116" y="1270" width="18" height="30" fill="white"/>
+<text x="1120.0" y="1285" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">1</text>
+<polygon points="890,1695 1000,1660 1110,1695 1000,1730" fill="#eeeeee" stroke="#333333"/>
+<text x="967.0" y="1684.5" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">ĐƯỢC</text>
+<text x="954.0" y="1705.5" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">XẾP LỚP</text>
+<rect x="866" y="1680" width="18" height="30" fill="white"/>
+<text x="870.0" y="1695" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">1</text>
+<rect x="1116" y="1680" width="18" height="30" fill="white"/>
+<text x="1120.0" y="1695" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">1</text>
+<polygon points="1250,1695 1360,1660 1470,1695 1360,1730" fill="#eeeeee" stroke="#333333"/>
+<text x="1291.0" y="1695.0" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">CÓ HỌC VIÊN</text>
+<rect x="1226" y="1680" width="18" height="30" fill="white"/>
+<text x="1230.0" y="1695" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">1</text>
+<rect x="1476" y="1680" width="18" height="30" fill="white"/>
+<text x="1478.5" y="1695" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">N</text>
+<polygon points="1530,1695 1640,1660 1750,1695 1640,1730" fill="#eeeeee" stroke="#333333"/>
+<text x="1594.0" y="1695.0" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">XẾP LỚP</text>
+<rect x="1506" y="1680" width="18" height="30" fill="white"/>
+<text x="1510.0" y="1695" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">1</text>
+<rect x="1756" y="1680" width="18" height="30" fill="white"/>
+<text x="1758.5" y="1695" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">N</text>
+<polygon points="1250,2105 1360,2070 1470,2105 1360,2140" fill="#eeeeee" stroke="#333333"/>
+<text x="1317.5" y="2105.0" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">CÓ LỊCH</text>
+<rect x="1226" y="2090" width="18" height="30" fill="white"/>
+<text x="1230.0" y="2105" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">1</text>
+<rect x="1476" y="2090" width="18" height="30" fill="white"/>
+<text x="1478.5" y="2105" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">N</text>
+<polygon points="1530,2105 1640,2070 1750,2105 1640,2140" fill="#eeeeee" stroke="#333333"/>
+<text x="1586.0" y="2094.5" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">XÁC NHẬN</text>
+<text x="1614.5" y="2115.5" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">BUỔI</text>
+<rect x="1506" y="2090" width="18" height="30" fill="white"/>
+<text x="1510.0" y="2105" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">1</text>
+<rect x="1756" y="2090" width="18" height="30" fill="white"/>
+<text x="1758.5" y="2105" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">N</text>
+<polygon points="790,2105 900,2070 1010,2105 900,2140" fill="#eeeeee" stroke="#333333"/>
+<text x="855.0" y="2094.5" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">CÓ ĐIỂM</text>
+<text x="876.5" y="2115.5" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="21" fill="#111111">DANH</text>
+<rect x="766" y="2090" width="18" height="30" fill="white"/>
+<text x="770.0" y="2105" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">1</text>
+<rect x="1016" y="2090" width="18" height="30" fill="white"/>
+<text x="1018.5" y="2105" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">N</text>
+<polygon points="390,2105 500,2070 610,2105 500,2140" fill="#eeeeee" stroke="#333333"/>
+<text x="467.0" y="2094.5" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">ĐƯỢC</text>
+<text x="441.0" y="2115.5" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">ĐIỂM DANH</text>
+<rect x="366" y="2090" width="18" height="30" fill="white"/>
+<text x="370.0" y="2105" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">1</text>
+<rect x="616" y="2090" width="18" height="30" fill="white"/>
+<text x="618.5" y="2105" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">N</text>
+<polygon points="110,1695 220,1660 330,1695 220,1730" fill="#eeeeee" stroke="#333333"/>
+<text x="172.0" y="1684.5" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">CÓ BẢNG</text>
+<text x="193.5" y="1705.5" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">ĐIỂM</text>
+<rect x="86" y="1680" width="18" height="30" fill="white"/>
+<text x="90.0" y="1695" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">1</text>
+<rect x="336" y="1680" width="18" height="30" fill="white"/>
+<text x="340.0" y="1695" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">1</text>
+<polygon points="1250,875 1360,840 1470,875 1360,910" fill="#eeeeee" stroke="#333333"/>
+<text x="1292.0078125" y="875.0" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">CÓ HÓA ĐƠN</text>
+<rect x="1226" y="860" width="18" height="30" fill="white"/>
+<text x="1230.0" y="875" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">1</text>
+<rect x="1476" y="860" width="18" height="30" fill="white"/>
+<text x="1480.0" y="875" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">1</text>
+<polygon points="790,875 900,840 1010,875 900,910" fill="#eeeeee" stroke="#333333"/>
+<text x="851.5" y="875.0" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">THU TIỀN</text>
+<rect x="766" y="860" width="18" height="30" fill="white"/>
+<text x="770.0" y="875" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">1</text>
+<rect x="1016" y="860" width="18" height="30" fill="white"/>
+<text x="1018.5" y="875" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">N</text>
+<polygon points="110,875 220,840 330,875 220,910" fill="#eeeeee" stroke="#333333"/>
+<text x="161.5" y="875.0" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">THỰC HIỆN</text>
+<rect x="86" y="860" width="18" height="30" fill="white"/>
+<text x="90.0" y="875" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">1</text>
+<rect x="336" y="860" width="18" height="30" fill="white"/>
+<text x="338.5" y="875" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">N</text>
+<polygon points="1530,875 1640,840 1750,875 1640,910" fill="#eeeeee" stroke="#333333"/>
+<text x="1589.0" y="875.0" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">GỬI LỆNH</text>
+<rect x="1506" y="860" width="18" height="30" fill="white"/>
+<text x="1510.0" y="875" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">1</text>
+<rect x="1756" y="860" width="18" height="30" fill="white"/>
+<text x="1758.5" y="875" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">N</text>
+<polygon points="330,1285 440,1250 550,1285 440,1320" fill="#eeeeee" stroke="#333333"/>
+<text x="389.0" y="1274.5" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">GHI NHẬN</text>
+<text x="412.0" y="1295.5" dominant-baseline="central" font-family="Arial,sans-serif" font-size="21" fill="#111111">LỆNH</text>
+<rect x="306" y="1270" width="18" height="30" fill="white"/>
+<text x="310.0" y="1285" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">1</text>
+<rect x="556" y="1270" width="18" height="30" fill="white"/>
+<text x="560.0" y="1285" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="22" fill="#111111">1</text>
+<text x="766.0" y="33" dominant-baseline="central" font-family="Arial Narrow,Arial,sans-serif" font-size="34" fill="#111111" font-weight="700">ERD CHEN DBMS12</text>
+<text x="689.5" y="72" dominant-baseline="central" font-family="Arial,sans-serif" font-size="24" fill="#111111">12 thực thể · 99 thuộc tính · 19 quan hệ</text>
+<text x="55" y="2470" dominant-baseline="central" font-family="Arial,sans-serif" font-size="23" fill="#111111">Gạch chân: khóa chính. 1/N: lực lượng tối đa.</text>
+<text x="55" y="2505" dominant-baseline="central" font-family="Arial,sans-serif" font-size="23" fill="#111111">Đường đôi: tham gia bắt buộc; đường đơn: tùy chọn.</text>
+<text x="55" y="2540" dominant-baseline="central" font-family="Arial,sans-serif" font-size="23" fill="#111111">Tên thuộc tính giữ nguyên theo schema. Không có thực thể yếu.</text>
+</svg>

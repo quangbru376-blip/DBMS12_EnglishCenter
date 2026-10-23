@@ -1,0 +1,17 @@
+--- before/dbms12.css
+
++++ after/dbms12.css
+
+@@ -3,6 +3,11 @@
+
+ .ec12-grid { display:grid;gap:1.5rem;grid-template-columns:minmax(0,1fr); }
+ .ec12-grid>* { min-width:0; }
+ .ec12-top-panels { align-items:start; }
++.ec12-create-panel .ec12-fields { align-items:start; }
++.ec12-create-panel .ec12-fields>.ec-field { min-width:0; }
++.ec12-create-panel .ec12-fields>:is(.ec-button,.ec-feedback) { grid-column:1/-1; }
++@media(min-width:768px){.ec12-create-panel .ec12-fields { grid-template-columns:repeat(2,minmax(0,1fr)); }}
++@media(min-width:1100px){.ec12-create-panel .ec12-fields { grid-template-columns:repeat(3,minmax(0,1fr)); }}
+ .ec12-summary { display:flex;gap:1rem;flex-wrap:wrap; }
+ .ec12-summary>article { flex:1 1 12rem; }
+ .ec12-summary strong { display:block;font-size:1.5rem;overflow-wrap:anywhere; }

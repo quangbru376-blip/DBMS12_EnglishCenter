@@ -1,0 +1,16 @@
+{
+  "pass": true,
+  "scope": "HORIZONTAL_CREATE",
+  "date": "2026-10-23",
+  "backendDatabaseFilesUnchanged": 102,
+  "formLayoutCases": 15,
+  "popupCases": 6,
+  "widths": [
+    375,
+    768,
+    1280
+  ],
+  "businessPosts": 0,
+  "buildTests": "Test-Project PASS",
+  "review": "docs/plan/HORIZONTAL_CREATE_REVIEW.md"
+}

@@ -1,0 +1,28 @@
+--- before/Workspace.tsx
+
++++ after/Workspace.tsx
+
+@@ -69,9 +69,9 @@
+
+   </>;
+   const contentReady=(loaded===selectionKey||loaded.startsWith(view+'|'))&&(!listQuery||list.ready&&!initialListLoading);
+   function creation() {
+-    if(view==='courses'&&role==='AcademicAffairs')return <Form title="Tạo khóa học" busy={disabled} fields={courseFields()} onSubmit={f=>run('courses/create',{code:f.code,name:f.name,tuition:f.tuition,lessons:number(f.lessons),weight:f.weight})}/>;
+-    if(view==='classes'&&role==='AcademicAffairs')return <Form title="Tạo lớp học" busy={disabled} fields={[{name:'code',label:'Mã lớp'},{name:'courseId',label:'Khóa học',options:options(data.courses??[],'course_id',['course_code','course_name'])},{name:'teacherId',label:'Giáo viên',options:options(data.teachers??[],'account_id',['full_name','email'])},{name:'capacity',label:'Sĩ số tối đa',type:'number',value:15}]} onSubmit={f=>run('classes/create',{code:f.code,courseId:number(f.courseId),teacherId:number(f.teacherId),capacity:number(f.capacity)})}/>;
+-    if(view==='accounts')return <Form title="Tạo tài khoản nhân sự" busy={disabled} fields={[{name:'role',label:'Vai trò',options:roles.map(r=>({value:r,label:display('role_code',r)}))},{name:'email',label:'Email',type:'email',max:254},{name:'name',label:'Họ và tên'},{name:'phone',label:'Điện thoại',required:false,max:10}]} onSubmit={f=>run('accounts/create',{role:f.role,email:f.email,name:f.name,phone:f.phone||null})}/>;
++    if(view==='courses'&&role==='AcademicAffairs')return <Form horizontal title="Tạo khóa học" busy={disabled} fields={courseFields()} onSubmit={f=>run('courses/create',{code:f.code,name:f.name,tuition:f.tuition,lessons:number(f.lessons),weight:f.weight})}/>;
++    if(view==='classes'&&role==='AcademicAffairs')return <Form horizontal title="Tạo lớp học" busy={disabled} fields={[{name:'code',label:'Mã lớp'},{name:'courseId',label:'Khóa học',options:options(data.courses??[],'course_id',['course_code','course_name'])},{name:'teacherId',label:'Giáo viên',options:options(data.teachers??[],'account_id',['full_name','email'])},{name:'capacity',label:'Sĩ số tối đa',type:'number',value:15}]} onSubmit={f=>run('classes/create',{code:f.code,courseId:number(f.courseId),teacherId:number(f.teacherId),capacity:number(f.capacity)})}/>;
++    if(view==='accounts')return <Form horizontal title="Tạo tài khoản nhân sự" busy={disabled} fields={[{name:'role',label:'Vai trò',options:roles.map(r=>({value:r,label:display('role_code',r)}))},{name:'email',label:'Email',type:'email',max:254},{name:'name',label:'Họ và tên'},{name:'phone',label:'Điện thoại',required:false,max:10}]} onSubmit={f=>run('accounts/create',{role:f.role,email:f.email,name:f.name,phone:f.phone||null})}/>;
+     return null;
+   }
+   function selection() {
+@@ -119,7 +119,7 @@
+
+   const searchPanel=['courses','invoices','accounts'].includes(view)?<Form title="Tìm kiếm" submit="Tìm" busy={disabled} fields={[{name:'search',label:view==='courses'?'Tên khóa học':'Họ tên hoặc email',required:false,value:search}]} onSubmit={async f=>{setSearch(f.search);}}/>:null;
+   return <div className="ec12-workspace ec-stack"><header className="ec-page-header"><h1>{title}</h1><Button variant="secondary" disabled={disabled} onClick={refresh}>Tải lại</Button></header>
+     {feedback}
+-    {(createPanel||searchPanel)&&<div className={'ec12-grid ec12-top-panels'+(createPanel&&searchPanel?' ec12-grid--two':'')}>{createPanel}{searchPanel}</div>}
++    {(createPanel||searchPanel)&&<div className="ec12-grid ec12-top-panels">{createPanel}{searchPanel}</div>}
+     {['registrations','invoices','accounts'].includes(view)&&<label className="ec-field ec12-filter"><span className="ec-label">Lọc trạng thái</span><select className="ec-input" value={state} disabled={disabled} onChange={e=>{setState(e.target.value);}}><option value="">Tất cả</option>{(view==='registrations'?['PENDING','CONFIRMED','ADMITTED','REJECTED','CANCELLED']:view==='invoices'?['UNPAID','PAID','CANCELLED']:['ACTIVE','LOCKED','DISABLED']).map(s=><option value={s} key={s}>{display('status',s)}</option>)}</select></label>}
+     {(loading||initialListLoading)&&<p role="status">Đang tải dữ liệu…</p>}
+     {contentReady?content():!loading&&!initialListLoading&&<p>Không tải được dữ liệu. Hãy thử tải lại.</p>}

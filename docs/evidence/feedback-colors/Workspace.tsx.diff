@@ -1,0 +1,60 @@
+--- before/Workspace.tsx
+
++++ after/Workspace.tsx
+
+@@ -19,7 +19,7 @@
+
+ type Data=Record<string,Row[]>;
+ export function Workspace({client,me,view,title,onRefreshSession,onBusyChange,onNavigate}:{client:Dbms12Client;me:Row;view:string;title:string;onRefreshSession:()=>Promise<unknown>;onBusyChange:(busy:boolean)=>void;onNavigate:(view:string)=>void}) {
+   const role=String(me.role_code);
+-  const [data,setData]=useState<Data>({}),[loaded,setLoaded]=useState(''),[loading,setLoading]=useState(true),[busy,setBusy]=useState(false),[notice,setNotice]=useState(''),[temporary,setTemporary]=useState<string|null>(null),[picked,setPicked]=useState<Row>(),[search,setSearch]=useState(''),[state,setState]=useState(''),[revision,setRevision]=useState(0);
++  const [data,setData]=useState<Data>({}),[loaded,setLoaded]=useState(''),[loading,setLoading]=useState(true),[busy,setBusy]=useState(false),[notice,setNotice]=useState({message:'',success:false}),[temporary,setTemporary]=useState<string|null>(null),[picked,setPicked]=useState<Row>(),[search,setSearch]=useState(''),[state,setState]=useState(''),[revision,setRevision]=useState(0);
+   const selectionKey=[view,search,state,revision].join('|');
+   const [teachingClassId,setTeachingClassId]=useState('');
+   const listQuery=useMemo<ListQuery|null>(()=>{
+@@ -42,17 +42,17 @@
+
+       if(view==='grades-own')jobs.push(['main','grades/own',{}]);
+       if(view==='reports-finance')jobs.push(['main','reports/finance',range()]);
+       if(view==='reports-director')jobs.push(['main','reports/director',range()]);
+-      void Promise.all(jobs.map(async([key,path,params])=>[key,await client.read(path,params)] as const)).then(results=>{if(active){setData(Object.fromEntries(results));setLoaded(selectionKey);}}).catch(e=>{if(active)setNotice(e instanceof Error?e.message:'Không thể tải dữ liệu.');}).finally(()=>{if(active)setLoading(false);});
++      void Promise.all(jobs.map(async([key,path,params])=>[key,await client.read(path,params)] as const)).then(results=>{if(active){setData(Object.fromEntries(results));setLoaded(selectionKey);}}).catch(e=>{if(active)setNotice({message:e instanceof Error?e.message:'Không thể tải dữ liệu.',success:false});}).finally(()=>{if(active)setLoading(false);});
+     },0);
+     return()=>{active=false;clearTimeout(timer);};
+   },[client,view,role,search,state,selectionKey]);
+   useEffect(()=>{onBusyChange(busy);return()=>onBusyChange(false);},[busy,onBusyChange]);
+   const refresh=()=>setRevision(n=>n+1);
+-  const read=async(path:string,args:Payload={})=>{try{setBusy(true);return await client.read(path,args);}catch(e){setNotice(e instanceof Error?e.message:'Không thể tải dữ liệu.');return [];}finally{setBusy(false);}};
++  const read=async(path:string,args:Payload={})=>{try{setBusy(true);return await client.read(path,args);}catch(e){setNotice({message:e instanceof Error?e.message:'Không thể tải dữ liệu.',success:false});return [];}finally{setBusy(false);}};
+   const run=async(path:string,args:Payload):Promise<boolean>=>{
+-    setBusy(true);setNotice('');setTemporary(null);
+-    try {const result=await client.command(path,args);setTemporary(result.temporaryPassword??null);setNotice('Đã lưu thành công.');await onRefreshSession();refresh();return true;}
+-    catch(e){setNotice(client.pending?'Chưa xác định được kết quả. Không gửi lại thao tác; hãy kiểm tra kết quả bên dưới.':e instanceof Error?e.message:'Không thể lưu dữ liệu.');return false;}
++    setBusy(true);setNotice({message:'',success:false});setTemporary(null);
++    try {const result=await client.command(path,args);setTemporary(result.temporaryPassword??null);setNotice({message:'Đã lưu thành công.',success:true});await onRefreshSession();refresh();return true;}
++    catch(e){setNotice({message:client.pending?'Chưa xác định được kết quả. Không gửi lại thao tác; hãy kiểm tra kết quả bên dưới.':e instanceof Error?e.message:'Không thể lưu dữ liệu.',success:false});return false;}
+     finally{setBusy(false);}
+   };
+   const choose=(r:Row)=>{if(document.querySelector('[data-dbms12-dirty="true"]')&&!window.confirm('Có dữ liệu chưa lưu. Bỏ thay đổi để chọn dòng khác?'))return false;setPicked(r);setTemporary(null);return true;};
+@@ -63,8 +63,8 @@
+
+   const button=(text:string,path:string,body:Payload,danger=false)=><Button key={path} disabled={disabled} variant={danger?'danger':'secondary'} onClick={()=>{if(window.confirm(text+'?'))void run(path,body);}}>{text}</Button>;
+   const options=(items:Row[],key:string,names:string[])=>items.filter(r=>r[key]!==undefined).map(r=>({value:String(r[key]),label:label(r,names)}));
+   const feedback=<>
+-    {notice&&<p role="status" className="ec-feedback ec12-notice">{notice}</p>}
+-    {client.pending&&<section className="ec-feedback ec-feedback--error"><h2>Kiểm tra thao tác chưa rõ kết quả</h2><p>Không tự gửi lại yêu cầu. Việc kiểm tra chỉ đọc kết quả đã lưu.</p><Button disabled={busy} onClick={()=>void read('operations',{requestId:client.pending?.requestId,action:client.pending?.action}).then(rows=>{if(rows.length){client.pending=null;setNotice('Thao tác đã được lưu.');refresh();}else setNotice('Chưa tìm thấy kết quả. Tiếp tục kiểm tra hoặc đăng xuất; không gửi lại tự động.');})}>Kiểm tra kết quả</Button></section>}
++    {notice.message&&<p role={notice.success?'status':'alert'} className={'ec-feedback ec12-notice ec-feedback--'+(notice.success?'success':'error')}>{notice.message}</p>}
++    {client.pending&&<section className="ec-feedback ec-feedback--error"><h2>Kiểm tra thao tác chưa rõ kết quả</h2><p>Không tự gửi lại yêu cầu. Việc kiểm tra chỉ đọc kết quả đã lưu.</p><Button disabled={busy} onClick={()=>void read('operations',{requestId:client.pending?.requestId,action:client.pending?.action}).then(rows=>{if(rows.length){client.pending=null;setNotice({message:'Thao tác đã được lưu.',success:true});refresh();}else setNotice({message:'Chưa tìm thấy kết quả. Tiếp tục kiểm tra hoặc đăng xuất; không gửi lại tự động.',success:false});})}>Kiểm tra kết quả</Button></section>}
+     {temporary&&<section className="ec-feedback ec-feedback--success ec12-notice"><h2>Mật khẩu tạm — chỉ hiển thị lần này</h2><output>{temporary}</output><p>Gửi riêng cho nhân sự và yêu cầu đổi mật khẩu khi đăng nhập.</p><Button onClick={()=>setTemporary(null)}>Đã ghi nhận</Button></section>}
+   </>;
+   const contentReady=(loaded===selectionKey||loaded.startsWith(view+'|'))&&(!listQuery||list.ready&&!initialListLoading);
+@@ -122,7 +122,7 @@
+
+     {(createPanel||searchPanel)&&<div className="ec12-grid ec12-top-panels">{createPanel}{searchPanel}</div>}
+     {['registrations','invoices','accounts'].includes(view)&&<label className="ec-field ec12-filter"><span className="ec-label">Lọc trạng thái</span><select className="ec-input" value={state} disabled={disabled} onChange={e=>{setState(e.target.value);}}><option value="">Tất cả</option>{(view==='registrations'?['PENDING','CONFIRMED','ADMITTED','REJECTED','CANCELLED']:view==='invoices'?['UNPAID','PAID','CANCELLED']:['ACTIVE','LOCKED','DISABLED']).map(s=><option value={s} key={s}>{display('status',s)}</option>)}</select></label>}
+     {(loading||initialListLoading)&&<p role="status">Đang tải dữ liệu…</p>}
+-    {contentReady?content():!loading&&!initialListLoading&&<p>Không tải được dữ liệu. Hãy thử tải lại.</p>}
++    {contentReady?content():!loading&&!initialListLoading&&<p role="alert" className="ec-feedback ec-feedback--error">Không tải được dữ liệu. Hãy thử tải lại.</p>}
+     {picked&&contentReady&&['courses','registrations','classes','placements','invoices-own','invoices','accounts'].includes(view)&&<SelectionDialog title={title+' — '+label(picked,['class_code','course_name','full_name','invoice_number'])} busy={busy} onClose={()=>setPicked(undefined)}>{feedback}{selection()}</SelectionDialog>}
+   </div>;
+ }

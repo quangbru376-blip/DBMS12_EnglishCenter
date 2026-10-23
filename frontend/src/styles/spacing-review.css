@@ -1,0 +1,107 @@
+/* Shared spacing pass: rows, tables and calendar cells retain their own layout. */
+:root {
+  --layout-section-gap: 24px;
+  --layout-content-gap: 16px;
+  --layout-panel-inset: 20px;
+  --layout-list-inset: 16px;
+  --layout-action-gap: 12px;
+  --layout-copy-gap: 8px;
+}
+.ec-layout-v2 .ec-work-page,.layout-page,.student-garden { gap:var(--layout-section-gap); }
+.layout-page > :is(.ec-feedback,.my-3,.my-4,.my-5,.mt-4,.mt-5,.mt-6) { margin-block:0; }
+.layout-page > .my-4 { display:grid; gap:var(--layout-content-gap); }
+.layout-page :is(.teacher-schedule,.teacher-gradebook,.teacher-attendance),.teacher-schedule,.teacher-gradebook,.teacher-attendance { gap:var(--layout-content-gap); }
+.layout-stage { padding:var(--layout-panel-inset); gap:var(--layout-content-gap); }
+.layout-stage-header,.layout-stage-toolbar,.ec-actions,.student-actions,.student-card-actions { gap:var(--layout-action-gap); }
+.layout-stage-title h2 + :is(p,small) { display:block; margin-top:4px; }
+.layout-row { padding:var(--layout-list-inset); }
+.layout-row-name + .layout-row-meta { margin-top:4px; }
+
+/* Bare articles/stacks previously touched the viewport edge. Table/row variants
+   and calendars already have dedicated cell/row padding, so are not inset again. */
+.layout-list .layout-list-content > :is(article,.ec-stack,p,.ec-feedback) {
+  margin:0; padding:var(--layout-list-inset); min-width:0;
+}
+.layout-list .layout-list-content > article {
+  display:grid; gap:var(--layout-action-gap); border:0;
+  border-bottom:1px solid var(--layout-line); border-radius:0; box-shadow:none;
+}
+.layout-list .layout-list-content > article:last-child { border-bottom:0; }
+.layout-list .layout-list-content > article[aria-current=true] {
+  background:var(--ec-primary-soft); box-shadow:inset 4px 0 var(--ec-primary);
+}
+.layout-list .layout-list-content > article > .ec-button { justify-self:start; max-width:100%; }
+.layout-list .layout-list-content > .ec-stack { gap:var(--layout-content-gap); }
+.layout-list .layout-list-content > .ec-stack > :is(article,p) { margin-block:0; }
+
+/* The selected region owns its inset exactly once, including bare text children. */
+.layout-selection-label { padding:12px var(--layout-panel-inset); }
+.layout-selection-body { display:grid; gap:var(--layout-content-gap); min-width:0; padding:var(--layout-panel-inset); }
+.layout-selection-body > * { min-width:0; margin-block:0; }
+.layout-selection-body > :is(article,.ec-card,.ec-work-card,.student-detail) {
+  margin:0; padding:0; border:0; border-radius:0; box-shadow:none; background:transparent;
+}
+.layout-selection-body > article { display:grid; gap:var(--layout-content-gap); }
+.layout-selection-body > article > .ec-button { justify-self:start; }
+.layout-selection-body .ec-stack { gap:var(--layout-content-gap); }
+.layout-page .ec-stack > :is(.my-3,.my-4,.my-5,.mt-4,.mt-5) { margin-block:0; }
+
+.ec-layout-v2 .ec-work-filter,.ec-layout-v2 .ec-work-form,.ec-layout-v2 .student-filter,.ec-layout-v2 .student-profile-form {
+  row-gap:var(--layout-content-gap); column-gap:20px;
+}
+.ec-modal { padding:var(--layout-panel-inset); }
+.ec-modal-header { margin-bottom:var(--layout-panel-inset); }
+.ec-modal-body { gap:var(--layout-content-gap); }
+.ec-modal-body form { row-gap:var(--layout-content-gap); }
+.ec-modal-body > form:not(.flex) { display:grid; }
+.layout-action-main,.layout-action-danger { gap:var(--layout-action-gap); }
+.layout-page .ec-actions + .layout-row-meta { margin-top:calc(-1 * var(--layout-copy-gap)); }
+
+@media(max-width:767px) {
+  :root { --layout-section-gap:20px; --layout-panel-inset:16px; }
+  .layout-row { padding:14px 12px; }
+  .layout-stage-header { align-items:flex-start; }
+  .layout-selection-label { padding-block:12px; }
+}
+@media print {
+  .layout-list-scroll { max-height:none; overflow:visible; }
+  .layout-selection-body { overflow:visible; }
+}
+
+/* Wrapper and tab-panel flows need a gap even when their children are fragments. */
+.program-overview { gap:var(--layout-content-gap); }
+.program-overview > .ec-feedback { margin-block:0; }
+.staff-sections > [role=tabpanel]:not([hidden]),.teacher-class-detail [role=tabpanel]:not([hidden]) {
+  display:grid; gap:var(--layout-content-gap);
+}
+.layout-selection-body > .layout-stage,.layout-selection-body > div > .layout-stage:only-child {
+  padding:0; border:0; border-radius:0; background:transparent;
+}
+.layout-selection-body form > .ec-button,.ec-modal-body form > .ec-button { justify-self:start; }
+.layout-selection-body form fieldset > .ec-button { align-self:end; }
+.layout-selection-body form fieldset > .grid > button { align-self:end; }
+
+/* A shared explanation spans the action group once. */
+.layout-action-reasons { flex-basis:100%; display:grid; gap:8px; min-width:0; }
+.layout-action-reasons .layout-action-reason { max-width:none; overflow-wrap:anywhere; }
+
+/* Home journeys show a short row; the existing record workflow lives in a dialog. */
+.student-journey-list { display:grid; list-style:none; padding:0; margin:0; }
+.student-journey-list > li { min-width:0; border-bottom:1px solid var(--ec-border); }
+.student-journey-list > li:last-child { border-bottom:0; }
+.student-journey-row { display:grid; grid-template-columns:auto minmax(0,1fr) auto auto; align-items:center; gap:16px; padding:20px; }
+.student-journey-icon { display:grid; place-items:center; width:44px; height:44px; border-radius:12px; color:var(--ec-primary); background:var(--ec-primary-soft); }
+.student-journey-name { min-width:0; display:grid; gap:4px; }
+.student-journey-name h3 { margin:0; }
+.student-journey-modal { width:min(860px,calc(100vw - 32px)); }
+.student-journey-modal .layout-selection-body { padding:16px; }
+@media(max-width:600px) {
+  .student-journey-row { grid-template-columns:auto minmax(0,1fr); gap:12px; padding:16px; }
+  .student-journey-row > .ec-badge { grid-column:2; justify-self:start; }
+  .student-journey-row > .ec-button { grid-column:2; justify-self:start; }
+}
+
+.student-row-price { font-weight:600; color:var(--ec-primary); overflow-wrap:anywhere; }
+@media(max-width:600px) { .student-journey-row > .student-row-price { grid-column:2; } }
+
+.student-class-modal { max-width:54rem; }

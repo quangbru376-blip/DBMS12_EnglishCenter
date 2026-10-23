@@ -1,0 +1,20 @@
+{
+  "class_code": "QUANG_CLASS_01",
+  "status": "ONGOING",
+  "grade_status": "DRAFT",
+  "lesson_count": 15,
+  "expected_lesson_count": 15,
+  "exam_count": 1,
+  "students": 1,
+  "held_rows": 0,
+  "attendance_rows": 0,
+  "continuous_score": null,
+  "final_exam_score": null,
+  "teacher_comment": null,
+  "first_lesson_vietnam": "2026-09-14T09:00:00",
+  "exam_end_vietnam": "2026-10-17T10:00:00",
+  "enabled_triggers": 12,
+  "disabled_triggers": 0,
+  "bad_constraints": 0,
+  "owner_preparation_audit_rows": 1
+}

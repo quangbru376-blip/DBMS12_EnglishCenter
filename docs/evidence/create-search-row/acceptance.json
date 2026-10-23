@@ -1,0 +1,67 @@
+{
+  "pass": true,
+  "browser": "installed Edge",
+  "trustedHttps": true,
+  "candidateBundle": true,
+  "businessPosts": 0,
+  "checks": [
+    {
+      "role": "AcademicAffairs",
+      "width": 375,
+      "aligned": false,
+      "stacked": true,
+      "noOverflow": true,
+      "popupStillWorks": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 768,
+      "aligned": false,
+      "stacked": true,
+      "noOverflow": true,
+      "popupStillWorks": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "width": 1280,
+      "aligned": true,
+      "stacked": false,
+      "noOverflow": true,
+      "popupStillWorks": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "searchQueryPreserved": true,
+      "emptyErrorLoading": true
+    },
+    {
+      "role": "Admin",
+      "width": 375,
+      "aligned": false,
+      "stacked": true,
+      "noOverflow": true,
+      "popupStillWorks": true
+    },
+    {
+      "role": "Admin",
+      "width": 768,
+      "aligned": false,
+      "stacked": true,
+      "noOverflow": true,
+      "popupStillWorks": true
+    },
+    {
+      "role": "Admin",
+      "width": 1280,
+      "aligned": true,
+      "stacked": false,
+      "noOverflow": true,
+      "popupStillWorks": true
+    },
+    {
+      "role": "Admin",
+      "searchQueryPreserved": true,
+      "emptyErrorLoading": true
+    }
+  ]
+}
