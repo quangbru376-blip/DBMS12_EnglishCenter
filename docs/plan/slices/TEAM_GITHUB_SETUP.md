@@ -8,4 +8,4 @@ Chuẩn bị công cụ theo pha: kiểm Build/Run không ghi state; tạo runti
 
 Acceptance: parser+guard/no-overwrite/WhatIf tests;doctor;Test-Project;source-only export/secret checks/SQLbytes;Gitcheckout sạch build;repo PRIVATE mới không fork/rootcommit không parent/rootTree là project12;commit/push không force và xác minh remote SHA. Chỉ stage inventory public của đúng root;parentindex giữhash. Không claim Windows thứhai. Dùng skill code-review,không delegation.
 
-Status: PREPARATION COMPLETE / scoped review PASS.20toolchecks,doctorBuild/Run,Test-Project,cleanGitcheckoutbuild(core.autocrlf=true),ZIP62SQLhash/privatefiles0 PASS. Git commit/push sau review và xác minh remote riêng. Chưa nghiệm thu Windows thứ hai.
+Status: COMPLETE / scoped review PASS. RepoPRIVATE riêng đã tạo/push main/remoteSHA verified,rootcommit khôngparent,forkfalse,parentindexunchanged. Clone lại từ repo riêng và Test-Project PASS;20toolchecks/doctor/SQLpins/ZIPchecks PASS. Chưa nghiệm thu Windows thứhai.

@@ -23,3 +23,5 @@ Chưa chạy thực5pha account/credential/certificate/ACL trên Windows mới;�
 
 ## Repo độc lập theo steering của owner
 Source chính xác C:\Study\SOEN\main_workplace\DBMS12_EnglishCenter;repoGitHub PRIVATE mới,id1431359938,forkfalse;Gitroot đúng source,origin chỉ repo riêng. Các lệnh clone và hướng dẫn đã đổi sang repo độc lập;collaborators cần được owner cấp quyền. Không mời tựđộng. Kiểm rootcommit/remoteSHA/parentindex sau publish riêng.
+
+Kết quảpublish: repoPRIVATE riêng đã pushmain/remoteSHA verified;initialcommit 6394085b88a6125328ee7531bd935d4c5549d918 khôngparent,forkfalse. Clone lại từ GitHub tại.local/standalone-remote-check,Verify-Source vàTest-Project lockedrestore/build/5frontendtests/types/lint PASS. Không tạo DB từclone;khôngclaim máy thứhai. Parentindex giữhash trước/sau. Evidence standalone-repository.json/standalone-clone-build.txt. Các ghi chú pending Git ở review phần đầu là bước trướcpublish,được kết quả này thay thế.

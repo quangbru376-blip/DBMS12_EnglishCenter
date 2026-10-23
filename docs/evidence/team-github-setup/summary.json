@@ -10,7 +10,11 @@
   "currentHealth": 200,
   "privilegedSetupExecuted": false,
   "secondMachineAcceptance": false,
-  "gitPublish": "pending_standalone_private_repository",
+  "gitPublish": "verified_standalone_private_main",
   "repository": "https://github.com/quangbru376-blip/DBMS12_EnglishCenter",
-  "independentHistory": true
+  "independentHistory": true,
+  "privateRepository": true,
+  "initialSourceCommit": "6394085b88a6125328ee7531bd935d4c5549d918",
+  "freshStandaloneCloneBuild": "PASS",
+  "parentIndexUnchanged": true
 }
