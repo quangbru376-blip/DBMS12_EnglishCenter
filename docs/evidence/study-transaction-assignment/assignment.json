@@ -1,0 +1,91 @@
+{
+  "pass": true,
+  "total": 105,
+  "objectsAssignedExactlyOnce": true,
+  "commandTransactionsAssignedExactlyOnce": 29,
+  "primaryTransactionDemos": 8,
+  "primaryDemosPerMember": 2,
+  "explicitCommitExercises": 5,
+  "concurrencyOwner": "TV2",
+  "concurrencyPartner": "TV1",
+  "scope": [
+    "12 tables",
+    "61 procedures",
+    "7 functions",
+    "9 views",
+    "12 triggers",
+    "3 table types",
+    "1 sequence"
+  ],
+  "counts": [
+    {
+      "member": "TV1",
+      "topic": "Tài khoản, xác thực, phiên đăng nhập và nhật ký",
+      "total": 27,
+      "byType": {
+        "table": 4,
+        "procedure": 18,
+        "function": 1,
+        "view": 1,
+        "trigger": 3,
+        "tableType": 0,
+        "sequence": 0
+      },
+      "commandTransactions": 4,
+      "primaryTransactionDemos": 2,
+      "transactionScopes": 18
+    },
+    {
+      "member": "TV2",
+      "topic": "Đăng ký, tuyển sinh, học phí và báo cáo",
+      "total": 26,
+      "byType": {
+        "table": 2,
+        "procedure": 15,
+        "function": 3,
+        "view": 3,
+        "trigger": 2,
+        "tableType": 0,
+        "sequence": 1
+      },
+      "commandTransactions": 8,
+      "primaryTransactionDemos": 2,
+      "transactionScopes": 15
+    },
+    {
+      "member": "TV3",
+      "topic": "Khóa học, lớp, xếp lớp và lập lịch",
+      "total": 26,
+      "byType": {
+        "table": 4,
+        "procedure": 14,
+        "function": 1,
+        "view": 2,
+        "trigger": 4,
+        "tableType": 1,
+        "sequence": 0
+      },
+      "commandTransactions": 10,
+      "primaryTransactionDemos": 2,
+      "transactionScopes": 14
+    },
+    {
+      "member": "TV4",
+      "topic": "Tổ chức buổi học, điểm danh, bảng điểm và kết quả",
+      "total": 26,
+      "byType": {
+        "table": 2,
+        "procedure": 14,
+        "function": 2,
+        "view": 3,
+        "trigger": 3,
+        "tableType": 2,
+        "sequence": 0
+      },
+      "commandTransactions": 7,
+      "primaryTransactionDemos": 2,
+      "transactionScopes": 14
+    }
+  ],
+  "source": "manifest.installOrder"
+}

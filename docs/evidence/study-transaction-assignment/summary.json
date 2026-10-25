@@ -1,0 +1,17 @@
+{
+  "date":"2026-10-25",
+  "scope":"Documentation correction and read-only allocation verifier; no SQL/app/runtime change",
+  "objects":105,
+  "objectsByMember":[27,26,26,26],
+  "commandTransactionAssignments":29,
+  "commandsByMember":[4,8,10,7],
+  "primaryDemosPerMember":2,
+  "existingCommitExercises":5,
+  "concurrency":{"owner":"TV2","partner":"TV1","reviewers":["TV3","TV4"]},
+  "sourceLayoutLearningAssignmentChecks":"PASS",
+  "localLinks":82,
+  "workspaceTestProject":"FAIL: DLL held by running host; host retained",
+  "cleanTestProject":"PASS after network-enabled retry; first sandbox attempt NU1900",
+  "newDatabaseOrUiMutationRuns":0,
+  "limitations":["Documentation and source checks do not prove each member has rehearsed the demos","No second-machine or production validation"]
+}

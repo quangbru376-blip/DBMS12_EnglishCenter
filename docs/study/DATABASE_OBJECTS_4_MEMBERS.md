@@ -1,6 +1,6 @@
 # Phân công học Database Object cho nhóm 4 người
 
-Ngày đối chiếu: **24/10/2026**. Nguồn: `database/dbms12-compact/manifest.json` và các định nghĩa SQL trong `installOrder`. Chưa có tên thành viên nên ký hiệu TV1–TV4.
+Ngày lập: **24/10/2026**; bổ sung phân công transaction: **25/10/2026**. Nguồn: `database/dbms12-compact/manifest.json` và các định nghĩa SQL trong `installOrder`. Chưa có tên thành viên nên ký hiệu TV1–TV4.
 
 Mỗi object có đúng **một người phụ trách giải thích và trình bày**. Người khác vẫn đọc các object liên quan khi lần theo nghiệp vụ. Đây là phân công học, không tạo bốn SQL role mới hoặc thay quyền của bảy vai trò ứng dụng.
 
@@ -20,6 +20,24 @@ PK/FK/UNIQUE/CHECK/DEFAULT, index và rowversion học cùng bảng mà chúng b
 
 Số lượng gần bằng nhau không có nghĩa độ khó bằng nhau: SP gửi bảng điểm hoặc trigger kiểm trùng lịch cần phân tích nhiều hơn một view đơn giản. Mỗi thành viên chuẩn bị ít nhất một luồng có ghi dữ liệu, một trường hợp bị từ chối và một trường hợp liên quan người khác.
 
+## Phân công transaction — yêu cầu 3.4
+
+Phần transaction trước đây chỉ được nhắc trong SP/luồng, chưa được giao thành đầu việc riêng. Bảng dưới đây giao rõ cả 29 nghiệp vụ ghi và 2 bài trọng tâm cho mỗi người. Xem [danh sách đầy đủ, đầu ra và bài chạy](TRANSACTIONS_4_MEMBERS.md).
+
+|Thành viên|Phần transaction của SP phụ trách|Command cần phân tích nguyên tử|Hai bài trình bày trọng tâm|
+|---|---:|---:|---|
+|TV1|18 SP, gồm 8 auth và 2 helper|4|Tạo nhân sự; khóa/mở trạng thái tài khoản và thu hồi phiên|
+|TV2|15 SP, gồm 1 helper|8|Duyệt nhập học; thu học phí|
+|TV3|14 SP|10|Xếp lớp; lưu cả lô lịch|
+|TV4|14 SP, gồm 2 helper|7|Lưu điểm danh cả lớp; chốt toàn bộ bảng điểm|
+|Tổng|61 scope theo owner SP|29|8 bài trọng tâm, 2/người|
+
+Transaction là phạm vi công việc trong SP, không cộng thêm 29 object vào tổng 105 hoặc coi 61 SP là 61 giao dịch độc lập. Các helper có thể chia sẻ transaction của caller. Khối lượng transaction 4/8/10/7 bám đúng cụm nghiệp vụ; TV1 còn 8 module auth cần học về tạo/thu hồi phiên. Tổng object vẫn 27/26/26/26 và số bài trình bày trọng tâm chia đều 2/người.
+
+Mỗi người phải chỉ ra BEGIN/COMMIT/ROLLBACK, các thay đổi phải nguyên tử, trước/sau và lúc lỗi, audit/receipt, lock/RV/replay và owner/caller. Mọi bài SP trong practice mặc định outer ROLLBACK để lặp lại. Riêng 5 file trong practice/transactions có COMMIT/forced-error opt-in; TV2 phụ trách 3 file, TV3 phụ trách 2 file. TV1/TV4 dùng bài SP của mình để phân tích và minh họa giao dịch; không mô tả nhầm chúng đã có cùng cờ COMMIT của 5 file này.
+
+Concurrency thu cùng hóa đơn: **TV2 chủ trì, TV1 chạy phiên còn lại và đối chiếu audit/receipt; TV3/TV4 phối hợp giải thích khóa và rowversion**. Không bỏ trống người trình bày mục 3.4.
+
 ## TV1 — Tài khoản, xác thực, phiên đăng nhập và nhật ký
 
 **Mục tiêu:** giải thích một người được nhận diện thế nào, SQL xác định actor và vai trò ra sao, phiên hết hiệu lực lúc nào, thao tác được ghi lại và tra cứu sau mất phản hồi như thế nào.
@@ -35,6 +53,10 @@ Số lượng gần bằng nhau không có nghĩa độ khó bằng nhau: SP g�
 |3 trigger|`tr_Account_Guard`, `tr_Audit_Integrity`, `tr_Replay_Integrity`|
 
 **Luồng học:** Student signup → đăng nhập → kiểm phiên/role → thao tác nghiệp vụ → AuditLog/ReplayOperation → logout hoặc hết hạn. Luồng nhân sự: Admin tạo tài khoản → mật khẩu tạm → đổi mật khẩu → vào nghiệp vụ.
+
+**Transaction được giao rõ:** `usp_ProfileUpdate`, `usp_AccountCreateStaff`, `usp_AccountSetStatus`, `usp_AccountResetPassword`.
+
+**Hai bài trọng tâm:** [usp_AccountCreateStaff](../../database/practice/stored-procedures/usp_AccountCreateStaff.sql) và [usp_AccountSetStatus](../../database/practice/stored-procedures/usp_AccountSetStatus.sql). Chuẩn bị cách giải thích tính nguyên tử, lỗi giữa chừng, audit/receipt và trước/sau ROLLBACK; phần COMMIT nằm trong scope SQL của SP khi nó là owner.
 
 **Phải giải thích được:**
 
@@ -65,6 +87,10 @@ Số lượng gần bằng nhau không có nghĩa độ khó bằng nhau: SP g�
 |1 sequence|`InvoiceNumberSequence`|
 
 **Luồng học:** Student tạo PENDING → Student CONFIRMED → Admissions ADMITTED đồng thời tạo Invoice → Accountant thu đủ → bàn giao hồ sơ đã trả tiền cho TV3 xếp lớp.
+
+**Transaction được giao rõ:** `usp_RegistrationCreate`, `usp_RegistrationConfirm`, `usp_RegistrationCancelOwn`, `usp_AdmissionApprove`, `usp_AdmissionReject`, `usp_AdmissionCancel`, `usp_InvoiceCollect`, `usp_InvoiceCorrect`.
+
+**Hai bài trọng tâm:** [usp_AdmissionApprove](../../database/practice/stored-procedures/usp_AdmissionApprove.sql) và [usp_InvoiceCollect](../../database/practice/stored-procedures/usp_InvoiceCollect.sql). Chuẩn bị cách giải thích tính nguyên tử, lỗi giữa chừng, audit/receipt và trước/sau ROLLBACK; phần COMMIT nằm trong scope SQL của SP khi nó là owner.
 
 **Phải giải thích được:**
 
@@ -99,6 +125,10 @@ Số lượng gần bằng nhau không có nghĩa độ khó bằng nhau: SP g�
 
 **Luồng học:** tạo Course → tạo Class PLANNED → lập lịch → OPEN → xếp học viên đã ADMITTED/PAID → đủ điều kiện ONGOING → nhận điểm danh/HELD từ TV4 → COMPLETED.
 
+**Transaction được giao rõ:** `usp_CourseCreate`, `usp_CourseUpdate`, `usp_ClassCreate`, `usp_ClassEdit`, `usp_ClassOpen`, `usp_ClassStart`, `usp_ClassComplete`, `usp_ClassCancel`, `usp_PlacementCreate`, `usp_ScheduleBatch`.
+
+**Hai bài trọng tâm:** [usp_PlacementCreate](../../database/practice/stored-procedures/usp_PlacementCreate.sql) và [usp_ScheduleBatch](../../database/practice/stored-procedures/usp_ScheduleBatch.sql). Chuẩn bị cách giải thích tính nguyên tử, lỗi giữa chừng, audit/receipt và trước/sau ROLLBACK; phần COMMIT nằm trong scope SQL của SP khi nó là owner.
+
 **Phải giải thích được:**
 
 1. Course đóng băng những cấu hình nào khi đã có lớp; không coi chỉnh khóa đã sử dụng giống tạo khóa mới.
@@ -131,6 +161,10 @@ Số lượng gần bằng nhau không có nghĩa độ khó bằng nhau: SP g�
 
 **Luồng học:** ONGOING → Teacher điểm danh → AcademicAffairs xác nhận HELD → TV3 hoàn thành lớp → Teacher gửi cả bảng điểm → AcademicAffairs trả lại hoặc chốt → Student xem kết quả FINALIZED.
 
+**Transaction được giao rõ:** `usp_ScheduleMove`, `usp_ScheduleHeld`, `usp_AttendanceSave`, `usp_GradeSave`, `usp_GradeSubmit`, `usp_GradeReturn`, `usp_GradeFinalize`.
+
+**Hai bài trọng tâm:** [usp_AttendanceSave](../../database/practice/stored-procedures/usp_AttendanceSave.sql) và [usp_GradeFinalize](../../database/practice/stored-procedures/usp_GradeFinalize.sql). Chuẩn bị cách giải thích tính nguyên tử, lỗi giữa chừng, audit/receipt và trước/sau ROLLBACK; phần COMMIT nằm trong scope SQL của SP khi nó là owner.
+
 **Phải giải thích được:**
 
 1. Đã hết giờ không tự thành HELD. Điểm danh ghi có mặt/vắng; HELD ghi buổi thực tế đã tổ chức. Hai dữ liệu phục vụ hai điều kiện khác nhau.
@@ -160,8 +194,8 @@ Số lượng gần bằng nhau không có nghĩa độ khó bằng nhau: SP g�
 |Lập lịch → tổ chức|TV3 → TV4|Schedule_id, LESSON/FINAL_EXAM, giờ Việt Nam/UTC, phòng, rowversion|
 |Đã học → hoàn thành|TV4 → TV3|Không thiếu điểm danh, mọi buổi gồm kỳ thi đều HELD|
 |Hoàn thành → gửi điểm|TV3 → TV4|COMPLETED, đầy đủ điểm/manifest, bản nháp hoặc trả lại|
-|Mọi thao tác → audit/receipt|TV1 ↔ cả nhóm|Actor/action/root/UUID/digest;rollback và unknown khác nhau|
-|Nghiệp vụ bị từ chối → failure log|TV2 ↔ TV1/TV4|Rollback business trước,log failure riêng;không ghi thất bại giả sau commit chưa rõ|
+|Mọi thao tác → audit/receipt|TV1 ↔ cả nhóm|Actor/action/root/UUID/digest; rollback và unknown khác nhau|
+|Nghiệp vụ bị từ chối → failure log|TV2 ↔ TV1/TV4|Rollback business trước, log failure riêng; không ghi thất bại giả sau commit chưa rõ|
 
 Không sửa quyền SQL hoặc reset DB hiện tại để làm bài thực hành. Dùng môi trường/fixture được chủ máy giao; đây là danh sách bài học, không phải biên bản các ca đã thực hiện.
 
@@ -174,4 +208,4 @@ node tools/Verify-Source.cjs
 node tools/Verify-StudyAssignment.cjs
 ```
 
-Verifier đọc đúng installOrder, xác nhận đủ105object, không trùng/thiếu/tên giả, số lượng27/26/26/26 và tên trong tài liệu khớp từng thành viên. Đây là kiểm tài liệu; chưa phải kiểm các bài thực hành trên database.
+Verifier đọc đúng installOrder, xác nhận đủ105object, không trùng/thiếu/tên giả, số lượng27/26/26/26; thêm kiểm29command transaction đủ/unique/đúng người phụ trách SP, 2primarydemos/người, 5file COMMIT và concurrency có người phụ trách. Đây là kiểm tài liệu; chưa phải kiểm các bài thực hành trên database.

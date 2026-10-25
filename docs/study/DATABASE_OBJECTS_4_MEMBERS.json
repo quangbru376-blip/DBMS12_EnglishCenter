@@ -6,53 +6,313 @@
       "id": "TV1",
       "topic": "Tài khoản, xác thực, phiên đăng nhập và nhật ký",
       "objects": {
-        "table": ["Account", "AuthSession", "AuditLog", "ReplayOperation"],
-        "procedure": ["usp_StudentSignup", "usp_LoginRead", "usp_LoginRecord", "usp_CurrentSession", "usp_SessionTouch", "usp_Logout", "usp_PasswordChange", "usp_ProfileUpdate", "usp_AccountCreateStaff", "usp_AccountSetStatus", "usp_AccountResetPassword", "usp_AdminAccountList", "usp_AuditList", "usp_ReplayLookup", "usp_OperatorBootstrap", "usp_MaintenanceCleanup", "usp_SecuritySession", "usp_PasswordSnapshot"],
-        "function": ["fn_ActionRootKind"],
-        "view": ["v_AuditSafe"],
-        "trigger": ["tr_Account_Guard", "tr_Audit_Integrity", "tr_Replay_Integrity"],
+        "table": [
+          "Account",
+          "AuthSession",
+          "AuditLog",
+          "ReplayOperation"
+        ],
+        "procedure": [
+          "usp_StudentSignup",
+          "usp_LoginRead",
+          "usp_LoginRecord",
+          "usp_CurrentSession",
+          "usp_SessionTouch",
+          "usp_Logout",
+          "usp_PasswordChange",
+          "usp_ProfileUpdate",
+          "usp_AccountCreateStaff",
+          "usp_AccountSetStatus",
+          "usp_AccountResetPassword",
+          "usp_AdminAccountList",
+          "usp_AuditList",
+          "usp_ReplayLookup",
+          "usp_OperatorBootstrap",
+          "usp_MaintenanceCleanup",
+          "usp_SecuritySession",
+          "usp_PasswordSnapshot"
+        ],
+        "function": [
+          "fn_ActionRootKind"
+        ],
+        "view": [
+          "v_AuditSafe"
+        ],
+        "trigger": [
+          "tr_Account_Guard",
+          "tr_Audit_Integrity",
+          "tr_Replay_Integrity"
+        ],
         "tableType": [],
         "sequence": []
+      },
+      "transactionStudy": {
+        "commandProcedures": [
+          "usp_ProfileUpdate",
+          "usp_AccountCreateStaff",
+          "usp_AccountSetStatus",
+          "usp_AccountResetPassword"
+        ],
+        "authProcedures": [
+          "usp_StudentSignup",
+          "usp_LoginRead",
+          "usp_LoginRecord",
+          "usp_SessionTouch",
+          "usp_Logout",
+          "usp_PasswordChange",
+          "usp_OperatorBootstrap",
+          "usp_MaintenanceCleanup"
+        ],
+        "infrastructureProcedures": [
+          "usp_SecuritySession",
+          "usp_PasswordSnapshot"
+        ],
+        "primaryDemos": [
+          "usp_AccountCreateStaff",
+          "usp_AccountSetStatus"
+        ]
       }
     },
     {
       "id": "TV2",
       "topic": "Đăng ký, tuyển sinh, học phí và báo cáo",
       "objects": {
-        "table": ["Registration", "Invoice"],
-        "procedure": ["usp_RegistrationCreate", "usp_RegistrationConfirm", "usp_RegistrationCancelOwn", "usp_RegistrationList", "usp_AdmissionApprove", "usp_AdmissionReject", "usp_AdmissionCancel", "usp_InvoiceCollect", "usp_InvoiceCorrect", "usp_InvoiceRead", "usp_InvoiceSearch", "usp_FinanceReport", "usp_FinanceExport", "usp_DirectorReport", "usp_RecordFailure"],
-        "function": ["fn_RegistrationUnfinished", "fn_InvoiceDueDate", "fn_InvoiceDebtFlags"],
-        "view": ["v_RegistrationFacts", "v_InvoiceFacts", "v_DirectorAggregate"],
-        "trigger": ["tr_Registration_State", "tr_Invoice_Integrity"],
+        "table": [
+          "Registration",
+          "Invoice"
+        ],
+        "procedure": [
+          "usp_RegistrationCreate",
+          "usp_RegistrationConfirm",
+          "usp_RegistrationCancelOwn",
+          "usp_RegistrationList",
+          "usp_AdmissionApprove",
+          "usp_AdmissionReject",
+          "usp_AdmissionCancel",
+          "usp_InvoiceCollect",
+          "usp_InvoiceCorrect",
+          "usp_InvoiceRead",
+          "usp_InvoiceSearch",
+          "usp_FinanceReport",
+          "usp_FinanceExport",
+          "usp_DirectorReport",
+          "usp_RecordFailure"
+        ],
+        "function": [
+          "fn_RegistrationUnfinished",
+          "fn_InvoiceDueDate",
+          "fn_InvoiceDebtFlags"
+        ],
+        "view": [
+          "v_RegistrationFacts",
+          "v_InvoiceFacts",
+          "v_DirectorAggregate"
+        ],
+        "trigger": [
+          "tr_Registration_State",
+          "tr_Invoice_Integrity"
+        ],
         "tableType": [],
-        "sequence": ["InvoiceNumberSequence"]
+        "sequence": [
+          "InvoiceNumberSequence"
+        ]
+      },
+      "transactionStudy": {
+        "commandProcedures": [
+          "usp_RegistrationCreate",
+          "usp_RegistrationConfirm",
+          "usp_RegistrationCancelOwn",
+          "usp_AdmissionApprove",
+          "usp_AdmissionReject",
+          "usp_AdmissionCancel",
+          "usp_InvoiceCollect",
+          "usp_InvoiceCorrect"
+        ],
+        "authProcedures": [],
+        "infrastructureProcedures": [
+          "usp_RecordFailure"
+        ],
+        "primaryDemos": [
+          "usp_AdmissionApprove",
+          "usp_InvoiceCollect"
+        ]
       }
     },
     {
       "id": "TV3",
       "topic": "Khóa học, lớp, xếp lớp và lập lịch",
       "objects": {
-        "table": ["Course", "Class", "StudentClassAssignment", "Schedule"],
-        "procedure": ["usp_CourseCreate", "usp_CourseUpdate", "usp_CourseList", "usp_ClassCreate", "usp_ClassEdit", "usp_ClassOpen", "usp_ClassStart", "usp_ClassComplete", "usp_ClassCancel", "usp_ClassList", "usp_PlacementCreate", "usp_TeacherOptions", "usp_ScheduleBatch", "usp_WeeklySchedulePreview"],
-        "function": ["fn_ClassProgress"],
-        "view": ["v_CurrentSchedule", "v_ClassProgress"],
-        "trigger": ["tr_Course_Freeze", "tr_Class_Lifecycle", "tr_Assignment_Eligibility", "tr_Schedule_Guard"],
-        "tableType": ["ScheduleBatch"],
+        "table": [
+          "Course",
+          "Class",
+          "StudentClassAssignment",
+          "Schedule"
+        ],
+        "procedure": [
+          "usp_CourseCreate",
+          "usp_CourseUpdate",
+          "usp_CourseList",
+          "usp_ClassCreate",
+          "usp_ClassEdit",
+          "usp_ClassOpen",
+          "usp_ClassStart",
+          "usp_ClassComplete",
+          "usp_ClassCancel",
+          "usp_ClassList",
+          "usp_PlacementCreate",
+          "usp_TeacherOptions",
+          "usp_ScheduleBatch",
+          "usp_WeeklySchedulePreview"
+        ],
+        "function": [
+          "fn_ClassProgress"
+        ],
+        "view": [
+          "v_CurrentSchedule",
+          "v_ClassProgress"
+        ],
+        "trigger": [
+          "tr_Course_Freeze",
+          "tr_Class_Lifecycle",
+          "tr_Assignment_Eligibility",
+          "tr_Schedule_Guard"
+        ],
+        "tableType": [
+          "ScheduleBatch"
+        ],
         "sequence": []
+      },
+      "transactionStudy": {
+        "commandProcedures": [
+          "usp_CourseCreate",
+          "usp_CourseUpdate",
+          "usp_ClassCreate",
+          "usp_ClassEdit",
+          "usp_ClassOpen",
+          "usp_ClassStart",
+          "usp_ClassComplete",
+          "usp_ClassCancel",
+          "usp_PlacementCreate",
+          "usp_ScheduleBatch"
+        ],
+        "authProcedures": [],
+        "infrastructureProcedures": [],
+        "primaryDemos": [
+          "usp_PlacementCreate",
+          "usp_ScheduleBatch"
+        ]
       }
     },
     {
       "id": "TV4",
       "topic": "Tổ chức buổi học, điểm danh, bảng điểm và kết quả",
       "objects": {
-        "table": ["Attendance", "GradeReport"],
-        "procedure": ["usp_ScheduleList", "usp_ScheduleMove", "usp_ScheduleHeld", "usp_AttendanceRead", "usp_AttendanceSave", "usp_ClassRoster", "usp_GradeSave", "usp_GradeSubmit", "usp_GradeReturn", "usp_GradeFinalize", "usp_StudentGrades", "usp_StudentHome", "usp_BeginRead", "usp_BeginWrite"],
-        "function": ["fn_ValidScore", "fn_GradeTotal"],
-        "view": ["v_ClassState", "v_ClassRoster", "v_FinalizedGrades"],
-        "trigger": ["tr_Attendance_Guard", "tr_GradeReport_Guard", "tr_Class_GradeDecision"],
-        "tableType": ["AttendanceBatch", "GradeManifest"],
+        "table": [
+          "Attendance",
+          "GradeReport"
+        ],
+        "procedure": [
+          "usp_ScheduleList",
+          "usp_ScheduleMove",
+          "usp_ScheduleHeld",
+          "usp_AttendanceRead",
+          "usp_AttendanceSave",
+          "usp_ClassRoster",
+          "usp_GradeSave",
+          "usp_GradeSubmit",
+          "usp_GradeReturn",
+          "usp_GradeFinalize",
+          "usp_StudentGrades",
+          "usp_StudentHome",
+          "usp_BeginRead",
+          "usp_BeginWrite"
+        ],
+        "function": [
+          "fn_ValidScore",
+          "fn_GradeTotal"
+        ],
+        "view": [
+          "v_ClassState",
+          "v_ClassRoster",
+          "v_FinalizedGrades"
+        ],
+        "trigger": [
+          "tr_Attendance_Guard",
+          "tr_GradeReport_Guard",
+          "tr_Class_GradeDecision"
+        ],
+        "tableType": [
+          "AttendanceBatch",
+          "GradeManifest"
+        ],
         "sequence": []
+      },
+      "transactionStudy": {
+        "commandProcedures": [
+          "usp_ScheduleMove",
+          "usp_ScheduleHeld",
+          "usp_AttendanceSave",
+          "usp_GradeSave",
+          "usp_GradeSubmit",
+          "usp_GradeReturn",
+          "usp_GradeFinalize"
+        ],
+        "authProcedures": [],
+        "infrastructureProcedures": [
+          "usp_BeginRead",
+          "usp_BeginWrite"
+        ],
+        "primaryDemos": [
+          "usp_AttendanceSave",
+          "usp_GradeFinalize"
+        ]
       }
     }
-  ]
+  ],
+  "updated": "2026-10-25",
+  "transactionCounting": "Transaction learning responsibilities are not extra database objects. All61 SP scopes follow their object owner;29 command SPs are explicitly listed for atomic business-write study.",
+  "transactionExercises": [
+    {
+      "procedure": "usp_CourseCreate",
+      "owner": "TV3",
+      "file": "database/practice/transactions/usp_CourseCreate.sql",
+      "mode": "ROLLBACK default; COMMIT/forced-error opt-in on fixture"
+    },
+    {
+      "procedure": "usp_RegistrationCreate",
+      "owner": "TV2",
+      "file": "database/practice/transactions/usp_RegistrationCreate.sql",
+      "mode": "ROLLBACK default; COMMIT/forced-error opt-in on fixture"
+    },
+    {
+      "procedure": "usp_AdmissionApprove",
+      "owner": "TV2",
+      "file": "database/practice/transactions/usp_AdmissionApprove.sql",
+      "mode": "ROLLBACK default; COMMIT/forced-error opt-in on fixture"
+    },
+    {
+      "procedure": "usp_InvoiceCollect",
+      "owner": "TV2",
+      "file": "database/practice/transactions/usp_InvoiceCollect.sql",
+      "mode": "ROLLBACK default; COMMIT/forced-error opt-in on fixture"
+    },
+    {
+      "procedure": "usp_PlacementCreate",
+      "owner": "TV3",
+      "file": "database/practice/transactions/usp_PlacementCreate.sql",
+      "mode": "ROLLBACK default; COMMIT/forced-error opt-in on fixture"
+    }
+  ],
+  "concurrencyStudy": {
+    "owner": "TV2",
+    "partner": "TV1",
+    "reviewers": [
+      "TV3",
+      "TV4"
+    ],
+    "businessProcedure": "usp_InvoiceCollect",
+    "sessionA": "database/dbms12-compact/transactions/02_concurrency_session_a.sql",
+    "sessionB": "database/dbms12-compact/transactions/03_concurrency_session_b.sql",
+    "expected": "One successful collect, one51214stale-version rejection; oneSUCCESS audit, no duplicate receipt for the losing request."
+  }
 }
