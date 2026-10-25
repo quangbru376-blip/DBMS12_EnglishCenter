@@ -72,6 +72,7 @@ COMMIT giữ dữ liệu LAB thật trên fixture. Thực hành tuần tự; ch�
 |Biết đề yêu cầu gì|[Rubric3.1–3.5](study/RUBRIC_SQL_SERVER.md), [bảng đối chiếu](study/SQL_RUBRIC_MATRIX.md)|
 |Tìm định nghĩa và câu gọi của từng object|[Index105 object](../database/dbms12-compact/OBJECT_INDEX.md), cộtChạy riêng|
 |Chia nhóm học theo nghiệp vụ|[4thành viên:27/26/26/26 object](study/DATABASE_OBJECTS_4_MEMBERS.md)|
+|Rút gọn SP để báo cáo|[6 SP chính/người; đủ 61 SP và nhiệm vụ](study/STORED_PROCEDURES_CATALOG.md)|
 |Transaction mỗi thành viên|[29 nghiệp vụ, 2 bài trọng tâm mỗi người](study/TRANSACTIONS_4_MEMBERS.md)|
 |Giải thích bảng/quan hệ/3NF|[Relational schema vàFD](study/SQL_SCHEMA_3NF.md), [ERD99thuộc tính](diagrams/ERD-full-attributes.md)|
 |Index và minh chứng|[17index,5benchmark](study/SQL_INDEXES.md)|

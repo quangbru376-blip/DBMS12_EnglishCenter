@@ -1,0 +1,19 @@
+{
+ "date":"2026-10-25",
+ "scope":"Reduce report-study depth; retain installed procedures and ownership",
+ "installedStoredProcedures":61,
+ "primaryStoredProcedures":24,
+ "supportingStoredProcedures":37,
+ "primaryPerMember":[6,6,6,6],
+ "supportingPerMember":[12,9,8,8],
+ "objectAndTransactionOwnershipUnchanged":true,
+ "primaryTransactionDemosRetained":8,
+ "existingCommitExamplesRemainPrimary":5,
+ "localLinksChecked":272,
+ "collapsedAppendices":8,
+ "verifiers":"PASS: Source, SqlLayout, SqlLearning, StudyAssignment",
+ "cleanSourceBuild":"PASS: locked restore/audit, backend 0 warnings/errors, frontend types/lint/5 tests/build",
+ "sqlAppRuntimeChanged":false,
+ "newSqlHttpUiMutationRuns":0,
+ "limitations":["No direct GitHub rendering validation","No second-machine group rehearsal","Selection is study priority; teacher may ask other SPs"]
+}

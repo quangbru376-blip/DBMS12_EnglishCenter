@@ -71,6 +71,30 @@
           "usp_AccountCreateStaff",
           "usp_AccountSetStatus"
         ]
+      },
+      "reportingStudy": {
+        "primaryProcedures": [
+          "usp_StudentSignup",
+          "usp_LoginRead",
+          "usp_LoginRecord",
+          "usp_PasswordChange",
+          "usp_AccountCreateStaff",
+          "usp_AccountSetStatus"
+        ],
+        "supportingProcedures": [
+          "usp_CurrentSession",
+          "usp_SessionTouch",
+          "usp_Logout",
+          "usp_ProfileUpdate",
+          "usp_AccountResetPassword",
+          "usp_AdminAccountList",
+          "usp_AuditList",
+          "usp_ReplayLookup",
+          "usp_OperatorBootstrap",
+          "usp_MaintenanceCleanup",
+          "usp_SecuritySession",
+          "usp_PasswordSnapshot"
+        ]
       }
     },
     {
@@ -135,6 +159,27 @@
         "primaryDemos": [
           "usp_AdmissionApprove",
           "usp_InvoiceCollect"
+        ]
+      },
+      "reportingStudy": {
+        "primaryProcedures": [
+          "usp_RegistrationCreate",
+          "usp_AdmissionApprove",
+          "usp_AdmissionReject",
+          "usp_InvoiceCollect",
+          "usp_InvoiceSearch",
+          "usp_FinanceReport"
+        ],
+        "supportingProcedures": [
+          "usp_RegistrationConfirm",
+          "usp_RegistrationCancelOwn",
+          "usp_RegistrationList",
+          "usp_AdmissionCancel",
+          "usp_InvoiceCorrect",
+          "usp_InvoiceRead",
+          "usp_FinanceExport",
+          "usp_DirectorReport",
+          "usp_RecordFailure"
         ]
       }
     },
@@ -201,6 +246,26 @@
           "usp_PlacementCreate",
           "usp_ScheduleBatch"
         ]
+      },
+      "reportingStudy": {
+        "primaryProcedures": [
+          "usp_CourseCreate",
+          "usp_ClassOpen",
+          "usp_ClassStart",
+          "usp_ClassComplete",
+          "usp_PlacementCreate",
+          "usp_ScheduleBatch"
+        ],
+        "supportingProcedures": [
+          "usp_CourseUpdate",
+          "usp_CourseList",
+          "usp_ClassCreate",
+          "usp_ClassEdit",
+          "usp_ClassCancel",
+          "usp_ClassList",
+          "usp_TeacherOptions",
+          "usp_WeeklySchedulePreview"
+        ]
       }
     },
     {
@@ -266,6 +331,26 @@
           "usp_AttendanceSave",
           "usp_GradeFinalize"
         ]
+      },
+      "reportingStudy": {
+        "primaryProcedures": [
+          "usp_ScheduleHeld",
+          "usp_AttendanceSave",
+          "usp_GradeSave",
+          "usp_GradeSubmit",
+          "usp_GradeReturn",
+          "usp_GradeFinalize"
+        ],
+        "supportingProcedures": [
+          "usp_ScheduleList",
+          "usp_ScheduleMove",
+          "usp_AttendanceRead",
+          "usp_ClassRoster",
+          "usp_StudentGrades",
+          "usp_StudentHome",
+          "usp_BeginRead",
+          "usp_BeginWrite"
+        ]
       }
     }
   ],
@@ -314,5 +399,6 @@
     "sessionA": "database/dbms12-compact/transactions/02_concurrency_session_a.sql",
     "sessionB": "database/dbms12-compact/transactions/03_concurrency_session_b.sql",
     "expected": "One successful collect, one51214stale-version rejection; oneSUCCESS audit, no duplicate receipt for the losing request."
-  }
+  },
+  "reportingScope": "Six primary procedures per member (24 total); remaining 37 retained as collapsed supporting inventory. This changes study depth, not installed SQL objects or ownership."
 }

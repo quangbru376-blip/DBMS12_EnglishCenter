@@ -11,11 +11,11 @@
 |TV3|[Xếp lớp](../../database/practice/stored-procedures/usp_PlacementCreate.sql)|[Lưu lô lịch](../../database/practice/stored-procedures/usp_ScheduleBatch.sql)|Assignment+GradeReport stub; audit/receipt; mọi dòng lịch hợp lệ hoặc không lưu dòng nào|
 |TV4|[Lưu điểm danh](../../database/practice/stored-procedures/usp_AttendanceSave.sql)|[Chốt bảng điểm](../../database/practice/stored-procedures/usp_GradeFinalize.sql)|Cả lô Attendance; quyết định điểm/AuditLog/Class.current_grade_operation_id/receipt, manifest toàn lớp đúng RV|
 
-Tám bài trên chia đều 2/người là phần trình bày trọng tâm. Toàn bộ 29 nghiệp vụ ở bảng tiếp theo vẫn thuộc trách nhiệm đọc/giải thích của người nhận; không bỏ các nghiệp vụ khác.
+Tám bài trên chia đều 2/người là phần trình bày trọng tâm và đều thuộc 6 SP chính/người trong [bản báo cáo rút gọn](STORED_PROCEDURES_CATALOG.md). Danh sách 29 nghiệp vụ tiếp theo là kiểm kê trách nhiệm tra cứu; các SP hỗ trợ chỉ cần nắm nhiệm vụ và phụ thuộc, không yêu cầu học từng dòng khi báo cáo.
 
 ## Danh sách toàn bộ 29 nghiệp vụ ghi
 
-|Người|SP có transaction phải học|Ý nghĩa cần giải thích|
+|Người|SP có transaction (tra cứu)|Ý nghĩa nghiệp vụ|
 |---|---|---|
 |TV1|`usp_ProfileUpdate`|Cập nhật profile với RV, audit/receipt cùng giao dịch|
 |TV1|`usp_AccountCreateStaff`|Tạo nhân sự/mật khẩu tạm và audit/receipt|
@@ -75,7 +75,7 @@ Chạy [Session A](../../database/dbms12-compact/transactions/02_concurrency_ses
 
 ## Đầu ra mỗi người phải nộp khi học
 
-1. Danh sách command của mình và đường dẫn định nghĩa/câu gọi qua [OBJECT_INDEX](../../database/dbms12-compact/OBJECT_INDEX.md).
+1. Danh sách command để tra cứu của mình và đường dẫn định nghĩa/câu gọi qua [OBJECT_INDEX](../../database/dbms12-compact/OBJECT_INDEX.md).
 2. Hai bài trọng tâm: đầu vào, điều kiện, bảng/dòng thay đổi, audit/receipt và phần nguyên tử.
 3. Chỉ đúng BEGIN/COMMIT/ROLLBACK trong SP, ai là owner khi chạy web và khi chạy bài outer transaction.
 4. Một lần chạy hợp lệ, một lỗi được giải thích, ảnh/kết quả trước/sau trênfixture; chỉ ghi PASS khi tự chạy.

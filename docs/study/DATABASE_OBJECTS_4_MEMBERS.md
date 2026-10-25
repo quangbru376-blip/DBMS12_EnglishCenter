@@ -2,7 +2,7 @@
 
 Ngày lập: **24/10/2026**; bổ sung phân công transaction: **25/10/2026**. Nguồn: `database/dbms12-compact/manifest.json` và các định nghĩa SQL trong `installOrder`. Chưa có tên thành viên nên ký hiệu TV1–TV4.
 
-Mỗi object có đúng **một người phụ trách giải thích và trình bày**. Người khác vẫn đọc các object liên quan khi lần theo nghiệp vụ. Đây là phân công học, không tạo bốn SQL role mới hoặc thay quyền của bảy vai trò ứng dụng.
+Mỗi object có đúng **một người phụ trách tra cứu và giải thích khi cần**. Báo cáo rút gọn chỉ học sâu **6 SP chính/người**, không yêu cầu thuộc từng dòng của toàn bộ SP hỗ trợ. Người khác vẫn đọc các object liên quan khi lần theo nghiệp vụ. Đây là phân công học, không tạo bốn SQL role mới hoặc thay quyền của bảy vai trò ứng dụng.
 
 ## Cách tính và bảng chia
 
@@ -16,17 +16,29 @@ Phạm vi gồm **105 object chính**: 12 bảng + 61 SP + 7 function + 9 view +
 |TV4|Tổ chức buổi học, điểm danh và bảng điểm|2|14|2|3|3|2|0|**7**|**26**|
 |Tổng||12|61|7|9|12|3|1|**29**|**105**|
 
-**Cột Transaction (trong SP):** 29 nghiệp vụ ghi được giao để học và trình bày, đã nằm trong số SP. Tổng object giữ nguyên 105. Tên từng transaction và bài chạy được liệt kê ngay trong bảng của từng thành viên bên dưới.
+**Cột Transaction (trong SP):** 29 nghiệp vụ ghi được kiểm kê theo người phụ trách SP; mỗi người báo cáo sâu 2 transaction trọng tâm. Tổng object giữ nguyên 105. Tên từng transaction và bài chạy được liệt kê ngay trong bảng của từng thành viên bên dưới.
 
 PK/FK/UNIQUE/CHECK/DEFAULT, index và rowversion học cùng bảng mà chúng bảo vệ, không đếm thêm để làm tăng số lượng. Role, user và GRANT/DENY/IMPERSONATE học cùng quyền của từng luồng; TV1 trình bày nền tảng, cả nhóm phải biết kiểm quyền trên nghiệp vụ mình. Danh sách này không tuyên bố bao trùm mọi loại object nội bộ trong `sys.objects`.
 
 Số lượng gần bằng nhau không có nghĩa độ khó bằng nhau: SP gửi bảng điểm hoặc trigger kiểm trùng lịch cần phân tích nhiều hơn một view đơn giản. Mỗi thành viên chuẩn bị ít nhất một luồng có ghi dữ liệu, một trường hợp bị từ chối và một trường hợp liên quan người khác.
 
+## SP chính để học và báo cáo — 6 SP/người
+
+Dự án vẫn có **61 SP**, nhưng báo cáo chính chỉ đi sâu **24 SP**. **37 SP hỗ trợ** nằm trong mục thu gọn ở từng thành viên; mở khi cần tra cứu. Tổng 105 object ở bảng trên là kiểm kê đầy đủ, không phải số lượng bắt buộc học sâu. Danh sách có nhiệm vụ, source và bài chạy của đủ 61 SP: [STORED_PROCEDURES_CATALOG](STORED_PROCEDURES_CATALOG.md).
+
+|Thành viên|SP chính học sâu|SP hỗ trợ (thu gọn)|Tổng SP thực tế|
+|---|---:|---:|---:|
+|TV1|**6**|12|18|
+|TV2|**6**|9|15|
+|TV3|**6**|8|14|
+|TV4|**6**|8|14|
+|Tổng|**24**|37|61|
+
 ## Phân công transaction — yêu cầu 3.4
 
-Phần transaction trước đây chỉ được nhắc trong SP/luồng, chưa được giao thành đầu việc riêng. Bảng dưới đây giao rõ cả 29 nghiệp vụ ghi và 2 bài trọng tâm cho mỗi người. Xem [danh sách đầy đủ, đầu ra và bài chạy](TRANSACTIONS_4_MEMBERS.md).
+Phần transaction trước đây chỉ được nhắc trong SP/luồng, chưa được giao thành đầu việc riêng. Bảng dưới đây kiểm kê đủ 29 nghiệp vụ ghi; mỗi người học sâu 2 bài trọng tâm nằm trong 6 SP chính. Phần còn lại là danh mục hỗ trợ để tra cứu, không yêu cầu phân tích từng dòng khi báo cáo. Xem [danh sách đầy đủ, đầu ra và bài chạy](TRANSACTIONS_4_MEMBERS.md).
 
-|Thành viên|Phần transaction của SP phụ trách|Command cần phân tích nguyên tử|Hai bài trình bày trọng tâm|
+|Thành viên|Phần transaction của SP phụ trách|Command kiểm kê (tra cứu)|Hai bài trình bày trọng tâm|
 |---|---:|---:|---|
 |TV1|18 SP, gồm 8 auth và 2 helper|4|Tạo nhân sự; khóa/mở trạng thái tài khoản và thu hồi phiên|
 |TV2|15 SP, gồm 1 helper|8|Duyệt nhập học; thu học phí|
@@ -34,7 +46,7 @@ Phần transaction trước đây chỉ được nhắc trong SP/luồng, chưa 
 |TV4|14 SP, gồm 2 helper|7|Lưu điểm danh cả lớp; chốt toàn bộ bảng điểm|
 |Tổng|61 scope theo owner SP|29|8 bài trọng tâm, 2/người|
 
-Transaction là phạm vi công việc trong SP, không cộng thêm 29 object vào tổng 105 hoặc coi 61 SP là 61 giao dịch độc lập. Các helper có thể chia sẻ transaction của caller. Khối lượng transaction 4/8/10/7 bám đúng cụm nghiệp vụ; TV1 còn 8 module auth cần học về tạo/thu hồi phiên. Tổng object vẫn 27/26/26/26 và số bài trình bày trọng tâm chia đều 2/người.
+Transaction là phạm vi công việc trong SP, không cộng thêm 29 object vào tổng 105 hoặc coi 61 SP là 61 giao dịch độc lập. Các helper có thể chia sẻ transaction của caller. Danh mục transaction 4/8/10/7 bám đúng cụm nghiệp vụ; các auth/helper hỗ trợ chỉ cần nắm vai trò và tra cứu khi giải thích phụ thuộc. Tổng object vẫn 27/26/26/26 và số bài trình bày trọng tâm chia đều 2/người.
 
 Mỗi người phải chỉ ra BEGIN/COMMIT/ROLLBACK, các thay đổi phải nguyên tử, trước/sau và lúc lỗi, audit/receipt, lock/RV/replay và owner/caller. Mọi bài SP trong practice mặc định outer ROLLBACK để lặp lại. Riêng 5 file trong practice/transactions có COMMIT/forced-error opt-in; TV2 phụ trách 3 file, TV3 phụ trách 2 file. TV1/TV4 dùng bài SP của mình để phân tích và minh họa giao dịch; không mô tả nhầm chúng đã có cùng cờ COMMIT của 5 file này.
 
@@ -46,18 +58,41 @@ Concurrency thu cùng hóa đơn: **TV2 chủ trì, TV1 chạy phiên còn lại
 
 |Nhóm|Object phụ trách|
 |---|---|
-|**4 Transaction (trong SP)**|[Cập nhật hồ sơ — usp_ProfileUpdate](../../database/practice/stored-procedures/usp_ProfileUpdate.sql);<br>[Tạo nhân sự — usp_AccountCreateStaff](../../database/practice/stored-procedures/usp_AccountCreateStaff.sql);<br>[Đổi trạng thái tài khoản / thu hồi phiên — usp_AccountSetStatus](../../database/practice/stored-procedures/usp_AccountSetStatus.sql);<br>[Đặt lại mật khẩu / thu hồi phiên — usp_AccountResetPassword](../../database/practice/stored-procedures/usp_AccountResetPassword.sql)|
+|**6 SP chính — học sâu**|[`usp_StudentSignup`](../../database/practice/stored-procedures/usp_StudentSignup.sql);<br>[`usp_LoginRead`](../../database/practice/stored-procedures/usp_LoginRead.sql);<br>[`usp_LoginRecord`](../../database/practice/stored-procedures/usp_LoginRecord.sql);<br>[`usp_PasswordChange`](../../database/practice/stored-procedures/usp_PasswordChange.sql);<br>[`usp_AccountCreateStaff`](../../database/practice/stored-procedures/usp_AccountCreateStaff.sql);<br>[`usp_AccountSetStatus`](../../database/practice/stored-procedures/usp_AccountSetStatus.sql)|
+|**2 transaction trọng tâm**|[`usp_AccountCreateStaff`](../../database/practice/stored-procedures/usp_AccountCreateStaff.sql);<br>[`usp_AccountSetStatus`](../../database/practice/stored-procedures/usp_AccountSetStatus.sql)|
 |4 bảng|`Account`, `AuthSession`, `AuditLog`, `ReplayOperation`|
-|12 SP tài khoản/phiên|`usp_StudentSignup`, `usp_LoginRead`, `usp_LoginRecord`, `usp_CurrentSession`, `usp_SessionTouch`, `usp_Logout`, `usp_PasswordChange`, `usp_ProfileUpdate`, `usp_AccountCreateStaff`, `usp_AccountSetStatus`, `usp_AccountResetPassword`, `usp_AdminAccountList`|
-|4 SP vận hành/tra cứu|`usp_AuditList`, `usp_ReplayLookup`, `usp_OperatorBootstrap`, `usp_MaintenanceCleanup`|
-|2 SP hạ tầng|`usp_SecuritySession`, `usp_PasswordSnapshot`|
 |1 function|`fn_ActionRootKind`|
 |1 view|`v_AuditSafe`|
 |3 trigger|`tr_Account_Guard`, `tr_Audit_Integrity`, `tr_Replay_Integrity`|
 
+<details>
+<summary>Phụ lục TV1: 12 SP hỗ trợ và danh mục transaction đầy đủ</summary>
+
+|SP hỗ trợ|Nhiệm vụ|
+|---|---|
+|`usp_CurrentSession`|Xác minh phiên và trả thông tin tài khoản/vai trò hiện tại.|
+|`usp_SessionTouch`|Kiểm phiên hợp lệ rồi cập nhật thời điểm hoạt động của phiên.|
+|`usp_Logout`|Thu hồi phiên đăng nhập hiện tại và ghi nhật ký đăng xuất.|
+|`usp_ProfileUpdate`|Học viên cập nhật hồ sơ cá nhân theo rowversion; audit/receipt cùng giao dịch.|
+|`usp_AccountResetPassword`|Admin cấp lại mật khẩu tạm, tăng phiên bản bảo mật và thu hồi phiên.|
+|`usp_AdminAccountList`|Admin tra cứu/danh sách tài khoản theo bộ lọc và phân trang.|
+|`usp_AuditList`|Admin tra cứu nhật ký thao tác theo bộ lọc và phân trang.|
+|`usp_ReplayLookup`|Tra cứu receipt của chính người gọi để xác định kết quả lệnh sau mất phản hồi.|
+|`usp_OperatorBootstrap`|Operator tạo Admin đầu tiên khi catalog còn rỗng; không phải chức năng web Admin.|
+|`usp_MaintenanceCleanup`|Operator dọn receipt quá hạn, phiên hết hạn và bỏ IP trong audit quá thời hạn.|
+|`usp_SecuritySession`|Helper xác minh SID/epoch, thời hạn, trạng thái, vai trò và native SQL context; trả actor nội bộ.|
+|`usp_PasswordSnapshot`|Đọc snapshot hash/phiên bản của tài khoản thuộc phiên hợp lệ để adapter đổi mật khẩu.|
+
+|Nhóm|Transaction được giao theo SP (tra cứu đầy đủ)|
+|---|---|
+|**4 Transaction (trong SP)**|[Cập nhật hồ sơ — usp_ProfileUpdate](../../database/practice/stored-procedures/usp_ProfileUpdate.sql);<br>[Tạo nhân sự — usp_AccountCreateStaff](../../database/practice/stored-procedures/usp_AccountCreateStaff.sql);<br>[Đổi trạng thái tài khoản / thu hồi phiên — usp_AccountSetStatus](../../database/practice/stored-procedures/usp_AccountSetStatus.sql);<br>[Đặt lại mật khẩu / thu hồi phiên — usp_AccountResetPassword](../../database/practice/stored-procedures/usp_AccountResetPassword.sql)|
+
+</details>
+
+
 **Luồng học:** Student signup → đăng nhập → kiểm phiên/role → thao tác nghiệp vụ → AuditLog/ReplayOperation → logout hoặc hết hạn. Luồng nhân sự: Admin tạo tài khoản → mật khẩu tạm → đổi mật khẩu → vào nghiệp vụ.
 
-**Transaction được giao rõ:** `usp_ProfileUpdate`, `usp_AccountCreateStaff`, `usp_AccountSetStatus`, `usp_AccountResetPassword`.
+**Transaction được giao rõ:** 2 bài học sâu trong bảng chính; danh sách đầy đủ nằm trong phụ lục thu gọn ngay trên và tài liệu transaction.
 
 **Hai bài trọng tâm:** [usp_AccountCreateStaff](../../database/practice/stored-procedures/usp_AccountCreateStaff.sql) và [usp_AccountSetStatus](../../database/practice/stored-procedures/usp_AccountSetStatus.sql). Chuẩn bị cách giải thích tính nguyên tử, lỗi giữa chừng, audit/receipt và trước/sau ROLLBACK; phần COMMIT nằm trong scope SQL của SP khi nó là owner.
 
@@ -79,20 +114,39 @@ Concurrency thu cùng hóa đơn: **TV2 chủ trì, TV1 chạy phiên còn lại
 
 |Nhóm|Object phụ trách|
 |---|---|
-|**8 Transaction (trong SP)**|[Tạo hồ sơ đăng ký — usp_RegistrationCreate](../../database/practice/stored-procedures/usp_RegistrationCreate.sql);<br>[Xác nhận đăng ký — usp_RegistrationConfirm](../../database/practice/stored-procedures/usp_RegistrationConfirm.sql);<br>[Học viên hủy đăng ký — usp_RegistrationCancelOwn](../../database/practice/stored-procedures/usp_RegistrationCancelOwn.sql);<br>[Duyệt nhập học và tạo hóa đơn — usp_AdmissionApprove](../../database/practice/stored-procedures/usp_AdmissionApprove.sql);<br>[Từ chối nhập học — usp_AdmissionReject](../../database/practice/stored-procedures/usp_AdmissionReject.sql);<br>[Hủy hồ sơ tuyển sinh — usp_AdmissionCancel](../../database/practice/stored-procedures/usp_AdmissionCancel.sql);<br>[Thu học phí — usp_InvoiceCollect](../../database/practice/stored-procedures/usp_InvoiceCollect.sql);<br>[Sửa thông tin thanh toán — usp_InvoiceCorrect](../../database/practice/stored-procedures/usp_InvoiceCorrect.sql)|
+|**6 SP chính — học sâu**|[`usp_RegistrationCreate`](../../database/practice/stored-procedures/usp_RegistrationCreate.sql);<br>[`usp_AdmissionApprove`](../../database/practice/stored-procedures/usp_AdmissionApprove.sql);<br>[`usp_AdmissionReject`](../../database/practice/stored-procedures/usp_AdmissionReject.sql);<br>[`usp_InvoiceCollect`](../../database/practice/stored-procedures/usp_InvoiceCollect.sql);<br>[`usp_InvoiceSearch`](../../database/practice/stored-procedures/usp_InvoiceSearch.sql);<br>[`usp_FinanceReport`](../../database/practice/stored-procedures/usp_FinanceReport.sql)|
+|**2 transaction trọng tâm**|[`usp_AdmissionApprove`](../../database/practice/stored-procedures/usp_AdmissionApprove.sql);<br>[`usp_InvoiceCollect`](../../database/practice/stored-procedures/usp_InvoiceCollect.sql)|
 |2 bảng|`Registration`, `Invoice`|
-|7 SP hồ sơ|`usp_RegistrationCreate`, `usp_RegistrationConfirm`, `usp_RegistrationCancelOwn`, `usp_RegistrationList`, `usp_AdmissionApprove`, `usp_AdmissionReject`, `usp_AdmissionCancel`|
-|4 SP hóa đơn|`usp_InvoiceCollect`, `usp_InvoiceCorrect`, `usp_InvoiceRead`, `usp_InvoiceSearch`|
-|3 SP báo cáo|`usp_FinanceReport`, `usp_FinanceExport`, `usp_DirectorReport`|
-|1 SP hạ tầng|`usp_RecordFailure`|
 |3 function|`fn_RegistrationUnfinished`, `fn_InvoiceDueDate`, `fn_InvoiceDebtFlags`|
 |3 view|`v_RegistrationFacts`, `v_InvoiceFacts`, `v_DirectorAggregate`|
 |2 trigger|`tr_Registration_State`, `tr_Invoice_Integrity`|
 |1 sequence|`InvoiceNumberSequence`|
 
+<details>
+<summary>Phụ lục TV2: 9 SP hỗ trợ và danh mục transaction đầy đủ</summary>
+
+|SP hỗ trợ|Nhiệm vụ|
+|---|---|
+|`usp_RegistrationConfirm`|Học viên xác nhận hồ sơ PENDING thành CONFIRMED theo rowversion.|
+|`usp_RegistrationCancelOwn`|Học viên hủy hồ sơ chờ của mình khi trạng thái còn cho phép.|
+|`usp_RegistrationList`|Liệt kê hồ sơ theo bộ lọc/phân trang và phạm vi quyền của người gọi.|
+|`usp_AdmissionCancel`|Tuyển sinh hủy hồ sơ khi trạng thái/tình trạng thu tiền còn cho phép.|
+|`usp_InvoiceCorrect`|Kế toán sửa metadata thanh toán có lý do; không thay số tiền hóa đơn.|
+|`usp_InvoiceRead`|Đọc hóa đơn cụ thể trong phạm vi vai trò/quyền sở hữu.|
+|`usp_FinanceExport`|Trả dữ liệu xuất báo cáo tài chính; C# định dạng CSV và bảo vệ formula injection.|
+|`usp_DirectorReport`|Giám đốc xem số liệu tổng hợp phục vụ quản lý, không có quyền ghi nghiệp vụ.|
+|`usp_RecordFailure`|Ghi FAILURE/DENIED xác định được sau khi giao dịch nghiệp vụ đã rollback; không giả lỗi cho commit chưa rõ.|
+
+|Nhóm|Transaction được giao theo SP (tra cứu đầy đủ)|
+|---|---|
+|**8 Transaction (trong SP)**|[Tạo hồ sơ đăng ký — usp_RegistrationCreate](../../database/practice/stored-procedures/usp_RegistrationCreate.sql);<br>[Xác nhận đăng ký — usp_RegistrationConfirm](../../database/practice/stored-procedures/usp_RegistrationConfirm.sql);<br>[Học viên hủy đăng ký — usp_RegistrationCancelOwn](../../database/practice/stored-procedures/usp_RegistrationCancelOwn.sql);<br>[Duyệt nhập học và tạo hóa đơn — usp_AdmissionApprove](../../database/practice/stored-procedures/usp_AdmissionApprove.sql);<br>[Từ chối nhập học — usp_AdmissionReject](../../database/practice/stored-procedures/usp_AdmissionReject.sql);<br>[Hủy hồ sơ tuyển sinh — usp_AdmissionCancel](../../database/practice/stored-procedures/usp_AdmissionCancel.sql);<br>[Thu học phí — usp_InvoiceCollect](../../database/practice/stored-procedures/usp_InvoiceCollect.sql);<br>[Sửa thông tin thanh toán — usp_InvoiceCorrect](../../database/practice/stored-procedures/usp_InvoiceCorrect.sql)|
+
+</details>
+
+
 **Luồng học:** Student tạo PENDING → Student CONFIRMED → Admissions ADMITTED đồng thời tạo Invoice → Accountant thu đủ → bàn giao hồ sơ đã trả tiền cho TV3 xếp lớp.
 
-**Transaction được giao rõ:** `usp_RegistrationCreate`, `usp_RegistrationConfirm`, `usp_RegistrationCancelOwn`, `usp_AdmissionApprove`, `usp_AdmissionReject`, `usp_AdmissionCancel`, `usp_InvoiceCollect`, `usp_InvoiceCorrect`.
+**Transaction được giao rõ:** 2 bài học sâu trong bảng chính; danh sách đầy đủ nằm trong phụ lục thu gọn ngay trên và tài liệu transaction.
 
 **Hai bài trọng tâm:** [usp_AdmissionApprove](../../database/practice/stored-procedures/usp_AdmissionApprove.sql) và [usp_InvoiceCollect](../../database/practice/stored-procedures/usp_InvoiceCollect.sql). Chuẩn bị cách giải thích tính nguyên tử, lỗi giữa chừng, audit/receipt và trước/sau ROLLBACK; phần COMMIT nằm trong scope SQL của SP khi nó là owner.
 
@@ -117,20 +171,38 @@ Concurrency thu cùng hóa đơn: **TV2 chủ trì, TV1 chạy phiên còn lại
 
 |Nhóm|Object phụ trách|
 |---|---|
-|**10 Transaction (trong SP)**|[Tạo khóa học — usp_CourseCreate](../../database/practice/stored-procedures/usp_CourseCreate.sql);<br>[Sửa khóa học — usp_CourseUpdate](../../database/practice/stored-procedures/usp_CourseUpdate.sql);<br>[Tạo lớp — usp_ClassCreate](../../database/practice/stored-procedures/usp_ClassCreate.sql);<br>[Sửa lớp — usp_ClassEdit](../../database/practice/stored-procedures/usp_ClassEdit.sql);<br>[Mở nhận học viên — usp_ClassOpen](../../database/practice/stored-procedures/usp_ClassOpen.sql);<br>[Bắt đầu lớp — usp_ClassStart](../../database/practice/stored-procedures/usp_ClassStart.sql);<br>[Hoàn thành lớp — usp_ClassComplete](../../database/practice/stored-procedures/usp_ClassComplete.sql);<br>[Hủy lớp — usp_ClassCancel](../../database/practice/stored-procedures/usp_ClassCancel.sql);<br>[Xếp lớp và tạo bảng điểm — usp_PlacementCreate](../../database/practice/stored-procedures/usp_PlacementCreate.sql);<br>[Lưu cả lô lịch — usp_ScheduleBatch](../../database/practice/stored-procedures/usp_ScheduleBatch.sql)|
+|**6 SP chính — học sâu**|[`usp_CourseCreate`](../../database/practice/stored-procedures/usp_CourseCreate.sql);<br>[`usp_ClassOpen`](../../database/practice/stored-procedures/usp_ClassOpen.sql);<br>[`usp_ClassStart`](../../database/practice/stored-procedures/usp_ClassStart.sql);<br>[`usp_ClassComplete`](../../database/practice/stored-procedures/usp_ClassComplete.sql);<br>[`usp_PlacementCreate`](../../database/practice/stored-procedures/usp_PlacementCreate.sql);<br>[`usp_ScheduleBatch`](../../database/practice/stored-procedures/usp_ScheduleBatch.sql)|
+|**2 transaction trọng tâm**|[`usp_PlacementCreate`](../../database/practice/stored-procedures/usp_PlacementCreate.sql);<br>[`usp_ScheduleBatch`](../../database/practice/stored-procedures/usp_ScheduleBatch.sql)|
 |4 bảng|`Course`, `Class`, `StudentClassAssignment`, `Schedule`|
-|3 SP khóa học|`usp_CourseCreate`, `usp_CourseUpdate`, `usp_CourseList`|
-|7 SP lớp|`usp_ClassCreate`, `usp_ClassEdit`, `usp_ClassOpen`, `usp_ClassStart`, `usp_ClassComplete`, `usp_ClassCancel`, `usp_ClassList`|
-|2 SP xếp lớp/giáo viên|`usp_PlacementCreate`, `usp_TeacherOptions`|
-|2 SP lập lịch|`usp_ScheduleBatch`, `usp_WeeklySchedulePreview`|
 |1 function|`fn_ClassProgress`|
 |2 view|`v_CurrentSchedule`, `v_ClassProgress`|
 |4 trigger|`tr_Course_Freeze`, `tr_Class_Lifecycle`, `tr_Assignment_Eligibility`, `tr_Schedule_Guard`|
 |1 TVP|`ScheduleBatch`|
 
+<details>
+<summary>Phụ lục TV3: 8 SP hỗ trợ và danh mục transaction đầy đủ</summary>
+
+|SP hỗ trợ|Nhiệm vụ|
+|---|---|
+|`usp_CourseUpdate`|Giáo vụ sửa cấu hình khóa học theo rowversion và giới hạn khi khóa đã được sử dụng.|
+|`usp_CourseList`|Liệt kê/tìm khóa học theo bộ lọc, phân trang và vai trò.|
+|`usp_ClassCreate`|Giáo vụ tạo lớp PLANNED thuộc khóa học, giáo viên và sức chứa hợp lệ.|
+|`usp_ClassEdit`|Giáo vụ sửa thông tin lớp theo trạng thái/rowversion và các ràng buộc liên quan.|
+|`usp_ClassCancel`|Giáo vụ hủy lớp khi vòng đời còn cho phép, lưu lý do và audit/receipt.|
+|`usp_ClassList`|Liệt kê lớp và trạng thái bảng điểm trong phạm vi Student/Teacher/AcademicAffairs.|
+|`usp_TeacherOptions`|Lấy danh sách giáo viên phù hợp cho thao tác quản lý lớp.|
+|`usp_WeeklySchedulePreview`|Tính bản xem trước lịch theo tuần; chưa lưu lịch vào database.|
+
+|Nhóm|Transaction được giao theo SP (tra cứu đầy đủ)|
+|---|---|
+|**10 Transaction (trong SP)**|[Tạo khóa học — usp_CourseCreate](../../database/practice/stored-procedures/usp_CourseCreate.sql);<br>[Sửa khóa học — usp_CourseUpdate](../../database/practice/stored-procedures/usp_CourseUpdate.sql);<br>[Tạo lớp — usp_ClassCreate](../../database/practice/stored-procedures/usp_ClassCreate.sql);<br>[Sửa lớp — usp_ClassEdit](../../database/practice/stored-procedures/usp_ClassEdit.sql);<br>[Mở nhận học viên — usp_ClassOpen](../../database/practice/stored-procedures/usp_ClassOpen.sql);<br>[Bắt đầu lớp — usp_ClassStart](../../database/practice/stored-procedures/usp_ClassStart.sql);<br>[Hoàn thành lớp — usp_ClassComplete](../../database/practice/stored-procedures/usp_ClassComplete.sql);<br>[Hủy lớp — usp_ClassCancel](../../database/practice/stored-procedures/usp_ClassCancel.sql);<br>[Xếp lớp và tạo bảng điểm — usp_PlacementCreate](../../database/practice/stored-procedures/usp_PlacementCreate.sql);<br>[Lưu cả lô lịch — usp_ScheduleBatch](../../database/practice/stored-procedures/usp_ScheduleBatch.sql)|
+
+</details>
+
+
 **Luồng học:** tạo Course → tạo Class PLANNED → lập lịch → OPEN → xếp học viên đã ADMITTED/PAID → đủ điều kiện ONGOING → nhận điểm danh/HELD từ TV4 → COMPLETED.
 
-**Transaction được giao rõ:** `usp_CourseCreate`, `usp_CourseUpdate`, `usp_ClassCreate`, `usp_ClassEdit`, `usp_ClassOpen`, `usp_ClassStart`, `usp_ClassComplete`, `usp_ClassCancel`, `usp_PlacementCreate`, `usp_ScheduleBatch`.
+**Transaction được giao rõ:** 2 bài học sâu trong bảng chính; danh sách đầy đủ nằm trong phụ lục thu gọn ngay trên và tài liệu transaction.
 
 **Hai bài trọng tâm:** [usp_PlacementCreate](../../database/practice/stored-procedures/usp_PlacementCreate.sql) và [usp_ScheduleBatch](../../database/practice/stored-procedures/usp_ScheduleBatch.sql). Chuẩn bị cách giải thích tính nguyên tử, lỗi giữa chừng, audit/receipt và trước/sau ROLLBACK; phần COMMIT nằm trong scope SQL của SP khi nó là owner.
 
@@ -153,21 +225,38 @@ Concurrency thu cùng hóa đơn: **TV2 chủ trì, TV1 chạy phiên còn lại
 
 |Nhóm|Object phụ trách|
 |---|---|
-|**7 Transaction (trong SP)**|[Dời lịch — usp_ScheduleMove](../../database/practice/stored-procedures/usp_ScheduleMove.sql);<br>[Xác nhận đã tổ chức — usp_ScheduleHeld](../../database/practice/stored-procedures/usp_ScheduleHeld.sql);<br>[Lưu cả lô điểm danh — usp_AttendanceSave](../../database/practice/stored-procedures/usp_AttendanceSave.sql);<br>[Lưu điểm — usp_GradeSave](../../database/practice/stored-procedures/usp_GradeSave.sql);<br>[Gửi bảng điểm — usp_GradeSubmit](../../database/practice/stored-procedures/usp_GradeSubmit.sql);<br>[Trả lại bảng điểm — usp_GradeReturn](../../database/practice/stored-procedures/usp_GradeReturn.sql);<br>[Chốt bảng điểm — usp_GradeFinalize](../../database/practice/stored-procedures/usp_GradeFinalize.sql)|
+|**6 SP chính — học sâu**|[`usp_ScheduleHeld`](../../database/practice/stored-procedures/usp_ScheduleHeld.sql);<br>[`usp_AttendanceSave`](../../database/practice/stored-procedures/usp_AttendanceSave.sql);<br>[`usp_GradeSave`](../../database/practice/stored-procedures/usp_GradeSave.sql);<br>[`usp_GradeSubmit`](../../database/practice/stored-procedures/usp_GradeSubmit.sql);<br>[`usp_GradeReturn`](../../database/practice/stored-procedures/usp_GradeReturn.sql);<br>[`usp_GradeFinalize`](../../database/practice/stored-procedures/usp_GradeFinalize.sql)|
+|**2 transaction trọng tâm**|[`usp_AttendanceSave`](../../database/practice/stored-procedures/usp_AttendanceSave.sql);<br>[`usp_GradeFinalize`](../../database/practice/stored-procedures/usp_GradeFinalize.sql)|
 |2 bảng|`Attendance`, `GradeReport`|
-|3 SP vận hành lịch|`usp_ScheduleList`, `usp_ScheduleMove`, `usp_ScheduleHeld`|
-|3 SP điểm danh/roster|`usp_AttendanceRead`, `usp_AttendanceSave`, `usp_ClassRoster`|
-|4 SP bảng điểm|`usp_GradeSave`, `usp_GradeSubmit`, `usp_GradeReturn`, `usp_GradeFinalize`|
-|2 SP kết quả/học viên|`usp_StudentGrades`, `usp_StudentHome`|
-|2 SP hạ tầng|`usp_BeginRead`, `usp_BeginWrite`|
 |2 function|`fn_ValidScore`, `fn_GradeTotal`|
 |3 view|`v_ClassState`, `v_ClassRoster`, `v_FinalizedGrades`|
 |3 trigger|`tr_Attendance_Guard`, `tr_GradeReport_Guard`, `tr_Class_GradeDecision`|
 |2 TVP|`AttendanceBatch`, `GradeManifest`|
 
+<details>
+<summary>Phụ lục TV4: 8 SP hỗ trợ và danh mục transaction đầy đủ</summary>
+
+|SP hỗ trợ|Nhiệm vụ|
+|---|---|
+|`usp_ScheduleList`|Đọc lịch trong khoảng thời gian và phạm vi quyền của người gọi.|
+|`usp_ScheduleMove`|Giáo vụ dời buổi học còn cho phép, kiểm trùng lịch/rowversion và lưu lý do.|
+|`usp_AttendanceRead`|Đọc danh sách điểm danh để hiển thị/chỉnh sửa trong phạm vi lớp hợp lệ.|
+|`usp_ClassRoster`|Đọc danh sách học viên của lớp trong phạm vi giáo viên/giáo vụ.|
+|`usp_StudentGrades`|Học viên xem kết quả FINALIZED của chính mình.|
+|`usp_StudentHome`|Tổng hợp đăng ký, học phí, lớp và kết quả của chính học viên.|
+|`usp_BeginRead`|Helper lấy khóa đọc trên Course; tự mở/chốt khi depth0 hoặc dùng transaction caller ở depth1.|
+|`usp_BeginWrite`|Helper lấy khóa ghi độc quyền trên Course; tự mở/chốt khi depth0 hoặc dùng transaction caller ở depth1.|
+
+|Nhóm|Transaction được giao theo SP (tra cứu đầy đủ)|
+|---|---|
+|**7 Transaction (trong SP)**|[Dời lịch — usp_ScheduleMove](../../database/practice/stored-procedures/usp_ScheduleMove.sql);<br>[Xác nhận đã tổ chức — usp_ScheduleHeld](../../database/practice/stored-procedures/usp_ScheduleHeld.sql);<br>[Lưu cả lô điểm danh — usp_AttendanceSave](../../database/practice/stored-procedures/usp_AttendanceSave.sql);<br>[Lưu điểm — usp_GradeSave](../../database/practice/stored-procedures/usp_GradeSave.sql);<br>[Gửi bảng điểm — usp_GradeSubmit](../../database/practice/stored-procedures/usp_GradeSubmit.sql);<br>[Trả lại bảng điểm — usp_GradeReturn](../../database/practice/stored-procedures/usp_GradeReturn.sql);<br>[Chốt bảng điểm — usp_GradeFinalize](../../database/practice/stored-procedures/usp_GradeFinalize.sql)|
+
+</details>
+
+
 **Luồng học:** ONGOING → Teacher điểm danh → AcademicAffairs xác nhận HELD → TV3 hoàn thành lớp → Teacher gửi cả bảng điểm → AcademicAffairs trả lại hoặc chốt → Student xem kết quả FINALIZED.
 
-**Transaction được giao rõ:** `usp_ScheduleMove`, `usp_ScheduleHeld`, `usp_AttendanceSave`, `usp_GradeSave`, `usp_GradeSubmit`, `usp_GradeReturn`, `usp_GradeFinalize`.
+**Transaction được giao rõ:** 2 bài học sâu trong bảng chính; danh sách đầy đủ nằm trong phụ lục thu gọn ngay trên và tài liệu transaction.
 
 **Hai bài trọng tâm:** [usp_AttendanceSave](../../database/practice/stored-procedures/usp_AttendanceSave.sql) và [usp_GradeFinalize](../../database/practice/stored-procedures/usp_GradeFinalize.sql). Chuẩn bị cách giải thích tính nguyên tử, lỗi giữa chừng, audit/receipt và trước/sau ROLLBACK; phần COMMIT nằm trong scope SQL của SP khi nó là owner.
 

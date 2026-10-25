@@ -1,0 +1,618 @@
+{
+  "date": "2026-10-25",
+  "total": 61,
+  "primary": 24,
+  "supporting": 37,
+  "procedures": [
+    {
+      "name": "usp_StudentSignup",
+      "owner": "TV1",
+      "focus": "primary",
+      "kind": "auth",
+      "purpose": "Tạo tài khoản học viên và ghi nhật ký đăng ký; hash mật khẩu do C# tạo.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_StudentSignup.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_StudentSignup.sql"
+    },
+    {
+      "name": "usp_LoginRead",
+      "owner": "TV1",
+      "focus": "primary",
+      "kind": "auth",
+      "purpose": "Đọc credential/trạng thái nội bộ để C# kiểm mật khẩu; không trả hash ra trình duyệt.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_LoginRead.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_LoginRead.sql"
+    },
+    {
+      "name": "usp_LoginRecord",
+      "owner": "TV1",
+      "focus": "primary",
+      "kind": "auth",
+      "purpose": "Ghi kết quả đăng nhập, đếm lần sai/throttle và tạo phiên khi thành công; kiểm credential chưa đổi.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_LoginRecord.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_LoginRecord.sql"
+    },
+    {
+      "name": "usp_CurrentSession",
+      "owner": "TV1",
+      "focus": "support",
+      "kind": "read",
+      "purpose": "Xác minh phiên và trả thông tin tài khoản/vai trò hiện tại.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_CurrentSession.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_CurrentSession.sql"
+    },
+    {
+      "name": "usp_SessionTouch",
+      "owner": "TV1",
+      "focus": "support",
+      "kind": "auth",
+      "purpose": "Kiểm phiên hợp lệ rồi cập nhật thời điểm hoạt động của phiên.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_SessionTouch.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_SessionTouch.sql"
+    },
+    {
+      "name": "usp_Logout",
+      "owner": "TV1",
+      "focus": "support",
+      "kind": "auth",
+      "purpose": "Thu hồi phiên đăng nhập hiện tại và ghi nhật ký đăng xuất.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_Logout.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_Logout.sql"
+    },
+    {
+      "name": "usp_PasswordChange",
+      "owner": "TV1",
+      "focus": "primary",
+      "kind": "auth",
+      "purpose": "Đổi hash mật khẩu sau kiểm phiên/credential, tăng phiên bản bảo mật và thu hồi phiên cũ.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_PasswordChange.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_PasswordChange.sql"
+    },
+    {
+      "name": "usp_ProfileUpdate",
+      "owner": "TV1",
+      "focus": "support",
+      "kind": "command",
+      "purpose": "Học viên cập nhật hồ sơ cá nhân theo rowversion; audit/receipt cùng giao dịch.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_ProfileUpdate.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_ProfileUpdate.sql"
+    },
+    {
+      "name": "usp_AccountCreateStaff",
+      "owner": "TV1",
+      "focus": "primary",
+      "kind": "command",
+      "purpose": "Admin tạo tài khoản nhân sự có mật khẩu tạm; ghi audit/receipt.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_AccountCreateStaff.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_AccountCreateStaff.sql"
+    },
+    {
+      "name": "usp_AccountSetStatus",
+      "owner": "TV1",
+      "focus": "primary",
+      "kind": "command",
+      "purpose": "Admin đổi trạng thái tài khoản, tăng phiên bản bảo mật và thu hồi phiên.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_AccountSetStatus.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_AccountSetStatus.sql"
+    },
+    {
+      "name": "usp_AccountResetPassword",
+      "owner": "TV1",
+      "focus": "support",
+      "kind": "command",
+      "purpose": "Admin cấp lại mật khẩu tạm, tăng phiên bản bảo mật và thu hồi phiên.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_AccountResetPassword.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_AccountResetPassword.sql"
+    },
+    {
+      "name": "usp_AdminAccountList",
+      "owner": "TV1",
+      "focus": "support",
+      "kind": "read",
+      "purpose": "Admin tra cứu/danh sách tài khoản theo bộ lọc và phân trang.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_AdminAccountList.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_AdminAccountList.sql"
+    },
+    {
+      "name": "usp_AuditList",
+      "owner": "TV1",
+      "focus": "support",
+      "kind": "read",
+      "purpose": "Admin tra cứu nhật ký thao tác theo bộ lọc và phân trang.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_AuditList.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_AuditList.sql"
+    },
+    {
+      "name": "usp_ReplayLookup",
+      "owner": "TV1",
+      "focus": "support",
+      "kind": "read",
+      "purpose": "Tra cứu receipt của chính người gọi để xác định kết quả lệnh sau mất phản hồi.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_ReplayLookup.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_ReplayLookup.sql"
+    },
+    {
+      "name": "usp_OperatorBootstrap",
+      "owner": "TV1",
+      "focus": "support",
+      "kind": "auth",
+      "purpose": "Operator tạo Admin đầu tiên khi catalog còn rỗng; không phải chức năng web Admin.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_OperatorBootstrap.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_OperatorBootstrap.sql"
+    },
+    {
+      "name": "usp_MaintenanceCleanup",
+      "owner": "TV1",
+      "focus": "support",
+      "kind": "auth",
+      "purpose": "Operator dọn receipt quá hạn, phiên hết hạn và bỏ IP trong audit quá thời hạn.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_MaintenanceCleanup.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_MaintenanceCleanup.sql"
+    },
+    {
+      "name": "usp_SecuritySession",
+      "owner": "TV1",
+      "focus": "support",
+      "kind": "infrastructure",
+      "purpose": "Helper xác minh SID/epoch, thời hạn, trạng thái, vai trò và native SQL context; trả actor nội bộ.",
+      "source": "database/dbms12-compact/stored-procedures/infrastructure/session.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_SecuritySession.sql"
+    },
+    {
+      "name": "usp_PasswordSnapshot",
+      "owner": "TV1",
+      "focus": "support",
+      "kind": "infrastructure",
+      "purpose": "Đọc snapshot hash/phiên bản của tài khoản thuộc phiên hợp lệ để adapter đổi mật khẩu.",
+      "source": "database/dbms12-compact/stored-procedures/infrastructure/password.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_PasswordSnapshot.sql"
+    },
+    {
+      "name": "usp_RegistrationCreate",
+      "owner": "TV2",
+      "focus": "primary",
+      "kind": "command",
+      "purpose": "Học viên tạo hồ sơ PENDING; chống đăng ký trùng hồ sơ chưa kết thúc.",
+      "source": "database/dbms12-compact/stored-procedures/core/07_core_procedures.sql",
+      "line": 2,
+      "practice": "database/practice/stored-procedures/usp_RegistrationCreate.sql"
+    },
+    {
+      "name": "usp_RegistrationConfirm",
+      "owner": "TV2",
+      "focus": "support",
+      "kind": "command",
+      "purpose": "Học viên xác nhận hồ sơ PENDING thành CONFIRMED theo rowversion.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_RegistrationConfirm.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_RegistrationConfirm.sql"
+    },
+    {
+      "name": "usp_RegistrationCancelOwn",
+      "owner": "TV2",
+      "focus": "support",
+      "kind": "command",
+      "purpose": "Học viên hủy hồ sơ chờ của mình khi trạng thái còn cho phép.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_RegistrationCancelOwn.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_RegistrationCancelOwn.sql"
+    },
+    {
+      "name": "usp_RegistrationList",
+      "owner": "TV2",
+      "focus": "support",
+      "kind": "read",
+      "purpose": "Liệt kê hồ sơ theo bộ lọc/phân trang và phạm vi quyền của người gọi.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_RegistrationList.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_RegistrationList.sql"
+    },
+    {
+      "name": "usp_AdmissionApprove",
+      "owner": "TV2",
+      "focus": "primary",
+      "kind": "command",
+      "purpose": "Tuyển sinh duyệt CONFIRMED thành ADMITTED và tạo hóa đơn trong cùng transaction.",
+      "source": "database/dbms12-compact/stored-procedures/core/07_core_procedures.sql",
+      "line": 60,
+      "practice": "database/practice/stored-procedures/usp_AdmissionApprove.sql"
+    },
+    {
+      "name": "usp_AdmissionReject",
+      "owner": "TV2",
+      "focus": "primary",
+      "kind": "command",
+      "purpose": "Tuyển sinh từ chối hồ sơ hợp lệ, lưu lý do và audit/receipt.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_AdmissionReject.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_AdmissionReject.sql"
+    },
+    {
+      "name": "usp_AdmissionCancel",
+      "owner": "TV2",
+      "focus": "support",
+      "kind": "command",
+      "purpose": "Tuyển sinh hủy hồ sơ khi trạng thái/tình trạng thu tiền còn cho phép.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_AdmissionCancel.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_AdmissionCancel.sql"
+    },
+    {
+      "name": "usp_InvoiceCollect",
+      "owner": "TV2",
+      "focus": "primary",
+      "kind": "command",
+      "purpose": "Kế toán thu đủ học phí một lần, kiểm rowversion và ghi thanh toán/audit/receipt nguyên tử.",
+      "source": "database/dbms12-compact/stored-procedures/core/07_core_procedures.sql",
+      "line": 119,
+      "practice": "database/practice/stored-procedures/usp_InvoiceCollect.sql"
+    },
+    {
+      "name": "usp_InvoiceCorrect",
+      "owner": "TV2",
+      "focus": "support",
+      "kind": "command",
+      "purpose": "Kế toán sửa metadata thanh toán có lý do; không thay số tiền hóa đơn.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_InvoiceCorrect.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_InvoiceCorrect.sql"
+    },
+    {
+      "name": "usp_InvoiceRead",
+      "owner": "TV2",
+      "focus": "support",
+      "kind": "read",
+      "purpose": "Đọc hóa đơn cụ thể trong phạm vi vai trò/quyền sở hữu.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_InvoiceRead.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_InvoiceRead.sql"
+    },
+    {
+      "name": "usp_InvoiceSearch",
+      "owner": "TV2",
+      "focus": "primary",
+      "kind": "read",
+      "purpose": "Kế toán tìm hóa đơn theo bộ lọc và phân trang.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_InvoiceSearch.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_InvoiceSearch.sql"
+    },
+    {
+      "name": "usp_FinanceReport",
+      "owner": "TV2",
+      "focus": "primary",
+      "kind": "read",
+      "purpose": "Kế toán tổng hợp số tiền phát hành/doanh thu theo khoảng ngày và công nợ hiện tại toàn bộ hóa đơn.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_FinanceReport.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_FinanceReport.sql"
+    },
+    {
+      "name": "usp_FinanceExport",
+      "owner": "TV2",
+      "focus": "support",
+      "kind": "read",
+      "purpose": "Trả dữ liệu xuất báo cáo tài chính; C# định dạng CSV và bảo vệ formula injection.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_FinanceExport.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_FinanceExport.sql"
+    },
+    {
+      "name": "usp_DirectorReport",
+      "owner": "TV2",
+      "focus": "support",
+      "kind": "read",
+      "purpose": "Giám đốc xem số liệu tổng hợp phục vụ quản lý, không có quyền ghi nghiệp vụ.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_DirectorReport.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_DirectorReport.sql"
+    },
+    {
+      "name": "usp_RecordFailure",
+      "owner": "TV2",
+      "focus": "support",
+      "kind": "infrastructure",
+      "purpose": "Ghi FAILURE/DENIED xác định được sau khi giao dịch nghiệp vụ đã rollback; không giả lỗi cho commit chưa rõ.",
+      "source": "database/dbms12-compact/stored-procedures/infrastructure/failure.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_RecordFailure.sql"
+    },
+    {
+      "name": "usp_CourseCreate",
+      "owner": "TV3",
+      "focus": "primary",
+      "kind": "command",
+      "purpose": "Giáo vụ tạo khóa học với học phí, số buổi và trọng số; audit/receipt cùng giao dịch.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_CourseCreate.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_CourseCreate.sql"
+    },
+    {
+      "name": "usp_CourseUpdate",
+      "owner": "TV3",
+      "focus": "support",
+      "kind": "command",
+      "purpose": "Giáo vụ sửa cấu hình khóa học theo rowversion và giới hạn khi khóa đã được sử dụng.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_CourseUpdate.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_CourseUpdate.sql"
+    },
+    {
+      "name": "usp_CourseList",
+      "owner": "TV3",
+      "focus": "support",
+      "kind": "read",
+      "purpose": "Liệt kê/tìm khóa học theo bộ lọc, phân trang và vai trò.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_CourseList.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_CourseList.sql"
+    },
+    {
+      "name": "usp_ClassCreate",
+      "owner": "TV3",
+      "focus": "support",
+      "kind": "command",
+      "purpose": "Giáo vụ tạo lớp PLANNED thuộc khóa học, giáo viên và sức chứa hợp lệ.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_ClassCreate.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_ClassCreate.sql"
+    },
+    {
+      "name": "usp_ClassEdit",
+      "owner": "TV3",
+      "focus": "support",
+      "kind": "command",
+      "purpose": "Giáo vụ sửa thông tin lớp theo trạng thái/rowversion và các ràng buộc liên quan.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_ClassEdit.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_ClassEdit.sql"
+    },
+    {
+      "name": "usp_ClassOpen",
+      "owner": "TV3",
+      "focus": "primary",
+      "kind": "command",
+      "purpose": "Chuyển lớp PLANNED sang OPEN khi khóa/giáo viên hoạt động và có buổi LESSON tương lai.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_ClassOpen.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_ClassOpen.sql"
+    },
+    {
+      "name": "usp_ClassStart",
+      "owner": "TV3",
+      "focus": "primary",
+      "kind": "command",
+      "purpose": "Chuyển OPEN sang ONGOING khi đủ lịch, kỳ thi, học viên và đã đến buổi học đầu.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_ClassStart.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_ClassStart.sql"
+    },
+    {
+      "name": "usp_ClassComplete",
+      "owner": "TV3",
+      "focus": "primary",
+      "kind": "command",
+      "purpose": "Chuyển ONGOING sang COMPLETED khi đủ lịch, mọi buổi đã HELD và không thiếu điểm danh.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_ClassComplete.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_ClassComplete.sql"
+    },
+    {
+      "name": "usp_ClassCancel",
+      "owner": "TV3",
+      "focus": "support",
+      "kind": "command",
+      "purpose": "Giáo vụ hủy lớp khi vòng đời còn cho phép, lưu lý do và audit/receipt.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_ClassCancel.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_ClassCancel.sql"
+    },
+    {
+      "name": "usp_ClassList",
+      "owner": "TV3",
+      "focus": "support",
+      "kind": "read",
+      "purpose": "Liệt kê lớp và trạng thái bảng điểm trong phạm vi Student/Teacher/AcademicAffairs.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_ClassList.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_ClassList.sql"
+    },
+    {
+      "name": "usp_PlacementCreate",
+      "owner": "TV3",
+      "focus": "primary",
+      "kind": "command",
+      "purpose": "Xếp hồ sơ ADMITTED/đã trả tiền vào lớp OPEN, kiểm sức chứa/trùng lịch và tạo GradeReport cùng giao dịch.",
+      "source": "database/dbms12-compact/stored-procedures/core/07_core_procedures.sql",
+      "line": 183,
+      "practice": "database/practice/stored-procedures/usp_PlacementCreate.sql"
+    },
+    {
+      "name": "usp_TeacherOptions",
+      "owner": "TV3",
+      "focus": "support",
+      "kind": "read",
+      "purpose": "Lấy danh sách giáo viên phù hợp cho thao tác quản lý lớp.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_TeacherOptions.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_TeacherOptions.sql"
+    },
+    {
+      "name": "usp_ScheduleBatch",
+      "owner": "TV3",
+      "focus": "primary",
+      "kind": "command",
+      "purpose": "Lưu cả lô lịch từ TVP; một dòng vi phạm làm thất bại cả giao dịch.",
+      "source": "database/dbms12-compact/stored-procedures/core/07_core_procedures.sql",
+      "line": 246,
+      "practice": "database/practice/stored-procedures/usp_ScheduleBatch.sql"
+    },
+    {
+      "name": "usp_WeeklySchedulePreview",
+      "owner": "TV3",
+      "focus": "support",
+      "kind": "read",
+      "purpose": "Tính bản xem trước lịch theo tuần; chưa lưu lịch vào database.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_WeeklySchedulePreview.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_WeeklySchedulePreview.sql"
+    },
+    {
+      "name": "usp_ScheduleList",
+      "owner": "TV4",
+      "focus": "support",
+      "kind": "read",
+      "purpose": "Đọc lịch trong khoảng thời gian và phạm vi quyền của người gọi.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_ScheduleList.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_ScheduleList.sql"
+    },
+    {
+      "name": "usp_ScheduleMove",
+      "owner": "TV4",
+      "focus": "support",
+      "kind": "command",
+      "purpose": "Giáo vụ dời buổi học còn cho phép, kiểm trùng lịch/rowversion và lưu lý do.",
+      "source": "database/dbms12-compact/stored-procedures/core/07_core_procedures.sql",
+      "line": 307,
+      "practice": "database/practice/stored-procedures/usp_ScheduleMove.sql"
+    },
+    {
+      "name": "usp_ScheduleHeld",
+      "owner": "TV4",
+      "focus": "primary",
+      "kind": "command",
+      "purpose": "Giáo vụ xác nhận buổi đã tổ chức sau giờ kết thúc khi trạng thái lớp cho phép.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_ScheduleHeld.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_ScheduleHeld.sql"
+    },
+    {
+      "name": "usp_AttendanceRead",
+      "owner": "TV4",
+      "focus": "support",
+      "kind": "read",
+      "purpose": "Đọc danh sách điểm danh để hiển thị/chỉnh sửa trong phạm vi lớp hợp lệ.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_AttendanceRead.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_AttendanceRead.sql"
+    },
+    {
+      "name": "usp_AttendanceSave",
+      "owner": "TV4",
+      "focus": "primary",
+      "kind": "command",
+      "purpose": "Giáo viên lưu cả lô có mặt/vắng từ TVP, kiểm lớp phụ trách và phiên bản.",
+      "source": "database/dbms12-compact/stored-procedures/core/07_core_procedures.sql",
+      "line": 377,
+      "practice": "database/practice/stored-procedures/usp_AttendanceSave.sql"
+    },
+    {
+      "name": "usp_ClassRoster",
+      "owner": "TV4",
+      "focus": "support",
+      "kind": "read",
+      "purpose": "Đọc danh sách học viên của lớp trong phạm vi giáo viên/giáo vụ.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_ClassRoster.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_ClassRoster.sql"
+    },
+    {
+      "name": "usp_GradeSave",
+      "owner": "TV4",
+      "focus": "primary",
+      "kind": "command",
+      "purpose": "Giáo viên lưu hai điểm và nhận xét theo trạng thái lớp/bảng điểm và rowversion.",
+      "source": "database/dbms12-compact/stored-procedures/core/07_core_procedures.sql",
+      "line": 449,
+      "practice": "database/practice/stored-procedures/usp_GradeSave.sql"
+    },
+    {
+      "name": "usp_GradeSubmit",
+      "owner": "TV4",
+      "focus": "primary",
+      "kind": "command",
+      "purpose": "Giáo viên gửi toàn bộ bảng điểm lớp COMPLETED, yêu cầu đủ điểm và manifest đúng phiên bản.",
+      "source": "database/dbms12-compact/stored-procedures/core/07_core_procedures.sql",
+      "line": 522,
+      "practice": "database/practice/stored-procedures/usp_GradeSubmit.sql"
+    },
+    {
+      "name": "usp_GradeReturn",
+      "owner": "TV4",
+      "focus": "primary",
+      "kind": "command",
+      "purpose": "Giáo vụ trả lại bảng điểm SUBMITTED kèm lý do để giáo viên sửa.",
+      "source": "database/dbms12-compact/stored-procedures/core/07_core_procedures.sql",
+      "line": 589,
+      "practice": "database/practice/stored-procedures/usp_GradeReturn.sql"
+    },
+    {
+      "name": "usp_GradeFinalize",
+      "owner": "TV4",
+      "focus": "primary",
+      "kind": "command",
+      "purpose": "Giáo vụ chốt bảng điểm SUBMITTED toàn lớp bằng quyết định audit và cập nhật con trỏ trạng thái.",
+      "source": "database/dbms12-compact/stored-procedures/core/07_core_procedures.sql",
+      "line": 660,
+      "practice": "database/practice/stored-procedures/usp_GradeFinalize.sql"
+    },
+    {
+      "name": "usp_StudentGrades",
+      "owner": "TV4",
+      "focus": "support",
+      "kind": "read",
+      "purpose": "Học viên xem kết quả FINALIZED của chính mình.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_StudentGrades.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_StudentGrades.sql"
+    },
+    {
+      "name": "usp_StudentHome",
+      "owner": "TV4",
+      "focus": "support",
+      "kind": "read",
+      "purpose": "Tổng hợp đăng ký, học phí, lớp và kết quả của chính học viên.",
+      "source": "database/dbms12-compact/stored-procedures/operations/usp_StudentHome.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_StudentHome.sql"
+    },
+    {
+      "name": "usp_BeginRead",
+      "owner": "TV4",
+      "focus": "support",
+      "kind": "infrastructure",
+      "purpose": "Helper lấy khóa đọc trên Course; tự mở/chốt khi depth0 hoặc dùng transaction caller ở depth1.",
+      "source": "database/dbms12-compact/stored-procedures/infrastructure/begin-read.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_BeginRead.sql"
+    },
+    {
+      "name": "usp_BeginWrite",
+      "owner": "TV4",
+      "focus": "support",
+      "kind": "infrastructure",
+      "purpose": "Helper lấy khóa ghi độc quyền trên Course; tự mở/chốt khi depth0 hoặc dùng transaction caller ở depth1.",
+      "source": "database/dbms12-compact/stored-procedures/infrastructure/begin-write.sql",
+      "line": 1,
+      "practice": "database/practice/stored-procedures/usp_BeginWrite.sql"
+    }
+  ]
+}
