@@ -1,6 +1,6 @@
 # Review TEAM_LEARNING_PUBLISH — 25/10/2026
 
-Verdict: **PASS cho nội dung sẵn sàng commit/push**. Owner đã yêu cầu rõ việc xuất bản lên repository độc lập. Dùng checklist skill code-review, không delegation. [Scope](slices/TEAM_LEARNING_PUBLISH.md), [hướng dẫn nhóm](../TEAM_SQL_GUIDE.md). Trạng thái remote chỉ được xác nhận sau khi push.
+Verdict: **PASS; source đã commit/push và remoteSHA đã xác nhận**. Owner đã yêu cầu rõ việc xuất bản lên repository độc lập. Dùng checklist skill code-review, không delegation. [Scope](slices/TEAM_LEARNING_PUBLISH.md), [hướng dẫn nhóm](../TEAM_SQL_GUIDE.md). Source release20bdc124545279bb755f434310947682588b207d đã push main và git ls-remote khớp. Receipt trong docs/evidence/team-learning-publish/publication.json.
 
 Bản này gồm các slice STUDY_ASSIGNMENT_4, SQL_TRANSACTIONS, SQL_OBJECT_FOLDERS và SQL_LEARNING_PACK đã hoàn thành trong chat. Không thêm nghiệp vụ hoặc nới quyền để xuất bản. Nội dung giữ12bảng99cột/61SP/7FN9VW12TG/7native roles/62SQLpins,105object và107bài học. Review từng slice và evidence gốc được giữ, không đổi hash/path lịch sử thành kết quả mới.
 
@@ -22,6 +22,6 @@ Hướng dẫn mới phân biệt clone mới với cập nhật profile đang c
 
 Clean build là từ đúng staged Git tree, không dùng bin/obj/node_modules/dist của workspace. Bổ sung sau clean test chỉ gồm docs/memory/evidence; xác nhận bằng diff tree trước commit. Không claim đã chạy cài account/cert/SQL/TLS trên Windows máy thứhai. Không lặp mutation107bài trong lượt xuất bản vì source bài học đã so hash khớp; giữ bằng chứng thực SQL trước đó. Main không bị reset/reseed/revoke/restart; không đổi khóa/ACL/chứng chỉ.
 
-Không còn finding phải sửa trong scope trước push. Các bằng chứng clean build và staged scan không chứng minh production/load/backup recovery hoặc điểm chấm toàn môn. Sau push cần đối chiếu origin/main SHA với commit local và ghi receipt; nếu network/policy từ chối phải giữ nguyên commit để điều tra,khôngforce.
+Không còn finding phải sửa trong scope trước push. Các bằng chứng clean build và staged scan không chứng minh production/load/backup recovery hoặc điểm chấm toàn môn. Đã đối chiếu origin/main SHA với commit local và ghi receipt; nếu network/policy từ chối phải giữ nguyên commit để điều tra,khôngforce.
 
 Staged whitespace audit phát hiện các dòng trống cuối file bài học và khoảng trắng do STATISTICS IO in ra. Giữ nguyên bytes đã kiểm/hash; code check loại docs/evidence và cho phép blank-at-EOF thìPASS. Không thay nội dung SQL chỉ để làm sạch log.

@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-25",
+  "pass": true,
+  "repository": "https://github.com/quangbru376-blip/DBMS12_EnglishCenter",
+  "branch": "main",
+  "releaseCommit": "20bdc124545279bb755f434310947682588b207d",
+  "remoteSourceShaVerified": "20bdc124545279bb755f434310947682588b207d",
+  "sourcePublished": true,
+  "documentationFollowUp": "This receipt records the source release; subsequent docs-only commit finalizes status.",
+  "safeSourceFilesAtSourceCommit": 942,
+  "cleanTestedStagedTree": "87d9449bb5887527b80669504257b723cd465160",
+  "programChangedAfterCleanBuild": false,
+  "privateBuildFilesPublished": 0,
+  "sourceSecretFormatScan": "PASS",
+  "cleanBuild": "PASS",
+  "mainRuntimeChanged": false,
+  "teamGuide": "docs/TEAM_SQL_GUIDE.md",
+  "limitations": [
+    "No second-machine Windows setup acceptance",
+    "No production/load/backup recovery/full-course claim"
+  ]
+}
