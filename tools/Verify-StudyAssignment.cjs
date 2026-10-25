@@ -68,10 +68,20 @@ assert.deepEqual([concurrency.owner,concurrency.partner,...concurrency.reviewers
 for(const field of ['sessionA','sessionB'])assert(fs.existsSync(path.join(root,concurrency[field])),'Missing concurrency script');
 const markdown=fs.readFileSync(path.join(root,'docs/study/DATABASE_OBJECTS_4_MEMBERS.md'),'utf8');
 const transactionMarkdown=fs.readFileSync(path.join(root,'docs/study/TRANSACTIONS_4_MEMBERS.md'),'utf8');
+const summaryTable=markdown.split('\n').filter(line=>line.startsWith('|')).slice(0,7);
+assert(summaryTable[0].includes('|**Transaction (trong SP)**|Tổng object|'),'Missing transaction summary column');
+for(const line of summaryTable)assert.equal(line.split('|').length,13,'Summary table column mismatch');
 for(const member of plan.members){
  const section=markdown.split('## '+member.id+' — ')[1]?.split('\n## ')[0];assert(section,'Missing member section '+member.id);
  for(const type of types)for(const name of member.objects[type])assert(section.includes('`'+name+'`'),member.id+' missing Markdown object '+name);
  assert(section.includes('**Transaction được giao rõ:**'),member.id+' missing transaction assignment');
+ const commandCount=member.transactionStudy.commandProcedures.length;
+ const summaryRow=summaryTable.find(line=>line.startsWith('|'+member.id+'|'));
+ assert.equal(summaryRow.split('|')[10],'**'+commandCount+'**',member.id+' wrong transaction summary count');
+ const transactionRow=section.split('\n').find(line=>line.startsWith('|**'+commandCount+' Transaction (trong SP)**|'));
+ assert(transactionRow,member.id+' missing transaction row inside own assignment table');
+ const transactionLinks=[...transactionRow.matchAll(/\.\.\/\.\.\/database\/practice\/stored-procedures\/(\w+)\.sql/g)].map(m=>m[1]);
+ assert.deepEqual(transactionLinks.sort(),[...member.transactionStudy.commandProcedures].sort(),member.id+' transaction table coverage');
  for(const name of member.transactionStudy.commandProcedures)assert(transactionMarkdown.includes('|'+member.id+'|`'+name+'`|'),'Missing transaction Markdown row '+name);
 }
 console.log(JSON.stringify({pass:true,total:defined.size,objectsAssignedExactlyOnce:true,commandTransactionsAssignedExactlyOnce:transactionOwners.size,primaryTransactionDemos:primaryDemos.size,primaryDemosPerMember:2,explicitCommitExercises:exercises.length,concurrencyOwner:concurrency.owner,concurrencyPartner:concurrency.partner,scope:['12 tables','61 procedures','7 functions','9 views','12 triggers','3 table types','1 sequence'],counts,source:'manifest.installOrder'},null,2));

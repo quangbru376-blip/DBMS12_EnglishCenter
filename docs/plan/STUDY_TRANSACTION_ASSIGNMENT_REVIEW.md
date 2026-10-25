@@ -20,3 +20,9 @@ Năm bài COMMIT/forced-error có sẵn vẫn thuộc TV2/TV3 theo nghiệp vụ
 Bản export build gồm đúng verifier mới; các thay đổi tiếp sau chỉ chỉnh câu chữ/tài liệu và bằng chứng. Kiểm liên kết/phân công được chạy lại trên bản cuối. Không kiểm lại SQL/UI thực thi, không coi kết quả cũ là lần chạy mới. Không có thay đổi API nên không sửa hợp đồng API; không có đổi kiến trúc cần decision. Note 13 dòng. Không còn finding cần sửa trong scope. Không claim tải lớn, production, máy Windows thứ hai hoặc toàn bộ rubric.
 
 Git: đúng repository độc lập, main và origin/main đồng bộ trước sửa; không force. Cập nhật tài liệu là phần sửa của yêu cầu xuất bản và hướng dẫn nhóm trước đó. Hash commit/remote sau push ghi trong receipt private và trả cho owner; không ghi hash tự tham chiếu trong commit.
+
+## Follow-up: hiển thị ngay trong bảng — 25/10/2026
+
+Owner chỉ rõ file DATABASE_OBJECTS_4_MEMBERS.md và muốn transaction xuất hiện trong bảng phân công. Thêm cột Transaction (trong SP) ở bảng tổng, các ô 4/8/10/7 và tổng 29; thêm dòng Transaction đầu tiên trong mỗi bảng TV1–TV4 với đủ tên nghiệp vụ, SP và liên kết bài chạy. Không đổi JSON phân công, object, câu lệnh SQL hoặc loại bài thực hành. Tổng 105 object không cộng thêm transaction.
+
+Đã tự review diff theo skill code-review. Verifier mở rộng kiểm đúng số cột, từng ô transaction và danh sách 29 liên kết SP nằm bên trong đúng bảng thành viên. Verify-StudyAssignment, Verify-Source, Verify-SqlLayout, Verify-SqlLearning PASS; 111 liên kết local tồn tại, phân công 105 object so HEAD giữ nguyên. Evidence riêng follow-up ở docs/evidence/study-transaction-table/; không ghi đè bằng chứng 82 links của lượt trước. Test-Project trên export source sạch PASS: locked restore/audit, backend 0 warnings/errors, frontend typecheck/lint/5 tests/build. Chỉ sửa note/review/memory/evidence sau lần build này. Không SQL/UI/runtime mutation; note <=15 dòng. Follow-up verdict: PASS trong phạm vi hiển thị bảng phân công.

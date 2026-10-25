@@ -1,0 +1,15 @@
+{
+ "date":"2026-10-25",
+ "scope":"Show transaction assignments inside the existing summary and per-member tables",
+ "summaryTransactionCounts":[4,8,10,7],
+ "transactionRowsInMemberTables":4,
+ "linkedCommandProceduresInMemberTables":29,
+ "existingObjectAssignmentsUnchanged":true,
+ "objects":105,
+ "localLinksChecked":111,
+ "sourceLayoutLearningAssignmentChecks":"PASS",
+ "cleanSourceTestProject":"PASS: locked restore/audit, backend 0 warnings/errors, frontend types/lint/5 tests/build",
+ "sqlAppRuntimeUnchanged":true,
+ "databaseUiMutationRuns":0,
+ "limitations":"Documentation checks and clean build; no new SQL/UI or second-machine validation"
+}

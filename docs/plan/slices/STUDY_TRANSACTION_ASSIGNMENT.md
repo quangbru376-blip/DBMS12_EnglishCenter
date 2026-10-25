@@ -7,3 +7,7 @@ Scope chỉdocs/study MD+JSON,readonly allocation verifier,TEAM_SQL_GUIDE liên 
 Kiểm29commandđủ/unique/ownerkhớpSP;61scope/8auth/5helper;2primarydemos/người;5scripttransaction/1concurrency owner vàpartner cócase/link thật;MDJSON khớp;Test-Project vàsource/layout/learning/study verifiers;SQLmanifest/runtime khôngđổi. Code-review rồicommit/pushdocfix vào repo riêng main theo yêu cầu xuất bản/hướng dẫn nhóm còn hiệu lực;khôngdatabasewrite/setup/owner-session.
 
 Status: COMPLETE / scoped code-review PASS. Kiểm phân công/source/layout/learning/82 links và build source sạch PASS; không thay SQL/app/runtime. Review: ../STUDY_TRANSACTION_ASSIGNMENT_REVIEW.md.
+
+## Bổ sung theo phản hồi tiếp theo — 25/10/2026
+
+Owner muốn Transaction hiển thị ngay trong bảng của DATABASE_OBJECTS_4_MEMBERS.md. Thêm cột Transaction (trong SP) vào bảng tổng và một dòng Transaction có tên nghiệp vụ/SP/câu gọi ở bảng của từng TV1–TV4. Giữ nguyên phân công 29 command, 105 object và các bài SQL hiện có. Mở rộng verifier để kiểm trực tiếp những ô/dòng này, kiểm links và chạy Test-Project trên source sạch do host hiện tại giữ DLL. Cập nhật note/memory/review/evidence rồi push bản sửa của hướng dẫn nhóm đã phát hành. Status follow-up: COMPLETE / scoped code-review PASS. Cột/dòng Transaction, đủ 29 link SP đúng owner và 111 links local PASS; Test-Project trên source sạch PASS.
