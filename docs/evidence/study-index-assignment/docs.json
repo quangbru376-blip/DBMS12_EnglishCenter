@@ -1,0 +1,20 @@
+{
+  "pass": true,
+  "existingObjectTransactionAndSpStudyUnchanged": true,
+  "indexes": 17,
+  "indexesPerMember": [
+    5,
+    4,
+    4,
+    4
+  ],
+  "benchmarks": 5,
+  "benchmarksPerMember": [
+    1,
+    2,
+    1,
+    1
+  ],
+  "localLinksChecked": 155,
+  "sqlAppSourceUnchanged": true
+}

@@ -1,0 +1,17 @@
+{
+ "date":"2026-10-25",
+ "scope":"Assign existing index study and benchmark presentations to all four members",
+ "explicitIndexes":17,
+ "indexesAssignedExactlyOnce":true,
+ "indexesPerMember":[5,4,4,4],
+ "existingBenchmarkCases":5,
+ "benchmarksPerMember":[1,2,1,1],
+ "existingObjectSpAndTransactionStudyUnchanged":true,
+ "coreObjectsExcludingExplicitIndexes":105,
+ "localLinksChecked":155,
+ "checks":"PASS: Source, SqlLayout, SqlLearning, StudyAssignment",
+ "cleanSourceTestProject":"PASS: locked restore/audit, backend 0 warnings/errors, frontend types/lint/5 tests/build",
+ "sqlAppRuntimeChanged":false,
+ "newSqlHttpUiMutationOrBenchmarkRuns":0,
+ "limitations":["No direct GitHub render validation","No new benchmark measurements","No second-machine validation"]
+}

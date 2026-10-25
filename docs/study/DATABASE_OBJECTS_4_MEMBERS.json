@@ -95,6 +95,18 @@
           "usp_SecuritySession",
           "usp_PasswordSnapshot"
         ]
+      },
+      "indexStudy": {
+        "indexes": [
+          "IX_Account_RoleStatus",
+          "IX_AuthSession_Account",
+          "IX_Audit_RootAction",
+          "IX_Audit_Time",
+          "IX_Replay_Completed"
+        ],
+        "benchmarkIndexes": [
+          "IX_Audit_Time"
+        ]
       }
     },
     {
@@ -181,6 +193,18 @@
           "usp_DirectorReport",
           "usp_RecordFailure"
         ]
+      },
+      "indexStudy": {
+        "indexes": [
+          "IX_Registration_StudentCourse",
+          "IX_Registration_CourseStatus",
+          "IX_Invoice_Issued",
+          "IX_Invoice_Paid"
+        ],
+        "benchmarkIndexes": [
+          "IX_Registration_StudentCourse",
+          "IX_Invoice_Issued"
+        ]
       }
     },
     {
@@ -265,6 +289,17 @@
           "usp_ClassList",
           "usp_TeacherOptions",
           "usp_WeeklySchedulePreview"
+        ]
+      },
+      "indexStudy": {
+        "indexes": [
+          "UX_Class_CurrentGradeOperation",
+          "IX_Class_CourseStatus",
+          "IX_Class_TeacherStatus",
+          "IX_Assignment_Class"
+        ],
+        "benchmarkIndexes": [
+          "IX_Class_TeacherStatus"
         ]
       }
     },
@@ -351,6 +386,17 @@
           "usp_BeginRead",
           "usp_BeginWrite"
         ]
+      },
+      "indexStudy": {
+        "indexes": [
+          "UX_Schedule_OneFinalExam",
+          "IX_Schedule_ClassStart",
+          "IX_Schedule_RoomStart",
+          "IX_Attendance_Assignment"
+        ],
+        "benchmarkIndexes": [
+          "IX_Schedule_ClassStart"
+        ]
       }
     }
   ],
@@ -400,5 +446,161 @@
     "sessionB": "database/dbms12-compact/transactions/03_concurrency_session_b.sql",
     "expected": "One successful collect, one51214stale-version rejection; oneSUCCESS audit, no duplicate receipt for the losing request."
   },
-  "reportingScope": "Six primary procedures per member (24 total); remaining 37 retained as collapsed supporting inventory. This changes study depth, not installed SQL objects or ownership."
+  "reportingScope": "Six primary procedures per member (24 total); remaining 37 retained as collapsed supporting inventory. This changes study depth, not installed SQL objects or ownership.",
+  "indexCountingScope": "17 explicit CREATE INDEX statements, excluding indexes created automatically for PK/UNIQUE constraints. Assigned separately (5/4/4/4); not added to the existing 105 core object total.",
+  "indexAssignments": [
+    {
+      "name": "UX_Class_CurrentGradeOperation",
+      "table": "Class",
+      "owner": "TV3",
+      "purpose": "Không để cùng một operation quyết định bảng điểm được gắn cho nhiều lớp; bỏ qua NULL.",
+      "source": "database/dbms12-compact/tables/01_schema.sql",
+      "line": 241,
+      "benchmarkFile": null
+    },
+    {
+      "name": "UX_Schedule_OneFinalExam",
+      "table": "Schedule",
+      "owner": "TV4",
+      "purpose": "Bảo đảm mỗi lớp có nhiều nhất một lịch FINAL_EXAM; không tự bảo đảm lớp đã có kỳ thi.",
+      "source": "database/dbms12-compact/tables/01_schema.sql",
+      "line": 243,
+      "benchmarkFile": null
+    },
+    {
+      "name": "IX_Account_RoleStatus",
+      "table": "Account",
+      "owner": "TV1",
+      "purpose": "Hỗ trợ lọc tài khoản theo vai trò và trạng thái.",
+      "source": "database/dbms12-compact/tables/01_schema.sql",
+      "line": 245,
+      "benchmarkFile": null
+    },
+    {
+      "name": "IX_AuthSession_Account",
+      "table": "AuthSession",
+      "owner": "TV1",
+      "purpose": "Hỗ trợ tìm/thu hồi các phiên của một tài khoản.",
+      "source": "database/dbms12-compact/tables/01_schema.sql",
+      "line": 247,
+      "benchmarkFile": null
+    },
+    {
+      "name": "IX_Registration_StudentCourse",
+      "table": "Registration",
+      "owner": "TV2",
+      "purpose": "Hỗ trợ tra hồ sơ theo học viên, khóa và trạng thái.",
+      "source": "database/dbms12-compact/tables/01_schema.sql",
+      "line": 249,
+      "benchmarkFile": "database/practice/indexes/IX_Registration_StudentCourse.sql"
+    },
+    {
+      "name": "IX_Registration_CourseStatus",
+      "table": "Registration",
+      "owner": "TV2",
+      "purpose": "Hỗ trợ danh sách tuyển sinh theo khóa/trạng thái/thời điểm đăng ký.",
+      "source": "database/dbms12-compact/tables/01_schema.sql",
+      "line": 251,
+      "benchmarkFile": null
+    },
+    {
+      "name": "IX_Class_CourseStatus",
+      "table": "Class",
+      "owner": "TV3",
+      "purpose": "Hỗ trợ tìm lớp theo khóa và trạng thái, kèm sức chứa/giáo viên.",
+      "source": "database/dbms12-compact/tables/01_schema.sql",
+      "line": 253,
+      "benchmarkFile": null
+    },
+    {
+      "name": "IX_Class_TeacherStatus",
+      "table": "Class",
+      "owner": "TV3",
+      "purpose": "Hỗ trợ tìm lớp giáo viên phụ trách theo trạng thái.",
+      "source": "database/dbms12-compact/tables/01_schema.sql",
+      "line": 255,
+      "benchmarkFile": "database/practice/indexes/IX_Class_TeacherStatus.sql"
+    },
+    {
+      "name": "IX_Assignment_Class",
+      "table": "StudentClassAssignment",
+      "owner": "TV3",
+      "purpose": "Hỗ trợ đọc danh sách phân lớp/học viên trong một lớp.",
+      "source": "database/dbms12-compact/tables/01_schema.sql",
+      "line": 257,
+      "benchmarkFile": null
+    },
+    {
+      "name": "IX_Schedule_ClassStart",
+      "table": "Schedule",
+      "owner": "TV4",
+      "purpose": "Hỗ trợ truy vấn lịch của lớp theo khoảng thời gian.",
+      "source": "database/dbms12-compact/tables/01_schema.sql",
+      "line": 259,
+      "benchmarkFile": "database/practice/indexes/IX_Schedule_ClassStart.sql"
+    },
+    {
+      "name": "IX_Schedule_RoomStart",
+      "table": "Schedule",
+      "owner": "TV4",
+      "purpose": "Hỗ trợ tìm lịch theo phòng/thời gian để kiểm tra xung đột; index không tự cấm trùng lịch.",
+      "source": "database/dbms12-compact/tables/01_schema.sql",
+      "line": 261,
+      "benchmarkFile": null
+    },
+    {
+      "name": "IX_Attendance_Assignment",
+      "table": "Attendance",
+      "owner": "TV4",
+      "purpose": "Hỗ trợ tra điểm danh của học viên đã xếp lớp qua các buổi.",
+      "source": "database/dbms12-compact/tables/01_schema.sql",
+      "line": 263,
+      "benchmarkFile": null
+    },
+    {
+      "name": "IX_Invoice_Issued",
+      "table": "Invoice",
+      "owner": "TV2",
+      "purpose": "Hỗ trợ tra/báo cáo hóa đơn theo ngày phát hành.",
+      "source": "database/dbms12-compact/tables/01_schema.sql",
+      "line": 265,
+      "benchmarkFile": "database/practice/indexes/IX_Invoice_Issued.sql"
+    },
+    {
+      "name": "IX_Invoice_Paid",
+      "table": "Invoice",
+      "owner": "TV2",
+      "purpose": "Hỗ trợ tra doanh thu theo ngày thu, chỉ giữ hóa đơn đã thanh toán trong index.",
+      "source": "database/dbms12-compact/tables/01_schema.sql",
+      "line": 267,
+      "benchmarkFile": null
+    },
+    {
+      "name": "IX_Audit_RootAction",
+      "table": "AuditLog",
+      "owner": "TV1",
+      "purpose": "Hỗ trợ tra nhật ký theo thực thể nghiệp vụ và loại hành động.",
+      "source": "database/dbms12-compact/tables/01_schema.sql",
+      "line": 269,
+      "benchmarkFile": null
+    },
+    {
+      "name": "IX_Audit_Time",
+      "table": "AuditLog",
+      "owner": "TV1",
+      "purpose": "Hỗ trợ lọc/sắp nhật ký theo thời gian và audit_id.",
+      "source": "database/dbms12-compact/tables/01_schema.sql",
+      "line": 271,
+      "benchmarkFile": "database/practice/indexes/IX_Audit_Time.sql"
+    },
+    {
+      "name": "IX_Replay_Completed",
+      "table": "ReplayOperation",
+      "owner": "TV1",
+      "purpose": "Hỗ trợ tìm receipt theo thời điểm hoàn thành để dọn bản ghi quá hạn.",
+      "source": "database/dbms12-compact/tables/01_schema.sql",
+      "line": 273,
+      "benchmarkFile": null
+    }
+  ]
 }

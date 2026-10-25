@@ -17,7 +17,10 @@ for(const file of manifest.installOrder){
 }
 assert.deepEqual(types.map(t=>[...defined.values()].filter(x=>x.kind===t).length),[12,61,7,9,12,3,1]);
 assert.equal(defined.size,105);
-const assigned=new Set(),counts=[],transactionOwners=new Map(),primaryDemos=new Set();
+const assigned=new Set(),counts=[],transactionOwners=new Map(),primaryDemos=new Set(),indexOwners=new Map();
+const schema=fs.readFileSync(path.join(sql,'tables/01_schema.sql'),'utf8'),indexDefinitions=new Map();
+for(const match of schema.matchAll(/^CREATE (?:UNIQUE )?INDEX \[(\w+)\] ON dbo\.\[(\w+)\]/gm))indexDefinitions.set(match[1],{table:match[2],line:schema.slice(0,match.index).split('\n').length});
+assert.equal(indexDefinitions.size,17);
 assert.equal(plan.members.length,4);
 for(const member of plan.members){
  assert.deepEqual(Object.keys(member.objects).sort(),[...types].sort());
@@ -53,6 +56,9 @@ for(const member of plan.members){
  }
  row.commandTransactions=study.commandProcedures.length;row.primaryTransactionDemos=study.primaryDemos.length;
  row.primaryProcedures=reporting.primaryProcedures.length;row.supportingProcedures=reporting.supportingProcedures.length;
+ const indexStudy=member.indexStudy;assert(indexStudy?.indexes.length>0,'Missing index assignment '+member.id);
+ for(const name of indexStudy.indexes){assert(indexDefinitions.has(name),'Unknown index '+name);assert(!indexOwners.has(name),'Index assigned twice '+name);indexOwners.set(name,member.id);}
+ row.indexes=indexStudy.indexes.length;row.indexBenchmarks=indexStudy.benchmarkIndexes.length;
  row.transactionScopes=owned.length;counts.push(row);
 }
 assert.deepEqual(counts.map(r=>r.total),[27,26,26,26]);
@@ -61,6 +67,16 @@ assert.equal(Object.keys(manifest.operations).filter(name=>assigned.has('procedu
 const commands=Object.keys(manifest.operations).filter(n=>manifest.operations[n].kind==='command');
 assert.equal(commands.length,29);assert.deepEqual([...transactionOwners.keys()].sort(),commands.sort());assert.equal(primaryDemos.size,8);
 const catalog=JSON.parse(fs.readFileSync(path.join(root,'database/practice/catalog.json'),'utf8'));
+assert.equal(indexOwners.size,17);assert.deepEqual(counts.map(r=>r.indexes),[5,4,4,4]);assert.deepEqual(counts.map(r=>r.indexBenchmarks),[1,2,1,1]);
+assert.deepEqual(plan.indexAssignments.map(x=>x.name).sort(),[...indexDefinitions.keys()].sort());
+const indexMarkdown=fs.readFileSync(path.join(root,'docs/study/SQL_INDEXES.md'),'utf8');
+for(const entry of plan.indexAssignments){
+ const definition=indexDefinitions.get(entry.name);assert.equal(entry.owner,indexOwners.get(entry.name));assert.equal(entry.table,definition.table);assert.equal(entry.line,definition.line);assert.equal(entry.source,'database/dbms12-compact/tables/01_schema.sql');assert(entry.purpose.length>20);
+ const benchmark=catalog.cases.find(c=>c.group==='indexes'&&c.name===entry.name);assert.equal(entry.benchmarkFile,benchmark?'database/practice/'+benchmark.file:null);
+ if(benchmark){assert(fs.existsSync(path.join(root,entry.benchmarkFile)));assert(indexMarkdown.includes('|'+entry.name+'|'+entry.owner+'|'),'Missing benchmark owner');}
+ assert(indexMarkdown.includes('|'+entry.table+'|'+entry.owner+'|'+entry.purpose+'|'),'Missing index purpose/owner '+entry.name);
+}
+for(const member of plan.members)assert.deepEqual([...member.indexStudy.benchmarkIndexes].sort(),plan.indexAssignments.filter(x=>x.owner===member.id&&x.benchmarkFile).map(x=>x.name).sort());
 const exercises=plan.transactionExercises;assert.equal(exercises.length,5);
 assert.deepEqual(exercises.map(x=>x.procedure).sort(),catalog.cases.filter(c=>c.group==='transactions').map(c=>c.name).sort());
 for(const exercise of exercises){
@@ -91,8 +107,8 @@ for(const entry of procedureCatalog.procedures){
  assert(target?.includes('|`'+entry.name+'`|'+entry.purpose+'|'),'Missing catalog task/focus '+entry.name);
 }
 const summaryTable=markdown.split('\n').filter(line=>line.startsWith('|')).slice(0,7);
-assert(summaryTable[0].includes('|**Transaction (trong SP)**|Tổng object|'),'Missing transaction summary column');
-for(const line of summaryTable)assert.equal(line.split('|').length,13,'Summary table column mismatch');
+assert(summaryTable[0].includes('|**Index**|**Transaction (trong SP)**|Tổng object*|'),'Missing index/transaction summary columns');
+for(const line of summaryTable)assert.equal(line.split('|').length,14,'Summary table column mismatch');
 for(const member of plan.members){
  const section=markdown.split('## '+member.id+' — ')[1]?.split('\n## ')[0];assert(section,'Missing member section '+member.id);
  for(const type of types)for(const name of member.objects[type])assert(section.includes('`'+name+'`'),member.id+' missing Markdown object '+name);
@@ -105,7 +121,10 @@ for(const member of plan.members){
  for(const name of member.reportingStudy.supportingProcedures)assert(hidden.includes('|`'+name+'`|'),'Missing collapsed supporting SP '+name);
  const commandCount=member.transactionStudy.commandProcedures.length;
  const summaryRow=summaryTable.find(line=>line.startsWith('|'+member.id+'|'));
- assert.equal(summaryRow.split('|')[10],'**'+commandCount+'**',member.id+' wrong transaction summary count');
+ assert.equal(summaryRow.split('|')[10],'**'+member.indexStudy.indexes.length+'**',member.id+' wrong index summary count');
+ assert.equal(summaryRow.split('|')[11],'**'+commandCount+'**',member.id+' wrong transaction summary count');
+ const indexRow=visible.split('\n').find(line=>line.startsWith('|**'+member.indexStudy.indexes.length+' Index**|'));assert(indexRow,'Missing visible index row '+member.id);
+ const indexNames=[...indexRow.matchAll(/\[`(\w+)`\]/g)].map(m=>m[1]);assert.deepEqual(indexNames.sort(),[...member.indexStudy.indexes].sort());
  const transactionRow=section.split('\n').find(line=>line.startsWith('|**'+commandCount+' Transaction (trong SP)**|'));
  assert(transactionRow,member.id+' missing transaction row inside own assignment table');
  const transactionLinks=[...transactionRow.matchAll(/\.\.\/\.\.\/database\/practice\/stored-procedures\/(\w+)\.sql/g)].map(m=>m[1]);

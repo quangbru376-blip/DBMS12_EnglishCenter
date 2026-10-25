@@ -1,6 +1,6 @@
 # Phân công học Database Object cho nhóm 4 người
 
-Ngày lập: **24/10/2026**; bổ sung phân công transaction: **25/10/2026**. Nguồn: `database/dbms12-compact/manifest.json` và các định nghĩa SQL trong `installOrder`. Chưa có tên thành viên nên ký hiệu TV1–TV4.
+Ngày lập: **24/10/2026**; cập nhật phân công SP, transaction và index: **25/10/2026**. Nguồn: `database/dbms12-compact/manifest.json` và các định nghĩa SQL trong `installOrder`. Chưa có tên thành viên nên ký hiệu TV1–TV4.
 
 Mỗi object có đúng **một người phụ trách tra cứu và giải thích khi cần**. Báo cáo rút gọn chỉ học sâu **6 SP chính/người**, không yêu cầu thuộc từng dòng của toàn bộ SP hỗ trợ. Người khác vẫn đọc các object liên quan khi lần theo nghiệp vụ. Đây là phân công học, không tạo bốn SQL role mới hoặc thay quyền của bảy vai trò ứng dụng.
 
@@ -8,19 +8,35 @@ Mỗi object có đúng **một người phụ trách tra cứu và giải thíc
 
 Phạm vi gồm **105 object chính**: 12 bảng + 61 SP + 7 function + 9 view + 12 trigger + 3 kiểu bảng TVP + 1 sequence. Chia gần đều nhất là **27–26–26–26**, chênh tối đa một object. Không nhầm 62 file SQL với số object; một file có thể định nghĩa nhiều object.
 
-|Thành viên|Cụm nghiệp vụ|Bảng|SP|FN|View|Trigger|TVP|Sequence|**Transaction (trong SP)**|Tổng object|
-|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-|TV1|Tài khoản, xác thực, phiên và nhật ký|4|18|1|1|3|0|0|**4**|**27**|
-|TV2|Đăng ký, tuyển sinh, học phí và báo cáo|2|15|3|3|2|0|1|**8**|**26**|
-|TV3|Khóa học, lớp, xếp lớp và lập lịch|4|14|1|2|4|1|0|**10**|**26**|
-|TV4|Tổ chức buổi học, điểm danh và bảng điểm|2|14|2|3|3|2|0|**7**|**26**|
-|Tổng||12|61|7|9|12|3|1|**29**|**105**|
+|Thành viên|Cụm nghiệp vụ|Bảng|SP|FN|View|Trigger|TVP|Sequence|**Index**|**Transaction (trong SP)**|Tổng object*|
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+|TV1|Tài khoản, xác thực, phiên và nhật ký|4|18|1|1|3|0|0|**5**|**4**|**27**|
+|TV2|Đăng ký, tuyển sinh, học phí và báo cáo|2|15|3|3|2|0|1|**4**|**8**|**26**|
+|TV3|Khóa học, lớp, xếp lớp và lập lịch|4|14|1|2|4|1|0|**4**|**10**|**26**|
+|TV4|Tổ chức buổi học, điểm danh và bảng điểm|2|14|2|3|3|2|0|**4**|**7**|**26**|
+|Tổng||12|61|7|9|12|3|1|**17**|**29**|**105**|
 
 **Cột Transaction (trong SP):** 29 nghiệp vụ ghi được kiểm kê theo người phụ trách SP; mỗi người báo cáo sâu 2 transaction trọng tâm. Tổng object giữ nguyên 105. Tên từng transaction và bài chạy được liệt kê ngay trong bảng của từng thành viên bên dưới.
 
-PK/FK/UNIQUE/CHECK/DEFAULT, index và rowversion học cùng bảng mà chúng bảo vệ, không đếm thêm để làm tăng số lượng. Role, user và GRANT/DENY/IMPERSONATE học cùng quyền của từng luồng; TV1 trình bày nền tảng, cả nhóm phải biết kiểm quyền trên nghiệp vụ mình. Danh sách này không tuyên bố bao trùm mọi loại object nội bộ trong `sys.objects`.
+**Ghi chú cột Tổng object:** giữ cách đếm 105 object chính ở trên, chưa tính 17 index được phân công riêng ở cột Index. PK/FK/UNIQUE/CHECK/DEFAULT và rowversion học cùng bảng mà chúng bảo vệ. Role, user và GRANT/DENY/IMPERSONATE học cùng quyền của từng luồng; TV1 trình bày nền tảng, cả nhóm phải biết kiểm quyền trên nghiệp vụ mình. Danh sách này không tuyên bố bao trùm mọi loại object nội bộ trong `sys.objects`.
 
 Số lượng gần bằng nhau không có nghĩa độ khó bằng nhau: SP gửi bảng điểm hoặc trigger kiểm trùng lịch cần phân tích nhiều hơn một view đơn giản. Mỗi thành viên chuẩn bị ít nhất một luồng có ghi dữ liệu, một trường hợp bị từ chối và một trường hợp liên quan người khác.
+
+## Phân công Index — đủ 4 thành viên
+
+Mỗi index có đúng một người trình bày: **TV1 = 5, TV2 = 4, TV3 = 4, TV4 = 4**. Đây là 17 câu CREATE INDEX tường minh, không cộng các index tự sinh từ PK/UNIQUE vào phần này. Tên index được ghi ngay trong bảng từng người; [SQL_INDEXES](SQL_INDEXES.md) ghi mục đích, key/INCLUDE/filter và dòng định nghĩa.
+
+TV4 nhận index lịch học theo nghiệp vụ tổ chức buổi học, phối hợp TV3 đang phụ trách bảng Schedule. Không đổi người nhận bảng/SP hoặc 6 SP chính/người. Index hỗ trợ truy vấn; chỉ UNIQUE index trực tiếp áp đặt tính duy nhất, các index thường không thay trigger kiểm nghiệp vụ.
+
+|Người|Số index|Bài đo hiệu năng phải trình bày|
+|---|---:|---|
+|TV1|5|[IX_Audit_Time](../../database/practice/indexes/IX_Audit_Time.sql)|
+|TV2|4|[IX_Registration_StudentCourse](../../database/practice/indexes/IX_Registration_StudentCourse.sql); [IX_Invoice_Issued](../../database/practice/indexes/IX_Invoice_Issued.sql)|
+|TV3|4|[IX_Class_TeacherStatus](../../database/practice/indexes/IX_Class_TeacherStatus.sql)|
+|TV4|4|[IX_Schedule_ClassStart](../../database/practice/indexes/IX_Schedule_ClassStart.sql)|
+|Tổng|17|5 bài đo; cả 4 người đều có bài|
+
+Mỗi người giải thích mục đích, thứ tự key, INCLUDE/filter, chi phí ghi và cách đọc execution plan/logical reads của bài được giao. Dùng bài temp replica có sẵn; không xóa/tắt index bảng thật để minh họa.
 
 ## SP chính để học và báo cáo — 6 SP/người
 
@@ -58,6 +74,7 @@ Concurrency thu cùng hóa đơn: **TV2 chủ trì, TV1 chạy phiên còn lại
 
 |Nhóm|Object phụ trách|
 |---|---|
+|**5 Index**|[`IX_Account_RoleStatus`](../../database/dbms12-compact/tables/01_schema.sql#L245);<br>[`IX_AuthSession_Account`](../../database/dbms12-compact/tables/01_schema.sql#L247);<br>[`IX_Audit_RootAction`](../../database/dbms12-compact/tables/01_schema.sql#L269);<br>[`IX_Audit_Time`](../../database/dbms12-compact/tables/01_schema.sql#L271);<br>[`IX_Replay_Completed`](../../database/dbms12-compact/tables/01_schema.sql#L273)|
 |**6 SP chính — học sâu**|[`usp_StudentSignup`](../../database/practice/stored-procedures/usp_StudentSignup.sql);<br>[`usp_LoginRead`](../../database/practice/stored-procedures/usp_LoginRead.sql);<br>[`usp_LoginRecord`](../../database/practice/stored-procedures/usp_LoginRecord.sql);<br>[`usp_PasswordChange`](../../database/practice/stored-procedures/usp_PasswordChange.sql);<br>[`usp_AccountCreateStaff`](../../database/practice/stored-procedures/usp_AccountCreateStaff.sql);<br>[`usp_AccountSetStatus`](../../database/practice/stored-procedures/usp_AccountSetStatus.sql)|
 |**2 transaction trọng tâm**|[`usp_AccountCreateStaff`](../../database/practice/stored-procedures/usp_AccountCreateStaff.sql);<br>[`usp_AccountSetStatus`](../../database/practice/stored-procedures/usp_AccountSetStatus.sql)|
 |4 bảng|`Account`, `AuthSession`, `AuditLog`, `ReplayOperation`|
@@ -114,6 +131,7 @@ Concurrency thu cùng hóa đơn: **TV2 chủ trì, TV1 chạy phiên còn lại
 
 |Nhóm|Object phụ trách|
 |---|---|
+|**4 Index**|[`IX_Registration_StudentCourse`](../../database/dbms12-compact/tables/01_schema.sql#L249);<br>[`IX_Registration_CourseStatus`](../../database/dbms12-compact/tables/01_schema.sql#L251);<br>[`IX_Invoice_Issued`](../../database/dbms12-compact/tables/01_schema.sql#L265);<br>[`IX_Invoice_Paid`](../../database/dbms12-compact/tables/01_schema.sql#L267)|
 |**6 SP chính — học sâu**|[`usp_RegistrationCreate`](../../database/practice/stored-procedures/usp_RegistrationCreate.sql);<br>[`usp_AdmissionApprove`](../../database/practice/stored-procedures/usp_AdmissionApprove.sql);<br>[`usp_AdmissionReject`](../../database/practice/stored-procedures/usp_AdmissionReject.sql);<br>[`usp_InvoiceCollect`](../../database/practice/stored-procedures/usp_InvoiceCollect.sql);<br>[`usp_InvoiceSearch`](../../database/practice/stored-procedures/usp_InvoiceSearch.sql);<br>[`usp_FinanceReport`](../../database/practice/stored-procedures/usp_FinanceReport.sql)|
 |**2 transaction trọng tâm**|[`usp_AdmissionApprove`](../../database/practice/stored-procedures/usp_AdmissionApprove.sql);<br>[`usp_InvoiceCollect`](../../database/practice/stored-procedures/usp_InvoiceCollect.sql)|
 |2 bảng|`Registration`, `Invoice`|
@@ -171,6 +189,7 @@ Concurrency thu cùng hóa đơn: **TV2 chủ trì, TV1 chạy phiên còn lại
 
 |Nhóm|Object phụ trách|
 |---|---|
+|**4 Index**|[`UX_Class_CurrentGradeOperation`](../../database/dbms12-compact/tables/01_schema.sql#L241);<br>[`IX_Class_CourseStatus`](../../database/dbms12-compact/tables/01_schema.sql#L253);<br>[`IX_Class_TeacherStatus`](../../database/dbms12-compact/tables/01_schema.sql#L255);<br>[`IX_Assignment_Class`](../../database/dbms12-compact/tables/01_schema.sql#L257)|
 |**6 SP chính — học sâu**|[`usp_CourseCreate`](../../database/practice/stored-procedures/usp_CourseCreate.sql);<br>[`usp_ClassOpen`](../../database/practice/stored-procedures/usp_ClassOpen.sql);<br>[`usp_ClassStart`](../../database/practice/stored-procedures/usp_ClassStart.sql);<br>[`usp_ClassComplete`](../../database/practice/stored-procedures/usp_ClassComplete.sql);<br>[`usp_PlacementCreate`](../../database/practice/stored-procedures/usp_PlacementCreate.sql);<br>[`usp_ScheduleBatch`](../../database/practice/stored-procedures/usp_ScheduleBatch.sql)|
 |**2 transaction trọng tâm**|[`usp_PlacementCreate`](../../database/practice/stored-procedures/usp_PlacementCreate.sql);<br>[`usp_ScheduleBatch`](../../database/practice/stored-procedures/usp_ScheduleBatch.sql)|
 |4 bảng|`Course`, `Class`, `StudentClassAssignment`, `Schedule`|
@@ -225,6 +244,7 @@ Concurrency thu cùng hóa đơn: **TV2 chủ trì, TV1 chạy phiên còn lại
 
 |Nhóm|Object phụ trách|
 |---|---|
+|**4 Index**|[`UX_Schedule_OneFinalExam`](../../database/dbms12-compact/tables/01_schema.sql#L243);<br>[`IX_Schedule_ClassStart`](../../database/dbms12-compact/tables/01_schema.sql#L259);<br>[`IX_Schedule_RoomStart`](../../database/dbms12-compact/tables/01_schema.sql#L261);<br>[`IX_Attendance_Assignment`](../../database/dbms12-compact/tables/01_schema.sql#L263)|
 |**6 SP chính — học sâu**|[`usp_ScheduleHeld`](../../database/practice/stored-procedures/usp_ScheduleHeld.sql);<br>[`usp_AttendanceSave`](../../database/practice/stored-procedures/usp_AttendanceSave.sql);<br>[`usp_GradeSave`](../../database/practice/stored-procedures/usp_GradeSave.sql);<br>[`usp_GradeSubmit`](../../database/practice/stored-procedures/usp_GradeSubmit.sql);<br>[`usp_GradeReturn`](../../database/practice/stored-procedures/usp_GradeReturn.sql);<br>[`usp_GradeFinalize`](../../database/practice/stored-procedures/usp_GradeFinalize.sql)|
 |**2 transaction trọng tâm**|[`usp_AttendanceSave`](../../database/practice/stored-procedures/usp_AttendanceSave.sql);<br>[`usp_GradeFinalize`](../../database/practice/stored-procedures/usp_GradeFinalize.sql)|
 |2 bảng|`Attendance`, `GradeReport`|
