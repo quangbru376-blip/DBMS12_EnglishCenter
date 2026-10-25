@@ -12,16 +12,16 @@
 8. memory/07_DECISIONS.md
 9. memory/08_TASKS.md, sau đó task/slice liên quan trong docs/plan/.
 
-Khi chỉ nhận gói source: đọc thêm REQUIREMENTS.md và docs/CONTEXT_MAP.md; nếu được giao cài môi trường, đọc docs/SETUP_WINDOWS.md trước mọi thao tác account/cert/SQL/ACL. Các tài liệu đó nằm trong gói, không cần project cha. Yêu cầu môn/rubric gốc không kèm; không tự suy đoán đã đạt toàn bộ rubric.
+Khi chỉ nhận gói source: đọc thêm REQUIREMENTS.md và docs/CONTEXT_MAP.md; nếu được giao cài môi trường, đọc docs/SETUP_WINDOWS.md trước mọi thao tác account/cert/SQL/ACL. Các tài liệu đó nằm trong gói, không cần project cha. Owner đã cung cấp mụcSQL3.1–3.5, lưu ở docs/study/RUBRIC_SQL_SERVER.md; đọc SQL_LEARNING_START.md và SQL_RUBRIC_MATRIX.md khi học/đối chiếu. Các phần khác của đề chưa được cung cấp; không suy đoán đã đạt toàn môn.
 
 Nhóm clone GitHub: docs/TEAM_QUICKSTART.md có công cụ setup theo pha. Test-Environment chỉ đọc/preflight; Prepare-Machine chỉ dùng trên máy mới đúng identity,không chạy để sửa workspace đã provision. Export-TeamSource/Pack-Source bỏ private/build state và kiểm định dạng secret; vẫn duyệt staged trước push.
 
 ## Ranh giới
 
-- Model 12 bảng/99 cột, 61 SP tổng (56 operation + 5 hạ tầng), 7 function, 9 view, 12 trigger. Owner đã chọn/triển khai hướng A (D14), thay giới hạn 11 SP cũ. queries/usp_*.sql hiện là CREATE OR ALTER PROCEDURE.
+- Model 12 bảng/99 cột, 61 SP tổng (56 operation + 5 hạ tầng), 7 function, 9 view, 12 trigger. Owner đã chọn/triển khai hướng A (D14), thay giới hạn 11 SP cũ. stored-procedures/operations/usp_*.sql hiện là CREATE OR ALTER PROCEDURE.
 - Bảy SQL role/user nghiệp vụ, DENY bảng; runtime chỉ qua module xác thực/hạ tầng và IMPERSONATE allowlist. Không đổi sang quyền bảng hoặc EXECUTE AS OWNER để chữa lỗi. Đọc docs/SQL_SECURITY.md.
 - Mọi SELECT/INSERT/UPDATE/DELETE là SQL có tham số. Không thêm EF/LINQ-to-database hoặc bảng EF history.
-- C# giữ HTTP/DTO/crypto/JWT/CSRF/CSV và điều phối transaction. SQL giữ nghiệp vụ; audit/receipt cùng transaction.
+- C# giữ HTTP/DTO/crypto/JWT/CSRF/CSV, điều phối call/role và cleanup. Theo D15, toàn bộ61SP tự BEGIN/COMMIT/ROLLBACK khi chưa có transaction; helper dùng transaction của caller. SQL giữ nghiệp vụ; audit/receipt cùng transaction.
 - Route cố định; không nhận SQL/operation/Actor/SID/epoch/hash tùy ý từ browser. SQL kiểm 7 vai trò và quyền sở hữu, Student chỉ thấy dữ liệu của mình.
 - Không thêm Band, Program, thi đầu vào, thi lại riêng, Payment hoặc Role table khi owner chưa yêu cầu đổi phạm vi.
 - Port8446, prefix EnglishCenter_DBMS12_PROJECT_, cookie/key app riêng. Không đụng APP25, demo24 hoặc catalog khác; không tự reset/reseed/drop/restore/revoke phiên owner.

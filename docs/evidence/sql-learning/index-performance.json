@@ -1,0 +1,43 @@
+{
+  "fixtureOnly": true,
+  "syntheticRowsPerReplica": 100000,
+  "replica": "Temp tables with actual index key/include and representative predicates; not production benchmark",
+  "sameRowsAndChecksumsAsserted": true,
+  "results": [
+    {
+      "file": "indexes/IX_Registration_StudentCourse.sql",
+      "pass": true,
+      "expectedError": 0,
+      "baselineLogicalReads": 485,
+      "indexedLogicalReads": 3
+    },
+    {
+      "file": "indexes/IX_Class_TeacherStatus.sql",
+      "pass": true,
+      "expectedError": 0,
+      "baselineLogicalReads": 385,
+      "indexedLogicalReads": 3
+    },
+    {
+      "file": "indexes/IX_Schedule_ClassStart.sql",
+      "pass": true,
+      "expectedError": 0,
+      "baselineLogicalReads": 723,
+      "indexedLogicalReads": 3
+    },
+    {
+      "file": "indexes/IX_Invoice_Issued.sql",
+      "pass": true,
+      "expectedError": 0,
+      "baselineLogicalReads": 497,
+      "indexedLogicalReads": 11
+    },
+    {
+      "file": "indexes/IX_Audit_Time.sql",
+      "pass": true,
+      "expectedError": 0,
+      "baselineLogicalReads": 881,
+      "indexedLogicalReads": 16
+    }
+  ]
+}

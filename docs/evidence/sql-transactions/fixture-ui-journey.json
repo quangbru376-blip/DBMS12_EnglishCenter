@@ -1,0 +1,25 @@
+{
+  "pass": true,
+  "checks": [
+    "courses/create",
+    "classes/create",
+    "schedules/batch",
+    "schedules/batch",
+    "classes/open",
+    "registrations/create",
+    "registrations/confirm",
+    "admissions/approve",
+    "invoices/collect",
+    "placements",
+    "lost-ACK/read-only-lookup/one-write",
+    "finalized UI immutable"
+  ],
+  "course": "UI12-09340a",
+  "class": "UI12-L-09340a",
+  "student": "Học viên UI 09340a",
+  "widths": [
+    375,
+    768,
+    1280
+  ]
+}

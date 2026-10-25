@@ -1,6 +1,6 @@
 # Database DBMS12
 
-Nguồn chuẩn: database/dbms12-compact/manifest.json, 01_schema.sql, 07_core_procedures.sql, 08_permissions.sql. Chạy node tools/Verify-Source.cjs để kiểm 62 SHA256. Collation toàn DB là Latin1_General_100_BIN2; email/tên/mã được đặt collation riêng theo DDL. Có 12 PK, 19 FK, 34 CHECK, 99 cột; không có bảng EF history hoặc Role.
+Nguồn chuẩn: database/dbms12-compact/manifest.json, tables/01_schema.sql, stored-procedures/core/07_core_procedures.sql, security/08_permissions.sql. Chạy node tools/Verify-Source.cjs để kiểm 62 SHA256. Collation toàn DB là Latin1_General_100_BIN2; email/tên/mã được đặt collation riêng theo DDL. Có 12 PK, 19 FK, 34 CHECK, 11 UNIQUE, 20 DEFAULT, 17 CREATE INDEX tường minh và99cột; không có bảng EF history hoặc Role.
 
 |Bảng|Nội dung và quan hệ|
 |---|---|
@@ -34,7 +34,7 @@ Nguồn chuẩn: database/dbms12-compact/manifest.json, 01_schema.sql, 07_core_p
 - `usp_GradeFinalize`
 
 
-45 operation còn lại đã chuyển thành CREATE OR ALTER PROCEDURE trong queries/ theo hướng A. Manifest có 56 operation: 53 phục vụ HTTP/auth/CSV; bootstrap, maintenance và session-touch không mở public API. Có 7 function, 9 view, 12 trigger và ba TVP: ScheduleBatch, AttendanceBatch, GradeManifest. SP tự giữ guard, audit/replay command; C# giữ transaction và cleanup. Danh sách/quyền: docs/SQL_SECURITY_MATRIX.md.
+45 operation còn lại đã chuyển thành CREATE OR ALTER PROCEDURE trong stored-procedures/operations/ theo hướng A. Manifest có 56 operation: 53 phục vụ HTTP/auth/CSV; bootstrap, maintenance và session-touch không mở public API. Có 7 function, 9 view, 12 trigger và ba TVP: ScheduleBatch, AttendanceBatch, GradeManifest. SP tự giữ guard, audit/replay command và transaction BEGIN/COMMIT/ROLLBACK theo D15; C# giữ call/role/cleanup. Danh sách/quyền: docs/SQL_SECURITY_MATRIX.md.
 
 ## Quyền và cài đặt
 

@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-25",
+  "task": "SQL_TRANSACTIONS",
+  "status": "COMPLETE",
+  "review": "PASS",
+  "schema": {
+    "tables": 12,
+    "columns": 99,
+    "procedures": 61,
+    "functions": 7,
+    "views": 9,
+    "triggers": 12
+  },
+  "sqlTransactionScopes": 61,
+  "operationProcedures": 56,
+  "infrastructureProcedures": 5,
+  "sqlFiles": 62,
+  "replayReturnBranches": 29,
+  "checks": {
+    "project": "PASS: locked restore/audit, backend0 warnings/errors, frontend types/lint/5tests/build, sourcepins, mainDBCC",
+    "nativeSqlChecks": 1477,
+    "businessCommits": 5,
+    "forcedAuditFailureRollbacks": 5,
+    "concurrentCollectors": 2,
+    "concurrentWinners": 1,
+    "replay": "PASS; no transaction leak",
+    "dispatchedWriteCancel": "PASS; observed waiting in SP,503 unknown,no false FAILURE,no receipt,context/depth clean",
+    "studySqlFiveTransactions": "PASS; sqlcmd on fixture; final depth0",
+    "studySqlTwoSessions": "PASS; A COMMIT, B51214 after waiting",
+    "fixtureHttp": 77,
+    "fixtureUiJourney": 12,
+    "fixtureTeacherWrites": "PASS",
+    "fixtureWeeklyMove": "PASS",
+    "fixtureAuditRollbackAndCsrf": "PASS",
+    "fixtureFinalValidationCsv": 5,
+    "lostAck": "PASS; one business POST, manual receipt lookup",
+    "mainReadOnlyBusinessUi": {
+      "roles": 7,
+      "widths": [
+        375,
+        768,
+        1280
+      ],
+      "businessWrites": 0,
+      "authenticationWrites": "Own test sessions only"
+    },
+    "mainReady": 200,
+    "launcherReuse": "PASS; exact existing receipt, no provision/build/ACL",
+    "studyLinks": 72
+  },
+  "migration": {
+    "database": "EnglishCenter_DBMS12_PROJECT_c4cef5a3a9b042b3bc4b0517f979d8d1",
+    "id": 26,
+    "guid": "e94f523e-ac86-448c-8e5b-79be6c31d97b",
+    "rehearsal": true,
+    "generatedRollbackScriptTested": true,
+    "committed": true,
+    "unchangedAll12TableRowsAtConversion": true,
+    "permissionsPrincipalsAndNonProcedureModulesUnchanged": true,
+    "invoiceSequenceUnchanged": true,
+    "profileOnlyManifestPinChanged": true,
+    "unchangedNonProcedureSqlFiles": 9
+  },
+  "fixture": {
+    "database": "EnglishCenter_DBMS12_PROJECT_79f3261c294542818867396d725e1f18",
+    "retained": true,
+    "neverReset": true
+  },
+  "limitations": [
+    "No claim for full rubric beyond supplied3.4",
+    "No production/load/backup recovery or second Windows machine acceptance",
+    "Normal own authentication writes after migration are not part of byte-identical conversion proof",
+    "Historical failed UI selector attempts retained privately; successful corrected runs are linked",
+    "HTTP77 ran before final password-snapshot entry-depth guard; final native cancellation/main UI/project checks ran after it; public behavior unchanged"
+  ],
+  "git": {
+    "committed": false,
+    "pushed": false
+  },
+  "operationKinds": {
+    "command": 29,
+    "read": 19,
+    "auth": 8
+  },
+  "sourceHashFiles": 104
+}

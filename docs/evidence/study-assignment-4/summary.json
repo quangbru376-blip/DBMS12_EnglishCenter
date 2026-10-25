@@ -1,0 +1,19 @@
+{
+  "pass": true,
+  "sourceManifestSha256": "F72E0E99CF46889121709CB32A45130E405A9566855F6CC967C0A92432D20749",
+  "allocationSha256": "E1ED69625832785A361901C960B44C93F751EDAEEBAD62B483A7BA7D14A0772B",
+  "studyMarkdownSha256": "857A9F8663B67F1E89705DD0D434D4084673FA36D2FA482E475F5964C9E89CDD",
+  "objectCount": 105,
+  "memberCounts": [
+    27,
+    26,
+    26,
+    26
+  ],
+  "assignedExactlyOnce": true,
+  "sourceLinks": 35,
+  "projectChecks": "PASS",
+  "protectedBackendSqlUnchanged": 102,
+  "databaseWrites": 0,
+  "commitOrPush": false
+}

@@ -78,16 +78,26 @@ internal sealed class CompactSqlExecutor
     }
     internal async Task<List<Dictionary<string,object?>>> PasswordSnapshot(SqlConnection db,Dictionary<string,object?> args,CancellationToken token)
     {
+        var existing=await Query(db,"SELECT @@TRANCOUNT AS depth;",token:token);
+        if(Convert.ToInt32(existing[0]["depth"])!=0)throw new InvalidOperationException("Password snapshot requires an unowned connection; existing transaction is preserved.");
         try
         {
-            await Query(db,"SET XACT_ABORT ON; BEGIN TRANSACTION; EXEC dbo.usp_BeginRead;",token:token);
             var rows=await Query(db,"EXEC dbo.usp_PasswordSnapshot @Sid,@Epoch;",args,token);
-            token.ThrowIfCancellationRequested();
-            await Query(db,"COMMIT;");
+            await EnsureCompleted(db);
             return rows;
         }
         catch { await Query(db,"IF XACT_STATE()<>0 ROLLBACK;"); throw; }
     }
+    private static async Task EnsureCompleted(SqlConnection db)
+    {
+        var rows=await Query(db,"SELECT @@TRANCOUNT AS depth;");
+        if(rows.Count!=1||Convert.ToInt32(rows[0]["depth"])!=0)
+            throw new InvalidOperationException("SQL procedure did not complete its transaction; outcome must remain uncertain.");
+    }
+    // Only errors known to occur before the SQL procedure COMMIT prove failure.
+    // Timeout, transport loss, attention and post-COMMIT cleanup never create a fake failure audit.
+    private static bool DefiniteFailure(SqlException error)=>error.Number is >=51000 and <=51999
+        or 229 or 2601 or 2627 or 547 or 515 or 8115 or 2628 or 1205;
     private static async Task Revert(SqlConnection db)
     {
         var rows=await Query(db,"REVERT; SELECT USER_NAME() AS principal_name;");
@@ -100,13 +110,12 @@ internal sealed class CompactSqlExecutor
         var op=Operation(name);
         if(!op.GetProperty("stored").GetBoolean())throw new InvalidOperationException("Native security requires stored modules.");
         var command=op.GetProperty("kind").GetString()=="command";
-        var read=op.GetProperty("kind").GetString()=="read"||name=="usp_LoginRead";
+        var mutating=op.GetProperty("kind").GetString()!="read"&&name!="usp_LoginRead";
         var action=command?op.GetProperty("action").GetString()!:name=="usp_LoginRecord"?"DBMS12.AUTH.LOGIN.FAILURE":name=="usp_OperatorBootstrap"?"DBMS12.OPERATOR.BOOTSTRAP":name=="usp_MaintenanceCleanup"?"DBMS12.MAINTENANCE.CLEANUP":"DBMS12.AUTH.ACCESS.DENIED";
-        var commitAttempted=false;
+        var dispatched=false;
         var switched=false;
         try
         {
-            await Query(db,read?"SET XACT_ABORT ON; BEGIN TRANSACTION; EXEC dbo.usp_BeginRead;":"SET XACT_ABORT ON; BEGIN TRANSACTION; EXEC dbo.usp_BeginWrite;",token:token);
             if(op.GetProperty("context").GetString()=="business")
             {
                 var current=await Query(db,"EXEC dbo.usp_CurrentSession @Sid,@Epoch;",new(){["@Sid"]=Value(args,"@Sid"),["@Epoch"]=Value(args,"@Epoch")},token);
@@ -120,22 +129,25 @@ internal sealed class CompactSqlExecutor
             }
             await using var cmd=new SqlCommand("dbo."+name,db){CommandTimeout=90,CommandType=CommandType.StoredProcedure};
             foreach(var p in op.GetProperty("parameters").EnumerateArray())Add(cmd,p,args);
-            var result=await Read(cmd,token);
             token.ThrowIfCancellationRequested();
-            commitAttempted=true;
-            await Query(db,"COMMIT;");
+            dispatched=true;
+            var result=await Read(cmd,token);
+            // Read consumes every result and the final server completion, including SQL COMMIT.
+            // Do not turn a completed SQL write into a cancellation afterwards.
+            await EnsureCompleted(db);
             return result;
         }
-        catch(SqlException e) when(token.IsCancellationRequested&&!commitAttempted)
+        catch(Exception e) when(token.IsCancellationRequested&&e is SqlException or OperationCanceledException)
         {
             await Query(db,"IF XACT_STATE()<>0 ROLLBACK;");
-            throw new OperationCanceledException("SQL request cancelled before commit.",e,token);
+            if(mutating&&dispatched)throw new ApiProblem(503,"COMMAND_OUTCOME_UNKNOWN","Chưa xác định được kết quả. Không tự gửi lại; hãy kiểm tra kết quả thao tác.");
+            throw new OperationCanceledException("SQL read/request cancelled; cleanup completed.",e,token);
         }
         catch(SqlException e)
         {
             await Query(db,"IF XACT_STATE()<>0 ROLLBACK;");
             if(switched){await Revert(db);switched=false;}
-            if(!commitAttempted)await Query(db,"EXEC dbo.usp_RecordFailure @Sid,@Epoch,@Action,@Error;",new(){["@Sid"]=Value(args,"@Sid"),["@Epoch"]=Value(args,"@Epoch")??Value(args,"@ObservedEpoch"),["@Action"]=action,["@Error"]=e.Number});
+            if(DefiniteFailure(e))await Query(db,"EXEC dbo.usp_RecordFailure @Sid,@Epoch,@Action,@Error;",new(){["@Sid"]=Value(args,"@Sid"),["@Epoch"]=Value(args,"@Epoch")??Value(args,"@ObservedEpoch"),["@Action"]=action,["@Error"]=e.Number});
             throw;
         }
         catch

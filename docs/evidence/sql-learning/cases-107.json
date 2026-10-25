@@ -1,0 +1,557 @@
+{
+  "pass": true,
+  "fixtureOnly": true,
+  "database": "EnglishCenter_DBMS12_PROJECT_0ee0369de6934a4c986bb7c412f97ec3",
+  "id": 30,
+  "guid": "d1925b89-c80c-4f73-94ef-cef8d2770723",
+  "total": 107,
+  "committedTransactions": false,
+  "forcedRollback": false,
+  "results": [
+    {
+      "file": "functions/fn_GradeTotal.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "functions/fn_InvoiceDueDate.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "functions/fn_ValidScore.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "functions/fn_ActionRootKind.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "functions/fn_RegistrationUnfinished.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "functions/fn_ClassProgress.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "functions/fn_InvoiceDebtFlags.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "views/v_ClassState.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "views/v_RegistrationFacts.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "views/v_CurrentSchedule.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "views/v_ClassRoster.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "views/v_FinalizedGrades.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "views/v_InvoiceFacts.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "views/v_ClassProgress.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "views/v_DirectorAggregate.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "views/v_AuditSafe.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_CourseCreate.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_CourseUpdate.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_RegistrationCreate.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_RegistrationConfirm.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_RegistrationCancelOwn.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_AdmissionReject.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_AdmissionCancel.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_AdmissionApprove.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_InvoiceCollect.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_InvoiceCorrect.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_ClassCreate.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_ClassEdit.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_ClassOpen.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_ClassStart.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_ClassComplete.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_ClassCancel.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_PlacementCreate.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_ScheduleBatch.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_ScheduleMove.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_ScheduleHeld.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_AttendanceSave.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_GradeSave.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_GradeSubmit.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_GradeReturn.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_GradeFinalize.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_ProfileUpdate.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_AccountCreateStaff.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_AccountSetStatus.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_AccountResetPassword.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_StudentSignup.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_LoginRead.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_LoginRecord.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_SessionTouch.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_Logout.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_PasswordChange.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_MaintenanceCleanup.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_OperatorBootstrap.sql",
+      "pass": true,
+      "expectedError": 51236
+    },
+    {
+      "file": "stored-procedures/usp_CurrentSession.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_CourseList.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_RegistrationList.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_InvoiceRead.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_ClassList.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_ClassRoster.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_ScheduleList.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_StudentGrades.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_ReplayLookup.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_AdminAccountList.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_AuditList.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_FinanceReport.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_DirectorReport.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_InvoiceSearch.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_AttendanceRead.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_TeacherOptions.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_WeeklySchedulePreview.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_FinanceExport.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_StudentHome.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_BeginRead.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_BeginWrite.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_SecuritySession.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_PasswordSnapshot.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "stored-procedures/usp_RecordFailure.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "triggers/tr_Account_Guard.sql",
+      "pass": true,
+      "expectedError": 51102
+    },
+    {
+      "file": "triggers/tr_Course_Freeze.sql",
+      "pass": true,
+      "expectedError": 51107
+    },
+    {
+      "file": "triggers/tr_Registration_State.sql",
+      "pass": true,
+      "expectedError": 51111
+    },
+    {
+      "file": "triggers/tr_Class_Lifecycle.sql",
+      "pass": true,
+      "expectedError": 51122
+    },
+    {
+      "file": "triggers/tr_Class_GradeDecision.sql",
+      "pass": true,
+      "expectedError": 51127
+    },
+    {
+      "file": "triggers/tr_Assignment_Eligibility.sql",
+      "pass": true,
+      "expectedError": 51128
+    },
+    {
+      "file": "triggers/tr_Schedule_Guard.sql",
+      "pass": true,
+      "expectedError": 51131
+    },
+    {
+      "file": "triggers/tr_Attendance_Guard.sql",
+      "pass": true,
+      "expectedError": 51137
+    },
+    {
+      "file": "triggers/tr_GradeReport_Guard.sql",
+      "pass": true,
+      "expectedError": 51139
+    },
+    {
+      "file": "triggers/tr_Invoice_Integrity.sql",
+      "pass": true,
+      "expectedError": 51146
+    },
+    {
+      "file": "triggers/tr_Audit_Integrity.sql",
+      "pass": true,
+      "expectedError": 51147
+    },
+    {
+      "file": "triggers/tr_Replay_Integrity.sql",
+      "pass": true,
+      "expectedError": 51152
+    },
+    {
+      "file": "constraints/Course_Tuition_CHECK.sql",
+      "pass": true,
+      "expectedError": 547
+    },
+    {
+      "file": "constraints/Course_Weight_CHECK.sql",
+      "pass": true,
+      "expectedError": 547
+    },
+    {
+      "file": "constraints/Account_Phone_CHECK.sql",
+      "pass": true,
+      "expectedError": 547
+    },
+    {
+      "file": "constraints/Course_Code_UNIQUE.sql",
+      "pass": true,
+      "expectedError": 2627
+    },
+    {
+      "file": "constraints/Course_Status_DEFAULT.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "constraints/Registration_Student_FK.sql",
+      "pass": true,
+      "expectedError": 547
+    },
+    {
+      "file": "security/GRANT_REVOKE_DENY.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "security/Student_Direct_Table_Denied.sql",
+      "pass": true,
+      "expectedError": 229
+    },
+    {
+      "file": "transactions/usp_CourseCreate.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "transactions/usp_RegistrationCreate.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "transactions/usp_AdmissionApprove.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "transactions/usp_InvoiceCollect.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "transactions/usp_PlacementCreate.sql",
+      "pass": true,
+      "expectedError": 0
+    },
+    {
+      "file": "indexes/IX_Registration_StudentCourse.sql",
+      "pass": true,
+      "expectedError": 0,
+      "baselineLogicalReads": 485,
+      "indexedLogicalReads": 3
+    },
+    {
+      "file": "indexes/IX_Class_TeacherStatus.sql",
+      "pass": true,
+      "expectedError": 0,
+      "baselineLogicalReads": 385,
+      "indexedLogicalReads": 3
+    },
+    {
+      "file": "indexes/IX_Schedule_ClassStart.sql",
+      "pass": true,
+      "expectedError": 0,
+      "baselineLogicalReads": 723,
+      "indexedLogicalReads": 3
+    },
+    {
+      "file": "indexes/IX_Invoice_Issued.sql",
+      "pass": true,
+      "expectedError": 0,
+      "baselineLogicalReads": 497,
+      "indexedLogicalReads": 11
+    },
+    {
+      "file": "indexes/IX_Audit_Time.sql",
+      "pass": true,
+      "expectedError": 0,
+      "baselineLogicalReads": 881,
+      "indexedLogicalReads": 16
+    }
+  ]
+}

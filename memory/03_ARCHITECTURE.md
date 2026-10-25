@@ -9,7 +9,7 @@ flowchart LR
  EXEC -->|Typed parameters / one transaction| SQL[61 SP: module-only/native roles]
  SQL --> GUARD[Constraints / triggers / functions / views]
  SQL --> AUDIT[Trong SP: kiểm phiên cuối + audit + receipt]
- AUDIT --> COMMIT[C# COMMIT, REVERT và trả DTO]
+ AUDIT --> COMMIT[SQL COMMIT; C# REVERT và trả DTO]
 ```
 
 ## Backend: backend/EnglishCenter.Dbms12
@@ -25,14 +25,14 @@ flowchart LR
 |Dbms12Identity.cs|Hash mật khẩu/JWT, đọc credential và ghi kết quả login có CAS; session, đổi mật khẩu và logout|
 |Dbms12Routes.cs / RequestFields.cs|Map route cố định, whitelist JSON/query/TVP, UUID/digest từ server, DTO và CSV|
 |Data/Dbms12Repository.cs|Mở connection riêng, kiểm profile, gọi executor; không DbContext|
-|Data/CompactSqlExecutor.cs|Kiểm file SHA/type, transaction, xác thực role rồi EXECUTE AS user cố định; gọi SP, COMMIT/ROLLBACK và REVERT|
+|Data/CompactSqlExecutor.cs|Kiểm file SHA/type, xác thực role rồi EXECUTE AS user cố định; gọi SP tự quản transaction, kiểm depth0, cleanup ROLLBACK khi lỗi/cancel và REVERT|
 |Shared/ và Resources/|Crypto/time/error helpers và blocklist đã copy vào project; không tham chiếu source EnglishCenter.Api bên ngoài|
 
 ## Giao dịch
 
-C# mở transaction bằng SQL. Caller lấy Course shared/exclusive lock trước các session/domain reads. SP yêu cầu @@TRANCOUNT=1 và tự xác định Actor từ SID/epoch; kiểm native role khớp phiên. SP command kiểm replay, kiểm phiên cuối và ghi audit/receipt/activity cùng transaction. Executor gọi COMMIT/ROLLBACK và luôn REVERT về runtime; kết nối không pooling. Khóa thô giúp giữ đúng nghiệp vụ với SQL dễ giải thích; chưa benchmark tải lớn.
+D15 thay D04:61/61SP có TRY/CATCH/XACT_ABORT và BEGIN/COMMIT/ROLLBACK. Nếu vào depth0, SP tự mở/chốt; nếu vào depth1, SP dùng transaction của caller, không tự commit/rollback thay caller. Operation lấy Course shared/exclusive lock, yêu cầu depth1, tự xác định Actor từ SID/epoch và kiểm native role. Command kiểm replay/phiên cuối, ghi audit/receipt/activity cùng transaction. Nhánh replay RETURN cũng commit nếu SP là owner. Executor vào depth0, gọi SP, đọc hết server completion, kiểm depth0 và luôn REVERT; kết nối không pooling. C# rollback cleanup khi lỗi/cancel. Khóa thô giữ tính đúng, chưa benchmark tải lớn.
 
-Request cancellation áp dụng khi đọc/chạy SQL. Khi bắt đầu COMMIT, không dùng request token để ngắt commit và không ghi audit FAILURE giả nếu mất ACK. UI giữ trạng thái chưa rõ kết quả và tra cứu riêng.
+Request cancellation áp dụng khi đọc/chạy SQL. Cancel sau write dispatch trả kết quả chưa rõ; SQL có thể đã COMMIT trước attention. Không ghi audit FAILURE cho timeout/transport/cancel hoặc lỗi cleanup sau commit. Chỉ log lỗi SQL xác định xảy ra trước COMMIT, bằng giao dịch riêng sau rollback. UI tra receipt, không tự gửi lại. Xem docs/study/SQL_TRANSACTIONS.md.
 
 ## Frontend
 

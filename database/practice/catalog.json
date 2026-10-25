@@ -1,0 +1,754 @@
+{
+  "source": "../dbms12-compact/manifest.json",
+  "cases": [
+    {
+      "group": "functions",
+      "name": "fn_GradeTotal",
+      "file": "functions/fn_GradeTotal.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "functions",
+      "name": "fn_InvoiceDueDate",
+      "file": "functions/fn_InvoiceDueDate.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "functions",
+      "name": "fn_ValidScore",
+      "file": "functions/fn_ValidScore.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "functions",
+      "name": "fn_ActionRootKind",
+      "file": "functions/fn_ActionRootKind.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "functions",
+      "name": "fn_RegistrationUnfinished",
+      "file": "functions/fn_RegistrationUnfinished.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "functions",
+      "name": "fn_ClassProgress",
+      "file": "functions/fn_ClassProgress.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "functions",
+      "name": "fn_InvoiceDebtFlags",
+      "file": "functions/fn_InvoiceDebtFlags.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "views",
+      "name": "v_ClassState",
+      "file": "views/v_ClassState.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "views",
+      "name": "v_RegistrationFacts",
+      "file": "views/v_RegistrationFacts.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "views",
+      "name": "v_CurrentSchedule",
+      "file": "views/v_CurrentSchedule.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "views",
+      "name": "v_ClassRoster",
+      "file": "views/v_ClassRoster.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "views",
+      "name": "v_FinalizedGrades",
+      "file": "views/v_FinalizedGrades.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "views",
+      "name": "v_InvoiceFacts",
+      "file": "views/v_InvoiceFacts.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "views",
+      "name": "v_ClassProgress",
+      "file": "views/v_ClassProgress.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "views",
+      "name": "v_DirectorAggregate",
+      "file": "views/v_DirectorAggregate.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "views",
+      "name": "v_AuditSafe",
+      "file": "views/v_AuditSafe.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_CourseCreate",
+      "file": "stored-procedures/usp_CourseCreate.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_CourseUpdate",
+      "file": "stored-procedures/usp_CourseUpdate.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_RegistrationCreate",
+      "file": "stored-procedures/usp_RegistrationCreate.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_RegistrationConfirm",
+      "file": "stored-procedures/usp_RegistrationConfirm.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_RegistrationCancelOwn",
+      "file": "stored-procedures/usp_RegistrationCancelOwn.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_AdmissionReject",
+      "file": "stored-procedures/usp_AdmissionReject.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_AdmissionCancel",
+      "file": "stored-procedures/usp_AdmissionCancel.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_AdmissionApprove",
+      "file": "stored-procedures/usp_AdmissionApprove.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_InvoiceCollect",
+      "file": "stored-procedures/usp_InvoiceCollect.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_InvoiceCorrect",
+      "file": "stored-procedures/usp_InvoiceCorrect.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_ClassCreate",
+      "file": "stored-procedures/usp_ClassCreate.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_ClassEdit",
+      "file": "stored-procedures/usp_ClassEdit.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_ClassOpen",
+      "file": "stored-procedures/usp_ClassOpen.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_ClassStart",
+      "file": "stored-procedures/usp_ClassStart.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_ClassComplete",
+      "file": "stored-procedures/usp_ClassComplete.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_ClassCancel",
+      "file": "stored-procedures/usp_ClassCancel.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_PlacementCreate",
+      "file": "stored-procedures/usp_PlacementCreate.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_ScheduleBatch",
+      "file": "stored-procedures/usp_ScheduleBatch.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_ScheduleMove",
+      "file": "stored-procedures/usp_ScheduleMove.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_ScheduleHeld",
+      "file": "stored-procedures/usp_ScheduleHeld.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_AttendanceSave",
+      "file": "stored-procedures/usp_AttendanceSave.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_GradeSave",
+      "file": "stored-procedures/usp_GradeSave.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_GradeSubmit",
+      "file": "stored-procedures/usp_GradeSubmit.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_GradeReturn",
+      "file": "stored-procedures/usp_GradeReturn.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_GradeFinalize",
+      "file": "stored-procedures/usp_GradeFinalize.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_ProfileUpdate",
+      "file": "stored-procedures/usp_ProfileUpdate.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_AccountCreateStaff",
+      "file": "stored-procedures/usp_AccountCreateStaff.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_AccountSetStatus",
+      "file": "stored-procedures/usp_AccountSetStatus.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_AccountResetPassword",
+      "file": "stored-procedures/usp_AccountResetPassword.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_StudentSignup",
+      "file": "stored-procedures/usp_StudentSignup.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_LoginRead",
+      "file": "stored-procedures/usp_LoginRead.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_LoginRecord",
+      "file": "stored-procedures/usp_LoginRecord.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_SessionTouch",
+      "file": "stored-procedures/usp_SessionTouch.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_Logout",
+      "file": "stored-procedures/usp_Logout.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_PasswordChange",
+      "file": "stored-procedures/usp_PasswordChange.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_MaintenanceCleanup",
+      "file": "stored-procedures/usp_MaintenanceCleanup.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_OperatorBootstrap",
+      "file": "stored-procedures/usp_OperatorBootstrap.sql",
+      "expectedError": 51236,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_CurrentSession",
+      "file": "stored-procedures/usp_CurrentSession.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_CourseList",
+      "file": "stored-procedures/usp_CourseList.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_RegistrationList",
+      "file": "stored-procedures/usp_RegistrationList.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_InvoiceRead",
+      "file": "stored-procedures/usp_InvoiceRead.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_ClassList",
+      "file": "stored-procedures/usp_ClassList.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_ClassRoster",
+      "file": "stored-procedures/usp_ClassRoster.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_ScheduleList",
+      "file": "stored-procedures/usp_ScheduleList.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_StudentGrades",
+      "file": "stored-procedures/usp_StudentGrades.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_ReplayLookup",
+      "file": "stored-procedures/usp_ReplayLookup.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_AdminAccountList",
+      "file": "stored-procedures/usp_AdminAccountList.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_AuditList",
+      "file": "stored-procedures/usp_AuditList.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_FinanceReport",
+      "file": "stored-procedures/usp_FinanceReport.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_DirectorReport",
+      "file": "stored-procedures/usp_DirectorReport.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_InvoiceSearch",
+      "file": "stored-procedures/usp_InvoiceSearch.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_AttendanceRead",
+      "file": "stored-procedures/usp_AttendanceRead.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_TeacherOptions",
+      "file": "stored-procedures/usp_TeacherOptions.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_WeeklySchedulePreview",
+      "file": "stored-procedures/usp_WeeklySchedulePreview.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_FinanceExport",
+      "file": "stored-procedures/usp_FinanceExport.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_StudentHome",
+      "file": "stored-procedures/usp_StudentHome.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_BeginRead",
+      "file": "stored-procedures/usp_BeginRead.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_BeginWrite",
+      "file": "stored-procedures/usp_BeginWrite.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_SecuritySession",
+      "file": "stored-procedures/usp_SecuritySession.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_PasswordSnapshot",
+      "file": "stored-procedures/usp_PasswordSnapshot.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "stored-procedures",
+      "name": "usp_RecordFailure",
+      "file": "stored-procedures/usp_RecordFailure.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "triggers",
+      "name": "tr_Account_Guard",
+      "file": "triggers/tr_Account_Guard.sql",
+      "expectedError": 51102,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "triggers",
+      "name": "tr_Course_Freeze",
+      "file": "triggers/tr_Course_Freeze.sql",
+      "expectedError": 51107,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "triggers",
+      "name": "tr_Registration_State",
+      "file": "triggers/tr_Registration_State.sql",
+      "expectedError": 51111,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "triggers",
+      "name": "tr_Class_Lifecycle",
+      "file": "triggers/tr_Class_Lifecycle.sql",
+      "expectedError": 51122,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "triggers",
+      "name": "tr_Class_GradeDecision",
+      "file": "triggers/tr_Class_GradeDecision.sql",
+      "expectedError": 51127,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "triggers",
+      "name": "tr_Assignment_Eligibility",
+      "file": "triggers/tr_Assignment_Eligibility.sql",
+      "expectedError": 51128,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "triggers",
+      "name": "tr_Schedule_Guard",
+      "file": "triggers/tr_Schedule_Guard.sql",
+      "expectedError": 51131,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "triggers",
+      "name": "tr_Attendance_Guard",
+      "file": "triggers/tr_Attendance_Guard.sql",
+      "expectedError": 51137,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "triggers",
+      "name": "tr_GradeReport_Guard",
+      "file": "triggers/tr_GradeReport_Guard.sql",
+      "expectedError": 51139,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "triggers",
+      "name": "tr_Invoice_Integrity",
+      "file": "triggers/tr_Invoice_Integrity.sql",
+      "expectedError": 51146,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "triggers",
+      "name": "tr_Audit_Integrity",
+      "file": "triggers/tr_Audit_Integrity.sql",
+      "expectedError": 51147,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "triggers",
+      "name": "tr_Replay_Integrity",
+      "file": "triggers/tr_Replay_Integrity.sql",
+      "expectedError": 51152,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "constraints",
+      "name": "Course_Tuition_CHECK",
+      "file": "constraints/Course_Tuition_CHECK.sql",
+      "expectedError": 547,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "constraints",
+      "name": "Course_Weight_CHECK",
+      "file": "constraints/Course_Weight_CHECK.sql",
+      "expectedError": 547,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "constraints",
+      "name": "Account_Phone_CHECK",
+      "file": "constraints/Account_Phone_CHECK.sql",
+      "expectedError": 547,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "constraints",
+      "name": "Course_Code_UNIQUE",
+      "file": "constraints/Course_Code_UNIQUE.sql",
+      "expectedError": 2627,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "constraints",
+      "name": "Course_Status_DEFAULT",
+      "file": "constraints/Course_Status_DEFAULT.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "constraints",
+      "name": "Registration_Student_FK",
+      "file": "constraints/Registration_Student_FK.sql",
+      "expectedError": 547,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "security",
+      "name": "GRANT_REVOKE_DENY",
+      "file": "security/GRANT_REVOKE_DENY.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "security",
+      "name": "Student_Direct_Table_Denied",
+      "file": "security/Student_Direct_Table_Denied.sql",
+      "expectedError": 229,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "transactions",
+      "name": "usp_CourseCreate",
+      "file": "transactions/usp_CourseCreate.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK_DEFAULT_COMMIT_OPT_IN"
+    },
+    {
+      "group": "transactions",
+      "name": "usp_RegistrationCreate",
+      "file": "transactions/usp_RegistrationCreate.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK_DEFAULT_COMMIT_OPT_IN"
+    },
+    {
+      "group": "transactions",
+      "name": "usp_AdmissionApprove",
+      "file": "transactions/usp_AdmissionApprove.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK_DEFAULT_COMMIT_OPT_IN"
+    },
+    {
+      "group": "transactions",
+      "name": "usp_InvoiceCollect",
+      "file": "transactions/usp_InvoiceCollect.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK_DEFAULT_COMMIT_OPT_IN"
+    },
+    {
+      "group": "transactions",
+      "name": "usp_PlacementCreate",
+      "file": "transactions/usp_PlacementCreate.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK_DEFAULT_COMMIT_OPT_IN"
+    },
+    {
+      "group": "indexes",
+      "name": "IX_Registration_StudentCourse",
+      "file": "indexes/IX_Registration_StudentCourse.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "indexes",
+      "name": "IX_Class_TeacherStatus",
+      "file": "indexes/IX_Class_TeacherStatus.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "indexes",
+      "name": "IX_Schedule_ClassStart",
+      "file": "indexes/IX_Schedule_ClassStart.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "indexes",
+      "name": "IX_Invoice_Issued",
+      "file": "indexes/IX_Invoice_Issued.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    },
+    {
+      "group": "indexes",
+      "name": "IX_Audit_Time",
+      "file": "indexes/IX_Audit_Time.sql",
+      "expectedError": 0,
+      "mode": "ROLLBACK"
+    }
+  ]
+}

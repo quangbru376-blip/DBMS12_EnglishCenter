@@ -17,9 +17,9 @@ Những quyết định này đã được thực hiện; không mặc định c
 |Clone GitHub/cài máy nhóm|[TEAM_QUICKSTART](TEAM_QUICKSTART.md),[SETUP_WINDOWS](SETUP_WINDOWS.md),[RUNBOOK](../memory/05_RUNBOOK.md);tools/Test-Environment.ps1,Initialize-MachineConfig.ps1,setup/Prepare-Machine.ps1|
 |Vai trò, trạng thái, điều kiện trước/sau|[DOMAIN](../memory/02_DOMAIN.md), SQL manifest và file operation tương ứng|
 |API/DTO/route → operation|[API](API.md), `Dbms12Routes.cs`, `RequestFields.cs`|
-|12 bảng, cột, khóa và index|[DATABASE](../memory/04_DATABASE.md), `database/dbms12-compact/01_schema.sql`|
+|12 bảng, cột, khóa và index|[DATABASE](../memory/04_DATABASE.md), `database/dbms12-compact/tables/01_schema.sql`|
 |FN/VW/trigger/SP/permissions|[SQL manifest](../database/dbms12-compact/manifest.json),installOrder và62file SHA;[SQL README](../database/dbms12-compact/README.md)|
-|Transaction/audit/replay/mất phản hồi|[ARCHITECTURE](../memory/03_ARCHITECTURE.md), `Data/CompactSqlExecutor.cs`, `frontend/src/features/dbms12/api.ts`|
+|Transaction/audit/replay/mất phản hồi|[SQL_TRANSACTIONS](study/SQL_TRANSACTIONS.md), [ARCHITECTURE](../memory/03_ARCHITECTURE.md), `Data/CompactSqlExecutor.cs`, `frontend/src/features/dbms12/api.ts`|
 |Xác thực và bảo mật|[SECURITY](../memory/06_SECURITY.md), `Dbms12Identity.cs`, `Dbms12Host.cs`, `AppProfile.cs`|
 |Chạy/provision/đóng gói|`tools/Start-Project.ps1`, `OwnerProvision.cs`, `tools/Pack-Source.ps1`|
 |Điểm tiếp tục / việc chưa được giao|[CURRENT_STATE](../memory/01_CURRENT_STATE.md), [TASKS](../memory/08_TASKS.md)|
@@ -40,3 +40,7 @@ AGENTS nhắc APP25/demo24 để bảo vệ tài nguyên cũ nếu cùng máy;ng
 > Đây là project DBMS12 độc lập. Đọc AGENTS.md và chín file memory theo thứ tự; sau đó REQUIREMENTS.md, docs/CONTEXT_MAP.md và docs/SETUP_WINDOWS.md. Trước tiên kiểm source/build, liệt kê điều kiện máy còn thiếu. Chỉ chuẩn bị account/chứng chỉ/SQL khi chủ máy giao việc và có quyền phù hợp; không bỏ TLS/runtime/schema guard. Giữ đúng12 bảng/99cột,61SP và SQL có tham số; không reset/reseed dữ liệu hiện có. Mỗi thay đổi phải ghi scope, kiểm phù hợp và cập nhật memory. Không cần project cha hoặc lịch sử chat để làm việc trong phạm vi hiện tại.
 
 Repository độc lập: https://github.com/quangbru376-blip/DBMS12_EnglishCenter (private),source ngay gốc sau clone. Không phụ thuộc repo English-Center lớn hoặc lịch sửGit của nó. Owner cấp quyền GitHub cho thành viên trước clone.
+
+SQL được chia thư mục theo loại từ D16: [bản đồ](../database/dbms12-compact/README.md), [105object → source](../database/dbms12-compact/OBJECT_INDEX.md). Đây là source cài đặt thật, không có bản SQL học sao chép riêng. Các hash/path trong evidence cũ phản ánh thời điểm chạy cũ.
+
+Owner đã cung cấp phầnSQL3.1–3.5: [rubric](study/RUBRIC_SQL_SERVER.md), [đối chiếu](study/SQL_RUBRIC_MATRIX.md), [học/chạySSMS](study/SQL_LEARNING_START.md), [107bài](../database/practice/README.md). Các bài được tạo từ source, không sửa module ứng dụng; chuẩn bị fixture bằng tools/Invoke-SqlLearning.ps1 -Prepare.

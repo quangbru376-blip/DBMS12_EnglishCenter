@@ -33,13 +33,13 @@ Máy kiểm dùng Windows Authentication. Bảy business user được tạo WIT
 | Director | role_GiamDoc | Dbms12Director | SP/view báo cáo tổng hợp; không ghi nghiệp vụ |
 | Student | role_HocVien | Dbms12Student | Hồ sơ, đăng ký, hóa đơn, lớp/lịch/kết quả của chính mình |
 
-Ma trận từng SP nằm tại [SQL_SECURITY_MATRIX.md](SQL_SECURITY_MATRIX.md), sinh từ manifest; `08_permissions.sql` là nguồn GRANT/DENY thật. Bốn nhóm kỹ thuật cũ được giữ để tương thích định danh nhưng quyền trực tiếp bảng được thu hồi. Operator chỉ dùng SP bootstrap/maintenance, reader chỉ dùng view tổng hợp/an toàn. Không cấp view chứa toàn bộ học viên cho Student/Teacher. Những view này chỉ được dùng bên trong SP có lọc ownership.
+Ma trận từng SP nằm tại [SQL_SECURITY_MATRIX.md](SQL_SECURITY_MATRIX.md), sinh từ manifest; `security/08_permissions.sql` là nguồn GRANT/DENY thật. Bốn nhóm kỹ thuật cũ được giữ để tương thích định danh nhưng quyền trực tiếp bảng được thu hồi. Operator chỉ dùng SP bootstrap/maintenance, reader chỉ dùng view tổng hợp/an toàn. Không cấp view chứa toàn bộ học viên cho Student/Teacher. Những view này chỉ được dùng bên trong SP có lọc ownership.
 
 ## Giao dịch và bảo vệ dữ liệu
 
-C# mở transaction và gọi SP lấy khóa Course, sau đó xác thực phiên và chuyển sang user nghiệp vụ cố định. SP chạy với CALLER và ownership chaining cùng chủ sở hữu dbo; không dùng EXECUTE AS OWNER hay SQL động nghiệp vụ. Mỗi SP xác định Actor từ SID/epoch và kiểm role SQL khớp role Account; caller không truyền Actor để chọn người khác. ProfileUpdate được giới hạn Student cả HTTP lẫn SQL.
+D15 thay phần transaction của D14: C# gọi CurrentSession tự quản transaction để chọn user nghiệp vụ cố định. Khi thực thi operation, SP tự mở transaction, lấy khóa Course và kiểm lại phiên/role trong chính giao dịch đó. SP chạy với CALLER và ownership chaining cùng chủ sở hữu dbo; không dùng EXECUTE AS OWNER hay SQL động nghiệp vụ. Mỗi SP xác định Actor từ SID/epoch và kiểm role SQL khớp role Account; caller không truyền Actor để chọn người khác. ProfileUpdate được giới hạn Student cả HTTP lẫn SQL.
 
-SP command tự kiểm UUID/digest/replay, thực hiện nghiệp vụ, kiểm phiên cuối, ghi AuditLog/ReplayOperation và activity trước khi trả ACK. C# COMMIT với token độc lập request, ROLLBACK khi chưa commit và REVERT trong cleanup. Kết nối không pooling. Hủy yêu cầu/mất ACK không tự gửi lại; lookup vẫn chỉ của actor hiện tại. Không nhận tên user/role/SP/SQL tự do từ browser.
+SP command tự kiểm UUID/digest/replay, thực hiện nghiệp vụ, kiểm phiên cuối, ghi AuditLog/ReplayOperation và activity trước khi trả ACK. SQL COMMIT trong TRY, ROLLBACK trong CATCH nếu SP sở hữu giao dịch; SP con dùng transaction của caller. C# đọc hết completion, kiểm depth0, ROLLBACK cleanup nếu lỗi/cancel và REVERT. Write đã dispatch mà cancel/mất kết nối có thể đã commit: giữ unknown, không ghi FAILURE giả. Kết nối không pooling. Hủy yêu cầu/mất ACK không tự gửi lại; lookup vẫn chỉ của actor hiện tại. Không nhận tên user/role/SP/SQL tự do từ browser.
 
 Admin nghiệp vụ không được thu tiền, xếp lớp hoặc sửa điểm. Kế toán không quản lý tài khoản hay bảng điểm. Director chỉ đọc báo cáo; không được cấp SELECT/EXECUTE toàn schema. Hạn chế không áp dụng như một rào chắn đối với chủ máy SQL sysadmin; owner triển khai là danh tính khác với Admin ứng dụng.
 

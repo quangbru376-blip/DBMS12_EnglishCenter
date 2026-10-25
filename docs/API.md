@@ -72,7 +72,7 @@ GET reports/finance.csv gọi usp_FinanceExport, chỉ Accountant, UTF-8 BOM/quo
 
 Nguồn tham số/types/defaults chính xác: database/dbms12-compact/manifest.json; JSON/TVP validation: RequestFields.cs. Không mở endpoint nhận Accepted/ObservedHash/ObservedEpoch cho login; LoginRecord chỉ là adapter nội bộ.
 
-Hạ tầng Native Security V2: 56 operation SP + 5 SP hạ tầng, 7 SQL business roles/users. Command SP tự xác định Actor và ghi audit/replay trong transaction của C#; HTTP không đổi. Chi tiết docs/SQL_SECURITY.md và SQL_SECURITY_MATRIX.md. Lỗi EXECUTE bị SQL từ chối (229) được trả HTTP403.
+Hạ tầng Native Security V2: 56 operation SP + 5 SP hạ tầng, 7 SQL business roles/users. Theo D15, toàn bộ61SP có SQL-owned transaction; command tự xác định Actor, ghi audit/replay và COMMIT trước final server completion. C# gọi/REVERT và rollback cleanup khi lỗi/cancel; HTTP không đổi. Khi write đã dispatch mà cancel/mất ACK, giữ COMMAND_OUTCOME_UNKNOWN, tra receipt thủ công. Chi tiết docs/SQL_SECURITY.md và SQL_SECURITY_MATRIX.md. Lỗi EXECUTE bị SQL từ chối (229) được trả HTTP403.
 
 ## Hành vi chọn lớp của Giáo viên
 

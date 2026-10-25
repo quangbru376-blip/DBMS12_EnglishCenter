@@ -1,0 +1,9 @@
+{"phase":"DBMS12-provision","success":true,"database":"EnglishCenter_DBMS12_PROJECT_0ee0369de6934a4c986bb7c412f97ec3","id":30,"guid":"d1925b89-c80c-4f73-94ef-cef8d2770723","accounts":10,"credentials":"Private owner folder only; no passwords in output"}
+{"pass":true,"database":"EnglishCenter_DBMS12_PROJECT_0ee0369de6934a4c986bb7c412f97ec3","id":30,"guid":"d1925b89-c80c-4f73-94ef-cef8d2770723","tables":12,"procedures":61,"functions":7,"views":9,"triggers":12,"columns":99,"untrustedOrDisabled":0,"sqlFilesVerified":62,"dbcc":"PASS"}
+Context success cleanup PASS
+Context denial cleanup PASS
+Context cancellation blocker ready
+Context cancellation cleanup PASS
+Dispatched write cancellation: unknown/no false failure/context clean PASS
+{"pass":true,"roles":7,"procedures":61,"checks":1477}
+SQL transaction proofs PASS:5 commits,5 audit-failure rollbacks,replay,2 concurrent collectors/1 effect.

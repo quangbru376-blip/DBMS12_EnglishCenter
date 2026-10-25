@@ -1,0 +1,28 @@
+﻿EC_INDEX_BASELINE|IX_Invoice_Issued
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 1 ms.
+Table '#Lab________________________________________________________________________________________________________________000000000261'. Scan count 1, logical reads 497, physical reads 0, page server reads 0, read-ahead reads 0, page server read-ahead reads 0, lob logical reads 0, lob physical reads 0, lob page server reads 0, lob read-ahead reads 0, lob page server read-ahead reads 0.
+
+ SQL Server Execution Times:
+   CPU time = 16 ms,  elapsed time = 10 ms.
+
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+EC_INDEX_WITH|IX_Invoice_Issued
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 1 ms.
+Table '#Lab________________________________________________________________________________________________________________000000000261'. Scan count 1, logical reads 11, physical reads 0, page server reads 0, read-ahead reads 0, page server read-ahead reads 0, lob logical reads 0, lob physical reads 0, lob page server reads 0, lob read-ahead reads 0, lob page server read-ahead reads 0.
+
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+baseline_rows        indexed_rows         baseline_checksum indexed_checksum
+-------------------- -------------------- ----------------- ----------------
+                1440                 1440                 0                0
+EC_INDEX_END|IX_Invoice_Issued
+case_name         result        transaction_depth
+----------------- ------------- -----------------
+IX_Invoice_Issued PASS_ROLLBACK                 0
+EC_LAB_PASS|IX_Invoice_Issued

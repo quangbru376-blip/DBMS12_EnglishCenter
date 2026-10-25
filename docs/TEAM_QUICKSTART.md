@@ -1,5 +1,7 @@
 # Agent của nhóm: clone, cài và chạy
 
+Bản học SQL mới và cập nhật clone đã có dữ liệu: [TEAM_SQL_GUIDE](TEAM_SQL_GUIDE.md). Đọc mục version/migration trước khi pull và chạy lại app trên profile cũ.
+
 Windows x64; bản12bảng/61SP. Mỗi máy tạo DB,credential,keys riêng; không copy.local hoặc cần project cha. Agent đọc AGENTS+9memory theo thứ tự, rồi REQUIREMENTS,CONTEXT_MAP,SETUP_WINDOWS.
 
 ## Nhận source và kiểm build

@@ -64,6 +64,39 @@ SELECT (SELECT security_version FROM dbo.Account WHERE email='s1@dbms12.example'
                 finally {await using var rollback=new SqlCommand("IF XACT_STATE()<>0 ROLLBACK;",blocker);await rollback.ExecuteNonQueryAsync();}
             }
             await BaseContext(db);checks.Add("executor-cancellation-revert");Console.WriteLine("Context cancellation cleanup PASS");
+            // A shared Course lock allows prevalidation reads, but blocks the dispatched write.
+            // This distinguishes cancellation after dispatch from cancellation before the call.
+            await using(var blocker=new SqlConnection(p.Connection))
+            {
+                await blocker.OpenAsync();await SqlSecurityVerification.Guard(blocker,p);
+                await using(var locked=new SqlCommand("BEGIN TRANSACTION; SELECT COUNT_BIG(*) FROM dbo.Course WITH(TABLOCK,HOLDLOCK);",blocker))await locked.ExecuteNonQueryAsync();
+                try
+                {
+                    var request=Guid.NewGuid();
+                    await using var failures=new SqlCommand("SELECT COUNT(*) FROM dbo.AuditLog WHERE action_code='DBMS12.STUDENT.REGISTRATION.CREATE' AND result_code='FAILURE';",blocker);
+                    var failureCount=Convert.ToInt32(await failures.ExecuteScalarAsync());
+                    using var cancel=new CancellationTokenSource();
+                    var pending=executor.Execute(db,"usp_RegistrationCreate",new(student){["@CourseId"]=1,["@RequestId"]=request,["@Digest"]=SHA256.HashData(request.ToByteArray())},cancel.Token);
+                    var observed=false;var until=DateTime.UtcNow.AddSeconds(5);
+                    while(!pending.IsCompleted&&DateTime.UtcNow<until)
+                    {
+                        await using var state=new SqlCommand("SELECT COUNT(*) FROM sys.dm_exec_requests r CROSS APPLY sys.dm_exec_sql_text(r.sql_handle) t WHERE r.session_id=@Session AND r.blocking_session_id=@@SPID AND OBJECT_NAME(t.objectid,r.database_id)='usp_RegistrationCreate';",blocker);
+                        state.Parameters.AddWithValue("@Session",db.ServerProcessId);
+                        if(Convert.ToInt32(await state.ExecuteScalarAsync())==1){observed=true;break;}
+                        await Task.Delay(50);
+                    }
+                    cancel.Cancel();
+                    try{await pending;throw new InvalidOperationException("Expected uncertain cancelled write.");}
+                    catch(ApiProblem e) when(e.Status==503&&e.Code=="COMMAND_OUTCOME_UNKNOWN") { }
+                    if(!observed)throw new InvalidOperationException("Did not observe the dispatched write waiting for its lock.");
+                    await BaseContext(db);
+                    await using var receipt=new SqlCommand("SELECT COUNT(*) FROM dbo.ReplayOperation WHERE request_id=@Request;",blocker);receipt.Parameters.AddWithValue("@Request",request);
+                    if(Convert.ToInt32(await receipt.ExecuteScalarAsync())!=0||failureCount!=Convert.ToInt32(await failures.ExecuteScalarAsync()))throw new InvalidOperationException("Cancelled write created a receipt or a false failure audit.");
+                    checks.Add("executor-dispatched-write-cancel-unknown-revert");checks.Add("executor-cancel-no-false-failure");
+                    Console.WriteLine("Dispatched write cancellation: unknown/no false failure/context clean PASS");
+                }
+                finally{await using var rollback=new SqlCommand("IF XACT_STATE()<>0 ROLLBACK;",blocker);await rollback.ExecuteNonQueryAsync();}
+            }
             await executor.Execute(db,"usp_CourseList",courses);await BaseContext(db);checks.Add("executor-next-request-clean");
         }
         finally

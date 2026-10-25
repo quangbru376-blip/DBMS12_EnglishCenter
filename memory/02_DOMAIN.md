@@ -18,7 +18,7 @@ Quản lý trung tâm theo chuỗi: khóa học → đăng ký và duyệt → h
 2. Course có một học phí, số buổi dự kiến và trọng số quá trình. Cấu hình đã có lớp được SQL bảo vệ. Có đúng hai điểm cố định.
 3. Registration đi từ PENDING → CONFIRMED → ADMITTED; nhánh REJECTED/CANCELLED phụ thuộc người thao tác và trạng thái. Không tạo trùng hồ sơ chưa kết thúc cho cùng học viên/khóa.
 4. Duyệt nhập học và tạo Invoice là một transaction. Một hóa đơn cho một registration; thu đủ một lần. Điều chỉnh phương thức/tham chiếu cần lý do; không sửa amount trực tiếp.
-5. Class đi từ PLANNED → OPEN → ONGOING → COMPLETED. Hủy theo guard trước khi bắt đầu. Mở lớp cần đủ LESSON và một FINAL_EXAM tương lai.
+5. Class đi từ PLANNED → OPEN → ONGOING → COMPLETED. Hủy theo guard trước khi bắt đầu. OPEN cần khóa/giáo viên hoạt động và có LESSON tương lai; ONGOING mới kiểm đủ số LESSON, đúng một FINAL_EXAM, có học viên và đã đến buổi học đầu. Nguồn: tr_Class_Lifecycle.
 6. Xếp lớp chỉ khi hồ sơ ADMITTED, đã thanh toán, lớp OPEN cùng khóa, còn chỗ và không trùng lịch. Một assignment cho một registration.
 7. Lịch chỉ giữ phiên bản hiện tại. Có thể dời buổi tương lai chưa có dữ liệu khi SQL cho phép; lý do/lần sửa nằm trong Audit. Kiểm trùng lớp, giáo viên, phòng và học viên theo khoảng [start,end).
 8. Điểm danh phải chọn tường minh, không coi chưa nhập là vắng. Giáo vụ xác nhận HELD sau giờ kết thúc và khi trạng thái lớp cho phép.

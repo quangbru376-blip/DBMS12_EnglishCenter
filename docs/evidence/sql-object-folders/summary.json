@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-25",
+  "task": "SQL_OBJECT_FOLDERS",
+  "status": "COMPLETE",
+  "review": "PASS",
+  "pinnedSqlFiles": 62,
+  "byteIdenticalMovedSqlFiles": 61,
+  "installOnlyIncludePathsChanged": true,
+  "installOrderAndOperationContractsPreserved": true,
+  "objects": 105,
+  "schema": {
+    "tables": 12,
+    "columns": 99,
+    "procedures": 61,
+    "functions": 7,
+    "views": 9,
+    "triggers": 12
+  },
+  "groups": {
+    "table": 12,
+    "procedure": 61,
+    "function": 7,
+    "view": 9,
+    "trigger": 12,
+    "type": 3,
+    "sequence": 1,
+    "transactionExamples": 3
+  },
+  "checks": {
+    "sourcePins": "PASS",
+    "pureLayoutProof": "PASS",
+    "project": "PASS: locked restore/audit, backend0warnings/errors, frontend types/lint/5tests/build",
+    "studyAssignment": "PASS105objects/27-26-26-26",
+    "fixtureProvisionAndDbcc": "PASS",
+    "fixtureNativeSql": 1477,
+    "fixtureCommitProofs": 5,
+    "fixtureForcedRollbackProofs": 5,
+    "fixtureConcurrency": "PASS2collectors/oneeffect",
+    "mainProfileRebind": "PASS; exact PROJECT identity/61live definitions, metadata/12table rows checked; no DDL/DML",
+    "profileOnlyManifestChanged": true,
+    "mainDbcc": "PASS",
+    "mainBrowser": {
+      "roles": 7,
+      "widths": [
+        375,
+        768,
+        1280
+      ],
+      "businessWrites": 0,
+      "authentication": "Own test sessions only"
+    },
+    "mainReady": 200,
+    "documentationLinks": 411,
+    "sourceHashes": 70,
+    "launcherReuse": "PASS"
+  },
+  "main": {
+    "database": "EnglishCenter_DBMS12_PROJECT_c4cef5a3a9b042b3bc4b0517f979d8d1",
+    "id": 26,
+    "guid": "e94f523e-ac86-448c-8e5b-79be6c31d97b"
+  },
+  "fixture": {
+    "database": "EnglishCenter_DBMS12_PROJECT_0ee0369de6934a4c986bb7c412f97ec3",
+    "id": 30,
+    "guid": "d1925b89-c80c-4f73-94ef-cef8d2770723",
+    "retained": true
+  },
+  "manifest": {
+    "before": "F24FCEA4C9D7049CEC843BC57C29DB00518091C87310E36789561E9466291D7F",
+    "after": "C38C51EF63F98A280EB72D9EE0821E3BBA5325582952562F926E529C84609488"
+  },
+  "runtime": {
+    "session": 44412,
+    "pid": 33452
+  },
+  "limitations": [
+    "No production/load/backup recovery/second Windows machine acceptance",
+    "One SQL file may contain several objects; object index links exact start lines",
+    "InvoiceNumberSequence remains with schema initialization to preserve SQL bytes/order",
+    "Business mutation HTTP suite not repeated; all installed business SQL bytes and contracts are unchanged, fresh native/transaction and main read-only checks passed"
+  ],
+  "git": {
+    "commit": false,
+    "push": false
+  }
+}

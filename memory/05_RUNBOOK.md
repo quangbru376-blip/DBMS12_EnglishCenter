@@ -59,3 +59,15 @@ Dùng tools/Pack-Source.ps1 tạo ZIP source; script bỏ .local, config/machine
 Kiểm có ghi dùng tools/Invoke-SecurityRehearsal.ps1 (fixture riêng). --verify-security từ chối workspace thường. Các driver browser nhận EC_DBMS12_TEST_ROOT và EC_DBMS12_EVIDENCE_ROOT để không ghi đè bằng chứng cũ. Đọc receipt khi chạy lại; không reset fixture finalized.
 
 Máy nhóm/GitHub: docs/TEAM_QUICKSTART.md; tools/Test-Environment.ps1 chỉread preflight;tools/setup/Prepare-Machine.ps1 theoidentity/freshworkspace/WhatIf; tools/Initialize-MachineConfig.ps1 khôngoverwrite. Cácpha privileged chưa nghiệmthu Windows thứhai,khôngchạylên máy hiện tại để thử. Sourceexport/ZIP dùng chunginventory/secret-format check;không gửi state.
+
+## Transaction SQL theo D15
+
+Fresh provision cài61SP tự quản transaction. Profile NativeSecurityV2 trước D15 chỉ nâng bằng `dotnet backend/EnglishCenter.Dbms12/bin/Debug/net10.0/EnglishCenter.Dbms12.dll --rehearse-sql-transactions .local/config/profile.json`, rồi `--migrate-sql-transactions` cùng profile khi rehearsal PASS và host đã đóng bình thường. Guard exact identity/manifest61olddefinitions; rehearsal chạy cả rollback.sql, actual ALTER modules giữ12tablehash/permissions/sequence, promote profile sau SQL COMMIT. Receipt/profile/rollback nằm private `.local/operator/sql-transaction-migrations`; nếu profile promotion lỗi sau commit thì giữ state để điều tra, không provision catalog khác. Khôi phục module phải dùng đúng catalog và cặp source/profile cũ; không chạy rollback.sql đơn độc rồi bật source mới. Học và kiểm fixture: docs/study/SQL_TRANSACTIONS.md.
+
+## Thư mục SQL theo D16
+
+Bắt đầu database/dbms12-compact/README.md và OBJECT_INDEX.md. File được chuyển nhóm, SQL body/thứ tự cài giữ nguyên. Profile D15 cũ chỉ rebind bằng `dotnet backend/EnglishCenter.Dbms12/bin/Debug/net10.0/EnglishCenter.Dbms12.dll --rebind-sql-layout .local/config/profile.json` sau khi host đóng bình thường. CLI kiểm đúng oldmanifest,62path mapping,61file byte-identical,Install chỉ đổi include,61live definitions và exactPROJECT identity; không DDL/DML DB, chỉ promote manifest pin sau kiểm đọc. Receipt private `.local/operator/sql-layout-rebind`; lỗi promotion giữ profiles để điều tra,khôngseed/catalog khác. D16 không thay cách chạy các migration nghiệp vụ trước đó. Fresh clone dùng manifest mới ngay. Sinh index lại: node tools/Generate-SqlStudyIndex.cjs; kiểm lần reorg: node tools/Verify-SqlLayout.cjs.
+
+## Phòng học SQL/SSMS
+
+Đã có fixture phù hợp: tools/Invoke-SqlLearning.ps1 -Prepare tạo marker metadata chỉ trên fixture và SSMS_SESSION.sql private. -Case/-Group/-All chạy các bài trong catalog107, mặc định rollback. -Group transactions -ForceRollback/-CommitTransactions kiểm5nghiệp vụ trên fixture; công cụ từ chối profile main trước SQL. Không xuấtSID/hash/password, không thêmquyền/tắttrigger. Nếu chưa cófixture đọc SQL_LEARNING_START.md trước. Mainhost giữ nguyên, không cần dừng khi đã cófixture. Chuẩn bị theo rubric docs/study/SQL_RUBRIC_MATRIX.md.

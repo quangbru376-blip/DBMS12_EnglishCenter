@@ -63,7 +63,7 @@ Sinh từ manifest.json. Quyền trực tiếp bảng của bảy nhóm và runt
 
 | SP hạ tầng | Quyền gọi trực tiếp |
 |---|---|
-| usp_BeginRead / usp_BeginWrite | runtime/operator; caller đã mở transaction |
+| usp_BeginRead / usp_BeginWrite | runtime/operator; D15 tự mở/chốt nếu depth0, dùng transaction caller nếu depth1 |
 | usp_SecuritySession | Không cấp trực tiếp; chỉ gọi bên trong SP cùng owner |
 | usp_PasswordSnapshot | runtime; bắt buộc SID/epoch hợp lệ, chỉ hash account của phiên |
 | usp_RecordFailure | runtime; ghi lỗi sau rollback |

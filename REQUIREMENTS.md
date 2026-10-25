@@ -8,7 +8,7 @@ Clone GitHub và công cụ setup theo pha: [TEAM_QUICKSTART](docs/TEAM_QUICKSTA
 
 Đây là ứng dụng quản lý trung tâm tiếng Anh rút gọn để học và báo cáo môn Hệ quản trị CSDL. Giữ **12 bảng, 99 cột**, 7 function, 9 view, 12 trigger. Ngày 22/10/2026 owner chọn hướng A: **61 stored procedure** (56 operation + 5 hạ tầng), bảy database role/user nghiệp vụ, chặn quyền trực tiếp bảng. Ràng buộc 11 SP/45 batch cũ được thay thế. Mọi đọc/ghi database dùng SQL tường minh có tham số; không EF Core hoặc LINQ-to-database.
 
-C# giữ HTTP, validation DTO, hash mật khẩu, JWT/CSRF, CSV và điều phối transaction; SQL giữ truy vấn và ràng buộc nghiệp vụ, tính điểm/tiền, phân quyền theo actor/phiên. Đây là yêu cầu hiện tại đã được owner chốt, không tự đổi thành EF để dễ cài. [Decision log](memory/07_DECISIONS.md), [database](memory/04_DATABASE.md).
+C# giữ HTTP, validation DTO, hash mật khẩu, JWT/CSRF, CSV, điều phối call/role và cleanup; theo D15, SQL sở hữu transaction nghiệp vụ (61/61 SP có TRY/CATCH/BEGIN/COMMIT/ROLLBACK), giữ truy vấn và ràng buộc nghiệp vụ, tính điểm/tiền, phân quyền theo actor/phiên. Đây là yêu cầu hiện tại đã được owner chốt, không tự đổi thành EF để dễ cài. [Decision log](memory/07_DECISIONS.md), [database](memory/04_DATABASE.md).
 
 ## Yêu cầu chức năng
 
@@ -34,13 +34,15 @@ Luồng chính: Student đăng ký → xác nhận → Admissions duyệt/tạo 
 |ID|Yêu cầu|
 |---|---|
 |TR01|Mọi SELECT/INSERT/UPDATE/DELETE dùng SQL có tham số; route và operation cố định, không nhận SQL/actor/SID từ browser|
-|TR02|Một transaction cho nghiệp vụ, audit và replay receipt; kiểm phiên, quyền, ownership và RV|
+|TR02|SQL sở hữu một transaction cho nghiệp vụ, audit và replay receipt; kiểm phiên, quyền, ownership và RV. 61 SP đầy đủ template; caller có transaction thì SP dùng chung, caller chốt|
 |TR03|Mất phản hồi sau COMMIT: giữ trạng thái chưa rõ, lookup thủ công, không tự gửi lại|
 |TR04|Tiền dùng decimal trong SQL và chuỗi chính xác tại API; tổng điểm/pass được SQL suy ra|
 |TR05|HTTPS tin cậy cùng origin, cookie Secure/HttpOnly, CSRF; runtime Windows không admin, SQL không sysadmin/db_owner|
 |TR06|Catalog mới có prefix PROJECT_, profile/keys/cookies riêng; restart giữ dữ liệu, không tự seed/reset|
 |TR07|Mỗi máy tạo mật khẩu và khóa của máy mình; .local/config máy/credential/DB/private key không gửi trong source ZIP|
 |TR08|Source và assets nằm trong project; NuGet/npm restore theo lock; SQL manifest SHA giữ nguyên bytes|
+
+Yêu cầu 3.4 owner cung cấp ngày25/10: ít nhất5 nghiệp vụ BEGIN/COMMIT/ROLLBACK và một tình huống concurrency hoặc recovery. Hướng dẫn, script và bằng chứng: [SQL_TRANSACTIONS](docs/study/SQL_TRANSACTIONS.md). Đoạn yêu cầu này không thay thế toàn bộ rubric chưa được cung cấp.
 
 ## Phần mềm để build source
 
@@ -121,3 +123,7 @@ Source pack không chuyển dữ liệu thực hành, session hay mật khẩu c
 Các pha setup hỗ trợ -WhatIf và từ chối workspace đã provision. Không chạy để sửa máy tác giả đang hoạt động. Binding/restart SQL và nghiệm thu dưới runtime vẫn là bước theo Quickstart, không đánh dấu PASS chỉ vì đã tạo config.
 
 Phân quyền chi tiết: docs/SQL_SECURITY.md. Máy hiện tại dùng Windows Login runtime và bảy user WITHOUT LOGIN được impersonate theo phiên; không tuyên bố có bảy server login riêng hoặc tự bật Mixed Mode.
+
+## PhầnSQL của đề đã nhận ngày25/10
+
+Owner đã cung cấp nội dung3.1–3.5 và xác nhận cần chạy riêngSP/Function/Trigger/View/Transaction. Bản ghi: docs/study/RUBRIC_SQL_SERVER.md; đối chiếu: SQL_RUBRIC_MATRIX.md; thực hành: SQL_LEARNING_START.md và database/practice. Đã có12bảng/61SP/7FN/9VW/12TG/17index tường minh, nhưng cần giải thích3NF,policy và minh chứng index/transaction; không chỉ đủ số lượng. Các phần còn lại của đề chưa nhận.

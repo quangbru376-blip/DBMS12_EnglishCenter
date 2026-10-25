@@ -41,6 +41,8 @@ if($LASTEXITCODE -ne 0){throw 'Fixture provision refused; retained for investiga
 if($LASTEXITCODE -ne 0){throw 'Fixture schema check failed.'}
 & dotnet $dll --verify-security $profile
 if($LASTEXITCODE -ne 0){throw 'Native SQL security checks failed; fixture retained.'}
+& dotnet $dll --verify-sql-transactions $profile
+if($LASTEXITCODE -ne 0){throw 'SQL-owned transaction proofs failed; fixture retained.'}
 if($SkipBrowser){return}
 $process=$null;$stdout=$null;$stderr=$null;$client=[Net.Http.HttpClient]::new();$client.Timeout=[TimeSpan]::FromSeconds(3)
 try{

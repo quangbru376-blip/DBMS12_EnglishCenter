@@ -1,0 +1,10 @@
+{
+  "pass": true,
+  "rehearsal": true,
+  "committed": false,
+  "generatedRollbackScriptExecuted": true,
+  "unchangedRows": true,
+  "securityUnchanged": true,
+  "sequenceUnchanged": true,
+  "procedures": 61
+}

@@ -1,0 +1,23 @@
+{
+  "pass": true,
+  "fixtureOnly": true,
+  "transactionOwner": "SQL",
+  "businessCommitProofs": 5,
+  "forcedRollbackProofs": 5,
+  "concurrentWriters": 2,
+  "concurrentSuccesses": 1,
+  "checks": [
+    "rollback:usp_CourseCreate",
+    "commit:usp_CourseCreate",
+    "rollback:usp_RegistrationCreate",
+    "commit:usp_RegistrationCreate",
+    "replay-owned-transaction-clean",
+    "rollback:usp_AdmissionApprove",
+    "commit:usp_AdmissionApprove",
+    "rollback:usp_InvoiceCollect",
+    "commit:usp_InvoiceCollect",
+    "concurrency:two-collectors-one-commit-one-conflict",
+    "rollback:usp_PlacementCreate",
+    "commit:usp_PlacementCreate"
+  ]
+}

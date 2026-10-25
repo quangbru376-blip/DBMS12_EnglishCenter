@@ -29,3 +29,5 @@ Không lấy kết quả kiểm của bản24bảng hoặc bảnAPP25 làm kết
 “Đủ ngữ cảnh” nghĩa là đủ hiểu và tiếp tục bản12 hiện tại với source đi kèm, không cần chat/project cha. Không bao gồm lịch sử từng lần sửa bản24, dữ liệu/custody máy tác giả hoặc Word/PDF rubric gốc. Muốn chứng minh đáp ứng toàn đề phải yêu cầu đúng rubric từ owner; không đoán hoặc dựng lại từ memory. Evidence DBID/GUID là lịch sử máy kiểm, không hardcode cho máy người nhận.
 
 Khi kết thúc task: cập nhật CURRENT_STATE/TASKS, ghi decision nếu thay contract/kiến trúc, note <=15dòng và kết quả kiểm thật. Giữ các quyết định đã chốt; giữ12 bảng/99 cột,61SP theo D14,hướng A và7vai trò; 11SP là quyết định lịch sử đã được owner thay thế.
+
+Từ25/10 owner đã cung cấp toàn nội dung phầnSQL3.1–3.5 (không phải toàn đề): docs/study/RUBRIC_SQL_SERVER.md. Khi chuẩn bị bảo vệ đọc SQL_LEARNING_START.md, SQL_RUBRIC_MATRIX.md và database/practice/README.md. Đủ107bài chạy riêng trên learning fixture; source cài đặt vẫn ở dbms12-compact.

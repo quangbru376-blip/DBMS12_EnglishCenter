@@ -1,5 +1,11 @@
 # DBMS12 EnglishCenter
 
+Hướng dẫn gửi nhóm bản hiện tại: [TEAM_SQL_GUIDE](docs/TEAM_SQL_GUIDE.md) — clone/cập nhật, cài môi trường riêng và chạy107bài SQL.
+
+Chuẩn bị bảo vệ SQL3.1–3.5: [bắt đầu học](docs/study/SQL_LEARNING_START.md), [107bài chạy riêng](database/practice/README.md), [đối chiếu đề](docs/study/SQL_RUBRIC_MATRIX.md).
+
+Học SQL theo từng loại: [bản đồ thư mục](database/dbms12-compact/README.md) và [danh mục105 object → file/dòng](database/dbms12-compact/OBJECT_INDEX.md).
+
 Project nhỏ quản lý trung tâm tiếng Anh để học và báo cáo môn Hệ quản trị CSDL: **12 bảng, 61 stored procedure**, 7 function, 9 view, 12 trigger. Gồm backend ASP.NET Core/.NET10, frontend React/TypeScript và SQL Server. Mọi đọc/ghi DB là SQL có tham số, không EF.
 
 ## Chạy trên máy đã chuẩn bị
@@ -51,6 +57,8 @@ Agent khác bắt đầu tại [AGENTS.md](AGENTS.md), rồi [memory/00_START_HE
 
 ## Nghiệp vụ
 
+[Phân công học Database Object cho nhóm 4 người](docs/study/DATABASE_OBJECTS_4_MEMBERS.md): đủ105object chính, chia27/26/26/26 theo nghiệp vụ; có danh sách, luồng, bài thực hành và điểm bàn giao giữa thành viên.
+
 Học viên đăng ký/xác nhận → tuyển sinh duyệt và phát hành hóa đơn → kế toán thu đủ → giáo vụ xếp lớp → giáo viên điểm danh/nhập hai điểm → giáo viên gửi và giáo vụ chốt toàn lớp → học viên xem kết quả đã công bố. Có quản lý khóa/lớp/lịch, account/audit và báo cáo theo vai trò.
 
 Đã bỏ Band/Program, thi đầu vào, workflow thi lại riêng, Payment nhiều đợt và bảng Role. Quyền dùng Account.role_code kết hợp bảy database role/user và guard theo phiên SQL. [Nghiệp vụ](memory/02_DOMAIN.md), [Database](memory/04_DATABASE.md), [API](docs/API.md).
@@ -85,3 +93,5 @@ Bằng chứng và giới hạn thực tế: [review](docs/plan/REVIEW.md). Chư
 [Phân quyền SQL theo hướng A](docs/SQL_SECURITY.md), [ma trận từng SP](docs/SQL_SECURITY_MATRIX.md) và [nội dung báo cáo mục 4.2](docs/reports/4_2_QuanLyBaoMat.md). Bảy user nghiệp vụ là ngữ cảnh WITHOUT LOGIN được backend sử dụng; Windows Login runtime là định danh đăng nhập SQL thực tế.
 
 Bản phân quyền mới đã migrate trên PROJECT và kiểm native SQL/HTTP/UI; xem [review bảo mật SQL](docs/plan/SQL_SECURITY_REVIEW.md). Bằng chứng và gói ZIP 11 SP trước đó giữ nguyên làm lịch sử; tạo ZIP mới bằng công cụ đóng gói nếu cần chia sẻ phiên bản này.
+
+Học transaction theo mục3.4: [hướng dẫn và 61 SP](docs/study/SQL_TRANSACTIONS.md), [script 5 nghiệp vụ](database/dbms12-compact/transactions/01_five_business_transactions.sql). SQL hiện tự BEGIN/COMMIT/ROLLBACK theo D15; không còn để C# chốt giao dịch nghiệp vụ bình thường.

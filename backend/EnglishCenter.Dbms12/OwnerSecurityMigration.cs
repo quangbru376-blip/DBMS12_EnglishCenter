@@ -26,6 +26,120 @@ internal static class OwnerSecurityMigration
     private sealed record Permission(string State,string PermissionName,string Scope,string Principal);
     private sealed record Definition(string Name,string Sql);
     private sealed record RowFingerprint(string Table,long Rows,string Sha256);
+    internal static async Task<int> RebindLayoutAsync(string path)
+    {
+        path=Path.GetFullPath(path);
+        var p=JsonSerializer.Deserialize<AppProfile>(await File.ReadAllTextAsync(path))??throw new InvalidOperationException("Missing layout profile.");
+        ProjectLayout.Validate(p.Workspace);p.Machine.Validate();
+        if(p.ManifestSha256!=SqlLayoutPackage.PreviousManifest||path!=Path.GetFullPath(Path.Combine(p.Workspace,".local/config/profile.json"))
+            ||!Regex.IsMatch(p.Database,@"\AEnglishCenter_DBMS12_PROJECT_[0-9a-f]{32}\z")||p.DatabaseId<=4||p.DatabaseGuid==Guid.Empty||p.FileGuid==Guid.Empty)throw new InvalidOperationException("Layout rebind only accepts the pinned D15 PROJECT profile.");
+        if(System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().GetActiveTcpListeners().Any(x=>x.Port==8446))throw new InvalidOperationException("Stop PROJECT normally before rebinding SQL paths.");
+        var newHash=SqlLayoutPackage.Verify();
+        await using var db=new SqlConnection(p.Connection);await db.OpenAsync();await SqlSecurityVerification.Guard(db,p);
+        await using var tx=(SqlTransaction)await db.BeginTransactionAsync();
+        using var manifest=JsonDocument.Parse(await File.ReadAllTextAsync(Path.Combine(AppProfile.Package,"manifest.json")));
+        var expected=new Dictionary<string,string>(StringComparer.Ordinal);
+        foreach(var entry in manifest.RootElement.GetProperty("installOrder").EnumerateArray())
+            foreach(var batch in Regex.Split(await File.ReadAllTextAsync(Path.Combine(AppProfile.Package,entry.GetString()!)),@"^\s*GO\s*$",RegexOptions.Multiline|RegexOptions.IgnoreCase))
+            {
+                var name=Regex.Match(batch,@"CREATE OR ALTER PROCEDURE dbo\.(\w+)",RegexOptions.IgnoreCase);
+                if(name.Success)expected.Add(name.Groups[1].Value,NormalizeDefinition(batch));
+            }
+        var definitions=await Definitions(db,tx);
+        if(expected.Count!=61||definitions.Count!=61||definitions.Any(d=>!expected.TryGetValue(d.Name,out var body)||body!=NormalizeDefinition(d.Sql)))throw new InvalidOperationException("Live procedures differ from unchanged SQL; no profile rebind.");
+        var before=await Fingerprints(db,tx);var metadata=await TransactionMetadata(db,tx);
+        if(before.Count!=12||Convert.ToInt32(await Scalar(db,tx,"SELECT COUNT(*) FROM sys.columns c JOIN sys.tables t ON t.object_id=c.object_id WHERE t.is_ms_shipped=0;"))!=99)throw new InvalidOperationException("Expected12tables/99columns.");
+        if(!before.SequenceEqual(await Fingerprints(db,tx))||metadata!=await TransactionMetadata(db,tx))throw new InvalidOperationException("Unexpected database change during read-only layout check.");
+        var folder=Path.Combine(p.PrivateRoot,"operator/sql-layout-rebind",DateTime.UtcNow.ToString("yyyyMMddTHHmmssZ")+"-"+Guid.NewGuid().ToString("N"));Directory.CreateDirectory(folder);
+        await File.WriteAllTextAsync(Path.Combine(folder,"profile-before.json"),JsonSerializer.Serialize(p));
+        var updated=p with{ManifestSha256=newHash};
+        await File.WriteAllTextAsync(Path.Combine(folder,"profile-after.json"),JsonSerializer.Serialize(updated,new JsonSerializerOptions{WriteIndented=true}));
+        await tx.CommitAsync(); // Read-only transaction; no DDL/DML was executed.
+        var staged=path+".sql-layout.tmp";File.Copy(Path.Combine(folder,"profile-after.json"),staged,false);File.Move(staged,path,true);
+        await File.WriteAllTextAsync(Path.Combine(folder,"complete.json"),JsonSerializer.Serialize(new{pass=true,pathOnly=true,noDatabaseWrites=true,unchangedRows=true,unchangedMetadata=true,procedures=61,byteIdenticalSqlFiles=61}));
+        Console.WriteLine(JsonSerializer.Serialize(new{pass=true,pathOnly=true,noDatabaseWrites=true,procedures=61,receipt=folder}));return 0;
+    }
+    internal static async Task<int> TransactionsAsync(string path,bool rehearsal)
+    {
+        path=Path.GetFullPath(path);
+        var p=JsonSerializer.Deserialize<AppProfile>(await File.ReadAllTextAsync(path))??throw new InvalidOperationException("Missing migration profile.");
+        ProjectLayout.Validate(p.Workspace);p.Machine.Validate();
+        using var baseline=JsonDocument.Parse(await File.ReadAllTextAsync(Path.Combine(AppContext.BaseDirectory,"Resources/SqlTransactionsBaseline.json")));
+        const string expectedOld="F72E0E99CF46889121709CB32A45130E405A9566855F6CC967C0A92432D20749";
+        if(baseline.RootElement.GetProperty("manifestSha256").GetString()!=expectedOld||p.ManifestSha256!=expectedOld
+            ||path!=Path.GetFullPath(Path.Combine(p.Workspace,".local/config/profile.json"))
+            ||!Regex.IsMatch(p.Database,@"\AEnglishCenter_DBMS12_PROJECT_[0-9a-f]{32}\z"))throw new InvalidOperationException("Only the pinned pre-transaction PROJECT profile can be migrated.");
+        if(System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().GetActiveTcpListeners().Any(x=>x.Port==8446))throw new InvalidOperationException("Stop PROJECT normally before transaction migration.");
+        _=new Data.CompactSqlExecutor(AppProfile.Package);
+        using var manifest=JsonDocument.Parse(await File.ReadAllTextAsync(Path.Combine(AppProfile.Package,"manifest.json")));
+        if(manifest.RootElement.GetProperty("transactionOwnership").GetString()!="SQL_PROCEDURE")throw new InvalidOperationException("Expected SQL-owned transaction package.");
+        await using var db=new SqlConnection(p.Connection);await db.OpenAsync();await SqlSecurityVerification.Guard(db,p);
+        var folder=Path.Combine(p.PrivateRoot,"operator/sql-transaction-migrations",DateTime.UtcNow.ToString("yyyyMMddTHHmmssZ")+"-"+Guid.NewGuid().ToString("N"));Directory.CreateDirectory(folder);
+        await File.WriteAllTextAsync(Path.Combine(folder,"profile-before.json"),JsonSerializer.Serialize(p));
+        await using var tx=(SqlTransaction)await db.BeginTransactionAsync();var committed=false;
+        try
+        {
+            var definitions=await Definitions(db,tx);
+            var expected=baseline.RootElement.GetProperty("procedures");
+            if(definitions.Count!=61||expected.EnumerateObject().Count()!=61)throw new InvalidOperationException("Expected exactly61 old procedures.");
+            if(Convert.ToInt32(await Scalar(db,tx,"SELECT COUNT(*) FROM sys.tables WHERE is_ms_shipped=0;"))!=12
+                ||Convert.ToInt32(await Scalar(db,tx,"SELECT COUNT(*) FROM sys.columns c JOIN sys.tables t ON t.object_id=c.object_id WHERE t.is_ms_shipped=0;"))!=99)throw new InvalidOperationException("Expected12tables/99columns; migration refused.");
+            foreach(var d in definitions)if(!expected.TryGetProperty(d.Name,out var hash)||Digest(NormalizeDefinition(d.Sql))!=hash.GetString())throw new InvalidOperationException("Old procedure drift; no migration performed: "+d.Name);
+            var before=await Fingerprints(db,tx);
+            var securityBefore=await TransactionMetadata(db,tx);
+            var seq=Convert.ToString(await Scalar(db,tx,"SELECT CONVERT(varchar(40),current_value) FROM sys.sequences WHERE name='InvoiceNumberSequence';"));
+            var rollbackHeader=$":ON ERROR EXIT\nSET XACT_ABORT ON;\nIF DB_NAME()<>'{p.Database}' OR DB_ID()<>{p.DatabaseId} OR NOT EXISTS(SELECT 1 FROM sys.database_recovery_status WHERE database_id=DB_ID() AND database_guid='{p.DatabaseGuid}') OR NOT EXISTS(SELECT 1 FROM sys.database_files WHERE file_id=1 AND file_guid='{p.FileGuid}') THROW 51999,N'Rollback identity mismatch',1;\nBEGIN TRANSACTION;\nGO\n";
+            var rollbackSql=rollbackHeader+string.Join("\nGO\n",definitions.Select(d=>Regex.Replace(d.Sql,@"^(?:CREATE(?:\s+OR\s+ALTER)?|ALTER)\s+PROCEDURE\b","CREATE OR ALTER PROCEDURE",RegexOptions.IgnoreCase|RegexOptions.Multiline)))+"\nGO\nCOMMIT TRANSACTION;\n-- Restore the matching old profile AND source package only after successful rollback.\n";
+            await File.WriteAllTextAsync(Path.Combine(folder,"rollback.sql"),rollbackSql);
+            foreach(var entry in manifest.RootElement.GetProperty("installOrder").EnumerateArray())
+            {
+                var name=entry.GetString()!;
+                if(name.StartsWith("stored-procedures/",StringComparison.Ordinal))
+                    foreach(var batch in Regex.Split(await File.ReadAllTextAsync(Path.Combine(AppProfile.Package,name)),@"^\s*GO\s*$",RegexOptions.Multiline|RegexOptions.IgnoreCase))
+                        if(!string.IsNullOrWhiteSpace(batch))await NonQuery(db,tx,batch);
+            }
+            var updatedDefinitions=await Definitions(db,tx);
+            if(updatedDefinitions.Count!=61||updatedDefinitions.Any(d=>!d.Sql.Contains("@SqlOwnTransaction",StringComparison.Ordinal)))throw new InvalidOperationException("Not all61procedures own a transaction scope.");
+            if(!before.SequenceEqual(await Fingerprints(db,tx))||securityBefore!=await TransactionMetadata(db,tx)
+                ||seq!=Convert.ToString(await Scalar(db,tx,"SELECT CONVERT(varchar(40),current_value) FROM sys.sequences WHERE name='InvoiceNumberSequence';")))throw new InvalidOperationException("Data, permissions, non-procedure definitions or invoice sequence changed.");
+            var updated=p with{ManifestSha256=Digest(await File.ReadAllBytesAsync(Path.Combine(AppProfile.Package,"manifest.json")))};
+            await File.WriteAllTextAsync(Path.Combine(folder,"profile-after.json"),JsonSerializer.Serialize(updated,new JsonSerializerOptions{WriteIndented=true}));
+            await File.WriteAllTextAsync(Path.Combine(folder,"prepared.json"),JsonSerializer.Serialize(new{before,unchangedRows=true,securityUnchanged=true,sequenceUnchanged=true,procedures=61,rehearsal}));
+            if(rehearsal)
+            {
+                foreach(var batch in Regex.Split(rollbackSql.Replace(":ON ERROR EXIT","",StringComparison.Ordinal),@"^\s*GO\s*$",RegexOptions.Multiline|RegexOptions.IgnoreCase))
+                    if(!string.IsNullOrWhiteSpace(batch))await NonQuery(db,tx,batch);
+                if(!SameDefinitions(definitions,await Definitions(db,tx))||!before.SequenceEqual(await Fingerprints(db,tx))||securityBefore!=await TransactionMetadata(db,tx))throw new InvalidOperationException("Generated rollback script did not restore the old contract.");
+                await tx.RollbackAsync();
+                if(!SameDefinitions(definitions,await Definitions(db,null)))throw new InvalidOperationException("Rehearsal rollback did not restore definitions.");
+            }
+            else
+            {
+                await tx.CommitAsync();committed=true;
+                var staged=path+".sql-transactions.tmp";File.Copy(Path.Combine(folder,"profile-after.json"),staged,false);File.Move(staged,path,true);
+            }
+            await File.WriteAllTextAsync(Path.Combine(folder,"complete.json"),JsonSerializer.Serialize(new{pass=true,rehearsal,committed,generatedRollbackScriptExecuted=rehearsal,unchangedRows=true,securityUnchanged=true,sequenceUnchanged=true,procedures=61}));
+            Console.WriteLine(JsonSerializer.Serialize(new{pass=true,rehearsal,committed,unchangedRows=true,securityUnchanged=true,procedures=61,receipt=folder}));return 0;
+        }
+        catch
+        {
+            if(!committed&&tx.Connection is not null)await tx.RollbackAsync();
+            await File.WriteAllTextAsync(Path.Combine(folder,"failed.json"),JsonSerializer.Serialize(new{committed,profileMayRequireRecovery=committed}));throw;
+        }
+    }
+    private static async Task<string> TransactionMetadata(SqlConnection db,SqlTransaction tx)
+    {
+        const string sql="""
+DECLARE @Metadata nvarchar(max)=(SELECT
+ JSON_QUERY((SELECT class,major_id,minor_id,grantee_principal_id,grantor_principal_id,type,state FROM sys.database_permissions ORDER BY class,major_id,minor_id,grantee_principal_id,permission_name FOR JSON PATH)) AS permissions,
+ JSON_QUERY((SELECT principal_id,name,type,authentication_type FROM sys.database_principals ORDER BY principal_id FOR JSON PATH)) AS principals,
+ JSON_QUERY((SELECT role_principal_id,member_principal_id FROM sys.database_role_members ORDER BY role_principal_id,member_principal_id FOR JSON PATH)) AS memberships,
+ JSON_QUERY((SELECT o.name,o.type,m.definition FROM sys.objects o JOIN sys.sql_modules m ON m.object_id=o.object_id WHERE o.type<>'P' ORDER BY o.object_id FOR JSON PATH)) AS nonProcedures,
+ JSON_QUERY((SELECT name,is_disabled FROM sys.triggers ORDER BY object_id FOR JSON PATH)) AS triggers
+ FOR JSON PATH,WITHOUT_ARRAY_WRAPPER);SELECT @Metadata;
+""";
+        return Digest((string)(await Scalar(db,tx,sql)??throw new InvalidOperationException("Missing metadata fingerprint.")));
+    }
     internal static async Task<int> RefreshFixtureAsync(string path)
     {
         path=Path.GetFullPath(path);
@@ -42,7 +156,7 @@ internal static class OwnerSecurityMigration
         foreach(var entry in m.RootElement.GetProperty("installOrder").EnumerateArray())
         {
             var name=entry.GetString()!;
-            if(name=="07_core_procedures.sql"||name.StartsWith("queries/",StringComparison.Ordinal)||name.StartsWith("infrastructure/",StringComparison.Ordinal))
+            if(name.StartsWith("stored-procedures/",StringComparison.Ordinal))
                 foreach(var batch in Regex.Split(await System.IO.File.ReadAllTextAsync(Path.Combine(AppProfile.Package,name)),@"^\s*GO\s*$",RegexOptions.Multiline|RegexOptions.IgnoreCase))
                     if(!string.IsNullOrWhiteSpace(batch))await NonQuery(db,tx,batch);
         }
@@ -94,7 +208,7 @@ internal static class OwnerSecurityMigration
             {
                 var name=entry.GetString()!;
                 // Only modules and permissions, never schema, sample, types, views, functions, triggers or keys.
-                if(name is "07_core_procedures.sql" or "08_permissions.sql"||name.StartsWith("queries/",StringComparison.Ordinal)||name.StartsWith("infrastructure/",StringComparison.Ordinal))
+                if(name=="security/08_permissions.sql"||name.StartsWith("stored-procedures/",StringComparison.Ordinal))
                     foreach(var batch in Regex.Split(await System.IO.File.ReadAllTextAsync(Path.Combine(AppProfile.Package,name)),@"^\s*GO\s*$",RegexOptions.Multiline|RegexOptions.IgnoreCase))
                         if(!string.IsNullOrWhiteSpace(batch))await NonQuery(db,tx,batch);
             }
@@ -137,7 +251,7 @@ internal static class OwnerSecurityMigration
     private static string Q(string value)=>"["+value.Replace("]","]]",StringComparison.Ordinal)+"]";
     // SQL Server may store CREATE OR ALTER as CREATE followed by extra spaces.
     // Normalize only the DDL introducer and line endings; the entire body remains exact.
-    private static string NormalizeDefinition(string sql)=>Regex.Replace(sql.Trim().Replace("\r\n","\n"),@"\A(?:CREATE(?:\s+OR\s+ALTER)?|ALTER)\s+PROCEDURE\b","CREATE PROCEDURE",RegexOptions.IgnoreCase);
+    private static string NormalizeDefinition(string sql)=>Regex.Replace(sql.Trim().Replace("\r\n","\n"),@"^(?:CREATE(?:\s+OR\s+ALTER)?|ALTER)\s+PROCEDURE\b","CREATE PROCEDURE",RegexOptions.IgnoreCase|RegexOptions.Multiline);
     private static bool SameDefinitions(List<Definition> left,List<Definition> right)=>left.Select(d=>(d.Name,Sql:NormalizeDefinition(d.Sql))).SequenceEqual(right.Select(d=>(d.Name,Sql:NormalizeDefinition(d.Sql))));
     private static string Digest(string value)=>Digest(Encoding.UTF8.GetBytes(value));
     private static string Digest(byte[] bytes)=>Convert.ToHexString(SHA256.HashData(bytes));

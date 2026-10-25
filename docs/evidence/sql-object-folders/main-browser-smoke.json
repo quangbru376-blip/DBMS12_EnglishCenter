@@ -1,0 +1,107 @@
+{
+  "trustedHttps": true,
+  "browser": "installed msedge",
+  "results": [
+    {
+      "role": "Student",
+      "menus": [
+        "Tổng quan",
+        "Khóa học",
+        "Hồ sơ đăng ký",
+        "Hóa đơn",
+        "Lớp của tôi",
+        "Lịch học",
+        "Kết quả học tập",
+        "Hồ sơ cá nhân"
+      ],
+      "widths": [
+        375,
+        768,
+        1280
+      ],
+      "pass": true
+    },
+    {
+      "role": "Admissions",
+      "menus": [
+        "Hồ sơ nhập học",
+        "Khóa học"
+      ],
+      "widths": [
+        375,
+        768,
+        1280
+      ],
+      "pass": true
+    },
+    {
+      "role": "AcademicAffairs",
+      "menus": [
+        "Khóa học",
+        "Lớp học",
+        "Xếp lớp",
+        "Lịch học",
+        "Duyệt bảng điểm"
+      ],
+      "widths": [
+        375,
+        768,
+        1280
+      ],
+      "pass": true
+    },
+    {
+      "role": "Teacher",
+      "menus": [
+        "Lớp phụ trách",
+        "Lịch dạy",
+        "Điểm danh",
+        "Bảng điểm"
+      ],
+      "widths": [
+        375,
+        768,
+        1280
+      ],
+      "pass": true
+    },
+    {
+      "role": "Accountant",
+      "menus": [
+        "Hóa đơn",
+        "Báo cáo tài chính"
+      ],
+      "widths": [
+        375,
+        768,
+        1280
+      ],
+      "pass": true
+    },
+    {
+      "role": "Director",
+      "menus": [
+        "Báo cáo tổng hợp"
+      ],
+      "widths": [
+        375,
+        768,
+        1280
+      ],
+      "pass": true
+    },
+    {
+      "role": "Admin",
+      "menus": [
+        "Tài khoản",
+        "Nhật ký"
+      ],
+      "widths": [
+        375,
+        768,
+        1280
+      ],
+      "pass": true
+    }
+  ]
+}

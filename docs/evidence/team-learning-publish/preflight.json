@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-25",
+  "task": "TEAM_LEARNING_PUBLISH",
+  "status": "RELEASE_READY",
+  "repository": "https://github.com/quangbru376-blip/DBMS12_EnglishCenter",
+  "branch": "main",
+  "baseRevision": "e9cec8ce830f3169cbb98822493d723e06e90a74",
+  "cleanTestedStagedTree": "87d9449bb5887527b80669504257b723cd465160",
+  "stagedFilesAtCleanTest": 936,
+  "safeSourceInventory": "PASS exact staged path set; no private/build state",
+  "secretFormatScan": "PASS; no matching values logged",
+  "projectChecks": "PASS including main read-only DBCC",
+  "toolTests": 20,
+  "cleanBuild": "PASS locked restore/audit,backend0warnings/errors,frontend types/lint/5tests/build,SQL62pins/layout/learning",
+  "learningSourceHashesVerified": 117,
+  "priorSqlExerciseEvidence": "Source matched; actual107 SQL proofs and5commit+5rollback results retained, not rerun for publishing",
+  "mainRuntimeChanged": false,
+  "limitations": [
+    "No second Windows machine setup acceptance",
+    "No production/load/backup recovery/full course rubric claim"
+  ],
+  "remotePublication": "Pending actual Git push verification"
+}

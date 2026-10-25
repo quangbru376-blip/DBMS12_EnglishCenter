@@ -1,0 +1,116 @@
+{
+  "date": "2026-10-25",
+  "task": "SQL_LEARNING_PACK",
+  "status": "COMPLETE",
+  "review": "PASS",
+  "rubric": "Owner provided SQL3.1-3.5; all SP/Function/Trigger/View/Transaction independently runnable",
+  "sourceInventory": {
+    "tables": 12,
+    "columns": 99,
+    "primaryKeys": 12,
+    "foreignKeys": 19,
+    "checks": 34,
+    "uniqueConstraints": 11,
+    "defaults": 20,
+    "explicitIndexes": 17,
+    "procedures": 61,
+    "functions": 7,
+    "views": 9,
+    "triggers": 12,
+    "businessRoles": 7
+  },
+  "exerciseCoverage": {
+    "total": 107,
+    "procedures": 61,
+    "functions": 7,
+    "views": 9,
+    "triggers": 12,
+    "transactionBusinesses": 5,
+    "indexBenchmarks": 5,
+    "constraintCases": 6,
+    "securityCases": 2
+  },
+  "checks": {
+    "allCases": "PASS107; per-case actual execution, expected errors/assertions, rollback/context cleanup",
+    "classStart": "PASS OPEN->ONGOING with complete prerequisites and16second real wait; no clock/guard bypass",
+    "bootstrap": "Expected51236; fixture already has accounts",
+    "extraCommittedTransactions": 5,
+    "extraForcedRollbacks": 5,
+    "forcedAuditAndReceiptRollback": "PASS",
+    "indexLogicalReads": [
+      {
+        "file": "indexes/IX_Registration_StudentCourse.sql",
+        "pass": true,
+        "expectedError": 0,
+        "baselineLogicalReads": 485,
+        "indexedLogicalReads": 3
+      },
+      {
+        "file": "indexes/IX_Class_TeacherStatus.sql",
+        "pass": true,
+        "expectedError": 0,
+        "baselineLogicalReads": 385,
+        "indexedLogicalReads": 3
+      },
+      {
+        "file": "indexes/IX_Schedule_ClassStart.sql",
+        "pass": true,
+        "expectedError": 0,
+        "baselineLogicalReads": 723,
+        "indexedLogicalReads": 3
+      },
+      {
+        "file": "indexes/IX_Invoice_Issued.sql",
+        "pass": true,
+        "expectedError": 0,
+        "baselineLogicalReads": 497,
+        "indexedLogicalReads": 11
+      },
+      {
+        "file": "indexes/IX_Audit_Time.sql",
+        "pass": true,
+        "expectedError": 0,
+        "baselineLogicalReads": 881,
+        "indexedLogicalReads": 16
+      }
+    ],
+    "mainProfileRejectedBeforeSql": true,
+    "project": "PASS locked restore/audit/backend0warnings/errors/frontend types/lint/5tests/build",
+    "manifestAndInstalledSql": "Byte-identical to task entry",
+    "mainReady": 200,
+    "documentationLinks": 867,
+    "sourceHashes": 117,
+    "schemaDocColumns": 99,
+    "noteLines": 13
+  },
+  "fixture": {
+    "database": "EnglishCenter_DBMS12_PROJECT_0ee0369de6934a4c986bb7c412f97ec3",
+    "id": 30,
+    "guid": "d1925b89-c80c-4f73-94ef-cef8d2770723",
+    "retained": true,
+    "commitCohorts": "Tagged LAB synthetic course/registration/class rows; no main data",
+    "persistentMetadataChange": "Learning marker only; proof role/user are rolled back"
+  },
+  "main": {
+    "database": "EnglishCenter_DBMS12_PROJECT_c4cef5a3a9b042b3bc4b0517f979d8d1",
+    "id": 26,
+    "guid": "e94f523e-ac86-448c-8e5b-79be6c31d97b",
+    "manifest": "C38C51EF63F98A280EB72D9EE0821E3BBA5325582952562F926E529C84609488",
+    "runtimePid": 33452,
+    "runtimeStartedUtc": "2026-10-25T02:00:05.1028243Z",
+    "restarted": false,
+    "noDdlOrBusinessDml": true,
+    "ownerSessionsUntouched": true
+  },
+  "limitations": [
+    "FD/3NF argument uses documented business dependencies and remains subject to instructor review",
+    "Index measurements use controlled synthetic temp replicas, not main production workload",
+    "No claim for unprovided rubric sections, production/load/backup recovery or second Windows machine",
+    "Lab auth examples exercise SQL session/CAS mechanics with fixture hash in RAM; do not test password hashing/login crypto",
+    "Negative bootstrap/trigger/security cases PASS only when the intended rejection occurs"
+  ],
+  "git": {
+    "commit": false,
+    "push": false
+  }
+}
