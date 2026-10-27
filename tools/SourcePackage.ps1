@@ -11,9 +11,9 @@ function Get-Dbms12SourceFiles {
    if($entry.Name -eq '.git'){continue}
    if($entry.Attributes -band [IO.FileAttributes]::ReparsePoint){throw 'Source reparse point refused.'}
    if($entry.PSIsContainer){if($entry.Name -notin $excluded){Add-TeamSource $entry.FullName};continue}
-   $relative=[IO.Path]::GetRelativePath($rootPath,$entry.FullName).Replace('\','/')
+   $relative=$entry.FullName.Substring($rootPath.Length).TrimStart('\','/').Replace('\','/')
    if($relative -ceq 'config/machine.json' -or $entry.Name -like '.env*' -or $entry.Name -like 'tempCodeRunnerFile.*' -or $entry.Extension.ToLowerInvariant() -in @('.zip','.dpapi','.bak','.trn','.pfx','.p12','.key','.pem','.cer','.crt','.clixml','.mdf','.ldf','.user','.log','.pyc')){continue}
-   if($relative.StartsWith('../') -or [IO.Path]::IsPathFullyQualified($relative)){throw 'Source path escaped root.'}
+   if($relative.StartsWith('../') -or [IO.Path]::IsPathRooted($relative)){throw 'Source path escaped root.'}
    $files.Add([pscustomobject]@{path=$relative;fullName=$entry.FullName;bytes=$entry.Length})
   }
  }

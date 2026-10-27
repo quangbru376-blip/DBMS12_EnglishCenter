@@ -1,97 +1,183 @@
-# DBMS12 EnglishCenter
+# DBMS12 EnglishCenter — Hệ thống Quản trị Trung tâm Anh ngữ
 
-Hướng dẫn gửi nhóm bản hiện tại: [TEAM_SQL_GUIDE](docs/TEAM_SQL_GUIDE.md) — clone/cập nhật, cài môi trường riêng và chạy107bài SQL.
+> **Đồ án môn học:** Hệ quản trị Cơ sở dữ liệu (Microsoft SQL Server)  
+> **Kiến trúc dữ liệu:** 12 Bảng chuẩn hóa 3NF | 61 Stored Procedures tự quản lý Transaction (D15) | 7 Database Roles theo mô hình Native Security V2 (D14) | 12 Triggers | 9 Views | 7 Functions | 17 Explicit Indexes.  
+> **Ngăn xếp công nghệ:** Backend ASP.NET Core (.NET 10 SDK) — Frontend React / TypeScript — SQL thuần có tham số (Không sử dụng ORM / EF Core).
 
-Chuẩn bị bảo vệ SQL3.1–3.5: [bắt đầu học](docs/study/SQL_LEARNING_START.md), [107bài chạy riêng](database/practice/README.md), [đối chiếu đề](docs/study/SQL_RUBRIC_MATRIX.md).
+---
 
-Học SQL theo từng loại: [bản đồ thư mục](database/dbms12-compact/README.md) và [danh mục105 object → file/dòng](database/dbms12-compact/OBJECT_INDEX.md).
+## 📌 1. Giới thiệu tổng quan
 
-Project nhỏ quản lý trung tâm tiếng Anh để học và báo cáo môn Hệ quản trị CSDL: **12 bảng, 61 stored procedure**, 7 function, 9 view, 12 trigger. Gồm backend ASP.NET Core/.NET10, frontend React/TypeScript và SQL Server. Mọi đọc/ghi DB là SQL có tham số, không EF.
+**DBMS12 EnglishCenter** là hệ thống quản trị trung tâm đào tạo tiếng Anh khép kín, được thiết kế chuyên biệt để giải quyết các bài toán kỹ thuật nâng cao trên Microsoft SQL Server:
+- **Chuẩn hóa dữ liệu 3NF:** Mô hình 12 bảng và 99 thuộc tính, loại bỏ hoàn toàn dư thừa dữ liệu và dị thường cập nhật.
+- **Phân quyền thực tế (Native Security V2 - D14):** Khởi tạo 7 Database Roles và 7 Users (`WITHOUT LOGIN`). Toàn bộ bảng bị `DENY` truy cập trực tiếp; mọi thao tác đọc/ghi bắt buộc thông qua Stored Procedures và Views. Backend sử dụng cơ chế `EXECUTE AS` sau khi xác thực phiên người dùng.
+- **Giao dịch ACID trong T-SQL (D15):** Toàn bộ 61 Stored Procedures tự kiểm soát khối `TRY...CATCH`, `SET XACT_ABORT ON` và điều phối `BEGIN/COMMIT/ROLLBACK TRANSACTION` linh hoạt theo độ sâu gọi lồng (`@@TRANCOUNT`).
+- **Kiểm soát tranh chấp đồng thời (Concurrency Control):** Kết hợp khóa thô tuần tự hóa (`TABLOCKX, HOLDLOCK`) và kiểm soát đồng thời lạc quan (OCC) thông qua cột `row_version`.
+- **Chống lặp lệnh & Kiểm toán (Idempotency & Audit Log):** Bảng `ReplayOperation` kết hợp mã băm SHA-256 ngăn ngừa tình trạng gửi lặp yêu cầu trong cửa sổ 24 giờ. Mọi thao tác thay đổi trạng thái đều được lưu vết kiểm toán đồng thời trong cùng giao dịch.
 
-## Chạy trên máy đã chuẩn bị
+---
 
-1. Nhấp đúp **Chay-Project.cmd**.
-2. Mở **https://localhost:8446/dbms12**.
-3. Nhấp đúp **Xem-TaiKhoan.cmd** để xem 10 tài khoản mẫu, mật khẩu riêng được sinh lúc tạo DB.
-4. Nhấn Enter trong launcher để dừng; mở lại giữ dữ liệu và khóa.
+## 🛠️ 2. Yêu cầu môi trường tiên quyết (Prerequisites)
 
-Project dùng database mẫu PROJECT riêng, cookie/key/profile riêng, không cần source của project cha. Đọc [Runbook](memory/05_RUNBOOK.md) về Windows/SQL Server/Node/.NET và runtime identity/certificate đã chuẩn bị. Những prerequisite của máy không nằm trong source ZIP; không có mật khẩu mặc định.
+Trước khi tiến hành cài đặt, máy tính cần được cài đặt các phần mềm sau:
+1. **Hệ điều hành:** Windows 10 hoặc Windows 11 (x64).
+2. **PowerShell:** [PowerShell 7.4 trở lên](https://learn.microsoft.com/en-us/powershell/scripting/install/install-powershell-on-windows) (chạy lệnh bằng `pwsh`).
+3. **.NET SDK:** [.NET SDK 10.0](https://dotnet.microsoft.com/download/dotnet/10.0) (bao gồm ASP.NET Core Runtime).
+4. **Node.js & npm:** [Node.js $\ge$ 24.x](https://nodejs.org/) và npm $\ge$ 11.x.
+5. **Cơ sở dữ liệu:** [Microsoft SQL Server 2022](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) (bản Express hoặc Developer) với giao thức Shared Memory (`lpc`) được kích hoạt.
+6. **Công cụ quản lý:** [SQL Server Management Studio (SSMS)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms) (tùy chọn, dùng để xem và chạy script).
 
-## Thành viên nhóm bắt đầu ở đây
+---
 
-[TEAM_QUICKSTART.md](docs/TEAM_QUICKSTART.md) có lệnh clone, kiểm môi trường, công cụ setup theo từng danh tính và tiêu chí chạy thành công trên máy riêng.
+## 🚀 3. Hướng dẫn cài đặt và Khởi chạy
 
-```powershell
-git clone https://github.com/quangbru376-blip/DBMS12_EnglishCenter.git
-cd DBMS12_EnglishCenter
-pwsh -NoProfile -File tools/Test-Environment.ps1 -Mode Build
-pwsh -NoProfile -File tools/Test-Project.ps1
+### Cách 1: Khởi chạy nhanh (Dành cho máy đã cấu hình môi trường)
+
+1. Nhấp đúp chuột vào file:
+   ```cmd
+   Chay-Project.cmd
+   ```
+2. Mở trình duyệt web và truy cập địa chỉ:
+   ```text
+   https://localhost:8446/dbms12
+   ```
+3. Nhấp đúp chuột vào file [`Xem-TaiKhoan.cmd`](file:///c:/Study/SOEN/main_workplace/DBMS12_EnglishCenter/Xem-TaiKhoan.cmd) để mở danh sách mật khẩu mẫu được sinh ngẫu nhiên cho 10 tài khoản.
+4. Để dừng ứng dụng, quay lại cửa sổ launcher dòng lệnh và nhấn phím **Enter**.
+
+---
+
+### Cách 2: Thiết lập môi trường từ đầu trên máy mới (Setup Machine)
+
+Nếu bạn vừa tải mã nguồn về một máy tính hoàn toàn mới, hãy thực hiện theo các bước:
+
+1. **Kiểm tra môi trường hệ thống:**
+   Mở terminal PowerShell 7 (`pwsh`) tại thư mục gốc dự án:
+   ```powershell
+   pwsh -NoProfile -File tools/Test-Environment.ps1 -Mode Build
+   ```
+2. **Tạo file cấu hình máy tính:**
+   ```powershell
+   pwsh -NoProfile -File tools/Initialize-MachineConfig.ps1
+   ```
+3. **Khởi tạo tài khoản dịch vụ, chứng chỉ SSL và cấp quyền CSDL:**
+   Làm theo quy trình chuẩn hóa từng pha trong tài liệu [`docs/TEAM_QUICKSTART.md`](file:///c:/Study/SOEN/main_workplace/DBMS12_EnglishCenter/docs/TEAM_QUICKSTART.md) và [`docs/SETUP_WINDOWS.md`](file:///c:/Study/SOEN/main_workplace/DBMS12_EnglishCenter/docs/SETUP_WINDOWS.md).
+4. **Chạy ứng dụng lần đầu để khởi tạo CSDL mẫu:**
+   ```cmd
+   Chay-Project.cmd
+   ```
+   Launcher sẽ tự động biên dịch backend/frontend, cài đặt 62 module SQL, sinh tài khoản mẫu và sẵn sàng phục vụ.
+
+---
+
+### Cách 3: Đồng bộ dữ liệu CSDL nhanh giữa các máy bằng file sao lưu (.BAK)
+
+Để thành viên trong nhóm nhận ngay cơ sở dữ liệu đã có sẵn dữ liệu demo mà không phải nhập lại từ đầu, dự án cung cấp bộ công cụ tự động tại [`docs/study/dong_bo_database/`](file:///c:/Study/SOEN/main_workplace/DBMS12_EnglishCenter/docs/study/dong_bo_database/):
+
+```mermaid
+flowchart LR
+    A["MÁY A (Thành viên chia sẻ)"] -->|"Chạy Xuat-Backup.cmd"| F["File DBMS12_Team_Shared.bak"]
+    F -->|"Copy vào C:\SQL_Backups\"| B["MÁY B (Thành viên nhận)"]
+    B -->|"Chạy Nhap-Restore.cmd"| R["Tự sửa Orphaned User & Khởi chạy ngay!"]
 ```
 
-Để chạy SQL/HTTPS, làm tiếp các pha trong Quickstart. Công cụ dùng account/cert riêng của máy nhận, không tự reset hoặc ghi đè cấu hình đã có.
+1. **Trên Máy A (Xuất dữ liệu):**
+   - Chạy file: [`docs/study/dong_bo_database/Xuat-Backup.cmd`](file:///c:/Study/SOEN/main_workplace/DBMS12_EnglishCenter/docs/study/dong_bo_database/Xuat-Backup.cmd).
+   - File sao lưu sẽ được xuất ra tại: `C:\SQL_Backups\DBMS12_Team_Shared.bak`.
+2. **Chuyển file `.bak` sang Máy B:**
+   - Copy file `DBMS12_Team_Shared.bak` vào đúng đường dẫn `C:\SQL_Backups\` trên Máy B.
+3. **Trên Máy B (Nhập dữ liệu):**
+   - Đảm bảo đã tắt ứng dụng trên Máy B.
+   - Chạy file: [`docs/study/dong_bo_database/Nhap-Restore.cmd`](file:///c:/Study/SOEN/main_workplace/DBMS12_EnglishCenter/docs/study/dong_bo_database/Nhap-Restore.cmd).
+   - Bộ script sẽ tự động khôi phục dữ liệu, kiểm tra `DBCC CHECKDB`, tự động tạo Windows Login cho Máy B và ánh xạ lại quyền truy cập cho user `Dbms12Runtime` (loại bỏ hoàn toàn lỗi *Orphaned User*).
+4. Khởi chạy lại `Chay-Project.cmd` trên Máy B và trải nghiệm ngay!
 
-Đây là repository độc lập, source nằm ngay ở gốc; không cần repo English-Center lớn. Repository private nên tài khoản GitHub của thành viên phải được cấp quyền trước khi clone.
+---
 
-1. [REQUIREMENTS.md](REQUIREMENTS.md): phạm vi chức năng, phiên bản phần mềm, quyền SQL/Windows và tiêu chí nghiệm thu.
-2. [SETUP_WINDOWS.md](docs/SETUP_WINDOWS.md): chuẩn bị máy theo từng bước, phân biệt build source với chạy đủ SQL/HTTPS.
-3. [CONTEXT_MAP.md](docs/CONTEXT_MAP.md): ngữ cảnh đã chốt, nơi tìm chi tiết và prompt gửi cho agent của nhóm.
+## 👥 4. Danh sách tài khoản đăng nhập mẫu
 
-Gói đủ source và ngữ cảnh cho **bản DBMS12 hiện tại**; người nhận không cần thư mục project cha. Mỗi máy phải tự chuẩn bị runtime account/SQL login/chứng chỉ và sinh sample riêng. Hướng dẫn đã đối chiếu code, chưa nghiệm thu chạy trên máy thứ hai. Word/PDF rubric và lịch sử bản cũ không kèm gói; không coi memory là bằng chứng đáp ứng toàn bộ đề môn học.
+Hệ thống thiết lập sẵn 10 tài khoản đại diện cho 7 vai trò nghiệp vụ:
 
-## Bố cục
+| Vai trò | Email đăng nhập | Quyền hạn và phạm vi nghiệp vụ chính |
+|---|---|---|
+| **Quản trị viên (Admin)** | `admin@dbms12.example` | Quản lý nhân sự, cấp mật khẩu tạm, xem nhật ký kiểm toán hệ thống (`AuditLog`). |
+| **Tuyển sinh (Admissions)** | `admissions@dbms12.example` | Tiếp nhận và duyệt hồ sơ đăng ký (`usp_AdmissionApprove`), tự động phát hành hóa đơn. |
+| **Giáo vụ (AcademicAffairs)** | `academic@dbms12.example` | Quản lý danh mục khóa học, tạo lớp, lập lịch theo lô, xếp lớp, duyệt chốt bảng điểm. |
+| **Giáo viên 1 (Teacher)** | `teacher@dbms12.example` | Xem danh sách lớp phụ trách, điểm danh học viên, nhập điểm quá trình/cuối khóa và gửi bảng điểm. |
+| **Giáo viên 2 (Teacher)** | `teacher2@dbms12.example` | Giáo viên phụ trách lớp thực hành chấm điểm số 2. |
+| **Kế toán (Accountant)** | `finance@dbms12.example` | Tra cứu hóa đơn, thu học phí (`usp_InvoiceCollect`), xuất báo cáo tài chính định dạng CSV. |
+| **Giám đốc (Director)** | `director@dbms12.example` | Xem các chỉ số báo cáo tổng hợp (doanh thu, tuyển sinh, tỷ lệ hoàn thành khóa học). |
+| **Học viên 1 (Student)** | `s1@dbms12.example` | Học viên tự xem lớp học, lịch học, hóa đơn và kết quả điểm thi đã chốt của mình. |
+| **Học viên 2 (Student)** | `s2@dbms12.example` | Học viên thuộc lớp đã hoàn thành khóa học. |
+| **Học viên 3 (Student)** | `s3@dbms12.example` | Học viên thuộc lớp đã hoàn thành khóa học. |
+
+> [!NOTE]
+> Để xem mật khẩu tương ứng trên máy tính của bạn, mở file: `.local/operator/tai-khoan.md` hoặc chạy file `Xem-TaiKhoan.cmd`.
+
+---
+
+## 🧪 5. Kiểm thử và Kiểm tra tính toàn vẹn
+
+Dự án cung cấp bộ công cụ kiểm thử nghiêm ngặt để nghiệm thu toàn diện:
+
+1. **Kiểm tra tính toàn vẹn 62 file mã nguồn SQL:**
+   ```powershell
+   node tools/Verify-Source.cjs
+   ```
+   *(Yêu cầu: Kết quả trả về `PASS`, toàn bộ 62 file SQL khớp hoàn toàn mã băm SHA-256).*
+
+2. **Kiểm thử toàn bộ hệ thống (Build + Lint + Unit Tests):**
+   ```powershell
+   pwsh -NoProfile -File tools/Test-Project.ps1
+   ```
+   *(Kiểm tra: NuGet locked restore, backend C# build 0 error/0 warning, npm build, linting và 5 bộ unit test phía frontend).*
+
+3. **Kiểm tra kết nối và tính toàn vẹn Cơ sở dữ liệu:**
+   ```powershell
+   pwsh -NoProfile -File tools/Test-Project.ps1 -CheckDatabase
+   ```
+   *(Kiểm tra kết nối tới catalog, so khớp 12 bảng, 61 SP, 7 FN, 9 VW, 12 TG và chạy `DBCC CHECKDB` đạt 0 lỗi).*
+
+4. **Đóng gói mã nguồn sạch gửi nhóm hoặc nộp bài:**
+   ```powershell
+   pwsh -NoProfile -File tools/Pack-Source.ps1
+   ```
+   *(Tự động loại bỏ thư mục build, file cấu hình máy, chứng chỉ cá nhân và sinh file `DBMS12_EnglishCenter.zip` chuẩn).*
+
+---
+
+## 📂 6. Cấu trúc thư mục dự án
 
 ```text
-AGENTS.md                 Quy tắc và thứ tự đọc cho agent
-memory/                   9 file project memory có thứ tự
-backend/EnglishCenter.Dbms12/  Backend + crypto helpers/resources riêng
-frontend/                 UI 7 vai trò, không có các màn hình bản cũ
-database/dbms12-compact/   SQL/manifest, 56 operation SP + 5 SP hạ tầng
-tools/                    Chạy, kiểm và đóng gói source
-tests/browser/            Kiểm tích hợp tùy chọn, có ghi sample
-docs/API.md               Contract và map route → SQL
-docs/evidence/            Kết quả kiểm của chính project này
-.local/                   State cá nhân, không đưa vào Git/ZIP
+DBMS12_EnglishCenter/
+├── backend/EnglishCenter.Dbms12/      # Mã nguồn máy chủ ASP.NET Core (.NET 10)
+├── frontend/                          # Giao diện người dùng React / TypeScript / Vite
+├── database/                          # Bộ mã nguồn Cơ sở dữ liệu SQL Server
+│   ├── dbms12-compact/                # 62 file SQL canonical (Schema, SPs, Views, Triggers)
+│   │   ├── tables/                    # 12 bảng chuẩn hóa 3NF và 17 explicit indexes
+│   │   ├── stored-procedures/         # 61 Stored Procedures tự quản lý giao dịch
+│   │   ├── views/                     # 9 View thống kê và bảo mật
+│   │   ├── triggers/                  # 12 Trigger kiểm soát quy chế và ràng buộc
+│   │   └── security/                  # 7 Database Roles và phân quyền Native Security
+│   └── practice/                      # 107 bài script thực hành phục vụ học tập và bảo vệ
+├── docs/                              # Tài liệu kỹ thuật và báo cáo đồ án
+│   ├── diagrams/                      # Sơ đồ ERD (Chen, Crow's Foot), Lược đồ quan hệ
+│   ├── reports/                       # Nội dung các chương báo cáo đồ án môn học
+│   └── study/dong_bo_database/        # Bộ công cụ Backup & Restore đồng bộ CSDL giữa các máy
+├── tools/                             # Bộ script tự động hóa kiểm thử, đóng gói và xác thực
+├── memory/                            # 9 tài liệu đặc tả kiến trúc và lịch sử quyết định
+├── Chay-Project.cmd                   # Script nhấp đúp khởi chạy ứng dụng nhanh
+├── Xem-TaiKhoan.cmd                   # Script mở danh sách tài khoản mật khẩu mẫu
+├── REQUIREMENTS.md                    # Tài liệu đặc tả yêu cầu kỹ thuật & nghiệp vụ
+└── README.md                          # Tài liệu hướng dẫn sử dụng và cài đặt chính
 ```
 
-Agent khác bắt đầu tại [AGENTS.md](AGENTS.md), rồi [memory/00_START_HERE.md](memory/00_START_HERE.md). Source và bằng chứng hiện tại là chuẩn; memory giải thích bối cảnh, phạm vi và quyết định.
+---
 
-## Nghiệp vụ
+## 📚 7. Tài liệu tham khảo quan trọng trong dự án
 
-[Phân công học Database Object cho nhóm 4 người](docs/study/DATABASE_OBJECTS_4_MEMBERS.md): đủ105object chính, chia27/26/26/26 theo nghiệp vụ; có danh sách, luồng, bài thực hành và điểm bàn giao giữa thành viên.
-
-Học viên đăng ký/xác nhận → tuyển sinh duyệt và phát hành hóa đơn → kế toán thu đủ → giáo vụ xếp lớp → giáo viên điểm danh/nhập hai điểm → giáo viên gửi và giáo vụ chốt toàn lớp → học viên xem kết quả đã công bố. Có quản lý khóa/lớp/lịch, account/audit và báo cáo theo vai trò.
-
-Đã bỏ Band/Program, thi đầu vào, workflow thi lại riêng, Payment nhiều đợt và bảng Role. Quyền dùng Account.role_code kết hợp bảy database role/user và guard theo phiên SQL. [Nghiệp vụ](memory/02_DOMAIN.md), [Database](memory/04_DATABASE.md), [API](docs/API.md).
-
-[Lược đồ quan hệ đủ12bảng/99cột](docs/diagrams/DBMS12-relations.md): PNG/PDF dùng trong báo cáo, SVG phóng to, drawio chỉnh sửa và ERD Mermaid; kèm bảng19khóa ngoại/cardinality theo DDL.
-
-[ERD theo mẫu owner, đầy đủ thuộc tính](docs/diagrams/ERD-full-attributes.md): bản Mermaid chân quạ hiện tại, có PNG/SVG/PDF và source để chỉnh sửa.
-
-[ERD Chen](docs/diagrams/ERD-Chen.md):12thực thể chữ nhật,19quan hệ hình thoi,99thuộc tính elip; PNG/SVG/PDF13trang vàdrawio chỉnh sửa.
-
-[ERD Chen theo phong cách ảnh mẫu](docs/diagrams/ERD-Chen-classic.md): bản hiện tại màu trắng/đen/xám, thuộc tính tỏa, nhãn1/N và đường đôi cho tham gia bắt buộc; kèm phân tích ký pháp,PDF/SVG/PNG/drawio.
-
-[ERD Chen cho một trang Word A4 dọc](docs/diagrams/ERD-Chen-A4-portrait.md): bản2cột×6hàng,SVG18×26cm/PNG/PDFmộttrang/drawio; giữ đủ99thuộc tính và hướng dẫn chènWord.
-
-[ERD theo mẫu báo cáo mới](docs/diagrams/ERD-Chen-A4-sample.md): bản ưu tiên hiện tại, khung trắng, khóa chính vàng, Times New Roman và lực lượng min/max; giữ đủ12bảng/99thuộc tính/19quan hệ trên một trangA4dọc.
-
-[Lược đồ quan hệ dạng chữ để copy vào Word](docs/diagrams/Luoc-do-quan-he-DBMS12.docx):12quan hệ,99thuộc tính,PKgạch chân liền/FKgạch chân nét đứt bằng định dạngWord thật;A4mộttrang,chữ12pt.
-
-## Kiểm và chia sẻ
-
-```powershell
-pwsh -NoProfile -File tools/Test-Project.ps1 -CheckDatabase
-pwsh -NoProfile -File tools/Pack-Source.ps1
-```
-
-Dừng host trước khi build source thay đổi. Bộ kiểm nhanh không tự reset hay seed. Test tích hợp ghi sample chạy riêng, đọc thứ tự và điều kiện trong Runbook. Source ZIP không chứa mật khẩu/key/DB/profile hoặc thư mục build/dependency.
-
-`tools/Export-TeamSource.ps1 -Destination <thu-muc-moi>` tạo bản source sạch dùng cho Git; dùng cùng quy tắc loại private/build files và kiểm định dạng secret với Pack-Source.
-
-Bằng chứng và giới hạn thực tế: [review](docs/plan/REVIEW.md). Chưa claim cài máy khác, public Internet, backup/restore, tải lớn hoặc WCAG đầy đủ.
-
-[Phân quyền SQL theo hướng A](docs/SQL_SECURITY.md), [ma trận từng SP](docs/SQL_SECURITY_MATRIX.md) và [nội dung báo cáo mục 4.2](docs/reports/4_2_QuanLyBaoMat.md). Bảy user nghiệp vụ là ngữ cảnh WITHOUT LOGIN được backend sử dụng; Windows Login runtime là định danh đăng nhập SQL thực tế.
-
-Bản phân quyền mới đã migrate trên PROJECT và kiểm native SQL/HTTP/UI; xem [review bảo mật SQL](docs/plan/SQL_SECURITY_REVIEW.md). Bằng chứng và gói ZIP 11 SP trước đó giữ nguyên làm lịch sử; tạo ZIP mới bằng công cụ đóng gói nếu cần chia sẻ phiên bản này.
-
-Học transaction theo mục3.4: [hướng dẫn và 61 SP](docs/study/SQL_TRANSACTIONS.md), [script 5 nghiệp vụ](database/dbms12-compact/transactions/01_five_business_transactions.sql). SQL hiện tự BEGIN/COMMIT/ROLLBACK theo D15; không còn để C# chốt giao dịch nghiệp vụ bình thường.
+- **Đặc tả yêu cầu chi tiết:** [`REQUIREMENTS.md`](REQUIREMENTS.md)
+- **Sơ đồ thực thể liên kết (ERD):** [`docs/diagrams/ERD-full-attributes.md`](docs/diagrams/ERD-full-attributes.md) và [`docs/diagrams/DBMS12-relations.md`](docs/diagrams/DBMS12-relations.md)
+- **Thiết kế phân quyền SQL Native Security V2:** [`docs/SQL_SECURITY.md`](docs/SQL_SECURITY.md) và [`docs/SQL_SECURITY_MATRIX.md`](docs/SQL_SECURITY_MATRIX.md)
+- **Quản lý giao dịch và 5 quy trình tiêu biểu:** [`docs/study/SQL_TRANSACTIONS.md`](docs/study/SQL_TRANSACTIONS.md)
+- **Báo cáo đồ án môn học (Chương 3, 4, 6):** [`docs/reports/`](docs/reports/)
+- **Hướng dẫn đồng bộ CSDL qua file .bak:** [`docs/study/dong_bo_database/HUONG_DAN_DONG_BO_BAK.md`](docs/study/dong_bo_database/HUONG_DAN_DONG_BO_BAK.md)

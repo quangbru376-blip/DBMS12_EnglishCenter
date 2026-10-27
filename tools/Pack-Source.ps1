@@ -3,6 +3,7 @@ param([string]$Destination)
 $ErrorActionPreference='Stop'
 Set-StrictMode -Version Latest
 Add-Type -AssemblyName System.IO.Compression
+Add-Type -AssemblyName System.IO.Compression.FileSystem
 $projectRoot=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $marker=Get-Content -Raw -LiteralPath (Join-Path $projectRoot '.dbms12-project.json')|ConvertFrom-Json
 if($marker.projectId -cne 'cd991085-f47e-4f5e-915d-69c9a15156a8'){throw 'Project marker guard.'}
